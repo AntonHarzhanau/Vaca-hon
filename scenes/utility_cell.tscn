@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhewew8bp2ey8"]
+
+[ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_aoumi"]
+[ext_resource type="Script" path="res://scripts/utility_cell.gd" id="2_rytch"]
+
+[node name="UtilityCell" instance=ExtResource("1_aoumi")]
+script = ExtResource("2_rytch")
+texture = null
+
+[node name="BackGround" parent="." index="0"]
+color = Color(0.775583, 0.997425, 0.853691, 1)
+
+[node name="Name" parent="." index="1"]
+offset_top = 4.0
+offset_bottom = 27.0
+
+[node name="Image" type="TextureRect" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -27.5
+offset_right = 26.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2

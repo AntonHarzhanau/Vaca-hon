@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmva7ij7veq7i"]
+
+[ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_anvxg"]
+[ext_resource type="Script" path="res://scripts/street_cell.gd" id="2_2uyr2"]
+
+[node name="StreetCell" instance=ExtResource("1_anvxg")]
+script = ExtResource("2_2uyr2")
+street_color = Color(0, 0, 0, 1)
+
+[node name="BackGround" parent="." index="0"]
+color = Color(1, 0.901211, 0.875502, 1)
+
+[node name="Name" parent="." index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_vertical = 2
+
+[node name="ColorGroup" type="ColorRect" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)

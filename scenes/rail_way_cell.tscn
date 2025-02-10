@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://gvvcxljnlfij"]
+
+[ext_resource type="Script" path="res://scripts/rail_way_cell.gd" id="1_6efgo"]
+[ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_tve6c"]
+
+[node name="RailWayCell" instance=ExtResource("1_tve6c")]
+script = ExtResource("1_6efgo")
+texture = null
+
+[node name="BackGround" parent="." index="0"]
+color = Color(0.800853, 0.964281, 1, 1)
+
+[node name="Name" parent="." index="1"]
+offset_left = -27.0
+offset_top = 6.0
+offset_right = 29.0
+offset_bottom = 29.0
+autowrap_mode = 0
+
+[node name="Image" type="TextureRect" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(50, 50)
