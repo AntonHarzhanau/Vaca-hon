@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwh1c1078d3dt"]
+
+[ext_resource type="Texture2D" uid="uid://dnmqcin3ry0ev" path="res://assets/dice/png-klev-club-v5f8-p-storoni-kubika-png-27.png" id="1_4qbu4"]
+[ext_resource type="Script" path="res://scripts/dice.gd" id="1_f8si1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57q82"]
+size = Vector2(174, 182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_behcg"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(0, 0, 303, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ybgc"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(303, 0, 303, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7krly"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(606, 0, 303, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x4hu"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(0, 323, 303, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5dg6"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(303, 323, 303, 323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blf3q"]
+atlas = ExtResource("1_4qbu4")
+region = Rect2(606, 323, 303, 323)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gde5k"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_behcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ybgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7krly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x4hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5dg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blf3q")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 5.0
+}]
+
+[node name="dice" type="Area2D"]
+script = ExtResource("1_f8si1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(773, 307)
+shape = SubResource("RectangleShape2D_57q82")
+
+[node name="DiceSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(770.25, 306.25)
+scale = Vector2(0.605611, 0.580495)
+sprite_frames = SubResource("SpriteFrames_gde5k")
+animation = &"roll"
+
+[node name="RollTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
