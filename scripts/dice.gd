@@ -1,38 +1,43 @@
 extends Area2D
 
-# Объявляем сигнал, который передаст результат броска (число от 1 до 6)
+# declare a signal that transmits the result of the throw
 signal dice_rolled(result: int)
 
 @onready var dice_sprite: AnimatedSprite2D = $DiceSprite
+@onready var dice_sprite2: AnimatedSprite2D = $DiceSprite2
 @onready var timer: Timer = $RollTimer
 
 func _ready() -> void:
-	# Настраиваем таймер: время броска и однократный запуск
+	# subscribe to the timer
 	timer.timeout.connect(_on_timer_timeout)
 
-# Событие вызывается, когда пользователь кликает по области, заданной CollisionShape2D
+# The event is fired when the user clicks on the area defined by the CollisionShape2D
 func _input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		roll_dice()
 
-# Функция запускает анимацию броска кубика
+# The function starts the animation of the dice roll.
 func roll_dice() -> void:
 	dice_sprite.play("roll")
+	dice_sprite2.play("roll")
 	timer.start()
 
-# Функция, вызываемая по сигналу таймера (по окончании анимации)
+# Function called by timer signal (at the end of animation)
 func _on_timer_timeout() -> void:
 	dice_sprite.stop()
-	# Получаем количество кадров в анимации "roll"
+	dice_sprite2.stop()
+	# Get the number of frames in the animation "roll"
 	var frame_count = dice_sprite.sprite_frames.get_frame_count("roll")
-	# Выбираем случайный кадр от 0 до frame_count - 1
+	var frame_count2 = dice_sprite2.sprite_frames.get_frame_count("roll")
+	# Select a random frame from 0 to frame_count - 1
 	var final_frame = randi() % frame_count
+	var final_frame2 = randi() % frame_count2
 	dice_sprite.frame = final_frame
+	dice_sprite2.frame = final_frame2
 
-	# Преобразуем номер кадра в число кубика (например, если кадры 0-5, то результат 1-6)
+	# Convert the frame number to a cube number (for example, if frames are 0-5, then the result is 1-6)
 	var dice_result = final_frame + 1
+	var dice_result2 = final_frame2 + 1
 
-	# Отправляем сигнал с результатом броска
-	emit_signal("dice_rolled", dice_result)
-	print("Выпало число: ", dice_result)
-	
+	# Send a signal with the throw result
+	emit_signal("dice_rolled", dice_result, dice_result2)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/dice.gd" id="1_f8si1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57q82"]
-size = Vector2(174, 182)
+size = Vector2(370, 182)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_behcg"]
 atlas = ExtResource("1_4qbu4")
@@ -65,11 +65,17 @@ animations = [{
 script = ExtResource("1_f8si1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(773, 307)
+position = Vector2(871, 307)
 shape = SubResource("RectangleShape2D_57q82")
 
 [node name="DiceSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(770.25, 306.25)
+scale = Vector2(0.605611, 0.580495)
+sprite_frames = SubResource("SpriteFrames_gde5k")
+animation = &"roll"
+
+[node name="DiceSprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(964, 306)
 scale = Vector2(0.605611, 0.580495)
 sprite_frames = SubResource("SpriteFrames_gde5k")
 animation = &"roll"

@@ -17,17 +17,23 @@ script = ExtResource("1_0jnju")
 
 [node name="GameBoard" parent="." instance=ExtResource("1_v2wlw")]
 layout_mode = 1
+offset_left = -506.0
+offset_top = -389.0
+offset_right = 244.0
+offset_bottom = 361.0
 
 [node name="dice" parent="." instance=ExtResource("3_lg7w1")]
-position = Vector2(-95, -366)
+position = Vector2(-262, -262)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 559.0
-offset_top = -312.0
-offset_right = 901.0
-offset_bottom = -208.0
+offset_left = 447.0
+offset_top = -326.0
+offset_right = 789.0
+offset_bottom = -222.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 46
+text = "result"
+autowrap_mode = 2
 
 [connection signal="dice_rolled" from="dice" to="." method="_on_dice_dice_rolled"]
