@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://scripts/corner_cell.gd" id="2_8kbl2"]
 
 [node name="CornerCell" instance=ExtResource("1_q8e51")]
-offset_right = 120.0
 script = ExtResource("2_8kbl2")
 
 [node name="BackGround" parent="." index="0"]
+offset_left = -60.0
+offset_right = 60.0
+pivot_offset = Vector2(60, 60)
 color = Color(0.543618, 0.317578, 2.88785e-07, 1)

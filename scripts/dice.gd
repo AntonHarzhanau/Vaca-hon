@@ -1,7 +1,7 @@
 extends Area2D
 
 # declare a signal that transmits the result of the throw
-signal dice_rolled(result: int)
+signal dice_rolled(result: int, result2: int)
 
 @onready var dice_sprite: AnimatedSprite2D = $DiceSprite
 @onready var dice_sprite2: AnimatedSprite2D = $DiceSprite2
