@@ -1,16 +1,23 @@
 @tool
-extends Control
+extends Node2D
 class_name Cell
 
-@onready var label_name: Label = $Name
+@onready var label_name: Label = $BackGround/Name
 
 @export var cell_name: String
 
 func _ready():
+	# centering child elements
+	label_name.pivot_offset = label_name.size / 2
+	$BackGround.pivot_offset = $BackGround.size / 2
 	if label_name:
 		label_name.text = cell_name
-	activate()
 
-
+# update centers after resizing
+func update_pivot():
+	$BackGround.position = $".".position - $BackGround.size / 2
+	$BackGround.pivot_offset = $BackGround.size / 2
+	
+# cell event activation
 func activate():
-	pass
+	print(cell_name)
