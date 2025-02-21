@@ -118,22 +118,22 @@ func create_cells(json_data: Array):
 		match item["type"]:
 			"Street":
 				cell_instance = STREET_SCENE.instantiate()
-				cell_instance.name = item["name"]
+				cell_instance.name = item["name"] # used to set a name in the editor (only works with unique names)
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
-				cell_instance.street_color = get_color(item["color"])
+				cell_instance.price = item["cost"]
+				cell_instance.group_color = get_color(item["color"])
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
+				cell_instance.price = item["cost"]
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
+				cell_instance.price = item["cost"]
 			
 			"Event":
 				cell_instance = EVENT_SCENE.instantiate()
