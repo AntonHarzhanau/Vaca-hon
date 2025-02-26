@@ -14,6 +14,7 @@ func _ready():
 	if label_cost:
 		label_cost.text = str(price)
 
+
 func buy_property():
 	pass
 

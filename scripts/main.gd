@@ -2,11 +2,14 @@ extends Control
 
 @onready var dices = $dice
 @onready var centre = $GameBoard/Centre
-@onready var player = $Player
+#@onready var player = $Player
+const PLAYER_SCENE = preload("res://scenes/player.tscn")
+var list_players = []
+var current_player = 0
 
 func _ready() -> void:
 	WebSocketClient.message_received.connect(_on_server_response)
-	player.global_position = centre.get_children()[0].global_position
+	#player.global_position = centre.get_children()[0].global_position
 
 # subscribe to dice roll signal
 func _on_dice_dice_rolled(dice1: int, dice2: int) -> void:
@@ -14,10 +17,10 @@ func _on_dice_dice_rolled(dice1: int, dice2: int) -> void:
 	if dice1 == dice2:
 		$Label.text = "Double" + "dice1=" + str(dice1) + "dice2=" + str(dice2)
 		# TODO: implement the mechanics of duplicates
-		player.move(centre.get_children(), dice1+dice2)
+		#player.move(centre.get_children(), dice1+dice2)
 	else:
 		$Label.text = str(dice1 + dice2)
-		player.move(centre.get_children(), dice1+dice2)
+		list_players[current_player].move(centre.get_children(), dice1+dice2)
 		
 # show received messages for debug
 func _on_server_response(message: String) -> void:
@@ -26,5 +29,13 @@ func _on_server_response(message: String) -> void:
 	if data == OK:
 		var result = json.data
 		print(result)
+		if result.has("action") and result["action"] == "client_connected":
+			var player = PLAYER_SCENE.instantiate()
+			player.peer = result["id"]
+			player.global_position = centre.get_children()[0].global_position + Vector2(10,10) * list_players.size()
+			list_players.append(player)
+			add_child(player)
+		if result.has("action") and result["action"] == "change_token":
+			current_player = result["token"]
 	else:
 		print("Error parsing response from server:", data.error_string)
