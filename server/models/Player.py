@@ -16,10 +16,10 @@ class Player(BaseModel):
             self.current_position -= 40
             self.money += 200
         print(f"Игрок {self.id} передвинулся на {self.current_position} позицию")
-        return json.dumps({
+        return {
             "action": "move_player",
             "player_id": self.id,
             "current_position": steps,
             "money": self.money
-            })
+            }
     

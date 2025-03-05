@@ -24,14 +24,13 @@ func _input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if !is_dice_thrown:
 			var message = {"action": "roll_dice"}
-			var json_message = JSON.stringify(message)
-			WebSocketClient.send_message(json_message)
-			is_dice_thrown = true
+			WebSocketClient.send_message(JSON.stringify(message))
 
 # Animation start function
 func roll_dice() -> void:
 	dice_sprite.play("roll")
 	dice_sprite2.play("roll")
+	is_dice_thrown = true
 	timer.start()
 
 # Handling timer expiration
@@ -39,20 +38,14 @@ func _on_timer_timeout() -> void:
 		process_dice_result()
 
 # Processing the response from the server
-func _on_server_response(message: String) -> void:
-	var json = JSON.new()
-	var data = json.parse(message)
-	if data == OK:
-		var result = json.data
-		if result.has("action") and result["action"] == "roll_dice":
-			if result.has("dice1") and result.has("dice2"):
-				server_dice1 = result["dice1"]
-				server_dice2 = result["dice2"]
-				roll_dice()
-			else:
-				print("Incorrect response from the server: required data is missing.")
-	#else:
-		#print("Error parsing response from server:", data.error_string)
+func _on_server_response(message: Variant) -> void:
+	if message.has("action") and message["action"] == "roll_dice":
+		if message.has("dice1") and message.has("dice2"):
+			server_dice1 = message["dice1"]
+			server_dice2 = message["dice2"]
+			roll_dice()
+		else:
+			print("Incorrect response from the server: required data is missing.")
 
 # Function for processing throw results
 func process_dice_result() -> void:

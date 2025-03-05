@@ -24,6 +24,10 @@ class ConnectionManager:
             "action": "player_connected",
             "players": [player.model_dump() for player in self.players.values()]
         }))
+        await websocket.send_text(json.dumps({
+            "action": "your_id",
+            "player_id": new_player.id
+        }))
 
         # Сообщаем всем остальным игрокам о новом подключенном игроке
         new_player_data = json.dumps({

@@ -14,6 +14,8 @@ func _ready():
 	if label_cost:
 		label_cost.text = str(price)
 
+func activate(player):
+	super.activate(player)
 
 func buy_property():
 	pass

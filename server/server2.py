@@ -6,9 +6,10 @@ from connection_manager import ConnectionManager
 from game_logic import GameLogic
 
 app = FastAPI()
-token = 0
-manager = ConnectionManager()
 
+manager = ConnectionManager()
+game = GameLogic(manager.players)
+token = 0
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     global token
@@ -16,17 +17,17 @@ async def websocket_endpoint(websocket: WebSocket):
     try:
         while True:
             data = await websocket.receive_json()
+            #TODO: Вынести в отдельный hendler
             print(data)
-            print(f"token  {manager.players[manager.active_connections[websocket]].id}")
+            print(f"manager.players[manager.active_connections[websocket]].id {manager.players[manager.active_connections[websocket]].id}")
             if data["action"] == "roll_dice" and manager.players[manager.active_connections[websocket]].id == token:
-                response = GameLogic().roll_dice()
+                response = json.dumps(game.roll_dice())
                 await manager.broadcast(response)
             if data["action"] == "move_player":
-                response = manager.players[token].move(data["steps"])
-                await manager.broadcast(response)
-            if data["action"] == "end_turn":
-                token = (token + 1) % len(manager.active_connections)
-                print(token)
+                response = game.move_player(token, data["steps"])
+                await manager.broadcast(json.dumps(response))
+            if data["action"] == "end_turn" and manager.players[manager.active_connections[websocket]].id == token:
+                token = game.players[((token + 1) % len(manager.active_connections))].id 
                 await manager.broadcast(json.dumps({"action": "change_turn", "player_id": token
                 }))
 
