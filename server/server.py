@@ -1,62 +1,85 @@
-import asyncio
-import websockets
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 import json
 import random
 
-connected_clients = []  # save all connected clients
-token = 0
-player_id = 0
+app = FastAPI()
+
+connected_clients = []  # Список подключенных клиентов
+token = 0  # Индекс активного игрока
+player_id = 0  # ID нового игрока
+
 
 def roll_dice():
+    """Функция броска кубиков и смены игрока"""
+    global token
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
-    global token
-    token = (token + 1) % len(connected_clients)
+    
+    if len(connected_clients) > 0:
+        token = (token + 1) % len(connected_clients)  # Переход хода
 
-    return {"action":"roll_dice","dice1": dice1, "dice2": dice2}
+    return {"action": "roll_dice", "dice1": dice1, "dice2": dice2}
 
-async def handler(websocket):
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
     global player_id
-    """New connection handler."""
-    connected_clients.append(websocket)
-    await asyncio.gather(
-                    *[client.send(json.dumps({"action":"client_connected", "id": player_id})) for client in connected_clients]
-                )
-    await asyncio.gather(
-                    websocket.send(json.dumps({"action":"client_connected", "id": player_id}) for i in range(0,len(connected_clients) - 1))
-                )
-    
-    
-    player_id += 1
-    print(f"🔗 New client is connected: {websocket.remote_address}")
+    global token
+    await websocket.accept()
+
+    # Присваиваем ID новому клиенту и добавляем его в список
+    client_info = {"ws": websocket, "id": player_id}
+    connected_clients.append(client_info)
+    print(f"🔗 Новый клиент подключен: ID {player_id}")
+    for i in range(len(connected_clients) - 1):
+        client_connected_message = json.dumps({"action": "client_connected", "id": connected_clients[i]["id"]})
+        await websocket.send_text(client_connected_message)
+    # Рассылаем всем клиентам информацию о новом подключении
+    client_connected_message = json.dumps({"action": "client_connected", "id": player_id})
+    for client in connected_clients:
+        await client["ws"].send_text(client_connected_message)
+
+    player_id += 1  # Увеличиваем ID для следующего игрока
 
     try:
-        async for message in websocket:
-            print(f"📩 Message received: {message}")
-            response = None
+        while True:
+            message = await websocket.receive_text()
+            print(f"📩 Получено сообщение: {message}")
+
             data = json.loads(message)
-            if data.get("action") == "roll_dice" and websocket == connected_clients[token]:
-                print(websocket)
-                response = json.dumps(roll_dice())
-                print(response)
-                # Send response to all connected clients
-                await asyncio.gather(
-                    *[client.send(response) for client in connected_clients]
-                )
-                await asyncio.gather(
-                    *[client.send(json.dumps({"action": "change_token", "token" : token})) for client in connected_clients]
-                )
+            action = data.get("action")
+
+            if action == "roll_dice":
+                # Проверяем, может ли этот клиент бросать кости (он должен быть активным)
+                if websocket == connected_clients[token]["ws"]:
+                    print(f"🎲 Бросок кубиков от {connected_clients[token]['id']}")
+                    
+                    response = roll_dice()
+                    response_json = json.dumps(response)
+
+                    # Рассылаем всем клиентам результаты броска
+                    for client in connected_clients:
+                        await client["ws"].send_text(response_json)
+
+                    # Сообщаем всем, чей ход
+                    token_message = json.dumps({"action": "change_token", "token": token})
+                    for client in connected_clients:
+                        await client["ws"].send_text(token_message)
+                else:
+                    print(f"⛔ Игрок {connected_clients[token]['id']} не может бросать кости сейчас")
             else:
-                print(f"Unknown action: {data.get('action')}")
-    except websockets.exceptions.ConnectionClosed:
-        print(f"❌ Client {websocket.remote_address} is disconnected")
-    finally:
-        connected_clients.remove(websocket)
+                print(f"⚠️ Неизвестное действие: {action}")
 
-async def main():
-    async with websockets.serve(handler, "", 8080):
-        print("🟢 WebSocket server start on port 8080")
-        await asyncio.Future()  # infinite loop
+    except WebSocketDisconnect:
+        print(f"❌ Клиент {client_info['id']} отключился")
+        connected_clients.remove(client_info)  # Удаляем клиента из списка
 
-if __name__ == "__main__":
-    asyncio.run(main())
+        # Обновляем токен хода, если игрок отключился во время своей очереди
+        if len(connected_clients) > 0 and token >= len(connected_clients):
+            token = 0
+
+        # Оповещаем оставшихся клиентов
+        for client in connected_clients:
+            await client["ws"].send_text(json.dumps({"action": "player_disconnected", "id": client_info["id"]}))
+
+# uvicorn server:app --host 0.0.0.0 --port 8000 --reload

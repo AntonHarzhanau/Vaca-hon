@@ -4,7 +4,7 @@ signal message_received(message: String)
 signal connection_established()
 signal connection_closed()
 
-var websocket_url: String = "ws://127.0.0.1:8080"  # Replace with your server address
+var websocket_url: String = "ws://127.0.0.1:8000/ws"
 var websocket_peer: WebSocketPeer
 
 func _ready() -> void:

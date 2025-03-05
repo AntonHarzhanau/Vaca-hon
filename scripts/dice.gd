@@ -51,8 +51,8 @@ func _on_server_response(message: String) -> void:
 				roll_dice()
 			else:
 				print("Incorrect response from the server: required data is missing.")
-	else:
-		print("Error parsing response from server:", data.error_string)
+	#else:
+		#print("Error parsing response from server:", data.error_string)
 
 # Function for processing throw results
 func process_dice_result() -> void:

@@ -1,8 +1,8 @@
 extends Node2D
 
-var peer: int
-@export var money: int  = 0
-@export var current_position: int = 0
+var id: int
+var money: int  = 0
+var current_position: int = 0
 var nb_turn_jail: int = 0
 var nb_railway: int = 0
 var nb_utility: int = 0
