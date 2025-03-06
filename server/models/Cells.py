@@ -1,35 +1,39 @@
+from pydantic import BaseModel, Field
+from models.Player import Player
 
-class Cell:
-    """Базовый класс для всех ячеек."""
-    def __init__(self, cell_id: int, cell_name: str):
-        self.cell_id = cell_id
-        self.cell_name = cell_name
-
+class Cell(BaseModel):
+    cell_id: int
+    cell_name: str
+    
     def activate(self, player):
         """Метод, который будет переопределяться в дочерних классах."""
-        return self.cell_name
+        return {"action": "nothing", "message": f"Игрок {player.id} остановился на {self.cell_name}"}
 
 class PropertyCell(Cell):
-    """Класс для ячеек собственности."""
-    def __init__(self, cell_id: int, cell_name: str, price: int, rent: list[int]):
-        super().__init__(cell_id, cell_name)
-        self.price = price
-        self.rent = rent
-        self.cell_owner = None  # Владелец ячейки, пока None
+    price: int
+    rent: int
+    cell_owner: Player = None
 
     def activate(self, player):
         if self.cell_owner is None:
-            self.buy_property(player)
-            return f"{player} купил {self.cell_name}"
+            return {"action": "offer_to_buy", "cell_id": self.cell_id, "cell_name": self.cell_name, "price": self.price}
+        elif self.cell_owner != player:
+            return self.pay_rent(player)
+        return {"action": "nothing"}
 
     def buy_property(self, player):
-        """Метод для покупки собственности игроком."""
-        if self.cell_owner is None:
+        """Метод для покупки собственности игроком."""        
+        if player.pay(self.price):
             self.cell_owner = player
-            if player.money >= self.price:
-                player.money -= self.price
-            print(f"🏠 {player} купил {self.cell_name} за {self.price}")
+            player.properties.append(self)
+            return {"action": "buy_property", "player_id": player.id, "cell_id": self.cell_id, "price": self.price}
+
+    def pay_rent(self, player):
+        if player.pay(self.rent):
+            self.cell_owner.earn(self.rent)
+            return {"action": "pay_rent", "player_id": player.id, "cell_owner_id": self.cell_owner.id, "rent": self.rent}
         else:
-            player.money -= self.rent
-            self.cell_owner.money += self.rent
-            print(f"⚠ {self.cell_name} уже куплена игроком {self.cell_owner}")
+            self.cell_owner.earn(player.money)
+            player.money = 0
+            #TODO: Реализовать механику банкротства
+            return {"action": "bankrupt", "player_id": player.id, "cell_owner_id": self.cell_owner.id, "rent": self.rent}

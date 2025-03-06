@@ -113,6 +113,7 @@ func clear_game_board():
 
 # creating cells from .json file
 func create_cells(json_data: Array):
+	var cell_id = 0
 	for item in json_data:
 		var cell_instance # variable for instance
 		match item["type"]:
@@ -144,7 +145,8 @@ func create_cells(json_data: Array):
 				cell_instance = CORNER_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-		
+		cell_instance.id_space = cell_id
+		cell_id += 1
 		game_board.add_child(cell_instance) # add instance to gameboard
 		
 		# If nodes need to be visible in the editor

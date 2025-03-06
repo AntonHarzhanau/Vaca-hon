@@ -1,16 +1,18 @@
 import json
+from pydantic import BaseModel, Field
 from models.Cells import Cell, PropertyCell  # Импортируем классы ячеек
 
-class GameBoard:
+class GameBoard(BaseModel):
     """Класс игрового поля. Загружает данные из JSON и хранит ячейки."""
-    
-    def __init__(self):
-        """Инициализация поля: загружает JSON и создает ячейки."""
-        self.cells = []  # Внутренний массив ячеек
+    cells: list[Cell] = Field(default_factory=list)  # Гарантируем, что cells всегда список
+
+    def __init__(self, **data):
+        """Инициализация поля: загружает JSON и создаёт ячейки."""
+        super().__init__(**data)  # Обязательно вызвать super() для корректной работы Pydantic
         self.load_board_from_json("data/data.json")
 
     def load_board_from_json(self, file_path):
-        """Загружает игровое поле из JSON и создает объекты ячеек."""
+        """Загружает игровое поле из JSON и создаёт объекты ячеек."""
         try:
             with open(file_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -30,7 +32,7 @@ class GameBoard:
                     cell_id=index,
                     cell_name=cell_name,
                     price=cell_data["cost"],
-                    rent=cell_data.get("rent", [])
+                    rent=cell_data["rent"]
                 )
                 self.cells.append(property_cell)
             else:

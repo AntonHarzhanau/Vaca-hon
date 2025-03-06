@@ -42,6 +42,7 @@ class ConnectionManager:
             player_id = self.active_connections.pop(websocket)
             if player_id in self.players:
                 del self.players[player_id]
+                self.id -= 1
                 print(f" Игрок {player_id} отключился и ID освобожден")
                 await self.broadcast(json.dumps({
                     "action": "player_disconnected",

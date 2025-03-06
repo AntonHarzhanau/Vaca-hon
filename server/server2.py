@@ -19,7 +19,6 @@ async def websocket_endpoint(websocket: WebSocket):
             data = await websocket.receive_json()
             #TODO: Вынести в отдельный hendler
             print(data)
-            print(f"manager.players[manager.active_connections[websocket]].id {manager.players[manager.active_connections[websocket]].id}")
             if data["action"] == "roll_dice" and manager.players[manager.active_connections[websocket]].id == token:
                 response = json.dumps(game.roll_dice())
                 await manager.broadcast(response)
@@ -30,6 +29,16 @@ async def websocket_endpoint(websocket: WebSocket):
                 token = game.players[((token + 1) % len(manager.active_connections))].id 
                 await manager.broadcast(json.dumps({"action": "change_turn", "player_id": token
                 }))
+            if data["action"] == "cell_activate":
+                response = game.cell_action(token)
+                await manager.send_personal_message(json.dumps(response), websocket)
+                # await manager.broadcast(json.dumps(response))
+            if data["action"] == "accepted_offre":
+                response = game.buy_property(token)
+                await manager.broadcast(json.dumps(response))
+            if data["action"] == "sell_property":
+                response = game.sell_property(token, data["cell_id"])
+                await manager.broadcast(json.dumps(response))
 
     except WebSocketDisconnect:
         await manager.disconnect(websocket)

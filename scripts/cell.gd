@@ -21,6 +21,6 @@ func update_pivot():
 	
 # cell event activation
 func activate(player):
-	print("player on " + cell_name)
+	print(cell_name)
 func show_cell():
 	pass

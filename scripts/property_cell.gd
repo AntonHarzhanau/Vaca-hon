@@ -17,8 +17,10 @@ func _ready():
 func activate(player):
 	super.activate(player)
 
-func buy_property():
-	pass
+func buy_property(player):
+	cell_owner = player
+	player.properties.append(self)
+	player.money -= price
 
 func mortgage_property():
 	pass
