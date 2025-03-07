@@ -1,5 +1,5 @@
-extends Control  # ✅ Теперь кость - это Control, а не Area2D
-
+extends Control
+class_name Dice
 # Signal transmitting the result of the throw
 signal dice_rolled(result: int, result2: int)
 
@@ -15,13 +15,13 @@ var server_dice2: int = 0
 
 func _ready() -> void:
 	# Allow clicking
-	mouse_filter = Control.MOUSE_FILTER_STOP  # ✅ Control теперь реагирует на клики
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	# Subscribe to timer signal
 	timer.timeout.connect(_on_timer_timeout)
 	# Subscribe to the signal of receiving a message from the server
 	WebSocketClient.message_received.connect(_on_server_response)
 
-# Handling the click event (Control uses `_gui_input`)
+# Handling the click event
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if !is_dice_thrown:

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqqfabtceas0f"]
+
+[ext_resource type="Script" uid="uid://rs6dl7wcc5x7" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="PackedScene" uid="uid://cnaxnqxobcchc" path="res://scenes/Hub/hub.tscn" id="2_gdt2y"]
+[ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
+[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/popup_offre.tscn" id="4_8dubc"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_nt7q6")
+
+[node name="Hub" parent="." instance=ExtResource("2_gdt2y")]
+
+[node name="Dice" parent="." instance=ExtResource("3_wm3ai")]
+
+[node name="PopUpOffre" parent="." instance=ExtResource("4_8dubc")]
+visible = false
+
+[node name="EndTurnButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -55.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "End Turn"
+
+[node name="TurnLable" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Player's turn: "
+
+[connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
+[connection signal="sell_property_clicked" from="Hub" to="." method="_on_hub_sell_property_clicked"]
+[connection signal="accept_offer_clicked" from="PopUpOffre" to="." method="_on_pop_up_offre_accept_offer_clicked"]

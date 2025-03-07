@@ -5,8 +5,8 @@ class_name StreetCell
 @onready var _group_color: ColorRect = $BackGround/ColorGroup
 @export var group_color: Color
 
-var nb_houses = 0
-var house_cost = 0
+var nb_houses:int = 0
+var house_cost:int = 0
 
 func _ready():
 	super._ready()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg2dvy44xj8ui"]
 
-[ext_resource type="Script" path="res://scripts/card.gd" id="1_hs0xq"]
+[ext_resource type="Script" uid="uid://cr2m2hrqu1vey" path="res://scripts/card.gd" id="1_hs0xq"]
 [ext_resource type="Texture2D" uid="uid://cyc3a1jab720n" path="res://assets/chance.png" id="2_xjov1"]
 
 [node name="Card" type="Control"]

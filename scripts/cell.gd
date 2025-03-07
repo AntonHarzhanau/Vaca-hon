@@ -20,7 +20,7 @@ func update_pivot():
 	$BackGround.pivot_offset = $BackGround.size / 2
 	
 # cell event activation
-func activate(player):
+func activate(player: Player):
 	print(cell_name)
 func show_cell():
 	pass

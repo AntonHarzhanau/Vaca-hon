@@ -1,4 +1,5 @@
 extends Node2D
+class_name Player
 
 var id: int
 var money: int  = 0
@@ -10,7 +11,7 @@ var timer_turn: int = 0
 var properties:Array[Cell] = []
 
 # player movement across the field cell by cell
-func move(cells_list, number_of_steps):
+func move(cells_list:Array[Node], number_of_steps: int):
 	var temp_pos = current_position
 	for i in number_of_steps:
 		temp_pos += 1 

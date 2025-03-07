@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://danav5q18oxdo"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ccn23yh3fxjgf" path="res://scenes/message_handler.tscn" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dqqfabtceas0f" path="res://scenes/ui.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cnlojc3k6kjss" path="res://scenes/game_board.tscn" id="3_iywne"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_lbhrr")
+
+[node name="UI" parent="." instance=ExtResource("2_lbhrr")]
+
+[node name="Message_handler" parent="." instance=ExtResource("1_lnu2h")]
+
+[node name="GameBoard" parent="." instance=ExtResource("3_iywne")]
+
+[connection signal="accept_offer_clicked" from="UI" to="." method="_on_ui_accept_offer_clicked"]

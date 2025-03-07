@@ -1,6 +1,6 @@
 extends Node
 
-signal message_received(message: String)
+signal message_received(message)
 signal connection_established()
 signal connection_closed()
 
