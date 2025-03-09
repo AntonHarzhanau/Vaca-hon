@@ -5,6 +5,7 @@ class_name Cell
 @onready var label_name: Label = $BackGround/Name
 
 @export var cell_name: String
+var id_space: int
 
 func _ready():
 	# centering child elements
@@ -19,5 +20,7 @@ func update_pivot():
 	$BackGround.pivot_offset = $BackGround.size / 2
 	
 # cell event activation
-func activate():
+func activate(player: Player):
 	print(cell_name)
+func show_cell():
+	pass

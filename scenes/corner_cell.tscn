@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds0goxlvykya0"]
 
 [ext_resource type="PackedScene" uid="uid://c8k7vquofnos3" path="res://scenes/cell.tscn" id="1_q8e51"]
-[ext_resource type="Script" path="res://scripts/corner_cell.gd" id="2_8kbl2"]
+[ext_resource type="Script" uid="uid://ba075g5bnuwvc" path="res://scripts/corner_cell.gd" id="2_8kbl2"]
 
 [node name="CornerCell" instance=ExtResource("1_q8e51")]
 script = ExtResource("2_8kbl2")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmva7ij7veq7i"]
 
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_anvxg"]
-[ext_resource type="Script" path="res://scripts/street_cell.gd" id="2_2uyr2"]
+[ext_resource type="Script" uid="uid://b561qppkrk2mh" path="res://scripts/street_cell.gd" id="2_2uyr2"]
 
 [node name="StreetCell" instance=ExtResource("1_anvxg")]
 script = ExtResource("2_2uyr2")

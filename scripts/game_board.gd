@@ -11,10 +11,11 @@ const RAILWAY_SCENE = preload("res://scenes/rail_way_cell.tscn")
 const UTILITY_SCENE = preload("res://scenes/utility_cell.tscn")
 const EVENT_SCENE = preload("res://scenes/event_cell.tscn")
 const CORNER_SCENE = preload("res://scenes/corner_cell.tscn")
-
+const PLAYER_SCENE = preload("res://scenes/player.tscn")
 const CELL_COUNT = 9  # Number of cells on each side
 
 @onready var game_board = $Centre
+@onready var players_container = $Players
 
 var board_rect  # Bounding rectangle of game_board
 var top_left
@@ -28,7 +29,6 @@ var bottom_left
 
 # Button for deleting cards in the editor
 @export var remove_cells_in_editor: bool = false : set = _on_remove_cells_in_editor
-
 
 func _ready():
 	board_rect = game_board.get_rect()
@@ -78,7 +78,6 @@ func _on_create_cells_in_editor(value):
 		# Reset the flag so the button can be pressed again
 		create_cells_in_editor = false
 
-
 func _on_remove_cells_in_editor(value):
 	# If we are in the editor and the user has checked the box
 	if Engine.is_editor_hint() and value:
@@ -113,27 +112,28 @@ func clear_game_board():
 
 # creating cells from .json file
 func create_cells(json_data: Array):
+	var cell_id = 0
 	for item in json_data:
 		var cell_instance # variable for instance
 		match item["type"]:
 			"Street":
 				cell_instance = STREET_SCENE.instantiate()
-				cell_instance.name = item["name"]
+				cell_instance.name = item["name"] # used to set a name in the editor (only works with unique names)
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
-				cell_instance.street_color = get_color(item["color"])
+				cell_instance.price = item["cost"]
+				cell_instance.group_color = get_color(item["color"])
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
+				cell_instance.price = item["cost"]
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-				cell_instance.cost = item["cost"]
+				cell_instance.price = item["cost"]
 			
 			"Event":
 				cell_instance = EVENT_SCENE.instantiate()
@@ -144,7 +144,8 @@ func create_cells(json_data: Array):
 				cell_instance = CORNER_SCENE.instantiate()
 				cell_instance.name = item["name"]
 				cell_instance.cell_name = item["name"]
-		
+		cell_instance.id_space = cell_id
+		cell_id += 1
 		game_board.add_child(cell_instance) # add instance to gameboard
 		
 		# If nodes need to be visible in the editor
@@ -229,3 +230,15 @@ func get_color(color_name: String) -> Color:
 
 func load_texture(file_name: String) -> Texture2D:
 	return load("res://assets/train.png")
+
+func add_player(player_data: Dictionary) -> Player:
+	var new_player = PLAYER_SCENE.instantiate()
+	players_container.add_child(new_player)
+	new_player.id = player_data["id"]
+	new_player.current_position = player_data["current_position"]
+	new_player.money = player_data["money"]
+	new_player.global_position = game_board.get_children()[0].global_position + Vector2(10,10) * new_player.id
+	return new_player
+
+func get_cells() -> Array[Node]:
+	return game_board.get_children()

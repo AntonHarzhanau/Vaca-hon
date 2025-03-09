@@ -1,10 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwh1c1078d3dt"]
+[gd_scene load_steps=10 format=3 uid="uid://cwh1c1078d3dt"]
 
 [ext_resource type="Texture2D" uid="uid://dnmqcin3ry0ev" path="res://assets/dice/png-klev-club-v5f8-p-storoni-kubika-png-27.png" id="1_4qbu4"]
-[ext_resource type="Script" path="res://scripts/dice.gd" id="1_f8si1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_57q82"]
-size = Vector2(370, 182)
+[ext_resource type="Script" uid="uid://cx87bvrd7pmme" path="res://scripts/dice.gd" id="1_f8si1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_behcg"]
 atlas = ExtResource("1_4qbu4")
@@ -61,21 +58,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="dice" type="Area2D"]
+[node name="Dice" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -53.0
+offset_right = 281.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_f8si1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(871, 307)
-shape = SubResource("RectangleShape2D_57q82")
+metadata/_edit_group_ = true
 
 [node name="DiceSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(770.25, 306.25)
+position = Vector2(89.7501, 98.7499)
 scale = Vector2(0.605611, 0.580495)
 sprite_frames = SubResource("SpriteFrames_gde5k")
 animation = &"roll"
 
 [node name="DiceSprite2" type="AnimatedSprite2D" parent="."]
-position = Vector2(964, 306)
+position = Vector2(274, 100)
 scale = Vector2(0.605611, 0.580495)
 sprite_frames = SubResource("SpriteFrames_gde5k")
 animation = &"roll"

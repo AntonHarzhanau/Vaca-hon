@@ -2,17 +2,17 @@
 extends PropertyCell
 class_name StreetCell
 
-@onready var color_group: ColorRect = $BackGround/ColorGroup
-@export var street_color: Color
+@onready var _group_color: ColorRect = $BackGround/ColorGroup
+@export var group_color: Color
 
-var houses = 0
-var house_cost = 0
+var nb_houses:int = 0
+var house_cost:int = 0
 
 func _ready():
 	super._ready()
-	color_group.pivot_offset = color_group.size / 2
-	if color_group:
-		color_group.color = street_color
+	_group_color.pivot_offset = _group_color.size / 2
+	if _group_color:
+		_group_color.color = group_color
 
 func buy_house():
 	pass

@@ -1,0 +1,284 @@
+[
+    {
+        "name": "Start",
+        "type": "Сorner"
+    },
+    {
+        "name": "street1",
+        "type": "Street",
+        "cost": 60,
+        "color": "BROWN",
+        "rent": 2,
+        "group": 0,
+        "house": 50
+    },
+    {
+        "name": "Chance",
+        "type": "Event"
+    },
+    {
+        "name": "Street2",
+        "type": "Street",
+        "cost": 60,
+        "color": "BROWN",
+        "rent": 4,
+        "group": 0,
+        "house": 50
+    },
+    {
+        "name": "Income Tax",
+        "type": "Event"
+    },
+    {
+        "name": "Railroad1",
+        "type": "RailWay",
+        "rent": 10,
+        "cost": 200
+    },
+    {
+        "name": "Street3",
+        "type": "Street",
+        "cost": 100,
+        "color": "BLUE",
+        "rent": 6,
+        "group": 1,
+        "house": 50
+    },
+    {
+        "name": "Chance",
+        "type": "Event"
+    },
+    {
+        "name": "Street4",
+        "type": "Street",
+        "cost": 100,
+        "color": "BLUE",
+        "rent": 6,
+        "group": 1,
+        "house": 50
+    },
+    {
+        "name": "Street5",
+        "type": "Street",
+        "cost": 120,
+        "color": "BLUE",
+        "rent": 8,
+        "group": 1,
+        "house": 50
+    },
+    {
+        "name": "Jail",
+        "type": "Сorner"
+    },
+    {
+        "name": "Street6",
+        "type": "Street",
+        "cost": 140,
+        "color": "RED",
+        "rent": 10,
+        "group": 2,
+        "house": 100
+    },
+    {
+        "name": "Electric Company",
+        "type": "Utility",
+        "rent": 10,
+        "cost": 150
+    },
+    {
+        "name": "Street7",
+        "type": "Street",
+        "cost": 140,
+        "color": "RED",
+        "rent": 10,
+        "group": 2,
+        "house": 100
+    },
+    {
+        "name": "Street8",
+        "type": "Street",
+        "cost": 160,
+        "color": "RED",
+        "rent": 12,
+        "group": 2,
+        "house": 100
+    },
+    {
+        "name": "Railroad2",
+        "type": "RailWay",
+        "rent": 10,
+        "cost": 200
+    },
+    {
+        "name": "Street9",
+        "type": "Street",
+        "cost": 180,
+        "color": "GREEN",
+        "rent": 14,
+        "group": 3,
+        "house": 100
+    },
+    {
+        "name": "Community Chest",
+        "type": "Event"
+    },
+    {
+        "name": "Street10",
+        "type": "Street",
+        "cost": 180,
+        "color": "GREEN",
+        "rent": 14,
+        "group": 3,
+        "house": 100
+    },
+    {
+        "name": "Street11",
+        "type": "Street",
+        "cost": 200,
+        "color": "GREEN",
+        "rent": 16,
+        "group": 3,
+        "house": 100
+    },
+    {
+        "name": "Free Parking",
+        "type": "Сorner"
+    },
+    {
+        "name": "Street12",
+        "type": "Street",
+        "cost": 220,
+        "color": "YELLOW",
+        "rent": 18,
+        "group": 4,
+        "house": 150
+    },
+    {
+        "name": "Chance",
+        "type": "Event"
+    },
+    {
+        "name": "Street13",
+        "type": "Street",
+        "cost": 220,
+        "color": "YELLOW",
+        "rent": 18,
+        "group": 4,
+        "house": 150
+    },
+    {
+        "name": "Street14",
+        "type": "Street",
+        "cost": 240,
+        "color": "YELLOW",
+        "rent": 20,
+        "group": 4,
+        "house": 150
+    },
+    {
+        "name": "Railroad3",
+        "type": "RailWay",
+        "rent": 10,
+        "cost": 200
+    },
+    {
+        "name": "Street15",
+        "type": "Street",
+        "cost": 260,
+        "color": "ORANGE",
+        "rent": 22,
+        "group": 5,
+        "house": 150
+    },
+    {
+        "name": "Street16",
+        "type": "Street",
+        "cost": 260,
+        "color": "ORANGE",
+        "rent": 22,
+        "group": 5,
+        "house": 150
+    },
+    {
+        "name": "Water Works",
+        "type": "Utility",
+        "rent": 10,
+        "cost": 150
+    },
+    {
+        "name": "Street17",
+        "type": "Street",
+        "cost": 280,
+        "color": "ORANGE",
+        "rent": 24,
+        "group": 5,
+        "house": 150
+    },
+    {
+        "name": "Go To Jail",
+        "type": "Сorner"
+    },
+    {
+        "name": "Street18",
+        "type": "Street",
+        "cost": 300,
+        "color": "PINK",
+        "rent": 26,
+        "group": 6,
+        "house": 200
+    },
+    {
+        "name": "Street19",
+        "type": "Street",
+        "cost": 300,
+        "color": "PINK",
+        "rent": 26,
+        "group": 6,
+        "house": 200
+    },
+    {
+        "name": "Community Chest",
+        "type": "Event"
+    },
+    {
+        "name": "Street20",
+        "type": "Street",
+        "cost": 320,
+        "color": "PINK",
+        "rent": 28,
+        "group": 6,
+        "house": 200
+    },
+    {
+        "name": "Railroad4",
+        "type": "RailWay",
+        "rent": 10,
+        "cost": 200
+    },
+    {
+        "name": "Chance",
+        "type": "Event"
+    },
+    {
+        "name": "Street21",
+        "type": "Street",
+        "cost": 350,
+        "color": "PURPLE",
+        "rent": 31,
+        "group": 7,
+        "house": 200
+    },
+    {
+        "name": "Luxury Tax",
+        "type": "Event"
+    },
+    {
+        "name": "Street22",
+        "type": "Street",
+        "cost": 400,
+        "color": "PURPLE",
+        "rent": 50,
+        "group": 7,
+        "house": 200
+    }
+]
