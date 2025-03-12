@@ -1,10 +1,23 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends, HTTPException, status
 import uvicorn
 from connection_manager import ConnectionManager
 from game_logic import GameLogic
 from handlers import GameHandler
+from routers import http
+from routers import auth
 
-app = FastAPI()
+from database import User, create_db_and_tables
+from auth.user_manager import auth_backend, current_active_user, fastapi_users
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Not needed if you setup a migration system like Alembic
+    await create_db_and_tables()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 # Create a connection manager
 manager = ConnectionManager()
@@ -12,6 +25,13 @@ manager = ConnectionManager()
 game_logic = GameLogic(manager.players)
 # Create an event handler
 game_handler = GameHandler(game_logic, manager)
+
+# Include HTTP router
+app.include_router(http.router)
+
+# Include Auth router
+app.include_router(auth.router)
+
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
@@ -36,3 +56,5 @@ if __name__ == "__main__":
         port=8000,
         reload=True            # Auto-reload mode
     )
+
+
