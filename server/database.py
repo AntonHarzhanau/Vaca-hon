@@ -6,17 +6,16 @@ from fastapi_users.db import SQLAlchemyUserDatabase
 
 from models.Base import Base
 from models.User import User
+from models.Lobby import Lobby
 from config import dotenv_config
 
 
 DATABASE_URL = dotenv_config.DATABASE_URL
 
-engine = create_async_engine(DATABASE_URL, echo=True)
+engine = create_async_engine(DATABASE_URL)
 async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
 async def create_db_and_tables():
-    print("====METADATA====")
-    print(Base.metadata)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
