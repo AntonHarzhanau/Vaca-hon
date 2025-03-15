@@ -1,6 +1,6 @@
 @tool
 extends Control
-
+class_name GameBoard
 const JSON_FILE_PATH: String = "res://data.json"
 
 # Cell scenes
@@ -14,14 +14,14 @@ const CORNER_SCENE = preload("res://scenes/corner_cell.tscn")
 const PLAYER_SCENE = preload("res://scenes/player.tscn")
 const CELL_COUNT = 9  # Number of cells on each side
 
-@onready var game_board = $Centre
-@onready var players_container = $Players
+@onready var game_board:TextureRect = $Centre
+@onready var players_container: = $Players
 
-var board_rect  # Bounding rectangle of game_board
-var top_left
-var bottom_right
-var top_right
-var bottom_left
+var board_rect:Rect2  # Bounding rectangle of game_board
+var top_left:Vector2
+var bottom_right:Vector2
+var top_right:Vector2
+var bottom_left:Vector2
 
 @export var cell_height = 120
 # Button for creating/updating cards in the editor
@@ -121,7 +121,8 @@ func create_cells(json_data: Array):
 				cell_instance.name = item["name"] # used to set a name in the editor (only works with unique names)
 				cell_instance.cell_name = item["name"]
 				cell_instance.price = item["cost"]
-				cell_instance.group_color = get_color(item["color"])
+				var color = get_color(item["color"])
+				cell_instance.group_color = load_texture(color)
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
@@ -161,6 +162,7 @@ func place_cells():
 
 	var cell_width_horizontal = board_rect.size.x / CELL_COUNT
 	var cell_width_vertical = board_rect.size.y / CELL_COUNT
+	@warning_ignore("integer_division")
 	var corner_cell_offset = Vector2(cell_height / 2, cell_height / 2)
 	
 	# Corner positions
@@ -183,21 +185,25 @@ func place_cells():
 	var index = 0
 	
 	# down
+	@warning_ignore("integer_division")
 	start_position =  Vector2(bottom_right.x + cell_width_horizontal / 2 - cell_width_horizontal, bottom_right.y +  cell_height / 2)
 	cell_offset = Vector2(-cell_width_horizontal , 0)
 	index = place_side_cell(cards, index, start_position, cell_offset, Vector2(cell_width_horizontal, cell_height), 0)
 
 	# left
+	@warning_ignore("integer_division")
 	start_position =  Vector2(top_left.x -cell_height / 2, bottom_right.y -cell_width_vertical / 2)
 	cell_offset = Vector2(0, -cell_width_vertical)
 	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), 90)
 
 	# up
+	@warning_ignore("integer_division")
 	start_position =  Vector2(top_left.x + cell_width_horizontal/2, top_left.y - cell_height / 2)
 	cell_offset = Vector2(cell_width_horizontal, 0)
 	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_horizontal, cell_height), 180)
 
 	# right
+	@warning_ignore("integer_division")
 	start_position =  Vector2(bottom_right.x + cell_height / 2, top_left.y + cell_width_vertical /2)
 	cell_offset = Vector2(0, cell_width_vertical)
 	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), -90)
@@ -210,31 +216,32 @@ func place_side_cell(cells:Array[Node], start_index: int ,start_position, offset
 			index += 1
 		cells[index].get_node("BackGround").size = cell_size
 		cells[index].rotation_degrees = rotation_degree
-		cells[index].update_pivot()
+		cells[index].update()
 		cells[index].position = start_position + offset  * i
 		index += 1
 	return index
 
-func get_color(color_name: String) -> Color:
+func get_color(color_name: String) -> String:
 	var color_map = {
-		"BROWN": Color.BROWN,
-		"BLUE": Color.BLUE,
-		"RED": Color.RED,
-		"GREEN": Color.GREEN,
-		"YELLOW": Color.YELLOW,
-		"ORANGE": Color.ORANGE,
-		"PINK": Color.PINK,
-		"PURPLE": Color.PURPLE
+		"BROWN": "res://assets/color_groups/Colour Block_1.png",
+		"BLUE": "res://assets/color_groups/Colour Block_2.png",
+		"RED": "res://assets/color_groups/Colour Block_3.png",
+		"GREEN": "res://assets/color_groups/Colour Block_4.png",
+		"YELLOW": "res://assets/color_groups/Colour Block_5.png",
+		"ORANGE": "res://assets/color_groups/Colour Block_6.png",
+		"PINK": "res://assets/color_groups/Colour Block_7.png",
+		"PURPLE": "res://assets/color_groups/Colour Block_8.png"
 	}
-	return color_map.get(color_name, Color.WHITE)
+	return color_map.get(color_name)
 
 func load_texture(file_name: String) -> Texture2D:
-	return load("res://assets/train.png")
+	return load(file_name)
 
 func add_player(player_data: Dictionary) -> Player:
 	var new_player = PLAYER_SCENE.instantiate()
 	players_container.add_child(new_player)
 	new_player.id = player_data["id"]
+	new_player.player_name = player_data["name"]
 	new_player.current_position = player_data["current_position"]
 	new_player.money = player_data["money"]
 	new_player.global_position = game_board.get_children()[0].global_position + Vector2(10,10) * new_player.id

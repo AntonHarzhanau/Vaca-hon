@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnlojc3k6kjss"]
+[gd_scene load_steps=3 format=3 uid="uid://cnlojc3k6kjss"]
 
-[ext_resource type="Script" uid="uid://4fvmwq3k7ba6" path="res://scripts/game_board.gd" id="1_cogkf"]
+[ext_resource type="Script" uid="uid://dg2hvdwcmyj3c" path="res://scripts/game_board.gd" id="1_cogkf"]
+[ext_resource type="Texture2D" uid="uid://dnhm70ikx17d6" path="res://assets/Center.png" id="2_3wu0g"]
 
 [node name="GameBoard" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cogkf")
 
-[node name="Centre" type="ColorRect" parent="."]
+[node name="Centre" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(340, 340)
-color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+texture = ExtResource("2_3wu0g")
 
 [node name="Players" type="Node2D" parent="."]

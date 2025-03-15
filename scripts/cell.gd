@@ -15,12 +15,13 @@ func _ready():
 		label_name.text = cell_name
 
 # update centers after resizing
-func update_pivot():
+func update():
 	$BackGround.position = $".".position - $BackGround.size / 2
 	$BackGround.pivot_offset = $BackGround.size / 2
 	
 # cell event activation
-func activate(player: Player):
-	print(cell_name)
+func activate(_player: Player):
+	#print(cell_name)
+	pass
 func show_cell():
 	pass

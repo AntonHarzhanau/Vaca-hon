@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8k7vquofnos3"]
+[gd_scene load_steps=2 format=3 uid="uid://c8k7vquofnos3"]
 
-[ext_resource type="Script" uid="uid://bdsjlh5fgtj6" path="res://scripts/cell.gd" id="1_wn3jl"]
-
-[sub_resource type="Theme" id="Theme_bfbtl"]
+[ext_resource type="Script" uid="uid://i7anqjxil4d7" path="res://scripts/cell.gd" id="1_wn3jl"]
 
 [node name="Cell" type="Node2D"]
 script = ExtResource("1_wn3jl")
@@ -20,8 +18,7 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 60)
-theme = SubResource("Theme_bfbtl")
-color = Color(1, 0.956395, 0.971485, 1)
+color = Color(0.85098, 0.909804, 0.839216, 1)
 
 [node name="Name" type="Label" parent="BackGround"]
 layout_mode = 1

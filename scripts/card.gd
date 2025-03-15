@@ -1,7 +1,7 @@
 extends Control
 
-@onready var back = $BackGround
-@onready var label = $BackGround/Label
+@onready var back: ColorRect= $BackGround
+@onready var label: Label = $BackGround/Label
 var image = preload("res://assets/train.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

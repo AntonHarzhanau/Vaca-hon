@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwh1c1078d3dt"]
 
 [ext_resource type="Texture2D" uid="uid://dnmqcin3ry0ev" path="res://assets/dice/png-klev-club-v5f8-p-storoni-kubika-png-27.png" id="1_4qbu4"]
-[ext_resource type="Script" uid="uid://cx87bvrd7pmme" path="res://scripts/dice.gd" id="1_f8si1"]
+[ext_resource type="Script" uid="uid://c3q0bdp5vmacm" path="res://scripts/dice.gd" id="1_f8si1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_behcg"]
 atlas = ExtResource("1_4qbu4")

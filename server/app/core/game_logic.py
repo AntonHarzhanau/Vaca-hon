@@ -1,0 +1,57 @@
+import random
+from typing import Dict
+from app.models.player import Player
+from app.models.game_board import GameBoard
+
+class GameLogic:
+    def __init__(self, players: Dict[int, Player], board: GameBoard, current_turn: int):
+        self.players = players
+        self.board = board
+        self.current_turn_player_id = current_turn
+
+    def roll_dice(self) -> dict:
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+        return {
+            "action": "roll_dice",
+            "dice1": dice1,
+            "dice2": dice2,
+            #"total": dice1 + dice2
+        }
+
+    def move_player(self, player_id: int, steps: int) -> dict:
+        player = self.players[player_id]
+        move_data = player.move(steps)
+        return move_data
+
+    def cell_action(self, player_id: int) -> dict:
+        player = self.players[player_id]
+        current_cell_id = player.current_position
+        cell = self.board.get_cell(current_cell_id)
+        if cell:
+            return cell.activate(player)
+        return {"action": "error", "message": "Cell not found"}
+
+    def buy_property(self, player_id: int) -> dict:
+        player = self.players[player_id]
+        cell = self.board.get_cell(player.current_position)
+        if cell and hasattr(cell, "buy_property"):
+            return cell.buy_property(player)
+        return {"action": "error", "message": "This cell is not a property"}
+
+    def sell_property(self, player_id: int, cell_id: int) -> dict:
+        player = self.players[player_id]
+        return player.sell_property(cell_id)
+
+    def next_turn(self) -> int:
+        if not self.players:
+            return 0
+        player_ids = sorted(self.players.keys())
+        if self.current_turn_player_id not in player_ids:
+            self.current_turn_player_id = player_ids[0]
+            return self.current_turn_player_id
+
+        current_index = player_ids.index(self.current_turn_player_id)
+        next_index = (current_index + 1) % len(player_ids)
+        self.current_turn_player_id = player_ids[next_index]
+        return self.current_turn_player_id

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://gvvcxljnlfij"]
 
-[ext_resource type="Script" uid="uid://dk6qglhwkfmxx" path="res://scripts/rail_way_cell.gd" id="1_6efgo"]
+[ext_resource type="Script" uid="uid://wrl53xpl5vm2" path="res://scripts/rail_way_cell.gd" id="1_6efgo"]
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_tve6c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fk6sx"]

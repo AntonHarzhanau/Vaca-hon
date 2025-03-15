@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://diqrk4bkerp82"]
+
+[ext_resource type="Script" uid="uid://dshx15c5jfqly" path="res://Test/test_menu.gd" id="1_xn81e"]
+
+[node name="TestMenu" type="CanvasLayer"]
+script = ExtResource("1_xn81e")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 187.0
+offset_top = -142.0
+offset_right = -393.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MovePlayer" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Move"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Steps" type="TextEdit" parent="Panel/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Steps:"
+
+[connection signal="pressed" from="Panel/HBoxContainer/MovePlayer" to="." method="_on_move_player_pressed"]

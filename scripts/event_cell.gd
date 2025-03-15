@@ -2,7 +2,7 @@
 extends Cell
 class_name EventCell
 
-@onready var image = $BackGround/Image
+@onready var image: TextureRect = $BackGround/Image
 @export var texture: Texture2D
 
 func _ready():

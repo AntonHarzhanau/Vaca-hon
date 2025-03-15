@@ -3,9 +3,9 @@ extends Control
 signal accept_offer_clicked
 signal reject_offer_clicked
 
-@onready var label_offer = $Back_ground/Label
-@onready var accept_btn = $Back_ground/Button_container/Accept_btn
-@onready var deny_btn = $Back_ground/Button_container/Deny_btn
+@onready var label_offer:Label = $Back_ground/Label
+@onready var accept_btn:Button = $Back_ground/Button_container/Accept_btn
+@onready var deny_btn:Button = $Back_ground/Button_container/Deny_btn
 
 func _ready():
 	accept_btn.pressed.connect(_on_accept_pressed)

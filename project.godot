@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Monopoly"
-run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="uid://dlrebauxx7ouu"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-WebSocketClient="*res://scripts/WebSocketClient.gd"
+States="*res://globals/states.gd"
+WebSocketClient="*res://globals/WebSocketClient.gd"
 
 [display]
 
