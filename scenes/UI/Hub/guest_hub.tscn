@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqljdds5u7fld"]
 
-[ext_resource type="Script" uid="uid://b1xlugdtbon3t" path="res://scripts/Hubs/guest_hub.gd" id="1_o1pc4"]
-[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/Hub/hub.tscn" id="2_2a1sb"]
+[ext_resource type="Script" uid="uid://b1xlugdtbon3t" path="res://scripts/UI/Hubs/guest_hub.gd" id="1_o1pc4"]
+[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/UI/Hub/hub.tscn" id="2_2a1sb"]
 
 [node name="GuestHub" type="Panel"]
 custom_minimum_size = Vector2(150, 55)

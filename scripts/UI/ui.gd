@@ -5,7 +5,7 @@ signal move_player_requested(steps)
 signal accept_offer_clicked
 signal sell_property_clicked(cell_id)
 
-const GUEST_HUB = preload("res://scenes/Hub/guest_hub.tscn")
+const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var dice = $Dice
 @onready var main_player_hub = $MainPlayerHub
 @onready var popup_offer = $PopUpOffre

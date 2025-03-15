@@ -85,5 +85,5 @@ func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
 	players[cell_owner_id]._set_money(players[cell_owner_id].money + rent)
 
 func _exit_tree():
-	# Отключение от сервера при выходе из игры
+	# Disconnect from the server when exiting the game
 	WebSocketClient.close_connection()

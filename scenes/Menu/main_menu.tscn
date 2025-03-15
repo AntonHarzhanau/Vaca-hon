@@ -38,7 +38,7 @@ text = "Test"
 [node name="Start" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Star"
+text = "Start"
 
 [node name="CreateLobby" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)

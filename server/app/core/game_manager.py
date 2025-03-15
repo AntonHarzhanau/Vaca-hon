@@ -23,7 +23,7 @@ class GameManager:
         action = data.get("action")
         if action not in self.action_handlers:
             return {"action": "error", "message": "Unknown action", "delivery": "personal"}
-        # По умолчанию, для всех действий, кроме продажи, проверяем чей ход
+        # for all actions we check whose turn it is
         if player_id != self.state.current_turn:
             return {"action": "error", "message": "Not your turn!", "delivery": "personal"}
 

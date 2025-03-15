@@ -1,15 +1,20 @@
 from __future__ import annotations
-from typing import List
+from typing import List, TYPE_CHECKING
 from app.models.cells.property_cell import PropertyCell
 
+if TYPE_CHECKING:
+    from app.models.game_board import GameBoard
+
+
+
 class StreetCell(PropertyCell):
-    group_color: str  # Можно использовать нужный тип для цвета, например, Color
+    group_color: str
     nb_houses: int = 0
     house_cost: int = 0
 
     def has_monopoly(self, board: "GameBoard") -> bool:
         """
-        Проверяет, собрал ли владелец все улицы данной группы.
+        Checks if the owner has collected all streets of the given group.
         """
         if self.cell_owner is None:
             return False
@@ -19,7 +24,7 @@ class StreetCell(PropertyCell):
 
     def can_build_evenly(self, board: "GameBoard") -> bool:
         """
-        Разрешает строительство, если данная ячейка имеет минимальное число домов в группе.
+        Allows construction if the given cell has the minimum number of houses in the group.
         """
         group_cells: List[StreetCell] = board.groups.get(self.group_color, [])
         if not group_cells:
@@ -29,16 +34,16 @@ class StreetCell(PropertyCell):
 
     def buy_house(self, board: "GameBoard") -> dict:
         """
-        Пытается построить дом на ячейке.
+        Trying to build a house on a cell.
         """
         if self.cell_owner is None:
-            return {"action": "error", "message": "Собтвенность не принадлежит игроку"}
+            return {"action": "error", "message": "The property does not belong to the player"}
         if not self.has_monopoly(board):
-            return {"action": "error", "message": "Монополия не собрана"}
+            return {"action": "error", "message": "The monopoly is not assembled"}
         if not self.can_build_evenly(board):
-            return {"action": "error", "message": "Дома должны строиться равномерно"}
+            return {"action": "error", "message": "Houses should be built evenly"}
         if not self.cell_owner.pay(self.house_cost):
-            return {"action": "error", "message": "Недостаточно средств для постройки дома"}
+            return {"action": "error", "message": "Not enough funds to build a house"}
         self.nb_houses += 1
         curent_rent = self.initial_rent + self.nb_houses * self.house_cost
         return {
@@ -50,7 +55,7 @@ class StreetCell(PropertyCell):
 
     def can_sell_evenly(self, board: "GameBoard") -> bool:
         """
-        Разрешает продажу дома, если данная ячейка имеет максимальное число домов в группе.
+        Allows the sale of a house if the given cell has the maximum number of houses in the group.
         """
         group_cells: List[StreetCell] = board.groups.get(self.group_color, [])
         if not group_cells:
@@ -60,14 +65,14 @@ class StreetCell(PropertyCell):
 
     def sell_house(self, board: "GameBoard") -> dict:
         """
-        Пытается продать дом на ячейке.
+        Trying to sell a house on a cell.
         """
         if self.cell_owner is None:
-            return {"action": "error", "message": "Собственность не принадлежит игроку"}
+            return {"action": "error", "message": "The property does not belong to the player"}
         if self.nb_houses == 0:
-            return {"action": "error", "message": "Нет домов для продажи"}
+            return {"action": "error", "message": "No houses for sale"}
         if not self.can_sell_evenly(board):
-            return {"action": "error", "message": "Дома должны продаваться равномерно"}
+            return {"action": "error", "message": "Houses should be sold evenly"}
         refund = self.house_cost #// 2
         self.cell_owner.earn(refund)
         self.nb_houses -= 1

@@ -1,16 +1,16 @@
 @tool
 extends Control
 class_name GameBoard
-const JSON_FILE_PATH: String = "res://data.json"
+const JSON_FILE_PATH: String = "res://data/data.json"
 
 # Cell scenes
-const CELL_SCENE = preload("res://scenes/cell.tscn")
-const PROPERTY_SCENE = preload("res://scenes/property_cell.tscn")
-const STREET_SCENE = preload("res://scenes/street_cell.tscn")
-const RAILWAY_SCENE = preload("res://scenes/rail_way_cell.tscn")
-const UTILITY_SCENE = preload("res://scenes/utility_cell.tscn")
-const EVENT_SCENE = preload("res://scenes/event_cell.tscn")
-const CORNER_SCENE = preload("res://scenes/corner_cell.tscn")
+const CELL_SCENE = preload("res://scenes/Cells/cell.tscn")
+const PROPERTY_SCENE = preload("res://scenes/Cells/property_cell.tscn")
+const STREET_SCENE = preload("res://scenes/Cells/street_cell.tscn")
+const RAILWAY_SCENE = preload("res://scenes/Cells/rail_way_cell.tscn")
+const UTILITY_SCENE = preload("res://scenes/Cells/utility_cell.tscn")
+const EVENT_SCENE = preload("res://scenes/Cells/event_cell.tscn")
+const CORNER_SCENE = preload("res://scenes/Cells/corner_cell.tscn")
 const PLAYER_SCENE = preload("res://scenes/player.tscn")
 const CELL_COUNT = 9  # Number of cells on each side
 
@@ -23,7 +23,7 @@ var bottom_right:Vector2
 var top_right:Vector2
 var bottom_left:Vector2
 
-@export var cell_height = 120
+@export var cell_height = 100
 # Button for creating/updating cards in the editor
 @export var create_cells_in_editor: bool = false : set = _on_create_cells_in_editor
 
@@ -118,33 +118,25 @@ func create_cells(json_data: Array):
 		match item["type"]:
 			"Street":
 				cell_instance = STREET_SCENE.instantiate()
-				cell_instance.name = item["name"] # used to set a name in the editor (only works with unique names)
-				cell_instance.cell_name = item["name"]
 				cell_instance.price = item["cost"]
 				var color = get_color(item["color"])
 				cell_instance.group_color = load_texture(color)
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
-				cell_instance.name = item["name"]
-				cell_instance.cell_name = item["name"]
 				cell_instance.price = item["cost"]
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
-				cell_instance.name = item["name"]
-				cell_instance.cell_name = item["name"]
 				cell_instance.price = item["cost"]
 			
 			"Event":
 				cell_instance = EVENT_SCENE.instantiate()
-				cell_instance.name = item["name"]
-				cell_instance.cell_name = item["name"]
 			
 			"Сorner":
 				cell_instance = CORNER_SCENE.instantiate()
-				cell_instance.name = item["name"]
-				cell_instance.cell_name = item["name"]
+				
+		cell_instance.cell_name = item["name"]
 		cell_instance.id_space = cell_id
 		cell_id += 1
 		game_board.add_child(cell_instance) # add instance to gameboard
@@ -177,6 +169,8 @@ func place_cells():
 	var corner_counter = 0
 	for card in cards:
 		if card is CornerCell:
+			card.get_node("BackGround").size = Vector2(cell_height,cell_height)
+			card.update()
 			card.position = corners[corner_counter]
 			corner_counter += 1
 	

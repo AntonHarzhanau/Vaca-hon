@@ -4,10 +4,10 @@ from app.models.game_board import GameBoard
 
 class GameState:
     """
-    Хранит состояние игры: список игроков, игровое поле и текущий ход.
+    Stores the state of the game: the list of players, the playing field, and the current move.
     """
     def __init__(self, players: Dict[int, Player]):
         self.players = players
         self.board = GameBoard()
-        # Изначально ход первого игрока (id = 0)
+        # Initially it's the first player's turn (id = 0)
         self.current_turn: int = 0

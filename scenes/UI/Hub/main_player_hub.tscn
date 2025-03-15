@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnaxnqxobcchc"]
 
-[ext_resource type="Script" uid="uid://i2xqa0p0ktr0" path="res://scripts/Hubs/main_player_hub.gd" id="1_8oya7"]
-[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/Hub/hub.tscn" id="2_3vukn"]
+[ext_resource type="Script" uid="uid://i2xqa0p0ktr0" path="res://scripts/UI/Hubs/main_player_hub.gd" id="1_8oya7"]
+[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/UI/Hub/hub.tscn" id="2_3vukn"]
 
 [node name="MainPlayerHub" type="Panel"]
 anchors_preset = 15

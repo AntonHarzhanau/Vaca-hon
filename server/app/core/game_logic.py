@@ -16,7 +16,6 @@ class GameLogic:
             "action": "roll_dice",
             "dice1": dice1,
             "dice2": dice2,
-            #"total": dice1 + dice2
         }
 
     def move_player(self, player_id: int, steps: int) -> dict:

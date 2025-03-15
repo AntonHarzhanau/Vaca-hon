@@ -7,7 +7,7 @@ from app.models.cells.street_cell import StreetCell
 
 class GameBoard(BaseModel):
     """
-    Класс игрового поля. Загружает данные из JSON и создаёт объекты ячеек.
+    Game board class. Loads data from JSON and creates cell objects.
     """
     cells: List[Cell] = Field(default_factory=list)
     groups: dict[str, List[StreetCell]] = Field(default_factory=dict)
@@ -26,11 +26,10 @@ class GameBoard(BaseModel):
         except json.JSONDecodeError:
             print(f"⚠ Error: file {file_path} contains invalid JSON")
             return
-#TODO: переработать логику
+        #TODO: after implementing all cell classes, rework the logic
         for index, cell_data in enumerate(data):
             cell_name = cell_data.get("name", f"Cell {index}")
             if "cost" in cell_data:
-                # Если это свойство, определим его тип (например, для улиц)
                 if cell_data.get("type") == "Street":
                     street_cell = StreetCell(
                     cell_id=index,

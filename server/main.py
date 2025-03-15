@@ -10,7 +10,7 @@ logger = logging.getLogger("monopoly-server")
 
 app = FastAPI()
 
-# Инициализация менеджера соединений, логики игры и обработчика событий
+# Initialize the connection manager, game logic and event handler
 manager = ConnectionManager()
 game_manager = GameManager(manager.players)
 game_handler = GameHandler(game_manager, manager)
@@ -25,7 +25,7 @@ async def websocket_endpoint(websocket: WebSocket):
             await game_handler.handle_event(websocket, data)
     except WebSocketDisconnect:
         await manager.disconnect(websocket)
-        #TODO: реализовать нормальную логику
+       #TODO: implement normal id assignment logic
         manager.next_id -= 1
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ class Player(BaseModel):
         self.current_position += steps
         if self.current_position >= 40:
             self.current_position %= 40
-            self.money += 200  # премия за прохождение через старт
+            self.money += 200  # bonus for passing through the start
         print(f"Player {self.id} moved to {self.current_position} position")
         return {
             "action": "move_player",

@@ -14,7 +14,6 @@ func _ready():
 	_group_color.pivot_offset = _group_color.size / 2
 	_group_color.texture = group_color
 	_group_color.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
-		#_group_color.color = group_color
 
 func buy_house():
 	pass

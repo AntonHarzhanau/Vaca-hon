@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhewew8bp2ey8"]
 
-[ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/property_cell.tscn" id="1_aoumi"]
-[ext_resource type="Script" uid="uid://bhy1sb6vywp73" path="res://scripts/utility_cell.gd" id="2_rytch"]
+[ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_aoumi"]
+[ext_resource type="Script" uid="uid://bhy1sb6vywp73" path="res://scripts/Cells/utility_cell.gd" id="2_rytch"]
 
 [node name="UtilityCell" instance=ExtResource("1_aoumi")]
 script = ExtResource("2_rytch")

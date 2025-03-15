@@ -23,4 +23,3 @@ class GameHandler:
             await self.connection_manager.send_personal_message(json.dumps(response), websocket)
         else:
             await self.connection_manager.broadcast(json.dumps(response))
-

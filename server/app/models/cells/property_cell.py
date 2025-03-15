@@ -10,7 +10,6 @@ class PropertyCell(Cell):
 
     def activate(self, player: Player) -> dict:
         if self.cell_owner is None:
-            # Предложение покупки видно только активному игроку
             return {
                 "action": "offer_to_buy",
                 "cell_id": self.cell_id,
@@ -19,7 +18,6 @@ class PropertyCell(Cell):
                 "delivery": "personal"
             }
         elif self.cell_owner != player:
-            # При оплате аренды все игроки видят сообщение
             return self.pay_rent(player)
         return {"action": "nothing", "delivery": "broadcast"}
 

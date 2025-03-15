@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://y6uj0iy65iy0"]
 
-[ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/popup_offre.gd" id="1_x6kf4"]
+[ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/popup_offre.gd" id="1_x6kf4"]
 
 [node name="PopUpOffre" type="Control"]
 layout_mode = 3

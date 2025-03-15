@@ -21,19 +21,19 @@ class ConnectionManager:
         print(f"🔗 New player connected: ID {new_player.id}")
 
 
-        # Отправляем игроку его ID
+        # Send the player his ID
         await websocket.send_text(json.dumps({
             "action": "your_id",
             "player_id": new_player.id
         }))
         
-        # Отправляем новому игроку список подключённых игроков
+       # Send the new player a list of connected players
         await websocket.send_text(json.dumps({
             "action": "player_connected",
             "players": [player.model_dump() for player in self.players.values()]
         }))
 
-        # Уведомляем остальных игроков
+        # Notify other players
         new_player_data = json.dumps({
             "action": "player_connected",
             "players": [new_player.model_dump()]
