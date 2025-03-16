@@ -9,6 +9,8 @@ signal offer_to_buy(cell_id, cell_name, price, player_id)
 signal buy_property(player_id, cell_id)
 signal sell_property(player_id, cell_id, price)
 signal pay_rent(player_id:int, cell_owner_id:int, rent:int)
+signal buy_house(player_id:int, cell_id:int, current_rent:int)
+signal sell_house(player_id:int, cell_id:int, current_rent:int)
 
 
 func _ready() -> void:
@@ -37,5 +39,11 @@ func _on_message_received(message: Variant) -> void:
 			emit_signal("sell_property", message["player_id"], message["cell_id"], message.get("price", 0))
 		"pay_rent":
 			emit_signal("pay_rent",message["player_id"], message["cell_owner_id"], message["rent"])
+		"buy_house":
+			emit_signal("buy_house", message["player_id"], message["cell_id"], message["number_of_house"],
+			message["current_rent"])
+		"sell_house":
+			emit_signal("sell_house", message["player_id"], message["cell_id"], message["number_of_house"],
+			message["current_rent"])
 		_:
 			print("Unknown action from server: ", action)

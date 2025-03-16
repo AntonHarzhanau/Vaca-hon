@@ -22,7 +22,7 @@ var top_left:Vector2
 var bottom_right:Vector2
 var top_right:Vector2
 var bottom_left:Vector2
-
+var cells: Array[Cell]
 @export var cell_height = 100
 # Button for creating/updating cards in the editor
 @export var create_cells_in_editor: bool = false : set = _on_create_cells_in_editor
@@ -115,20 +115,25 @@ func create_cells(json_data: Array):
 	var cell_id = 0
 	for item in json_data:
 		var cell_instance # variable for instance
+		
 		match item["type"]:
 			"Street":
 				cell_instance = STREET_SCENE.instantiate()
 				cell_instance.price = item["cost"]
 				var color = get_color(item["color"])
 				cell_instance.group_color = load_texture(color)
+				cell_instance.rent = item["rent"]
+				cell_instance.house_cost = item["house"]
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
+				cell_instance.rent = item["rent"]
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
+				cell_instance.rent = item["rent"]
 			
 			"Event":
 				cell_instance = EVENT_SCENE.instantiate()
@@ -136,11 +141,11 @@ func create_cells(json_data: Array):
 			"Сorner":
 				cell_instance = CORNER_SCENE.instantiate()
 				
-		cell_instance.cell_name = item["name"]
 		cell_instance.id_space = cell_id
+		cell_instance.cell_name = item["name"]
 		cell_id += 1
 		game_board.add_child(cell_instance) # add instance to gameboard
-		
+		cells.append(cell_instance)
 		# If nodes need to be visible in the editor
 		if Engine.is_editor_hint():
 			cell_instance.set_owner(get_tree().edited_scene_root)
@@ -241,5 +246,5 @@ func add_player(player_data: Dictionary) -> Player:
 	new_player.global_position = game_board.get_children()[0].global_position + Vector2(10,10) * new_player.id
 	return new_player
 
-func get_cells() -> Array[Node]:
-	return game_board.get_children()
+func get_cells() -> Array[Cell]:
+	return cells

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://y6uj0iy65iy0"]
 
-[ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/popup_offre.gd" id="1_x6kf4"]
+[ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/Popups/popup_offre.gd" id="1_dhl3q"]
 
 [node name="PopUpOffre" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ offset_right = 250.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_x6kf4")
+script = ExtResource("1_dhl3q")
 
 [node name="Back_ground" type="ColorRect" parent="."]
 layout_mode = 1

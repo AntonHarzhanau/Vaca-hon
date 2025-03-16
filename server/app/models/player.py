@@ -15,6 +15,13 @@ class Player(BaseModel):
     timer_turn: int = 30
     properties: List["PropertyCell"] = Field(default_factory=list)
 
+    def get_property(self, cell_id: int):
+        for property in self.properties:
+            if property.cell_id == cell_id:
+                return property
+        return None
+        
+        
     def move(self, steps: int) -> dict:
         self.current_position += steps
         if self.current_position >= 40:
@@ -37,6 +44,20 @@ class Player(BaseModel):
     def earn(self, amount: int) -> None:
         self.money += amount
 
+
+    def buy_property(self, property: "PropertyCell") -> dict:
+        if self.pay(property.price):
+            property.cell_owner = self
+            self.properties.append(property)
+            return {
+                "action": "buy_property",
+                "player_id": self.id,
+                "cell_id": property.cell_id,
+                "price": property.price,
+                "delivery": "broadcast"
+            }
+        return {"action": "error", "message": "Insufficient funds", "delivery": "personal"}
+    
     def sell_property(self, cell_id: int) -> dict:
         for prop in self.properties:
             if prop.cell_id == cell_id:

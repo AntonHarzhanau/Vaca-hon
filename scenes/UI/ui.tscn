@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
-[ext_resource type="PackedScene" uid="uid://cnaxnqxobcchc" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
+[ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
 [ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
-[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/popup_offre.tscn" id="4_8dubc"]
+[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nt7q6")
@@ -42,15 +42,6 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Player's turn: "
 
-[node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
-anchors_preset = 9
-anchor_right = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 118.0
-offset_bottom = 0.0
-grow_horizontal = 1
-
 [node name="GuestHubContainer" type="VBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
@@ -59,6 +50,8 @@ offset_left = -182.0
 offset_top = 3.0
 offset_bottom = 689.0
 grow_horizontal = 0
+
+[node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="accept_offer_clicked" from="PopUpOffre" to="." method="_on_pop_up_offre_accept_offer_clicked"]

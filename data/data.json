@@ -8,7 +8,7 @@
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
-		"rent": [2,10,30,90,160,250],
+		"rent": 2,
 		"group": 0,
 		"house": 50
 	},
@@ -21,18 +21,18 @@
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
-		"rent": [4,20,60,180,320,450],
+		"rent": 4,
 		"group": 0,
 		"house": 50
 	},
 	{
 		"name": "Income Tax",
-		"type": "Event",
-		"cost": 200
+		"type": "Event"
 	},
 	{
 		"name": "Railroad1",
 		"type": "RailWay",
+		"rent": 10,
 		"cost": 200
 	},
 	{
@@ -40,7 +40,7 @@
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
-		"rent": [6,30,90,270,400,550],
+		"rent": 6,
 		"group": 1,
 		"house": 50
 	},
@@ -53,7 +53,7 @@
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
-		"rent": [6,30,90,270,400,550],
+		"rent": 6,
 		"group": 1,
 		"house": 50
 	},
@@ -62,7 +62,7 @@
 		"type": "Street",
 		"cost": 120,
 		"color": "BLUE",
-		"rent": [8,40,100,300,450,600],
+		"rent": 8,
 		"group": 1,
 		"house": 50
 	},
@@ -75,13 +75,14 @@
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
-		"rent": [10,50,150,450,625,750],
+		"rent": 10,
 		"group": 2,
 		"house": 100
 	},
 	{
 		"name": "Electric Company",
 		"type": "Utility",
+		"rent": 10,
 		"cost": 150
 	},
 	{
@@ -89,7 +90,7 @@
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
-		"rent": [10,50,150,450,625,750],
+		"rent": 10,
 		"group": 2,
 		"house": 100
 	},
@@ -98,13 +99,14 @@
 		"type": "Street",
 		"cost": 160,
 		"color": "RED",
-		"rent": [12,60,180,500,700,900],
+		"rent": 12,
 		"group": 2,
 		"house": 100
 	},
 	{
 		"name": "Railroad2",
 		"type": "RailWay",
+		"rent": 10,
 		"cost": 200
 	},
 	{
@@ -112,7 +114,7 @@
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
-		"rent": [14,70,200,550,750,950],
+		"rent": 14,
 		"group": 3,
 		"house": 100
 	},
@@ -125,7 +127,7 @@
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
-		"rent": [14,70,200,550,750,950],
+		"rent": 14,
 		"group": 3,
 		"house": 100
 	},
@@ -134,7 +136,7 @@
 		"type": "Street",
 		"cost": 200,
 		"color": "GREEN",
-		"rent": [16,80,220,600,800,1000],
+		"rent": 16,
 		"group": 3,
 		"house": 100
 	},
@@ -147,7 +149,7 @@
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
-		"rent": [18,90,250,700,875,1050],
+		"rent": 18,
 		"group": 4,
 		"house": 150
 	},
@@ -160,7 +162,7 @@
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
-		"rent": [18,90,250,700,875,1050],
+		"rent": 18,
 		"group": 4,
 		"house": 150
 	},
@@ -169,13 +171,14 @@
 		"type": "Street",
 		"cost": 240,
 		"color": "YELLOW",
-		"rent": [20,100,300,750,925,1100],
+		"rent": 20,
 		"group": 4,
 		"house": 150
 	},
 	{
 		"name": "Railroad3",
 		"type": "RailWay",
+		"rent": 10,
 		"cost": 200
 	},
 	{
@@ -183,7 +186,7 @@
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
-		"rent": [22,110,330,800,975,1150],
+		"rent": 22,
 		"group": 5,
 		"house": 150
 	},
@@ -192,13 +195,14 @@
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
-		"rent": [22,110,330,800,975,1150],
+		"rent": 22,
 		"group": 5,
 		"house": 150
 	},
 	{
 		"name": "Water Works",
 		"type": "Utility",
+		"rent": 10,
 		"cost": 150
 	},
 	{
@@ -206,7 +210,7 @@
 		"type": "Street",
 		"cost": 280,
 		"color": "ORANGE",
-		"rent": [24,120,360,850,1025,1200],
+		"rent": 24,
 		"group": 5,
 		"house": 150
 	},
@@ -219,7 +223,7 @@
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
-		"rent": [26,130,390,900,1100,1275],
+		"rent": 26,
 		"group": 6,
 		"house": 200
 	},
@@ -228,7 +232,7 @@
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
-		"rent": [26,130,390,900,1100,1275],
+		"rent": 26,
 		"group": 6,
 		"house": 200
 	},
@@ -241,13 +245,14 @@
 		"type": "Street",
 		"cost": 320,
 		"color": "PINK",
-		"rent": [28,150,450,1000,1200,1400],
+		"rent": 28,
 		"group": 6,
 		"house": 200
 	},
 	{
 		"name": "Railroad4",
 		"type": "RailWay",
+		"rent": 10,
 		"cost": 200
 	},
 	{
@@ -259,21 +264,20 @@
 		"type": "Street",
 		"cost": 350,
 		"color": "PURPLE",
-		"rent": [35,175,500,1100,1300,1500],
+		"rent": 31,
 		"group": 7,
 		"house": 200
 	},
 	{
 		"name": "Luxury Tax",
-		"type": "Event",
-		"cost": 100
+		"type": "Event"
 	},
 	{
 		"name": "Street22",
 		"type": "Street",
 		"cost": 400,
 		"color": "PURPLE",
-		"rent": [50,200,600,1400,1700,2000],
+		"rent": 50,
 		"group": 7,
 		"house": 200
 	}

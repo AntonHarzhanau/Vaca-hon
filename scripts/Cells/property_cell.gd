@@ -1,12 +1,12 @@
 @tool
 extends Cell
 class_name PropertyCell
-
+signal property_changed
 @onready var label_cost: Label = $BackGround/Cost
 
 @export var price: int
-var cell_owner: Player = null
-var rent = 0
+var cell_owner: Player = null: set = owner_change
+var rent = 0 : set = rent_change
 
 func _ready():
 	super._ready()
@@ -17,10 +17,12 @@ func _ready():
 func activate(player: Player) -> void:
 	super.activate(player)
 
-func buy_property(player: Player) -> void:
-	cell_owner = player
-	player.properties.append(self)
-	player.money -= price
-
 func mortgage_property():
 	pass
+func rent_change(value:int):
+	rent = value
+	emit_signal("property_changed")
+	
+func owner_change(value: Player):
+	cell_owner = value
+	emit_signal("property_changed")

@@ -45,12 +45,14 @@ class StreetCell(PropertyCell):
         if not self.cell_owner.pay(self.house_cost):
             return {"action": "error", "message": "Not enough funds to build a house"}
         self.nb_houses += 1
-        curent_rent = self.initial_rent + self.nb_houses * self.house_cost
+        self.current_rent = self.initial_rent + self.nb_houses * self.house_cost
         return {
-            "action": "build_house",
+            "action": "buy_house",
+            "player_id": self.cell_owner.id,
             "cell_id": self.cell_id,
-            "new_house_count": self.nb_houses,
-            "player_id": self.cell_owner.id
+            "number_of_house": self.nb_houses,
+            "current_rent": self.current_rent,
+            "delivery": "broadcast"
         }
 
     def can_sell_evenly(self, board: "GameBoard") -> bool:
@@ -76,11 +78,12 @@ class StreetCell(PropertyCell):
         refund = self.house_cost #// 2
         self.cell_owner.earn(refund)
         self.nb_houses -= 1
-        current_rent = self.initial_rent + self.nb_houses * self.house_cost
+        self.current_rent = self.initial_rent + self.nb_houses * self.house_cost
         return {
             "action": "sell_house",
-            "cell_id": self.cell_id,
-            "new_house_count": self.nb_houses,
             "player_id": self.cell_owner.id,
-            "refund": refund
+            "cell_id": self.cell_id,
+            "number_of_house": self.nb_houses,
+            "current_rent": self.current_rent,
+            "delivery": "broadcast"
         }

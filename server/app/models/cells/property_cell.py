@@ -21,19 +21,6 @@ class PropertyCell(Cell):
             return self.pay_rent(player)
         return {"action": "nothing", "delivery": "broadcast"}
 
-    def buy_property(self, player: Player) -> dict:
-        if player.pay(self.price):
-            self.cell_owner = player
-            player.properties.append(self)
-            return {
-                "action": "buy_property",
-                "player_id": player.id,
-                "cell_id": self.cell_id,
-                "price": self.price,
-                "delivery": "broadcast"
-            }
-        return {"action": "error", "message": "Insufficient funds", "delivery": "personal"}
-
     def pay_rent(self, player: Player) -> dict:
         if player.pay(self.current_rent):
             self.cell_owner.earn(self.current_rent)

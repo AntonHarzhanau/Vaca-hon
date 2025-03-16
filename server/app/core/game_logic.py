@@ -18,6 +18,19 @@ class GameLogic:
             "dice2": dice2,
         }
 
+    def next_turn(self) -> int:
+        if not self.players:
+            return 0
+        player_ids = sorted(self.players.keys())
+        if self.current_turn_player_id not in player_ids:
+            self.current_turn_player_id = player_ids[0]
+            return self.current_turn_player_id
+
+        current_index = player_ids.index(self.current_turn_player_id)
+        next_index = (current_index + 1) % len(player_ids)
+        self.current_turn_player_id = player_ids[next_index]
+        return self.current_turn_player_id
+
     def move_player(self, player_id: int, steps: int) -> dict:
         player = self.players[player_id]
         move_data = player.move(steps)
@@ -33,24 +46,37 @@ class GameLogic:
 
     def buy_property(self, player_id: int) -> dict:
         player = self.players[player_id]
-        cell = self.board.get_cell(player.current_position)
-        if cell and hasattr(cell, "buy_property"):
-            return cell.buy_property(player)
-        return {"action": "error", "message": "This cell is not a property"}
+        cell = self.board.get_cell(player.current_position) 
+        return player.buy_property(cell)
+   
 
     def sell_property(self, player_id: int, cell_id: int) -> dict:
+        house_counter: int = 0
+        cell = self.board.get_cell(cell_id)
         player = self.players[player_id]
+        if type(cell).__name__ == "StreetCell" and cell.has_monopoly(self.board):
+            for street in player.properties:
+                if type(street).__name__ == "StreetCell" and street.group_color == cell.group_color:
+                    house_counter += street.nb_houses
+        if house_counter > 0:
+            return {"action": "error", "message": "First, sell all the houses in your monopoly."}
         return player.sell_property(cell_id)
+    
+    def buy_house(self, player_id: int, cell_id: int):
+        player = self.players[player_id]
+        cell = player.get_property(cell_id)
+        
+        if cell:
+            return cell.buy_house(self.board)
+        else:
+            return {"action": "error", "message": "Cell not found"}
+        
 
-    def next_turn(self) -> int:
-        if not self.players:
-            return 0
-        player_ids = sorted(self.players.keys())
-        if self.current_turn_player_id not in player_ids:
-            self.current_turn_player_id = player_ids[0]
-            return self.current_turn_player_id
-
-        current_index = player_ids.index(self.current_turn_player_id)
-        next_index = (current_index + 1) % len(player_ids)
-        self.current_turn_player_id = player_ids[next_index]
-        return self.current_turn_player_id
+    def sell_house(self, player_id: int, cell_id: int):
+        player = self.players[player_id]
+        cell = player.get_property(cell_id)
+        
+        if cell:
+            return cell.sell_house(self.board)
+        else:
+            return {"action": "error", "message": "Cell not found"}

@@ -7,7 +7,7 @@ extends Node
 # Local data
 var current_player_id: int = -1
 var players:Dictionary[int, Player]= {}
-var cells:Array[Node] = []
+var cells:Array[Cell] = []
 var id_player_at_turn: int = 0
 
 func _ready() -> void:
@@ -31,6 +31,8 @@ func _ready() -> void:
 	msg_handler.buy_property.connect(_on_buy_property)
 	msg_handler.sell_property.connect(_on_sell_property)
 	msg_handler.pay_rent.connect(_on_pay_rent)
+	msg_handler.buy_house.connect(_on_buy_house)
+	msg_handler.sell_house.connect(_on_sell_house)
 
 func _on_your_id(player_id: int) -> void:
 	current_player_id = player_id
@@ -39,37 +41,31 @@ func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
 		var new_player = board.add_player(i)
 		players[new_player.id] = new_player
-		new_player.connect("set_money", _on_money_update)
+		new_player.state_changed.connect(_on_player_state_changed)
 		if new_player.id == current_player_id:
-			ui.update_main_player_hub(new_player.player_name, new_player.money,new_player.properties)
+			ui.create_main_player_hub(new_player)
 		else:
-			ui.create_guest_hub(new_player.id, new_player.player_name, new_player.money)
+			ui.create_guest_hub(new_player)
 
 func _on_player_disconnected(player_id:int):
 	ui._on_player_disconnected(player_id)
 	players[player_id].queue_free()
 	players.erase(player_id)
 	
-func _on_money_update(player_id:int, player_name:String, money:int, properties:Array[Cell]):
-	if player_id == current_player_id:
-		ui.update_main_player_hub(player_name, money, properties)
-	ui.update_guest_hub(player_id, player_name, money)
+func _on_player_state_changed(player:Player):
+	ui.update_hubs(player, current_player_id)
 
 func _on_move_player(player_id: int, steps: int) -> void:
 	var player = players[player_id]
 	player.move(cells, steps)
-	if player_id == current_player_id:
-		ui.update_main_player_hub(player.player_name, player.money,player.properties)
-
 
 func _on_offer_to_buy(cell_id:int, cell_name:int, price:int, player_id:int) -> void:
 	if player_id == current_player_id:
 		ui._on_offre_to_buy(cell_id, cell_name, price)
-		pass
 
 func _on_buy_property(player_id:int, cell_id: int, _price: int) -> void:
 	var player = players[player_id]
-	cells[cell_id].buy_property(player)
+	players[player_id].buy_property(cells[cell_id])
 	if player_id == current_player_id:
 		ui._on_buy_property(player.player_name, player.money, player.properties)
 
@@ -78,11 +74,17 @@ func _on_sell_property(player_id: int, cell_id: int, price:int) -> void:
 	player.sell_property(cell_id, price)
 	var money = player.money
 	var properties = player.properties
-	if player_id == current_player_id:
-		ui.update_main_player_hub(player.player_name, player.money,player.properties)
+
 func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
-	players[player_id]._set_money(players[player_id].money - rent)
-	players[cell_owner_id]._set_money(players[cell_owner_id].money + rent)
+	players[player_id].pay(rent)
+	players[cell_owner_id].earn(rent)
+
+func _on_buy_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
+	cells[cell_id].buy_house(num_of_house, current_rent)
+
+func _on_sell_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
+	cells[cell_id].sell_house(num_of_house, current_rent)
+
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game

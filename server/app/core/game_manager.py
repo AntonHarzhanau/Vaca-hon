@@ -17,6 +17,8 @@ class GameManager:
             "cell_activate": self.handle_cell_activate,
             "accepted_offer": self.handle_accepted_offer,
             "sell_property": self.handle_sell_property,
+            "buy_house" : self.handle_buy_house,
+            "sell_house":self.handle_sell_house,
         }
 
     def process_action(self, player_id: int, data: dict) -> dict:
@@ -51,4 +53,11 @@ class GameManager:
     def handle_sell_property(self, player_id: int, data: dict) -> dict:
         cell_id = data.get("cell_id")
         return self.logic.sell_property(player_id, cell_id)
-
+    
+    def handle_buy_house(self, player_id: int, data: dict) ->dict:
+        cell = data.get("cell_id")
+        return self.logic.buy_house(player_id=player_id, cell_id=cell)
+    
+    def handle_sell_house(self, player_id: int, data: dict) ->dict:
+        cell = data.get("cell_id")
+        return self.logic.sell_house(player_id=player_id, cell_id=cell)
