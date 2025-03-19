@@ -3,6 +3,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from app.core.connection_manager import ConnectionManager
 from app.core.handlers import GameHandler
 from app.core.game_manager import GameManager
+from app.routes.lobby_routes import router as lobby_router
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -14,6 +15,9 @@ app = FastAPI()
 manager = ConnectionManager()
 game_manager = GameManager(manager.players)
 game_handler = GameHandler(game_manager, manager)
+
+# Include routes
+app.include_router(lobby_router)
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
