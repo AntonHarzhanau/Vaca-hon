@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_tve6c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fk6sx"]
-load_path = "res://.godot/imported/train.png-95361e61a040defc1cafc874ed485efe.ctex"
+load_path = "res://.godot/imported/airport.png-98f87409e80d3e9c02e7564c93f6881b.ctex"
 
 [node name="RailWayCell" instance=ExtResource("1_tve6c")]
 script = ExtResource("1_6efgo")
@@ -27,5 +27,5 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(55.5, 48)
+pivot_offset = Vector2(55.5, 50)
 texture = SubResource("CompressedTexture2D_fk6sx")

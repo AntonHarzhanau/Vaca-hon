@@ -4,7 +4,7 @@
 		"type": "Сorner"
 	},
 	{
-		"name": "street1",
+		"name": "Mashhad",
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
@@ -13,11 +13,11 @@
 		"house": 50
 	},
 	{
-		"name": "Chance",
+		"name": "community Chest",
 		"type": "Event"
 	},
 	{
-		"name": "Street2",
+		"name": "Tehran",
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
@@ -26,17 +26,17 @@
 		"house": 50
 	},
 	{
-		"name": "Income Tax",
+		"name": "Schengen Area Entry Tax",
 		"type": "Event"
 	},
 	{
-		"name": "Railroad1",
+		"name": "Ivato International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200
 	},
 	{
-		"name": "Street3",
+		"name": "Antsirabe",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -49,7 +49,7 @@
 		"type": "Event"
 	},
 	{
-		"name": "Street4",
+		"name": "Toamasina",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -58,7 +58,7 @@
 		"house": 50
 	},
 	{
-		"name": "Street5",
+		"name": "Antananarivo",
 		"type": "Street",
 		"cost": 120,
 		"color": "BLUE",
@@ -71,7 +71,7 @@
 		"type": "Сorner"
 	},
 	{
-		"name": "Street6",
+		"name": "Mogilev",
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
@@ -80,13 +80,13 @@
 		"house": 100
 	},
 	{
-		"name": "Electric Company",
+		"name": "Castle",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150
 	},
 	{
-		"name": "Street7",
+		"name": "Gomel",
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
@@ -95,7 +95,7 @@
 		"house": 100
 	},
 	{
-		"name": "Street8",
+		"name": "Minsk",
 		"type": "Street",
 		"cost": 160,
 		"color": "RED",
@@ -104,13 +104,13 @@
 		"house": 100
 	},
 	{
-		"name": "Railroad2",
+		"name": "Cairo International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200
 	},
 	{
-		"name": "Street9",
+		"name": "Luxor",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -123,7 +123,7 @@
 		"type": "Event"
 	},
 	{
-		"name": "Street10",
+		"name": "Alexandria",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -132,7 +132,7 @@
 		"house": 100
 	},
 	{
-		"name": "Street11",
+		"name": "Cairo",
 		"type": "Street",
 		"cost": 200,
 		"color": "GREEN",
@@ -145,7 +145,7 @@
 		"type": "Сorner"
 	},
 	{
-		"name": "Street12",
+		"name": "Guangzhou",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -158,7 +158,7 @@
 		"type": "Event"
 	},
 	{
-		"name": "Street13",
+		"name": "Shanghai",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -167,7 +167,7 @@
 		"house": 150
 	},
 	{
-		"name": "Street14",
+		"name": "Beijing",
 		"type": "Street",
 		"cost": 240,
 		"color": "YELLOW",
@@ -176,13 +176,13 @@
 		"house": 150
 	},
 	{
-		"name": "Railroad3",
+		"name": "Lomé-Tokoin International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200
 	},
 	{
-		"name": "Street15",
+		"name": "Sokodé",
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
@@ -191,7 +191,7 @@
 		"house": 150
 	},
 	{
-		"name": "Street16",
+		"name": "Kara",
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
@@ -200,13 +200,13 @@
 		"house": 150
 	},
 	{
-		"name": "Water Works",
+		"name": "Museum",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150
 	},
 	{
-		"name": "Street17",
+		"name": "Lomé",
 		"type": "Street",
 		"cost": 280,
 		"color": "ORANGE",
@@ -219,7 +219,7 @@
 		"type": "Сorner"
 	},
 	{
-		"name": "Street18",
+		"name": "Constantine",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -228,7 +228,7 @@
 		"house": 200
 	},
 	{
-		"name": "Street19",
+		"name": "Oran",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -241,7 +241,7 @@
 		"type": "Event"
 	},
 	{
-		"name": "Street20",
+		"name": "Algiers",
 		"type": "Street",
 		"cost": 320,
 		"color": "PINK",
@@ -250,7 +250,7 @@
 		"house": 200
 	},
 	{
-		"name": "Railroad4",
+		"name": "Charles de Gaulle Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200
@@ -260,7 +260,7 @@
 		"type": "Event"
 	},
 	{
-		"name": "Street21",
+		"name": "Strasbourg",
 		"type": "Street",
 		"cost": 350,
 		"color": "PURPLE",
@@ -269,11 +269,11 @@
 		"house": 200
 	},
 	{
-		"name": "Luxury Tax",
+		"name": "Customs Tax",
 		"type": "Event"
 	},
 	{
-		"name": "Street22",
+		"name": "Paris",
 		"type": "Street",
 		"cost": 400,
 		"color": "PURPLE",

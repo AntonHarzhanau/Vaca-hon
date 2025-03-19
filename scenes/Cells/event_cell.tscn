@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv2mc4q2pe5uo"]
+[gd_scene load_steps=4 format=3 uid="uid://cv2mc4q2pe5uo"]
 
 [ext_resource type="PackedScene" uid="uid://c8k7vquofnos3" path="res://scenes/Cells/cell.tscn" id="1_xx5iv"]
 [ext_resource type="Script" uid="uid://cabc4xjyvdrnh" path="res://scripts/Cells/event_cell.gd" id="2_1vwc6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_15lyy"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
 
 [node name="EventCell" instance=ExtResource("1_xx5iv")]
 script = ExtResource("2_1vwc6")
@@ -24,3 +28,6 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(25, 25)
+
+[node name="Name" parent="BackGround" index="1"]
+label_settings = SubResource("LabelSettings_15lyy")
