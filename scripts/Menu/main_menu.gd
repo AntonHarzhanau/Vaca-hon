@@ -15,3 +15,6 @@ func _on_exit_pressed() -> void:
 func _on_test_pressed() -> void:
 	States.is_test = true
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+func _on_create_lobby_pressed() -> void:
+	print("Lobby creating")
