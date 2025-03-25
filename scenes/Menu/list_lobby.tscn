@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://ocn8wutajnsw"]
+
+[ext_resource type="Script" uid="uid://dcbe2afbrcp5b" path="res://scripts/Menu/list_lobby.gd" id="1_do55u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do55u"]
+bg_color = Color(0.873092, 0.166858, 0.192292, 1)
+
+[node name="ListLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_do55u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.100563, 0.187988, 0.268288, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 60.0
+offset_right = 156.0
+offset_bottom = 127.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Join a Lobby"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LobbyListPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_top = -482.0
+offset_right = 310.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BackToHome" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -80.0
+offset_right = 93.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_do55u")
+text = "Menu principal"
