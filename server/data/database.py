@@ -1,9 +1,10 @@
+from app.core.config import dotenv_config
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # URL de connexion à la base de données
-SQLALCHEMY_DATABASE_URL = "postgresql://monopoly:monopoly@127.0.0.1:9876/monopoly"
+SQLALCHEMY_DATABASE_URL = dotenv_config.DATABASE_URL
 
 #  5050 Pour le port
 

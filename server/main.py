@@ -3,6 +3,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from app.core.connection_manager import ConnectionManager
 from app.core.handlers import GameHandler
 from app.core.game_manager import GameManager
+from app.core.config import dotenv_config
 from app.routes.lobby_routes import router as lobby_router
 from data.database import create_tables, engine, Base
 import logging
@@ -10,7 +11,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("monopoly-server")
 
-app = FastAPI()
+app = FastAPI(root_path=dotenv_config.FASTAPI_ROOT_PATH)
 
 # Initialize the connection manager, game logic and event handler
 manager = ConnectionManager()
@@ -44,6 +45,6 @@ if __name__ == "__main__":
     uvicorn.run(
         "main:app",        
         host="0.0.0.0",
-        port=8000,
+        port=dotenv_config.FASTAPI_PORT,
         reload=True            # Auto-reload mode
     )
