@@ -2,11 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
-
-
 # URL de connexion à la base de données
-SQLALCHEMY_DATABASE_URL = "postgresql://Admin:Delphine4@localhost:5432/monopoly_db"
+SQLALCHEMY_DATABASE_URL = "postgresql://monopoly:monopoly@127.0.0.1:9876/monopoly"
 
 #  5050 Pour le port
 
@@ -28,10 +25,13 @@ Base = declarative_base()
 
 # Créer les tables dans la base de données
 def create_tables():
-    from models import Cell
-    from models import Player
-    from models import PropertyCell
+    # from app.models import Cell
+    # from app.models import Player
+    # from app.models import PropertyCell
+    from app.models.user import User
+    from app.models.lobby import Lobby
     Base.metadata.create_all(bind=engine)
+
 # Fonction pour récupérer la session de la base de données
 def get_db():
     db = SessionLocal()

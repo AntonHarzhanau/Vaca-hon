@@ -192,6 +192,7 @@ class UtilityCell(UtilityCellBase):
         orm_mode = True
 
 
+# Schemas for Lobby
 class LobbyCreate(BaseModel):
     nb_player_max: int = 4
     time_sec: int = 1800
@@ -199,12 +200,12 @@ class LobbyCreate(BaseModel):
     secret: str = ""
 
 class LobbyRead(BaseModel):
-    id: uuid.UUID
+    id: int
     nb_player_max: int = 4
     time_sec: int = 1800
     player_turn: str | None
     players: list[str]
-    owner_id: uuid.UUID
+    owner_id: int
     is_active: bool
     created_at: datetime
     last_action_at: datetime | None

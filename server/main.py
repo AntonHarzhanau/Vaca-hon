@@ -4,6 +4,7 @@ from app.core.connection_manager import ConnectionManager
 from app.core.handlers import GameHandler
 from app.core.game_manager import GameManager
 from app.routes.lobby_routes import router as lobby_router
+from data.database import create_tables, engine, Base
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -18,6 +19,11 @@ game_handler = GameHandler(game_manager, manager)
 
 # Include routes
 app.include_router(lobby_router)
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
+create_tables()
+
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

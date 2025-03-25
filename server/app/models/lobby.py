@@ -4,20 +4,20 @@ from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 from sqlalchemy.dialects.postgresql import UUID
-from data.database.Base import Base
+from data.database import Base
 
 class Lobby(Base):
     __tablename__ = 'lobbies'
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     nb_player_max: Mapped[int] = mapped_column(Integer, default=4, nullable=False)
     time_sec: Mapped[int] = mapped_column(Integer, default=1800, nullable=False)
-    player_turn: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id"), nullable=True)
+    player_turn: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=True)
     players: Mapped[list[str]] = mapped_column(JSON, nullable=False, default=list)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     is_private: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     secret: Mapped[str] = mapped_column(String, nullable=True)
-    owner_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("users.id"), nullable=False)
+    owner_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
