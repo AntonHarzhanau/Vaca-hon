@@ -2,6 +2,7 @@ extends Node2D
 class_name Player
 signal state_changed()
 
+var colors = ["RED", "YELLOW", "BROWN"]
 var id: int
 var player_name: String
 var money: int  = 0
@@ -11,6 +12,7 @@ var nb_railway: int = 0
 var nb_utility: int = 0
 var timer_turn: int = 0
 var properties:Array[PropertyCell] = []
+var player_color:Color = colors[id]
 	
 # player movement across the field cell by cell
 func move(cells_list:Array[Cell], next_position: int):
@@ -30,11 +32,14 @@ func buy_property(cell: PropertyCell) -> void:
 	properties.append(cell)
 	money -= cell.price
 	emit_signal("state_changed", self)
+	cell.prop_lable.color = player_color
+	cell.prop_lable.visible = true
 
 func sell_property(property_id: int, price: int):
 	for i in properties:
 		if i.id_space == property_id:
 			i.cell_owner = null
+			i.prop_lable.visible = false
 			money += price
 			properties.erase(i)
 			emit_signal("state_changed", self)

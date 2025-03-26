@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv2mc4q2pe5uo"]
+[gd_scene load_steps=5 format=3 uid="uid://cv2mc4q2pe5uo"]
 
 [ext_resource type="PackedScene" uid="uid://c8k7vquofnos3" path="res://scenes/Cells/cell.tscn" id="1_xx5iv"]
 [ext_resource type="Script" uid="uid://cabc4xjyvdrnh" path="res://scripts/Cells/event_cell.gd" id="2_1vwc6"]
@@ -7,11 +7,24 @@
 font_size = 14
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15lyy"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
 [node name="Event cell" instance=ExtResource("1_xx5iv")]
 script = ExtResource("2_1vwc6")
 image = null
 
 [node name="BackGround" parent="." index="0"]
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 60.0
+offset_bottom = 75.0
 color = Color(1, 0.841722, 0.800595, 1)
 
 [node name="Image" type="TextureRect" parent="BackGround" index="0"]
@@ -36,3 +49,17 @@ offset_right = 50.0
 offset_bottom = 36.0
 pivot_offset = Vector2(50, 13.5)
 label_settings = SubResource("LabelSettings_15lyy")
+
+[node name="Panel" type="Panel" parent="." index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 60.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15lyy")
