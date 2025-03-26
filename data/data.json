@@ -14,9 +14,9 @@
 		"house": 50
 	},
 	{
-		"name": "Community Chest",
+		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Community Chest.png"
+		"texture": "res://assets/passport.png"
 	},
 	{
 		"name": "Tehran",
@@ -37,7 +37,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/airport.png"
+		"texture": "res://assets/Railroad/Station1.png"
 	},
 	{
 		"name": "Antsirabe",
@@ -49,9 +49,9 @@
 		"house": 50
 	},
 	{
-		"name": "Chance",
+		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Question Mark Pink.png"
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
 		"name": "Toamasina",
@@ -74,7 +74,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/In Jail Corner.png"
+		"texture": "res://assets/Corners/Corner2.png"
 	},
 	{
 		"name": "Mogilev",
@@ -115,7 +115,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/airport.png"
+		"texture": "res://assets/Railroad/Station2.png"
 	},
 	{
 		"name": "Luxor",
@@ -127,9 +127,9 @@
 		"house": 100
 	},
 	{
-		"name": "Community Chest",
+		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Community Chest.png"	},
+		"texture": "res://assets/passport.png"	},
 	{
 		"name": "Alexandria",
 		"type": "Street",
@@ -151,7 +151,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Free Parking Corner.png"
+		"texture": "res://assets/Corners/Corner3.png"
 	},
 	{
 		"name": "Guangzhou",
@@ -163,9 +163,9 @@
 		"house": 150
 	},
 	{
-		"name": "Chance",
+		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Question Mark Blue.png"
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
 		"name": "Shanghai",
@@ -190,7 +190,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/airport.png"
+		"texture": "res://assets/Railroad/Station3.png"
 	},
 	{
 		"name": "Sokodé",
@@ -229,7 +229,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Go to Jail Corner.png"
+		"texture": "res://assets/Corners/Corner4.png"
 	},
 	{
 		"name": "Constantine",
@@ -250,9 +250,9 @@
 		"house": 200
 	},
 	{
-		"name": "Community Chest",
+		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Community Chest.png"
+		"texture": "res://assets/passport.png"
 	},
 	{
 		"name": "Algiers",
@@ -268,12 +268,12 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/airport.png"
+		"texture": "res://assets/Railroad/Station4.png"
 	},
 	{
-		"name": "Chance",
+		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/Question Mark Orange.png"
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
 		"name": "Strasbourg",

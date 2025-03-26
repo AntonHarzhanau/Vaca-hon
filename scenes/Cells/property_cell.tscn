@@ -29,6 +29,7 @@ offset_left = -60.0
 offset_top = -75.0
 offset_right = 60.0
 offset_bottom = 75.0
+pivot_offset = Vector2(60, 75)
 color = Color(1, 0.918596, 0.94723, 1)
 
 [node name="Name" parent="BackGround" index="0"]
