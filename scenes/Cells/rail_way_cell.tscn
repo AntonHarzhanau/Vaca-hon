@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://gvvcxljnlfij"]
+[gd_scene load_steps=3 format=3 uid="uid://gvvcxljnlfij"]
 
 [ext_resource type="Script" uid="uid://wrl53xpl5vm2" path="res://scripts/Cells/rail_way_cell.gd" id="1_6efgo"]
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_tve6c"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fk6sx"]
-load_path = "res://.godot/imported/airport.png-98f87409e80d3e9c02e7564c93f6881b.ctex"
 
 [node name="RailWayCell" instance=ExtResource("1_tve6c")]
 script = ExtResource("1_6efgo")
@@ -12,20 +9,15 @@ script = ExtResource("1_6efgo")
 [node name="BackGround" parent="." index="0"]
 color = Color(0.800853, 0.964281, 1, 1)
 
-[node name="Image" type="TextureRect" parent="BackGround" index="1"]
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = -48.0
-offset_right = 55.5
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(55.5, 50)
-texture = SubResource("CompressedTexture2D_fk6sx")
+[node name="Name" parent="BackGround" index="0"]
+offset_left = -47.0
+offset_right = 45.0
+offset_bottom = 27.0
+pivot_offset = Vector2(46, 13.5)
+
+[node name="TextureRect" type="TextureRect" parent="BackGround" index="2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 64.0
+offset_right = 84.0
+offset_bottom = 119.0

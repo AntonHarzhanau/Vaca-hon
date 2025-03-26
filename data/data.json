@@ -1,7 +1,8 @@
 [
 	{
-		"name": "Start",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Start Corner.png"
 	},
 	{
 		"name": "Mashhad",
@@ -13,8 +14,9 @@
 		"house": 50
 	},
 	{
-		"name": "community Chest",
-		"type": "Event"
+		"name": "Community Chest",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Community Chest.png"
 	},
 	{
 		"name": "Tehran",
@@ -27,13 +29,15 @@
 	},
 	{
 		"name": "Schengen Area Entry Tax",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/schengen.png"
 	},
 	{
 		"name": "Ivato International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Antsirabe",
@@ -46,7 +50,8 @@
 	},
 	{
 		"name": "Chance",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Question Mark Pink.png"
 	},
 	{
 		"name": "Toamasina",
@@ -67,8 +72,9 @@
 		"house": 50
 	},
 	{
-		"name": "Jail",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/In Jail Corner.png"
 	},
 	{
 		"name": "Mogilev",
@@ -83,7 +89,8 @@
 		"name": "Castle",
 		"type": "Utility",
 		"rent": 10,
-		"cost": 150
+		"cost": 150,
+		"texture": "res://assets/Utility/castle.png"
 	},
 	{
 		"name": "Gomel",
@@ -107,7 +114,8 @@
 		"name": "Cairo International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Luxor",
@@ -120,8 +128,8 @@
 	},
 	{
 		"name": "Community Chest",
-		"type": "Event"
-	},
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Community Chest.png"	},
 	{
 		"name": "Alexandria",
 		"type": "Street",
@@ -141,8 +149,9 @@
 		"house": 100
 	},
 	{
-		"name": "Free Parking",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Free Parking Corner.png"
 	},
 	{
 		"name": "Guangzhou",
@@ -155,7 +164,8 @@
 	},
 	{
 		"name": "Chance",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Question Mark Blue.png"
 	},
 	{
 		"name": "Shanghai",
@@ -179,7 +189,8 @@
 		"name": "Lomé-Tokoin International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Sokodé",
@@ -203,7 +214,8 @@
 		"name": "Museum",
 		"type": "Utility",
 		"rent": 10,
-		"cost": 150
+		"cost": 150,
+		"texture": "res://assets/Utility/museum.png"
 	},
 	{
 		"name": "Lomé",
@@ -215,8 +227,9 @@
 		"house": 150
 	},
 	{
-		"name": "Go To Jail",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Go to Jail Corner.png"
 	},
 	{
 		"name": "Constantine",
@@ -238,7 +251,8 @@
 	},
 	{
 		"name": "Community Chest",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Community Chest.png"
 	},
 	{
 		"name": "Algiers",
@@ -253,11 +267,13 @@
 		"name": "Charles de Gaulle Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Chance",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/Question Mark Orange.png"
 	},
 	{
 		"name": "Strasbourg",
@@ -270,7 +286,8 @@
 	},
 	{
 		"name": "Customs Tax",
-		"type": "Event"
+		"type": "Event",
+		"texture": "res://assets/Event Cells/tax.png"
 	},
 	{
 		"name": "Paris",

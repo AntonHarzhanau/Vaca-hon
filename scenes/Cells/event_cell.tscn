@@ -7,9 +7,9 @@
 font_size = 14
 font_color = Color(0, 0, 0, 1)
 
-[node name="EventCell" instance=ExtResource("1_xx5iv")]
+[node name="Event cell" instance=ExtResource("1_xx5iv")]
 script = ExtResource("2_1vwc6")
-texture = null
+image = null
 
 [node name="BackGround" parent="." index="0"]
 color = Color(1, 0.841722, 0.800595, 1)
@@ -21,13 +21,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = -27.0
+offset_top = -11.0
+offset_right = 28.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(25, 25)
+pivot_offset = Vector2(27.5, 27.5)
 
 [node name="Name" parent="BackGround" index="1"]
+offset_left = -50.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 36.0
+pivot_offset = Vector2(50, 13.5)
 label_settings = SubResource("LabelSettings_15lyy")
