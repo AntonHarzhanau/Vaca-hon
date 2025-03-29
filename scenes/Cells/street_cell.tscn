@@ -19,7 +19,6 @@ script = ExtResource("2_2uyr2")
 group_color = null
 
 [node name="BackGround" parent="." index="0"]
-pivot_offset = Vector2(60, 75)
 theme = SubResource("Theme_bfbtl")
 color = Color(0.85098, 0.909804, 0.839216, 1)
 

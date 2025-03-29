@@ -13,9 +13,5 @@ script = ExtResource("1_lbhrr")
 [node name="Message_handler" parent="." instance=ExtResource("1_lnu2h")]
 
 [node name="GameBoard" parent="." instance=ExtResource("3_iywne")]
-offset_left = -312.0
-offset_top = -487.0
-offset_right = 288.0
-offset_bottom = 113.0
 
 [connection signal="accept_offer_clicked" from="UI" to="." method="_on_ui_accept_offer_clicked"]

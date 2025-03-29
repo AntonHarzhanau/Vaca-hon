@@ -8,7 +8,6 @@ script = ExtResource("2_rytch")
 image = null
 
 [node name="BackGround" parent="." index="0"]
-pivot_offset = Vector2(60, 75)
 color = Color(0.775583, 0.997425, 0.853691, 1)
 
 [node name="TextureRect" type="TextureRect" parent="BackGround" index="2"]

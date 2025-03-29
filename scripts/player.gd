@@ -29,8 +29,6 @@ func move(cells_list:Array[Cell], next_position: int):
 func buy_property(cell: PropertyCell, price:int, current_rent:int) -> void:
 	cell.buy_property(self, current_rent)
 	emit_signal("state_changed", self)
-	cell.prop_lable.color = player_color
-	cell.prop_lable.visible = true
 
 func sell_property(property_id: int, price: int, current_rent:int):
 	for i in properties:

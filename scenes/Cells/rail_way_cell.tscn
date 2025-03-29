@@ -28,7 +28,7 @@ offset_right = 60.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(28, 27.5)
+pivot_offset = Vector2(60, 75)
 stretch_mode = 6
 
 [node name="Panel" parent="." index="2"]

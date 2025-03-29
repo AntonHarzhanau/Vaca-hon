@@ -3,7 +3,7 @@ extends Cell
 class_name PropertyCell
 signal property_changed
 @onready var label_cost: Label = $BackGround/Cost
-@onready var player_lable:ColorRect = $ColorRect
+@onready var player_lable:ColorRect = $PlayerLable
 
 @export var price: int
 var cell_owner: Player = null: set = owner_change

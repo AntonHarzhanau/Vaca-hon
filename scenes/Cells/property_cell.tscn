@@ -53,7 +53,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_mb3cv")
 horizontal_alignment = 1
 
-[node name="proplabel" type="ColorRect" parent="." index="1"]
+[node name="PlayerLable" type="ColorRect" parent="." index="1"]
 visible = false
 offset_left = -50.0
 offset_top = 59.0
