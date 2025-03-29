@@ -9,6 +9,7 @@ var current_player_id: int = -1
 var players:Dictionary[int, Player]= {}
 var cells:Array[Cell] = []
 var id_player_at_turn: int = 0
+var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
 func _ready() -> void:
 	# Subscribing GameManager to network signals
@@ -40,6 +41,7 @@ func _on_your_id(player_id: int) -> void:
 func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
 		var new_player = board.add_player(i)
+		new_player.player_color = colors[new_player.id]
 		players[new_player.id] = new_player
 		new_player.state_changed.connect(_on_player_state_changed)
 		if new_player.id == current_player_id:
@@ -63,15 +65,13 @@ func _on_offer_to_buy(cell_id:int, cell_name:int, price:int, player_id:int) -> v
 	if player_id == current_player_id:
 		ui._on_offre_to_buy(cell_id, cell_name, price)
 
-func _on_buy_property(player_id:int, cell_id: int, _price: int) -> void:
+func _on_buy_property(player_id:int, cell_id: int, _price: int, current_rent:int) -> void:
 	var player = players[player_id]
-	players[player_id].buy_property(cells[cell_id])
-	if player_id == current_player_id:
-		ui._on_buy_property(player.player_name, player.money, player.properties)
+	players[player_id].buy_property(cells[cell_id], _price, current_rent)
 
-func _on_sell_property(player_id: int, cell_id: int, price:int) -> void:
+func _on_sell_property(player_id: int, cell_id: int, _price:int, current_rent:int) -> void:
 	var player = players[player_id]
-	player.sell_property(cell_id, price)
+	player.sell_property(cell_id, _price, current_rent)
 	var money = player.money
 	var properties = player.properties
 

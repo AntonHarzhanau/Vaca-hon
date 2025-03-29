@@ -4,7 +4,7 @@
 		"type": "Сorner"
 	},
 	{
-		"name": "street1",
+		"name": "Street1",
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",

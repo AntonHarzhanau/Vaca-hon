@@ -2,7 +2,7 @@ from typing import List, TYPE_CHECKING
 from pydantic import BaseModel, Field
 
 if TYPE_CHECKING:
-    from app.models.cells.cell import PropertyCell
+    from app.models.cells.property_cell import PropertyCell
 
 class Player(BaseModel):
     id: int
@@ -45,29 +45,4 @@ class Player(BaseModel):
         self.money += amount
 
 
-    def buy_property(self, property: "PropertyCell") -> dict:
-        if self.pay(property.price):
-            property.cell_owner = self
-            self.properties.append(property)
-            return {
-                "action": "buy_property",
-                "player_id": self.id,
-                "cell_id": property.cell_id,
-                "price": property.price,
-                "delivery": "broadcast"
-            }
-        return {"action": "error", "message": "Insufficient funds", "delivery": "personal"}
     
-    def sell_property(self, cell_id: int) -> dict:
-        for prop in self.properties:
-            if prop.cell_id == cell_id:
-                self.earn(prop.price)
-                prop.cell_owner = None
-                self.properties.remove(prop)
-                return {
-                    "action": "sell_property",
-                    "player_id": self.id,
-                    "cell_id": cell_id,
-                    "price": prop.price
-                }
-        return {"action": "error", "message": "No such property owned"}

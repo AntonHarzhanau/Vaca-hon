@@ -10,9 +10,9 @@ script = ExtResource("1_nt7q6")
 
 [node name="Dice" parent="." instance=ExtResource("3_wm3ai")]
 offset_left = 64.0
-offset_top = 187.0
+offset_top = -63.0
 offset_right = 434.0
-offset_bottom = 387.0
+offset_bottom = 137.0
 
 [node name="PopUpOffre" parent="." instance=ExtResource("4_8dubc")]
 visible = false
@@ -23,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -215.0
-offset_top = -252.0
-offset_right = -65.0
-offset_bottom = -197.0
+offset_left = -210.0
+offset_top = -652.0
+offset_right = -60.0
+offset_bottom = -582.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "End Turn"
@@ -40,7 +40,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Player's turn: "
+text = "Player's turn: 0"
 
 [node name="GuestHubContainer" type="VBoxContainer" parent="."]
 anchors_preset = 1
@@ -53,5 +53,15 @@ grow_horizontal = 0
 
 [node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
 
+[node name="MenuBtn" type="Button" parent="."]
+anchors_preset = -1
+anchor_right = 0.022
+offset_left = 22.0
+offset_top = 1054.0
+offset_right = 230.6
+offset_bottom = 1110.0
+text = "menu"
+
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="accept_offer_clicked" from="PopUpOffre" to="." method="_on_pop_up_offre_accept_offer_clicked"]
+[connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]

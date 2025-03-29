@@ -11,6 +11,7 @@ var nb_railway: int = 0
 var nb_utility: int = 0
 var timer_turn: int = 0
 var properties:Array[PropertyCell] = []
+var player_color: Color
 	
 # player movement across the field cell by cell
 func move(cells_list:Array[Cell], next_position: int):
@@ -25,19 +26,16 @@ func move(cells_list:Array[Cell], next_position: int):
 	var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}
 	WebSocketClient.send_message(JSON.stringify(message))
 
-func buy_property(cell: PropertyCell) -> void:
-	cell.cell_owner = self
-	properties.append(cell)
-	money -= cell.price
+func buy_property(cell: PropertyCell, price:int, current_rent:int) -> void:
+	cell.buy_property(self, current_rent)
 	emit_signal("state_changed", self)
 
-func sell_property(property_id: int, price: int):
+func sell_property(property_id: int, price: int, current_rent:int):
 	for i in properties:
 		if i.id_space == property_id:
-			i.cell_owner = null
-			money += price
-			properties.erase(i)
+			i.sell_property(self, current_rent)
 			emit_signal("state_changed", self)
+
 func get_property(cell_id:int):
 	for prop in properties:
 		if prop.id_space == cell_id:

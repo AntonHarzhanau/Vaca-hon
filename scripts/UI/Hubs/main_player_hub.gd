@@ -1,10 +1,11 @@
+@tool
 extends BaseHub
 class_name MainPlayerHub
 
 const PROPERTY_CARD = preload("res://scenes/UI/Popups/PropertyCard.tscn")
 @onready var properties_container: VBoxContainer= $VBoxContainer/PropertyContainer
 
-signal sell_property_clicked(cell_id: int)
+#signal sell_property_clicked(cell_id: int)
 
 func set_player(player:Player):
 	super.set_player(player)

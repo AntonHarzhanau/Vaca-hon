@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name Dice
 # Signal transmitting the result of the throw

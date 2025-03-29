@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import List, TYPE_CHECKING
 from app.models.cells.property_cell import PropertyCell
+from app.models.player import Player
 
 if TYPE_CHECKING:
     from app.models.game_board import GameBoard
@@ -12,13 +13,24 @@ class StreetCell(PropertyCell):
     nb_houses: int = 0
     house_cost: int = 0
 
+    def pay_rent(self, player: Player) -> dict:
+            if player.pay(self.current_rent):
+                self.cell_owner.earn(self.current_rent)
+                return {
+                    "action": "pay_rent",
+                    "player_id": player.id,
+                    "cell_owner_id": self.cell_owner.id,
+                    "rent": self.current_rent,
+                    "delivery": "broadcast"
+                }
+
     def has_monopoly(self, board: "GameBoard") -> bool:
         """
         Checks if the owner has collected all streets of the given group.
         """
         if self.cell_owner is None:
             return False
-        # Получаем список ячеек из словаря групп, где ключ — group_color.
+       
         group_cells: List[StreetCell] = board.groups.get(self.group_color, [])
         return all(cell.cell_owner == self.cell_owner for cell in group_cells)
 

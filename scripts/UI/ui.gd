@@ -1,9 +1,11 @@
+@tool
 extends CanvasLayer 
 class_name UI
 signal end_turn_clicked
 signal move_player_requested(steps)
 signal accept_offer_clicked
 signal sell_property_clicked(cell_id)
+signal end_game
 
 const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var dice:Dice = $Dice
@@ -38,7 +40,6 @@ func create_guest_hub(player:Player):
 	guest_hub.update_hub()
 
 func update_hubs(player:Player, current_player_id):
-	print("hear")
 	if player.id == current_player_id:
 		main_player_hub.update_hub()
 	else:
@@ -64,3 +65,8 @@ func _on_end_turn_button_pressed():
 
 func _on_pop_up_offre_accept_offer_clicked() -> void:
 	emit_signal("accept_offer_clicked")
+
+
+func _on_menu_btn_pressed() -> void:
+	#emit_signal("end_game")
+	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")

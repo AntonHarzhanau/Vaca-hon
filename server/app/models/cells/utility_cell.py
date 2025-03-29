@@ -1,0 +1,38 @@
+from app.models.cells.property_cell import PropertyCell
+from app.models.player import Player
+
+class UtilityCell(PropertyCell):
+    
+    def buy_property(self, player):
+        player.nb_railway += 1
+        self.current_rent = self.initial_rent * player.nb_railway
+        result = super().buy_property(player)
+        for railway in player.properties:
+            if isinstance(railway, UtilityCell):
+                railway.current_rent = railway.initial_rent * player.nb_railway
+        return result
+    
+    def sell_property(self, player):
+        player.nb_railway -= 1
+        self.current_rent = self.initial_rent * player.nb_railway
+        result = super().sell_property(player)
+        for railway in player.properties:
+            if isinstance(railway, UtilityCell):
+                railway.current_rent = railway.initial_rent * player.nb_railway
+        return result
+    
+    def pay_rent(self, player: Player) -> dict:
+        if player.pay(self.current_rent):
+            self.cell_owner.earn(self.current_rent)
+            return {
+                "action": "pay_rent",
+                "player_id": player.id,
+                "cell_owner_id": self.cell_owner.id,
+                "rent": self.current_rent,
+                "delivery": "broadcast"
+            }
+            
+    def calculate_rent(self):
+        # Calculate rent based on the number of utilities owned by the player and result of the dice roll
+        #TODO: implement this function
+        pass

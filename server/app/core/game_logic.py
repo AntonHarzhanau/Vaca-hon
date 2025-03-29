@@ -39,28 +39,25 @@ class GameLogic:
     def cell_action(self, player_id: int) -> dict:
         player = self.players[player_id]
         current_cell_id = player.current_position
-        cell = self.board.get_cell(current_cell_id)
-        if cell:
-            return cell.activate(player)
-        return {"action": "error", "message": "Cell not found"}
+        return self.board.cells[current_cell_id].activate(player)
 
     def buy_property(self, player_id: int) -> dict:
         player = self.players[player_id]
         cell = self.board.get_cell(player.current_position) 
-        return player.buy_property(cell)
+        return cell.buy_property(player)
    
 
     def sell_property(self, player_id: int, cell_id: int) -> dict:
         house_counter: int = 0
-        cell = self.board.get_cell(cell_id)
-        player = self.players[player_id]
+        cell = self.board.cells[cell_id]
+        player = cell.cell_owner
         if type(cell).__name__ == "StreetCell" and cell.has_monopoly(self.board):
             for street in player.properties:
                 if type(street).__name__ == "StreetCell" and street.group_color == cell.group_color:
                     house_counter += street.nb_houses
         if house_counter > 0:
             return {"action": "error", "message": "First, sell all the houses in your monopoly."}
-        return player.sell_property(cell_id)
+        return cell.sell_property(player)
     
     def buy_house(self, player_id: int, cell_id: int):
         player = self.players[player_id]

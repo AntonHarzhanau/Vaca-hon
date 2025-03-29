@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 from app.models.cells.cell import Cell
 from app.models.cells.property_cell import PropertyCell
 from app.models.cells.street_cell import StreetCell
+from app.models.cells.railway_cell import RailWayCell
 
 class GameBoard(BaseModel):
     """
@@ -41,7 +42,17 @@ class GameBoard(BaseModel):
                     house_cost=cell_data["house"] # house_cost
                 )
                     self.cells.append(street_cell)
-                    self.groups.setdefault(street_cell.group_color, []).append(street_cell)
+                    self.groups.setdefault(street_cell.group_color, []).append(street_cell)   
+                
+                elif cell_data.get("type") == "RailWay":
+                    railway_cell = RailWayCell(
+                    cell_id=index,
+                    cell_name=cell_name,
+                    price=cell_data["cost"],
+                    initial_rent=cell_data["rent"],
+                    current_rent=cell_data["rent"],
+                )
+                    self.cells.append(railway_cell)
                 else:
                     property_cell = PropertyCell(
                         cell_id=index,
