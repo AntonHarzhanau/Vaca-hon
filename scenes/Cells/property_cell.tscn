@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk2q005lyuk3l"]
+[gd_scene load_steps=6 format=3 uid="uid://dk2q005lyuk3l"]
 
 [ext_resource type="PackedScene" uid="uid://c8k7vquofnos3" path="res://scenes/Cells/cell.tscn" id="1_pad15"]
 [ext_resource type="Script" uid="uid://cbooy5ycptb7w" path="res://scripts/Cells/property_cell.gd" id="2_2mk06"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g57kh"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mb3cv"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g57kh"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [node name="PropertyCell" instance=ExtResource("1_pad15")]
 script = ExtResource("2_2mk06")
 price = 0
 
 [node name="BackGround" parent="." index="0"]
+offset_left = -60.0
+offset_top = -75.0
+offset_right = 60.0
+offset_bottom = 75.0
+pivot_offset = Vector2(60, 75)
 color = Color(1, 0.918596, 0.94723, 1)
+
+[node name="Name" parent="BackGround" index="0"]
+label_settings = SubResource("LabelSettings_g57kh")
 
 [node name="Cost" type="Label" parent="BackGround" index="1"]
 layout_mode = 1
@@ -25,11 +50,26 @@ grow_vertical = 0
 pivot_offset = Vector2(20, 11.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
+label_settings = SubResource("LabelSettings_mb3cv")
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="." index="1"]
+[node name="proplabel" type="ColorRect" parent="." index="1"]
 visible = false
-offset_left = -27.0
-offset_top = 60.0
-offset_right = 22.0
-offset_bottom = 93.0
+offset_left = -50.0
+offset_top = 59.0
+offset_right = 50.0
+offset_bottom = 99.0
+
+[node name="Panel" type="Panel" parent="." index="2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -75.0
+offset_right = 59.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g57kh")

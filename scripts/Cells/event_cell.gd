@@ -2,11 +2,11 @@
 extends Cell
 class_name EventCell
 
-@onready var image: TextureRect = $BackGround/Image
-@export var texture: Texture2D
+@onready var texture: TextureRect = $BackGround/Image
+@export var image: Texture2D
 
 func _ready():
 	super._ready()
-	image.pivot_offset = image.size / 2
+	texture.pivot_offset = texture.size / 2
 	if image:
-		image.texture = texture
+		texture.texture = image

@@ -1,10 +1,11 @@
 [
 	{
-		"name": "Start",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Start Corner.png"
 	},
 	{
-		"name": "Street1",
+		"name": "Mashhad",
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
@@ -13,11 +14,12 @@
 		"house": 50
 	},
 	{
-		"name": "Chance",
-		"type": "Event"
+		"name": "PASSEPORT MYSTERE",
+		"type": "Event",
+		"texture": "res://assets/passport.png"
 	},
 	{
-		"name": "Street2",
+		"name": "Tehran",
 		"type": "Street",
 		"cost": 60,
 		"color": "BROWN",
@@ -26,17 +28,19 @@
 		"house": 50
 	},
 	{
-		"name": "Income Tax",
-		"type": "Event"
+		"name": "Schengen Area Entry Tax",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/schengen.png"
 	},
 	{
-		"name": "Railroad1",
+		"name": "Ivato International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/Station1.png"
 	},
 	{
-		"name": "Street3",
+		"name": "Antsirabe",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -45,11 +49,12 @@
 		"house": 50
 	},
 	{
-		"name": "Chance",
-		"type": "Event"
+		"name": "VALISE CHANCE",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
-		"name": "Street4",
+		"name": "Toamasina",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -58,7 +63,7 @@
 		"house": 50
 	},
 	{
-		"name": "Street5",
+		"name": "Antananarivo",
 		"type": "Street",
 		"cost": 120,
 		"color": "BLUE",
@@ -67,11 +72,12 @@
 		"house": 50
 	},
 	{
-		"name": "Jail",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Corner2.png"
 	},
 	{
-		"name": "Street6",
+		"name": "Mogilev",
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
@@ -80,13 +86,14 @@
 		"house": 100
 	},
 	{
-		"name": "Electric Company",
+		"name": "Castle",
 		"type": "Utility",
 		"rent": 10,
-		"cost": 150
+		"cost": 150,
+		"texture": "res://assets/Utility/castle.png"
 	},
 	{
-		"name": "Street7",
+		"name": "Gomel",
 		"type": "Street",
 		"cost": 140,
 		"color": "RED",
@@ -95,7 +102,7 @@
 		"house": 100
 	},
 	{
-		"name": "Street8",
+		"name": "Minsk",
 		"type": "Street",
 		"cost": 160,
 		"color": "RED",
@@ -104,13 +111,14 @@
 		"house": 100
 	},
 	{
-		"name": "Railroad2",
+		"name": "Cairo International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/Station2.png"
 	},
 	{
-		"name": "Street9",
+		"name": "Luxor",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -119,11 +127,11 @@
 		"house": 100
 	},
 	{
-		"name": "Community Chest",
-		"type": "Event"
-	},
+		"name": "PASSEPORT MYSTERE",
+		"type": "Event",
+		"texture": "res://assets/passport.png"	},
 	{
-		"name": "Street10",
+		"name": "Alexandria",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -132,7 +140,7 @@
 		"house": 100
 	},
 	{
-		"name": "Street11",
+		"name": "Cairo",
 		"type": "Street",
 		"cost": 200,
 		"color": "GREEN",
@@ -141,11 +149,12 @@
 		"house": 100
 	},
 	{
-		"name": "Free Parking",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Corner3.png"
 	},
 	{
-		"name": "Street12",
+		"name": "Guangzhou",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -154,11 +163,12 @@
 		"house": 150
 	},
 	{
-		"name": "Chance",
-		"type": "Event"
+		"name": "VALISE CHANCE",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
-		"name": "Street13",
+		"name": "Shanghai",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -167,7 +177,7 @@
 		"house": 150
 	},
 	{
-		"name": "Street14",
+		"name": "Beijing",
 		"type": "Street",
 		"cost": 240,
 		"color": "YELLOW",
@@ -176,13 +186,14 @@
 		"house": 150
 	},
 	{
-		"name": "Railroad3",
+		"name": "Lomé-Tokoin International Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/Station3.png"
 	},
 	{
-		"name": "Street15",
+		"name": "Sokodé",
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
@@ -191,7 +202,7 @@
 		"house": 150
 	},
 	{
-		"name": "Street16",
+		"name": "Kara",
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
@@ -200,13 +211,14 @@
 		"house": 150
 	},
 	{
-		"name": "Water Works",
+		"name": "Museum",
 		"type": "Utility",
 		"rent": 10,
-		"cost": 150
+		"cost": 150,
+		"texture": "res://assets/Utility/museum.png"
 	},
 	{
-		"name": "Street17",
+		"name": "Lomé",
 		"type": "Street",
 		"cost": 280,
 		"color": "ORANGE",
@@ -215,11 +227,12 @@
 		"house": 150
 	},
 	{
-		"name": "Go To Jail",
-		"type": "Сorner"
+		"name": "",
+		"type": "Сorner",
+		"texture": "res://assets/Corners/Corner4.png"
 	},
 	{
-		"name": "Street18",
+		"name": "Constantine",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -228,7 +241,7 @@
 		"house": 200
 	},
 	{
-		"name": "Street19",
+		"name": "Oran",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -237,11 +250,12 @@
 		"house": 200
 	},
 	{
-		"name": "Community Chest",
-		"type": "Event"
+		"name": "PASSEPORT MYSTERE",
+		"type": "Event",
+		"texture": "res://assets/passport.png"
 	},
 	{
-		"name": "Street20",
+		"name": "Algiers",
 		"type": "Street",
 		"cost": 320,
 		"color": "PINK",
@@ -250,17 +264,19 @@
 		"house": 200
 	},
 	{
-		"name": "Railroad4",
+		"name": "Charles de Gaulle Airport",
 		"type": "RailWay",
 		"rent": 10,
-		"cost": 200
+		"cost": 200,
+		"texture": "res://assets/Railroad/Station4.png"
 	},
 	{
-		"name": "Chance",
-		"type": "Event"
+		"name": "VALISE CHANCE",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/chance.png"
 	},
 	{
-		"name": "Street21",
+		"name": "Strasbourg",
 		"type": "Street",
 		"cost": 350,
 		"color": "PURPLE",
@@ -269,11 +285,12 @@
 		"house": 200
 	},
 	{
-		"name": "Luxury Tax",
-		"type": "Event"
+		"name": "Customs Tax",
+		"type": "Event",
+		"texture": "res://assets/Event Cells/tax.png"
 	},
 	{
-		"name": "Street22",
+		"name": "Paris",
 		"type": "Street",
 		"cost": 400,
 		"color": "PURPLE",
