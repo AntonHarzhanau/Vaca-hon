@@ -3,8 +3,6 @@ from fastapi import APIRouter, Depends, status, HTTPException, WebSocket, WebSoc
 from app.models.lobby import Lobby
 from app.models.user import User
 from data.schemas import LobbyCreate, LobbyRead, LobbyUpdate
-#from sqlalchemy.future import select
-#from sqlalchemy.ext.asyncio import Session
 from sqlalchemy import select, and_
 from sqlalchemy.orm import Session
 from data.database import get_db, db_session

@@ -1,12 +1,14 @@
-from app.core.config import dotenv_config
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 
-# URL de connexion à la base de données
-SQLALCHEMY_DATABASE_URL = dotenv_config.DATABASE_URL
+# Load environment variables from .env
+load_dotenv() 
 
-#  5050 Pour le port
+# URL de connexion à la base de données
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Créer un moteur pour se connecter à PostgreSQL
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

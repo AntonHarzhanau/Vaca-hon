@@ -1,9 +1,7 @@
-import uuid
 import datetime
 from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
-from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 from data.database import Base
 from app.core.connection_manager import ConnectionManager
@@ -30,7 +28,7 @@ class Lobby(Base):
     def __repr__(self) -> str:
         return f"Lobby(id={self.id!r}, is_active={self.is_active!r}, created_at={self.created_at!r}, last_action_at={self.last_action_at!r})"
 
-    def add_player(self, player_id: uuid.UUID):
+    def add_player(self, player_id: int):
         if self.players is None:
             self.players = []
 
@@ -38,7 +36,7 @@ class Lobby(Base):
         if player_id not in self.players:
             self.players.append(player_str)
 
-    def remove_player(self, player_id: uuid.UUID):
+    def remove_player(self, player_id: int):
         if player_id in self.players:
             self.players.remove(player_id)
 
