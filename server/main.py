@@ -14,9 +14,9 @@ logger = logging.getLogger("monopoly-server")
 app = FastAPI(root_path=dotenv_config.FASTAPI_ROOT_PATH)
 
 # Initialize the connection manager, game logic and event handler
-manager = ConnectionManager()
-game_manager = GameManager(manager.players)
-game_handler = GameHandler(game_manager, manager)
+# manager = ConnectionManager()
+# game_manager = GameManager(manager.players)
+# game_handler = GameHandler(game_manager, manager)
 
 # Include routes
 app.include_router(lobby_router)
@@ -26,18 +26,18 @@ Base.metadata.create_all(bind=engine)
 create_tables()
 
 
-@app.websocket("/ws")
-async def websocket_endpoint(websocket: WebSocket):
-    await manager.connect(websocket)
-    try:
-        while True:
-            data = await websocket.receive_json()
-            logger.info(f"Received data: {data}")
-            await game_handler.handle_event(websocket, data)
-    except WebSocketDisconnect:
-        await manager.disconnect(websocket)
-       #TODO: implement normal id assignment logic
-        manager.next_id -= 1
+# @app.websocket("/ws")
+# async def websocket_endpoint(websocket: WebSocket):
+#     await manager.connect(websocket)
+#     try:
+#         while True:
+#             data = await websocket.receive_json()
+#             logger.info(f"Received data: {data}")
+#             await game_handler.handle_event(websocket, data)
+#     except WebSocketDisconnect:
+#         await manager.disconnect(websocket)
+#        #TODO: implement normal id assignment logic
+#         manager.next_id -= 1
 
 if __name__ == "__main__":
     # In console:

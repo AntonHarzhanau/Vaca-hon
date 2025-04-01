@@ -207,6 +207,7 @@ class LobbyRead(BaseModel):
     players: list[str]
     owner_id: int
     is_active: bool
+    is_private: bool
     created_at: datetime
     last_action_at: datetime | None
 

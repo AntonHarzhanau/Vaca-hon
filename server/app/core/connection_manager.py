@@ -17,7 +17,6 @@ class ConnectionManager:
         self.players[self.next_id] = new_player
         self.active_connections[websocket] = self.next_id
         self.next_id += 1
-
         print(f"🔗 New player connected: ID {new_player.id}")
 
 

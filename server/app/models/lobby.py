@@ -4,7 +4,9 @@ from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.ext.hybrid import hybrid_property
 from data.database import Base
+from app.core.connection_manager import ConnectionManager
 
 class Lobby(Base):
     __tablename__ = 'lobbies'
@@ -39,3 +41,9 @@ class Lobby(Base):
     def remove_player(self, player_id: uuid.UUID):
         if player_id in self.players:
             self.players.remove(player_id)
+
+    def get_connection_manager(self):
+        return self.connection_manager
+
+    def set_connection_manager(self, connection_manager: ConnectionManager):
+        self.connection_manager = connection_manager

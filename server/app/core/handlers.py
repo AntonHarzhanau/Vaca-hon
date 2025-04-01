@@ -2,11 +2,12 @@ import json
 from fastapi import WebSocket
 from app.core.connection_manager import ConnectionManager
 from app.core.game_manager import GameManager
+from app.models.lobby import Lobby
 
 class GameHandler:
-    def __init__(self, game_manager: GameManager, manager: ConnectionManager):
+    def __init__(self, game_manager: GameManager, lobby: Lobby):
         self.game_manager = game_manager
-        self.connection_manager = manager
+        self.connection_manager = lobby.get_connection_manager()
 
     async def handle_event(self, websocket: WebSocket, data: dict) -> None:
         player_id = self.connection_manager.active_connections.get(websocket)

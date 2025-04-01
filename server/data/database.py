@@ -1,7 +1,7 @@
 from app.core.config import dotenv_config
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session, sessionmaker
 
 # URL de connexion à la base de données
 SQLALCHEMY_DATABASE_URL = dotenv_config.DATABASE_URL
@@ -12,6 +12,7 @@ SQLALCHEMY_DATABASE_URL = dotenv_config.DATABASE_URL
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 # Créer un constructeur de session
+db_session = Session(engine)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Déclarer la base
