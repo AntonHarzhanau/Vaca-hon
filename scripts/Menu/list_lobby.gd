@@ -1,24 +1,24 @@
 extends Control
 
 @onready var lobby_list_panel = $LobbyListPanel
+@onready var vbox = $ScrollContainer/VBoxContainer
+@onready var refresh_btn = $RefreshButton
 @onready var back_to_home_btn: Button = $BackToHome
 @onready var http_client: HTTPRequestClient
+
+# Load the lobby item scene
+var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item.tscn")
+
 
 var lobbies = []
 
 func _ready():
 	# Setup signals
 	back_to_home_btn.pressed.connect(_on_back_to_home_pressed)
+	refresh_btn.pressed.connect(_on_refresh_btn_pressed)
 	
 	# Get Lobbies from Server
-	http_client = HTTPRequestClient.new("http://127.0.0.1:8000")	
-	add_child(http_client)
-	var response = await http_client.__get("/lobbies")
-	if response.result != OK:
-		push_error("An error occurred in the HTTP request.")
-		print("Error occured when retrieving lobbies from server")
-	else:
-		lobbies = response.body
+	_fetch_lobbies()
 	
 	# Configure Panel to fill its parent
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -68,8 +68,32 @@ func _ready():
 	
 	lobby_list_panel.add_child(scroll)
 
-func _on_join_pressed(lobby_name):
-	print("Joining lobby: ", lobby_name)
+func _on_join_pressed(lobby):
+	WebSocketClient.connect_to_server("ws://127.0.0.1:8000/lobbies/join/" + str(int(lobby.id)))
+	print("Joining lobby: ", lobby)
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	
+func _fetch_lobbies():
+	# Get Lobbies from Server
+	http_client = HTTPRequestClient.new("http://127.0.0.1:8000")	
+	add_child(http_client)
+	var response = await http_client.__get("/lobbies")
+	if response.result != OK:
+		push_error("An error occurred in the HTTP request.")
+		print("Error occured when retrieving lobbies from server")
+	else:
+		lobbies = response.body
+		#print(lobbies)
+		for lobby in lobbies:
+			var new_lobby = lobby_item_scene.instantiate()
+			vbox.add_child(new_lobby)
+			new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyName").text = "Lobby N°" + str(int(lobby.id))
+			new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyPrivacy").text = "🔓 Public" if lobby.is_private == false else "🔒 Privé"
+			var join_button = new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/JoinLobby")
+			join_button.pressed.connect(_on_join_pressed.bind(lobby))
+
+func _on_refresh_btn_pressed():
+	_fetch_lobbies()
 
 func _on_back_to_home_pressed():
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")
