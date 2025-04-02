@@ -25,6 +25,7 @@ app = FastAPI(root_path=os.getenv("FASTAPI_ROOT_PATH"))
 # Include routes
 app.include_router(lobby_router)
 
+
 # Create database tables
 Base.metadata.create_all(bind=engine)
 create_tables()
@@ -33,8 +34,9 @@ if __name__ == "__main__":
     # In console:
     #  uvicorn main:app --host 0.0.0.0 --port 8000 --reload     
     uvicorn.run(
-        "main:app",        
+        "main:app",  
         host="0.0.0.0",
-        port=int(os.getenv("FASTAPI_PORT")),
+        port=8000,      
+        # port=int(os.getenv("FASTAPI_PORT")),
         reload=True            # Auto-reload mode
     )

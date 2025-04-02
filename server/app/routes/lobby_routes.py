@@ -143,9 +143,28 @@ async def join_lobby(
     try:
         while True:
             data = await websocket.receive_json()
-            logger.info(f"Received data: {data}")
+            # logger.info(f"Received data: {data}")
             await game_handler.handle_event(websocket, data)
     except WebSocketDisconnect:
         await connection_manager.disconnect(websocket)
        #TODO: implement normal id assignment logic
         connection_manager.next_id -= 1
+   
+   
+   
+manager = ConnectionManager()
+game_manager = GameManager(manager.players)
+game_handler = GameHandler(game_manager, manager)
+
+     
+@router.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+    try:
+        while True:
+            data = await websocket.receive_json()
+            await game_handler.handle_event(websocket, data)
+    except WebSocketDisconnect:
+        await manager.disconnect(websocket)
+       #TODO: implement normal id assignment logic
+        manager.next_id -= 1

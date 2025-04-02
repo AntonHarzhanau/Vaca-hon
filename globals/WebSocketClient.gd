@@ -7,7 +7,8 @@ signal connection_closed()
 #var websocket_url: String = "ws://127.0.0.1:8000/ws"
 var websocket_peer: WebSocketPeer
 
-func connect_to_server(websocket_url: String) -> void:
+func connect_to_server(websocket_url:String) -> void:
+	#var websocket_url = "ws://127.0.0.1:8000/ws"
 	websocket_peer = WebSocketPeer.new()
 	var err = websocket_peer.connect_to_url(websocket_url)
 	if err != OK:
