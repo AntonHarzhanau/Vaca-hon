@@ -24,6 +24,7 @@ class GameLogic:
         player_ids = sorted(self.players.keys())
         if self.current_turn_player_id not in player_ids:
             self.current_turn_player_id = player_ids[0]
+            
             return self.current_turn_player_id
 
         current_index = player_ids.index(self.current_turn_player_id)
@@ -39,25 +40,28 @@ class GameLogic:
     def cell_action(self, player_id: int) -> dict:
         player = self.players[player_id]
         current_cell_id = player.current_position
-        return self.board.cells[current_cell_id].activate(player)
+        cell = self.board.get_cell(current_cell_id)
+        if cell:
+            return cell.activate(player)
+        return {"action": "error", "message": "Cell not found"}
 
     def buy_property(self, player_id: int) -> dict:
         player = self.players[player_id]
         cell = self.board.get_cell(player.current_position) 
-        return cell.buy_property(player)
+        return cell.buy_property(player) if cell else {"action": "error", "message": "Cell not found"}
    
 
     def sell_property(self, player_id: int, cell_id: int) -> dict:
         house_counter: int = 0
-        cell = self.board.cells[cell_id]
-        player = cell.cell_owner
+        cell = self.board.get_cell(cell_id)
+        player = self.players[player_id]
         if type(cell).__name__ == "StreetCell" and cell.has_monopoly(self.board):
             for street in player.properties:
                 if type(street).__name__ == "StreetCell" and street.group_color == cell.group_color:
                     house_counter += street.nb_houses
         if house_counter > 0:
             return {"action": "error", "message": "First, sell all the houses in your monopoly."}
-        return cell.sell_property(player)
+        return player.sell_property(cell_id)
     
     def buy_house(self, player_id: int, cell_id: int):
         player = self.players[player_id]
@@ -77,3 +81,10 @@ class GameLogic:
             return cell.sell_house(self.board)
         else:
             return {"action": "error", "message": "Cell not found"}
+    
+    def pay_utility_rent(self, player_id: int, dice_result: int) -> dict:
+        player = self.players[player_id]
+        cell = self.board.get_cell(player.current_position)
+        if cell:
+            return cell.calculate_rent(player, dice_result)
+        return {"action": "error", "message": "Cell not found"}

@@ -12,6 +12,7 @@ class GameManager:
         self.logic = GameLogic(self.state.players, self.state.board, self.state.current_turn)
         self.action_handlers: Dict[str, Callable[[int, dict], dict]] = {
             "roll_dice": self.handle_roll_dice,
+            "dice_rolled": self.handle_dice_rolled,
             "move_player": self.handle_move_player,
             "end_turn": self.handle_end_turn,
             "cell_activate": self.handle_cell_activate,
@@ -32,8 +33,19 @@ class GameManager:
         return self.action_handlers[action](player_id, data)
 
     def handle_roll_dice(self, player_id: int, data: dict) -> dict:
-        return self.logic.roll_dice()
-
+        result = self.logic.roll_dice()
+        self.state.last_dice_roll["dice1"] = result["dice1"]
+        self.state.last_dice_roll["dice2"] = result["dice2"]
+        return result
+    
+    def handle_dice_rolled(self, player_id: int, data: dict) -> dict:
+        context = data.get("for")
+        if context == "move":
+            return self.logic.move_player(player_id, self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"])
+        elif context == "utility_rent":
+            #TODO: implement utility rent logic
+            return self.logic.pay_utility_rent(player_id, self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"])
+        
     def handle_move_player(self, player_id: int, data: dict) -> dict:
         steps = data.get("steps", 0)
         return self.logic.move_player(player_id, steps)

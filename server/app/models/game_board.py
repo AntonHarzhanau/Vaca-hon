@@ -5,6 +5,8 @@ from app.models.cells.cell import Cell
 from app.models.cells.property_cell import PropertyCell
 from app.models.cells.street_cell import StreetCell
 from app.models.cells.railway_cell import RailWayCell
+from app.models.cells.utility_cell import UtilityCell
+from app.models.cells.event_cell import EventCell
 
 class GameBoard(BaseModel):
     """
@@ -53,6 +55,15 @@ class GameBoard(BaseModel):
                     current_rent=cell_data["rent"],
                 )
                     self.cells.append(railway_cell)
+                elif cell_data.get("type") == "Utility":
+                    utility_cell = UtilityCell(
+                        cell_id=index,
+                        cell_name=cell_name,
+                        price=cell_data["cost"],
+                        initial_rent=cell_data["rent"],
+                        current_rent=cell_data["rent"]
+                    )
+                    self.cells.append(utility_cell)
                 else:
                     property_cell = PropertyCell(
                         cell_id=index,
@@ -63,7 +74,16 @@ class GameBoard(BaseModel):
                     )
                     self.cells.append(property_cell)
             else:
-                self.cells.append(Cell(cell_id=index, cell_name=cell_name))
+                if cell_data.get("type") == "Event":
+                    event_cell = EventCell(
+                        cell_id=index,
+                        cell_name=cell_name,
+                        description=cell_data["description"],
+                        event_type=cell_data["event_type"]
+                    )
+                    self.cells.append(event_cell)
+                else:
+                    self.cells.append(Cell(cell_id=index, cell_name=cell_name))
 
     def get_cell(self, cell_id: int) -> Optional[Cell]:
         if 0 <= cell_id < len(self.cells):

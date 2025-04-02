@@ -16,7 +16,9 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png"
+		"texture": "res://assets/passport.png",
+		"description": "",
+		"event_type": "chance"
 	},
 	{
 		"name": "Tehran",
@@ -30,7 +32,9 @@
 	{
 		"name": "Schengen Area Entry Tax",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/schengen.png"
+		"texture": "res://assets/Event Cells/schengen.png",
+		"description": "",
+		"event_type": "income_tax"
 	},
 	{
 		"name": "Ivato International Airport",
@@ -51,7 +55,9 @@
 	{
 		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png"
+		"texture": "res://assets/Event Cells/chance.png",
+		"description":"",
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Toamasina",
@@ -129,7 +135,10 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png"	},
+		"texture": "res://assets/passport.png",
+		"description": "",
+		"event_type": "chance"
+	},
 	{
 		"name": "Alexandria",
 		"type": "Street",
@@ -165,7 +174,9 @@
 	{
 		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png"
+		"texture": "res://assets/Event Cells/chance.png",
+		"description": "",
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Shanghai",
@@ -252,7 +263,9 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png"
+		"texture": "res://assets/passport.png",
+		"description": "",
+		"event_type": "chance"
 	},
 	{
 		"name": "Algiers",
@@ -273,7 +286,9 @@
 	{
 		"name": "VALISE CHANCE",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png"
+		"texture": "res://assets/Event Cells/chance.png",
+		"description": "",
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Strasbourg",
@@ -287,7 +302,9 @@
 	{
 		"name": "Customs Tax",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/tax.png"
+		"texture": "res://assets/Event Cells/tax.png",
+		"description": "",
+		"event_type": "luxury_tax"
 	},
 	{
 		"name": "Paris",

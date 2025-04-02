@@ -23,8 +23,9 @@ func move(cells_list:Array[Cell], next_position: int):
 		$".".global_position = cells_list[temp_pos].global_position
 		await get_tree().create_timer(0.5).timeout 
 	current_position = next_position
-	var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}
-	WebSocketClient.send_message(JSON.stringify(message))
+	if self.id == States.current_player_id:
+		var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}
+		WebSocketClient.send_message(JSON.stringify(message))
 
 func buy_property(cell: PropertyCell, price:int, current_rent:int) -> void:
 	cell.buy_property(self, current_rent)

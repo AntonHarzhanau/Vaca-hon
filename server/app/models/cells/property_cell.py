@@ -51,7 +51,7 @@ class PropertyCell(Cell):
             }
         return {"action": "error", "message": "No such property owned"}
 
-
+    
     def pay_rent(self, player: Player) -> dict:
         if player.pay(self.current_rent):
             self.cell_owner.earn(self.current_rent)

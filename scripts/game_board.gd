@@ -16,7 +16,7 @@ const CELL_COUNT = 9  # Number of cells on each side
 
 @onready var game_board:TextureRect = $Centre
 @onready var players_container: = $Players
-
+@export var border:int = 1
 var board_rect:Rect2  # Bounding rectangle of game_board
 var top_left:Vector2
 var bottom_right:Vector2

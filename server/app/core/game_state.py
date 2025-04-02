@@ -9,5 +9,5 @@ class GameState:
     def __init__(self, players: Dict[int, Player]):
         self.players = players
         self.board = GameBoard()
-        # Initially it's the first player's turn (id = 0)
         self.current_turn: int = 0
+        self.last_dice_roll: Dict = {"dice1": 0, "dice2": 0}

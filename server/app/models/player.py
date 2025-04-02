@@ -23,16 +23,18 @@ class Player(BaseModel):
         
         
     def move(self, steps: int) -> dict:
+        prime = False
         self.current_position += steps
         if self.current_position >= 40:
             self.current_position %= 40
             self.money += 200  # bonus for passing through the start
+            prime = True
         print(f"Player {self.id} moved to {self.current_position} position")
         return {
             "action": "move_player",
             "player_id": self.id,
             "current_position": self.current_position,
-            "money": self.money
+            "prime": prime
         }
 
     def pay(self, amount: int) -> bool:

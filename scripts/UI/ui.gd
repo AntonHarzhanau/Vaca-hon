@@ -14,8 +14,8 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var end_turn_btn: Button = $EndTurnButton
 @onready var turn_lable:Label = $TurnLable
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
+@onready var info_message: Label = $VBoxContainer/InfoMessage
 
-var id_player_on_turn: int = 0
 
 func _ready() -> void:
 	# Subscribe to signals
@@ -25,7 +25,8 @@ func _ready() -> void:
 	
 func _on_dice_dice_rolled(d1: int, d2: int):
 	#TODO: change logic
-	var msg = {"action": "move_player", "steps": d1 + d2}
+	#var msg = {"action": "move_player", "steps": d1 + d2}
+	var msg = {"action": "dice_rolled", "for": States.current_context}
 	WebSocketClient.send_message(JSON.stringify(msg))
 
 func create_main_player_hub(player:Player):
@@ -52,9 +53,8 @@ func _on_player_disconnected(player_id):
 		if player_id == hub.player_id:
 			hub.queue_free()
 
-func _on_change_turn(player_id:int):
-	id_player_on_turn = player_id
-	turn_lable.text = "Player's turn: " + str(id_player_on_turn)
+func _on_change_turn():
+	turn_lable.text = "Player's turn: " + str(States.id_player_at_turn)
 
 func _on_offer_to_buy(_cell_id, cell_name, price):
 	popup_offer.show_offer(cell_name, price)
@@ -70,3 +70,10 @@ func _on_pop_up_offre_accept_offer_clicked() -> void:
 func _on_menu_btn_pressed() -> void:
 	#emit_signal("end_game")
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")
+	
+func show_info(info:String):
+	info_message.text = info
+	$VBoxContainer.visible = true
+
+func _on_ok_button_pressed() -> void:
+	$VBoxContainer.visible = false
