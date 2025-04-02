@@ -11,7 +11,7 @@ var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
 func _ready() -> void:
 	# Subscribing GameManager to network signals
-	WebSocketClient.connect_to_server()
+	#WebSocketClient.connect_to_server("test")
 	WebSocketClient.message_received.connect(msg_handler._on_message_received)
 	if States.is_test:
 		var test_ui = load("res://Test/test_menu.tscn")
