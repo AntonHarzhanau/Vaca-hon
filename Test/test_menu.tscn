@@ -28,26 +28,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Move"
 
-[node name="TestHouseContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Double" type="Button" parent="VBoxContainer/TestMoveContainer"]
 layout_mode = 2
-
-[node name="Cell_id" type="TextEdit" parent="VBoxContainer/TestHouseContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-placeholder_text = "Cell_id:"
-
-[node name="SellHouseButton" type="Button" parent="VBoxContainer/TestHouseContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "sell_house"
-
-[node name="BuyHouseButton" type="Button" parent="VBoxContainer/TestHouseContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "buy_house"
+text = "Double"
 
 [connection signal="pressed" from="VBoxContainer/TestMoveContainer/MovePlayer" to="." method="_on_move_player_pressed"]
-[connection signal="pressed" from="VBoxContainer/TestHouseContainer/SellHouseButton" to="." method="_on_sell_house_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/TestHouseContainer/BuyHouseButton" to="." method="_on_buy_house_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TestMoveContainer/Double" to="." method="_on_double_pressed"]

@@ -7,6 +7,7 @@ from app.models.cells.street_cell import StreetCell
 from app.models.cells.railway_cell import RailWayCell
 from app.models.cells.utility_cell import UtilityCell
 from app.models.cells.event_cell import EventCell
+from app.models.cells.corner_cell import CornerCell
 
 class GameBoard(BaseModel):
     """
@@ -18,6 +19,7 @@ class GameBoard(BaseModel):
     def __init__(self, **data):
         super().__init__(**data)
         self.load_board_from_json("data/data.json")
+        
 
     def load_board_from_json(self, file_path: str) -> None:
         try:
@@ -82,6 +84,13 @@ class GameBoard(BaseModel):
                         event_type=cell_data["event_type"]
                     )
                     self.cells.append(event_cell)
+                elif cell_data.get("type") == "Сorner":
+                    corner_cell = CornerCell(
+                        cell_id=index,
+                        cell_name=cell_name,
+                        event_type=cell_data["event_type"]
+                    )
+                    self.cells.append(corner_cell)
                 else:
                     self.cells.append(Cell(cell_id=index, cell_name=cell_name))
 

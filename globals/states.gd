@@ -9,7 +9,8 @@ const DiceContext := {
 	JAIL = "jail",
 	UTILITY = "utility_rent",
 	EVENT = "event",
-	DOUBLE_ROLL = "double_roll"
+	DOUBLE_ROLL = "double_roll",
+	GET_OUT_OF_JAIL = "get_out_of_jail"
 }
 var dice_active: bool = true
 var current_context: String = "move"

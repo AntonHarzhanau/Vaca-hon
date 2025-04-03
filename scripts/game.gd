@@ -3,7 +3,6 @@ extends Node
 @onready var msg_handler: Node = $Message_handler
 @onready var ui:UI = $UI
 @onready var board:GameBoard = $GameBoard
-
 # Local data 
 var players:Dictionary[int, Player]= {}
 var cells:Array[Cell] = []
@@ -35,6 +34,8 @@ func _ready() -> void:
 	msg_handler.pay.connect(_on_pay)
 	msg_handler.earn.connect(_on_earn)
 	msg_handler.utility_rent.connect(_on_utility_rent)
+	msg_handler.go_to_jail.connect(_on_go_to_jail)
+	msg_handler.get_out_jail.connect(_on_get_out_jail)
 
 func _on_your_id(player_id: int) -> void:
 	States.current_player_id = player_id
@@ -101,11 +102,27 @@ func _on_utility_rent():
 	States.current_context = States.DiceContext.UTILITY
 	ui.show_info("dice activate for" + States.current_context)
 
-func _on_change_turn(player_id:int):
-	States.dice_active = true
-	States.current_context = "move"
-	States.id_player_at_turn = player_id
+func _on_change_turn(player_id:int, nb_turn_jail:int):
+	if player_id == States.current_player_id:
+		players[player_id].nb_turn_jail = nb_turn_jail
+		States.dice_active = true
+		if nb_turn_jail > 0:
+			ui.jail_offre.show_offer()
+			States.current_context = States.DiceContext.GET_OUT_OF_JAIL
+		else:
+			States.current_context = States.DiceContext.MOVE
+		States.id_player_at_turn = player_id
 	ui._on_change_turn()
+	
+func _on_get_out_jail(money: int):
+	var player = players[States.current_player_id]
+	player.pay(money)
+	player.nb_turn_jail = 0
+	States.dice_active = true
+	States.current_context = States.DiceContext.MOVE
+	
+func _on_go_to_jail(player_id:int):
+	players[player_id].go_to_jail(cells)
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game

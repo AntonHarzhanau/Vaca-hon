@@ -3,10 +3,10 @@ from dotenv import load_dotenv
 import uvicorn
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from app.core.connection_manager import ConnectionManager
-from app.core.handlers import GameHandler
-from app.core.game_manager import GameManager
+# from app.core.handlers import GameHandler
+# from app.core.game_manager import GameManager
 from app.routes.lobby_routes import router as lobby_router
-from data.database import create_tables, engine, Base
+# from data.database import create_tables, engine, Base
 import logging
 
 # Load environment variables from .env
@@ -27,8 +27,8 @@ app.include_router(lobby_router)
 
 
 # Create database tables
-Base.metadata.create_all(bind=engine)
-create_tables()
+# Base.metadata.create_all(bind=engine)
+# create_tables()
 
 if __name__ == "__main__":
     # In console:

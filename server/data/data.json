@@ -1,7 +1,8 @@
 [
 	{
-		"name": "",
+		"name": "Start",
 		"type": "Сorner",
+		"event_type": "start",
 		"texture": "res://assets/Corners/Start Corner.png"
 	},
 	{
@@ -78,8 +79,9 @@
 		"house": 50
 	},
 	{
-		"name": "",
+		"name": "Jail",
 		"type": "Сorner",
+		"event_type": "jail",
 		"texture": "res://assets/Corners/Corner2.png"
 	},
 	{
@@ -158,8 +160,9 @@
 		"house": 100
 	},
 	{
-		"name": "",
+		"name": "Free Parking",
 		"type": "Сorner",
+		"event_type": "free_parking",
 		"texture": "res://assets/Corners/Corner3.png"
 	},
 	{
@@ -238,8 +241,9 @@
 		"house": 150
 	},
 	{
-		"name": "",
+		"name": "Go TO Jail",
 		"type": "Сorner",
+		"event_type": "go_to_jail",
 		"texture": "res://assets/Corners/Corner4.png"
 	},
 	{

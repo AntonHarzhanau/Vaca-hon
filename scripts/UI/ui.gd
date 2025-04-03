@@ -11,6 +11,7 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var dice:Dice = $Dice
 @onready var main_player_hub:MainPlayerHub = $MainPlayerHub
 @onready var popup_offer = $PopUpOffre
+@onready var jail_offre = $PopUpJail
 @onready var end_turn_btn: Button = $EndTurnButton
 @onready var turn_lable:Label = $TurnLable
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
@@ -76,4 +77,4 @@ func show_info(info:String):
 	$VBoxContainer.visible = true
 
 func _on_ok_button_pressed() -> void:
-	$VBoxContainer.visible = false
+	$VBoxContainer.visible = false	

@@ -4,7 +4,7 @@ signal player_connected(players)
 signal player_disconnected(player_id: int)
 signal your_id(player_id)
 signal move_player(player_id, steps, prime:bool)
-signal change_turn(player_id)
+signal change_turn(player_id:int, nb_turn_jail:int)
 signal offer_to_buy(cell_id, cell_name, price, player_id)
 signal buy_property(player_id:int, cell_id:int, price:int, current_rent:int)
 signal sell_property(player_id:int, cell_id:int, price:int, current_rent:int)
@@ -14,7 +14,8 @@ signal sell_house(player_id:int, cell_id:int, current_rent:int)
 signal earn(player_id:int, amount:int)
 signal pay(player_id:int, amount:int)
 signal utility_rent(player_id:int)
-
+signal go_to_jail(player_id:int)
+signal get_out_jail(money:int)
 
 func _ready() -> void:
 	pass
@@ -33,7 +34,7 @@ func _on_message_received(message: Variant) -> void:
 		"move_player":
 			emit_signal("move_player", message["player_id"], message["current_position"], message["prime"])
 		"change_turn":
-			emit_signal("change_turn", message["player_id"])
+			emit_signal("change_turn", message["player_id"], message["nb_turn_jail"])
 		"offer_to_buy":
 			emit_signal("offer_to_buy", message["cell_id"], message["cell_name"], message["price"])
 		"buy_property":
@@ -54,5 +55,9 @@ func _on_message_received(message: Variant) -> void:
 			emit_signal("pay", message["player_id"], message["amount"])
 		"utility_rent":
 			emit_signal("utility_rent")
+		"go_to_jail":
+			emit_signal("go_to_jail", message["player_id"])
+		"get_out_jail":
+			emit_signal("get_out_jail", message["money"])
 		_:
 			print("Unknown action from server: ", action)

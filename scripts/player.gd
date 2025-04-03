@@ -12,7 +12,18 @@ var nb_utility: int = 0
 var timer_turn: int = 0
 var properties:Array[PropertyCell] = []
 var player_color: Color
-	
+
+var speed = 300
+var moving = false
+var target_position
+
+func _process(delta):
+	if moving:
+		position = position.move_toward(target_position, speed * delta)
+
+		if position.distance_to(target_position) < 1.0:
+			moving = false
+
 # player movement across the field cell by cell
 func move(cells_list:Array[Cell], next_position: int):
 	var temp_pos = current_position
@@ -21,7 +32,7 @@ func move(cells_list:Array[Cell], next_position: int):
 		temp_pos += 1 
 		temp_pos %= cells_list.size()
 		$".".global_position = cells_list[temp_pos].global_position
-		await get_tree().create_timer(0.5).timeout 
+		#await get_tree().create_timer(0.5).timeout 
 	current_position = next_position
 	if self.id == States.current_player_id:
 		var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}
@@ -50,5 +61,14 @@ func earn(price:int):
 	money += price
 	emit_signal("state_changed", self)
 
+func go_to_jail(cells: Array[Cell]):
+	self.current_position = 10
+	self.nb_turn_jail = 2
+	self.move_to(cells[10].position)
+	
+func move_to(pos: Vector2):
+	target_position = pos
+	moving = true
+	
 func set_turn_timer():
 	pass

@@ -9,9 +9,11 @@ class GameLogic:
         self.board = board
         self.current_turn_player_id = current_turn
 
-    def roll_dice(self) -> dict:
+    def roll_dice(self, test) -> dict:
         dice1 = random.randint(1, 6)
         dice2 = random.randint(1, 6)
+        if test:
+            dice2 = dice1
         return {
             "action": "roll_dice",
             "dice1": dice1,
@@ -34,6 +36,8 @@ class GameLogic:
 
     def move_player(self, player_id: int, steps: int) -> dict:
         player = self.players[player_id]
+        if player.nb_turn_jail > 0:
+            return {"action": "error", "message": "You are in jail", "delivery": "personal"}
         move_data = player.move(steps)
         return move_data
 
@@ -61,7 +65,7 @@ class GameLogic:
                     house_counter += street.nb_houses
         if house_counter > 0:
             return {"action": "error", "message": "First, sell all the houses in your monopoly."}
-        return player.sell_property(cell_id)
+        return cell.sell_property(player)
     
     def buy_house(self, player_id: int, cell_id: int):
         player = self.players[player_id]
@@ -88,3 +92,21 @@ class GameLogic:
         if cell:
             return cell.calculate_rent(player, dice_result)
         return {"action": "error", "message": "Cell not found"}
+    
+    def jail_decision(self, player_id: int, decistion: bool) -> dict:
+        player = self.players[player_id]
+        if decistion:
+            player.nb_turn_jail = 0
+            player.pay(50)
+            return {"action": "get_out_jail", "money": 50, "delivery": "personal"}
+        else:
+            return {"action": "jail_decision", "message": "You are still in jail", "delivery": "personal"}
+    
+    def get_out_of_jail(self, player_id, dice1, dice2):
+        if dice1 == dice2:
+            player = self.players[player_id]
+            player.nb_turn_jail = 0
+            return {"action": "get_out_jail", "money": 0, "delivery": "personal"}
+        else:
+            return {"action": "jail_decision", "message": "You are still in jail", "delivery": "personal"}
+        
