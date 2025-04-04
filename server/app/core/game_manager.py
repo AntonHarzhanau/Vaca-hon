@@ -69,9 +69,11 @@ class GameManager:
         self.state.current_turn = new_turn
         self.logic.current_turn_player_id = new_turn
         player = self.state.players[new_turn]
+        
         if player.nb_turn_jail > 0:
             player.nb_turn_jail -= 1
-        return {"action": "change_turn", "player_id": new_turn, "nb_turn_jail": player.nb_turn_jail,"delivery": "broadcast"}
+            
+        return {"action": "change_turn", "player_id": new_turn, "nb_turn_jail": player.nb_turn_jail, "delivery": "broadcast"}
 
     def handle_cell_activate(self, player_id: int, data: dict) -> dict:
         return self.logic.cell_action(player_id)

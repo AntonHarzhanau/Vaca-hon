@@ -43,6 +43,12 @@ class ConnectionManager:
         if websocket in self.active_connections:
             player_id = self.active_connections.pop(websocket)
             if player_id in self.players:
+                for property in self.players[player_id].properties:
+                    if type(property).__name__ == "StreetCell":
+                        property.nb_houses = 0
+                    property.cell_owner = None
+                    property.current_rent = property.initial_rent
+                # Remove the player from the game
                 del self.players[player_id]
                 print(f"Player {player_id} disconnected")
                 await self.broadcast(json.dumps({

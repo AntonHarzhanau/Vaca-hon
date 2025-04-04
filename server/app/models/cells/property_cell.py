@@ -63,12 +63,14 @@ class PropertyCell(Cell):
                 "delivery": "broadcast"
             }
         else:
+
+            rent = player.money
             self.cell_owner.earn(player.money)
             player.money = 0
             return {
-                "action": "bankrupt",
+                "action": "pay_rent",
                 "player_id": player.id,
                 "cell_owner_id": self.cell_owner.id,
-                "rent": self.current_rent,
+                "rent": rent,
                 "delivery": "broadcast"
             }

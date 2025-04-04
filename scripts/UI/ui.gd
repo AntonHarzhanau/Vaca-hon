@@ -57,12 +57,9 @@ func _on_player_disconnected(player_id):
 func _on_change_turn():
 	turn_lable.text = "Player's turn: " + str(States.id_player_at_turn)
 
-func _on_offer_to_buy(_cell_id, cell_name, price):
-	popup_offer.show_offer(cell_name, price)
-
 func _on_end_turn_button_pressed():
-	var msg = {"action": "end_turn"}
-	WebSocketClient.send_message(JSON.stringify(msg))
+	emit_signal("end_turn_clicked")
+	
 
 func _on_pop_up_offre_accept_offer_clicked() -> void:
 	emit_signal("accept_offer_clicked")

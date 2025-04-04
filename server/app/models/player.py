@@ -1,13 +1,15 @@
 from typing import List, TYPE_CHECKING
 from pydantic import BaseModel, Field
 
+
 if TYPE_CHECKING:
     from app.models.cells.property_cell import PropertyCell
+    from app.models.cells.street_cell import StreetCell
 
 class Player(BaseModel):
     id: int
     name: str
-    money: int = 1500
+    money: int = 500
     current_position: int = 0
     nb_turn_jail: int = 0
     nb_railway: int = 0
@@ -38,8 +40,8 @@ class Player(BaseModel):
         }
 
     def pay(self, amount: int) -> bool:
-        if self.money < amount:
-            return False
+        # if self.money < amount:
+        #     return False
         self.money -= amount
         return True
 
@@ -47,4 +49,10 @@ class Player(BaseModel):
         self.money += amount
 
 
-    
+    def capital(self):
+        total = self.money
+        for property in self.properties:
+            if isinstance(property, StreetCell):
+                total += property.nb_houses * property.house_cost
+            total += property.price
+        return total

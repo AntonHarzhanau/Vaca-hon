@@ -92,6 +92,5 @@ layout_mode = 2
 text = "Ok"
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
-[connection signal="accept_offer_clicked" from="PopUpOffre" to="." method="_on_pop_up_offre_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]

@@ -25,7 +25,7 @@ func _ready() -> void:
 	msg_handler.your_id.connect(_on_your_id)
 	msg_handler.move_player.connect(_on_move_player)
 	msg_handler.change_turn.connect(_on_change_turn)
-	msg_handler.offer_to_buy.connect(ui._on_offer_to_buy)
+	msg_handler.offer_to_buy.connect(_on_offer_to_buy)
 	msg_handler.buy_property.connect(_on_buy_property)
 	msg_handler.sell_property.connect(_on_sell_property)
 	msg_handler.pay_rent.connect(_on_pay_rent)
@@ -36,6 +36,7 @@ func _ready() -> void:
 	msg_handler.utility_rent.connect(_on_utility_rent)
 	msg_handler.go_to_jail.connect(_on_go_to_jail)
 	msg_handler.get_out_jail.connect(_on_get_out_jail)
+	ui.end_turn_clicked.connect(_on_end_turn_clicked)
 
 func _on_your_id(player_id: int) -> void:
 	States.current_player_id = player_id
@@ -58,6 +59,9 @@ func _on_player_disconnected(player_id:int):
 	
 func _on_player_state_changed(player:Player):
 	ui.update_hubs(player, States.current_player_id)
+	var offer = ui.popup_offer
+	if offer.visible and player.money >= offer.price:
+		ui.popup_offer.accept_btn.disabled = false
 
 func _on_move_player(player_id: int, steps: int, prime:bool) -> void:
 	var player = players[player_id]
@@ -65,9 +69,13 @@ func _on_move_player(player_id: int, steps: int, prime:bool) -> void:
 		player.earn(200)
 	player.move(cells, steps)
 
-func _on_offer_to_buy(cell_id:int, cell_name:int, price:int, player_id:int) -> void:
-	if player_id == States.current_player_id:
-		ui._on_offre_to_buy(cell_id, cell_name, price)
+func _on_offer_to_buy(cell_id:int, price:int) -> void:
+	var cell = cells[cell_id]
+	var player = players[States.current_player_id]
+	ui.popup_offer.price = price
+	if player.money < price:
+		ui.popup_offer.accept_btn.disabled = true
+	ui.popup_offer.show_offer(cell.cell_name)
 
 func _on_buy_property(player_id:int, cell_id: int, _price: int, current_rent:int) -> void:
 	var player = players[player_id]
@@ -111,7 +119,7 @@ func _on_change_turn(player_id:int, nb_turn_jail:int):
 			States.current_context = States.DiceContext.GET_OUT_OF_JAIL
 		else:
 			States.current_context = States.DiceContext.MOVE
-		States.id_player_at_turn = player_id
+	States.id_player_at_turn = player_id
 	ui._on_change_turn()
 	
 func _on_get_out_jail(money: int):
@@ -123,6 +131,16 @@ func _on_get_out_jail(money: int):
 	
 func _on_go_to_jail(player_id:int):
 	players[player_id].go_to_jail(cells)
+
+func _on_end_turn_clicked():
+	var bankrupt: bool = false
+	if players[States.current_player_id].money <= 0:
+		bankrupt = true
+	var msg = {"action": "end_turn", "bankrupt": bankrupt}
+	WebSocketClient.send_message(JSON.stringify(msg))
+	if bankrupt:
+		ui.show_info("Game over!!!!!!!")
+		_exit_tree()
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game
