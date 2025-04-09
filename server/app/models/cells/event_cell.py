@@ -46,9 +46,9 @@ class EventCell(Cell):
         }
     def luxury_tax_event(self, player: Player) -> dict:
         """Triggers a luxury tax event."""
-        player.earn(100)
+        player.pay(100)
         return {
-            "action": "earn",
+            "action": "pay",
             "player_id": player.id,
             "amount": 100,
             "delivery": "broadcast"

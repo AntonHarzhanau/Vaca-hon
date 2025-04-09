@@ -32,7 +32,7 @@ func move(cells_list:Array[Cell], next_position: int):
 		temp_pos += 1 
 		temp_pos %= cells_list.size()
 		$".".global_position = cells_list[temp_pos].global_position
-		#await get_tree().create_timer(0.5).timeout 
+		await get_tree().create_timer(0.3).timeout 
 	current_position = next_position
 	if self.id == States.current_player_id:
 		var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}

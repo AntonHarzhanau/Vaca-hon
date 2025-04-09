@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg2dvy44xj8ui"]
+[gd_scene load_steps=2 format=3 uid="uid://cg2dvy44xj8ui"]
 
 [ext_resource type="Script" uid="uid://l7k1w466qlbw" path="res://scripts/card.gd" id="1_hs0xq"]
-[ext_resource type="Texture2D" uid="uid://cyc3a1jab720n" path="res://assets/chance.png" id="2_xjov1"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -24,8 +23,3 @@ offset_right = 172.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "gsdfgmkdmgkldfgsmd"
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGround"]
-position = Vector2(64, 79)
-scale = Vector2(1, 0.583333)
-texture = ExtResource("2_xjov1")

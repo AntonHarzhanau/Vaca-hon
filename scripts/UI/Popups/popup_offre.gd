@@ -10,7 +10,7 @@ func _ready():
 	deny_btn.pressed.connect(_on_deny_pressed)
 
 func show_offer(cell_name: String):
-	label_offer.text = "Do you want to buy " + cell_name + " for $" + str(price) + "?"
+	label_offer.text = cell_name + "\nDo you want to buy " + " for $" + str(price) + "?"
 	visible = true
 	#TODO: add check if the player has enough money and hide accept_btn if there is not enough money
 

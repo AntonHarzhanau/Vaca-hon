@@ -10,7 +10,8 @@ var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
 func _ready() -> void:
 	# Subscribing GameManager to network signals
-	WebSocketClient.connect_to_server("ws://127.0.0.1:8000/lobbies/ws")
+	print(States.URL)
+	WebSocketClient.connect_to_server(States.URL)
 	WebSocketClient.message_received.connect(msg_handler._on_message_received)
 	if States.is_test:
 		var test_ui = load("res://Test/test_menu.tscn")
@@ -60,7 +61,7 @@ func _on_player_disconnected(player_id:int):
 func _on_player_state_changed(player:Player):
 	ui.update_hubs(player, States.current_player_id)
 	var offer = ui.popup_offer
-	if offer.visible and player.money >= offer.price:
+	if player.money >= offer.price:
 		ui.popup_offer.accept_btn.disabled = false
 
 func _on_move_player(player_id: int, steps: int, prime:bool) -> void:
@@ -135,7 +136,7 @@ func _on_go_to_jail(player_id:int):
 func _on_end_turn_clicked():
 	var bankrupt: bool = false
 	if players:
-		if players[States.current_player_id].money <= 0:
+		if players[States.current_player_id].money < 0:
 			bankrupt = true
 		var msg = {"action": "end_turn", "bankrupt": bankrupt}
 		WebSocketClient.send_message(JSON.stringify(msg))
