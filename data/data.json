@@ -14,7 +14,7 @@
 		"house": 50
 	},
 	{
-		"name": "PASSEPORT MYSTERE",
+		"name": "PASSEPORT MYSTÈRE",
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
@@ -37,7 +37,7 @@
 		"event_type": "income_tax"
 	},
 	{
-		"name": "Ivato International Airport",
+		"name": "Aéroport International D'Ivato",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
@@ -92,7 +92,7 @@
 		"house": 100
 	},
 	{
-		"name": "Castle",
+		"name": "Château de Mir",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -117,7 +117,7 @@
 		"house": 100
 	},
 	{
-		"name": "Cairo International Airport",
+		"name": "Aéroport International du Caire",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
@@ -133,14 +133,14 @@
 		"house": 100
 	},
 	{
-		"name": "PASSEPORT MYSTERE",
+		"name": "PASSEPORT MYSTÈRE",
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
 		"event_type": "chance"
 	},
 	{
-		"name": "Alexandria",
+		"name": "Alexandrie",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -149,7 +149,7 @@
 		"house": 100
 	},
 	{
-		"name": "Cairo",
+		"name": "Le Caire",
 		"type": "Street",
 		"cost": 200,
 		"color": "GREEN",
@@ -188,7 +188,7 @@
 		"house": 150
 	},
 	{
-		"name": "Beijing",
+		"name": "Pékin",
 		"type": "Street",
 		"cost": 240,
 		"color": "YELLOW",
@@ -197,7 +197,7 @@
 		"house": 150
 	},
 	{
-		"name": "Lomé-Tokoin International Airport",
+		"name": "Aéroport International de Lomé-Tokoin",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
@@ -222,7 +222,7 @@
 		"house": 150
 	},
 	{
-		"name": "Museum",
+		"name": "Monument de L’Indépendance",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -261,14 +261,14 @@
 		"house": 200
 	},
 	{
-		"name": "PASSEPORT MYSTERE",
+		"name": "PASSEPORT MYSTÈRE",
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
 		"event_type": "chance"
 	},
 	{
-		"name": "Algiers",
+		"name": "Alger",
 		"type": "Street",
 		"cost": 320,
 		"color": "PINK",
@@ -277,7 +277,7 @@
 		"house": 200
 	},
 	{
-		"name": "Charles de Gaulle Airport",
+		"name": "Aéroport International Charles de Gaulle",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
@@ -300,7 +300,7 @@
 		"house": 200
 	},
 	{
-		"name": "Customs Tax",
+		"name": "Taxes Douanières",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/tax.png",
 		"description": "",

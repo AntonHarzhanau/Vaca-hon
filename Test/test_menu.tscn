@@ -6,10 +6,10 @@
 script = ExtResource("1_xn81e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 308.0
-offset_top = 691.0
-offset_right = 746.0
-offset_bottom = 977.0
+offset_left = 280.0
+offset_top = 562.0
+offset_right = 718.0
+offset_bottom = 848.0
 size_flags_horizontal = 3
 
 [node name="TestMoveContainer" type="HBoxContainer" parent="VBoxContainer"]

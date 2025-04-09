@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ygn0nq18fhy"
-path="res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"
+uid="uid://b0fg502q8kx8o"
+path="res://.godot/imported/board_background.webp-b9057b82bb753bedb3d21efbbe75b9f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Event Cells/tax.png"
-dest_files=["res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"]
+source_file="res://assets/board_background.webp"
+dest_files=["res://.godot/imported/board_background.webp-b9057b82bb753bedb3d21efbbe75b9f5.ctex"]
 
 [params]
 

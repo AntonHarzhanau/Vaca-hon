@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ygn0nq18fhy"
-path="res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"
+uid="uid://km5iqp7ofyc6"
+path="res://.godot/imported/Sand background.png-662b30c6f7e52212a61432366f063c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Event Cells/tax.png"
-dest_files=["res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"]
+source_file="res://assets/Sand background.png"
+dest_files=["res://.godot/imported/Sand background.png-662b30c6f7e52212a61432366f063c21.ctex"]
 
 [params]
 

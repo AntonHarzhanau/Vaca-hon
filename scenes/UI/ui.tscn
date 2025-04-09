@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqqfabtceas0f"]
+[gd_scene load_steps=7 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
 [ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
 [ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e3k0"]
+bg_color = Color(0.368627, 0.164706, 0.0901961, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54a5"]
+bg_color = Color(0.298039, 0.121569, 0.0588235, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nt7q6")
@@ -14,10 +28,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -122.0
-offset_right = 170.0
-offset_bottom = 78.0
+offset_left = -432.0
+offset_top = -266.0
+offset_right = -62.0
+offset_bottom = -66.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -30,12 +44,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -266.0
-offset_right = 11.0
-offset_bottom = -211.0
+offset_left = 270.0
+offset_top = 346.0
+offset_right = 420.0
+offset_bottom = 401.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e3k0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f54a5")
 text = "End Turn"
 
 [node name="TurnLable" type="Label" parent="."]

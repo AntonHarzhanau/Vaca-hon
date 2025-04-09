@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ygn0nq18fhy"
-path="res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"
+uid="uid://b43nldvjs1pdk"
+path="res://.godot/imported/1Passport.png-315cd63f8fc05315c7eab4cc920a3ed7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Event Cells/tax.png"
-dest_files=["res://.godot/imported/tax.png-585d18f5551c8179b571822746b335d2.ctex"]
+source_file="res://assets/1Passport.png"
+dest_files=["res://.godot/imported/1Passport.png-315cd63f8fc05315c7eab4cc920a3ed7.ctex"]
 
 [params]
 
