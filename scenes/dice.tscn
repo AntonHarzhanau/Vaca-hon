@@ -1,31 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwh1c1078d3dt"]
+[gd_scene load_steps=9 format=3 uid="uid://cwh1c1078d3dt"]
 
-[ext_resource type="Texture2D" uid="uid://dnmqcin3ry0ev" path="res://assets/dice/png-klev-club-v5f8-p-storoni-kubika-png-27.png" id="1_4qbu4"]
 [ext_resource type="Script" uid="uid://c3q0bdp5vmacm" path="res://scripts/dice.gd" id="1_f8si1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_behcg"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(0, 0, 303, 323)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ybgc"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(303, 0, 303, 323)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7krly"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(606, 0, 303, 323)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6x4hu"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(0, 323, 303, 323)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5dg6"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(303, 323, 303, 323)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blf3q"]
-atlas = ExtResource("1_4qbu4")
-region = Rect2(606, 323, 303, 323)
+[ext_resource type="Texture2D" uid="uid://dhivd8e5yqrsr" path="res://assets/dice/Property 1=gameDie1.png" id="2_pb8pk"]
+[ext_resource type="Texture2D" uid="uid://jxusl0tsc5q" path="res://assets/dice/Property 1=gameDie2.png" id="3_ocjtb"]
+[ext_resource type="Texture2D" uid="uid://b0fu2re65j04t" path="res://assets/dice/Property 1=gameDie3.png" id="4_dicg2"]
+[ext_resource type="Texture2D" uid="uid://lsym3128c1xu" path="res://assets/dice/Property 1=gameDie4.png" id="5_pgf55"]
+[ext_resource type="Texture2D" uid="uid://80aahurlirb" path="res://assets/dice/Property 1=gameDie5.png" id="6_dlvbc"]
+[ext_resource type="Texture2D" uid="uid://c518ehf8ljt32" path="res://assets/dice/Property 1=gameDie6.png" id="7_skxya"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gde5k"]
 animations = [{
@@ -36,22 +17,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_behcg")
+"texture": ExtResource("2_pb8pk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ybgc")
+"texture": ExtResource("3_ocjtb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7krly")
+"texture": ExtResource("4_dicg2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6x4hu")
+"texture": ExtResource("5_pgf55")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u5dg6")
+"texture": ExtResource("6_dlvbc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_blf3q")
+"texture": ExtResource("7_skxya")
 }],
 "loop": true,
 "name": &"roll",
@@ -65,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -53.0
-offset_right = 281.0
-offset_bottom = 147.0
+offset_left = 194.0
+offset_top = 181.0
+offset_right = 564.0
+offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -76,14 +57,16 @@ script = ExtResource("1_f8si1")
 metadata/_edit_group_ = true
 
 [node name="DiceSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(89.7501, 98.7499)
-scale = Vector2(0.605611, 0.580495)
+position = Vector2(73.6363, 89.2046)
+rotation = -0.0628319
+scale = Vector2(2.80448, 2.68492)
 sprite_frames = SubResource("SpriteFrames_gde5k")
 animation = &"roll"
 
 [node name="DiceSprite2" type="AnimatedSprite2D" parent="."]
-position = Vector2(274, 100)
-scale = Vector2(0.605611, 0.580495)
+position = Vector2(250, 84)
+rotation = -0.0628319
+scale = Vector2(2.804, 2.607)
 sprite_frames = SubResource("SpriteFrames_gde5k")
 animation = &"roll"
 

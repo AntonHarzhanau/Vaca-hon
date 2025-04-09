@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnlojc3k6kjss"]
+[gd_scene load_steps=5 format=3 uid="uid://cnlojc3k6kjss"]
 
 [ext_resource type="Script" uid="uid://dg2hvdwcmyj3c" path="res://scripts/game_board.gd" id="1_cogkf"]
+[ext_resource type="Texture2D" uid="uid://b0fg502q8kx8o" path="res://assets/board_background.webp" id="2_0jtfi"]
 [ext_resource type="Texture2D" uid="uid://dnhm70ikx17d6" path="res://assets/Center.png" id="2_3wu0g"]
+[ext_resource type="Texture2D" uid="uid://km5iqp7ofyc6" path="res://assets/Sand background.png" id="2_mq2xb"]
 
 [node name="GameBoard" type="Control"]
 layout_mode = 3
@@ -10,13 +12,38 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -300.0
-offset_right = 300.0
-offset_bottom = 300.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cogkf")
+
+[node name="Sand Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -593.0
+offset_top = -260.0
+offset_right = 1083.0
+offset_bottom = 770.0
+texture = ExtResource("2_mq2xb")
+stretch_mode = 6
+
+[node name="Background Marron" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -709.0
+offset_top = -504.0
+offset_right = 704.333
+offset_bottom = 556.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0jtfi")
+expand_mode = 3
 
 [node name="Centre" type="TextureRect" parent="."]
 layout_mode = 1
@@ -27,5 +54,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(340, 340)
 texture = ExtResource("2_3wu0g")
+expand_mode = 3
 
 [node name="Players" type="Node2D" parent="."]

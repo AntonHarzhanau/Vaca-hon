@@ -3,9 +3,13 @@ extends Cell
 class_name CornerCell
 
 var corner_type: String
+@onready var texture: TextureRect = $BackGround/TextureRect
+
+var image: Texture2D
 
 func _ready():
 	super._ready()
+	texture.texture = image
 	
 func activate(_player: Player) -> void:
 	#use corner_type for indicate function for activate event

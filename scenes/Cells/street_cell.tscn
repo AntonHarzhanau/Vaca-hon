@@ -1,9 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmva7ij7veq7i"]
+[gd_scene load_steps=6 format=3 uid="uid://bmva7ij7veq7i"]
 
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_anvxg"]
 [ext_resource type="Script" uid="uid://2rykoxxqtbjj" path="res://scripts/Cells/street_cell.gd" id="2_2uyr2"]
 
 [sub_resource type="Theme" id="Theme_bfbtl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31mhu"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 4
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6u1e1"]
+line_spacing = 2.0
+paragraph_spacing = 2.0
+font_size = 13
+font_color = Color(0, 0, 0, 1)
 
 [node name="StreetCell" instance=ExtResource("1_anvxg")]
 script = ExtResource("2_2uyr2")
@@ -16,18 +31,29 @@ color = Color(0.85098, 0.909804, 0.839216, 1)
 [node name="ColorGroup" type="TextureRect" parent="BackGround" index="0"]
 texture_filter = 2
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 10.0
-offset_bottom = 34.0
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.027
+anchor_right = 0.983
+anchor_bottom = 0.22
+offset_left = -0.0400002
+offset_top = 0.95
+offset_right = 0.0399933
+offset_bottom = 6.0
 grow_horizontal = 2
-pivot_offset = Vector2(50, 12)
+pivot_offset = Vector2(58, 17)
 expand_mode = 3
 
-[node name="Name" parent="BackGround" index="1"]
+[node name="Panel" parent="BackGround" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_31mhu")
+
+[node name="Name" parent="BackGround" index="3"]
 anchors_preset = 8
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+offset_left = -29.0
+offset_top = -23.0
+offset_right = 30.0
+offset_bottom = 0.0
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_6u1e1")

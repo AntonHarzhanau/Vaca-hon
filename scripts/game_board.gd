@@ -16,7 +16,7 @@ const CELL_COUNT = 9  # Number of cells on each side
 
 @onready var game_board:TextureRect = $Centre
 @onready var players_container: = $Players
-
+@export var border:int = 1
 var board_rect:Rect2  # Bounding rectangle of game_board
 var top_left:Vector2
 var bottom_right:Vector2
@@ -129,18 +129,26 @@ func create_cells(json_data: Array):
 				cell_instance = RAILWAY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
 				cell_instance.rent = item["rent"]
+				if item.get("texture"):
+					cell_instance.image = load_texture(item["texture"])
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
 				cell_instance.rent = item["rent"]
+				if item.get("texture"):
+					cell_instance.image = load_texture(item["texture"])
 			
 			"Event":
 				cell_instance = EVENT_SCENE.instantiate()
+				if item.get("texture"):
+					cell_instance.image = load_texture(item["texture"])
 			
 			"Сorner":
 				cell_instance = CORNER_SCENE.instantiate()
-				
+				if item.get("texture"):
+					cell_instance.image = load_texture(item["texture"])
+ 				
 		cell_instance.id_space = cell_id
 		cell_instance.cell_name = item["name"]
 		cell_id += 1
