@@ -134,13 +134,14 @@ func _on_go_to_jail(player_id:int):
 
 func _on_end_turn_clicked():
 	var bankrupt: bool = false
-	if players[States.current_player_id].money <= 0:
-		bankrupt = true
-	var msg = {"action": "end_turn", "bankrupt": bankrupt}
-	WebSocketClient.send_message(JSON.stringify(msg))
-	if bankrupt:
-		ui.show_info("Game over!!!!!!!")
-		_exit_tree()
+	if players:
+		if players[States.current_player_id].money <= 0:
+			bankrupt = true
+		var msg = {"action": "end_turn", "bankrupt": bankrupt}
+		WebSocketClient.send_message(JSON.stringify(msg))
+		if bankrupt:
+			ui.show_info("Game over!!!!!!!")
+			_exit_tree()
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game
