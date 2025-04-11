@@ -6,10 +6,10 @@ from sqlalchemy.orm import Session, sessionmaker
 
 # Load environment variables from .env
 load_dotenv() 
-
+DATABASE_URL="postgresql://postgres:2547@localhost:5432/monopoly"
 # URL de connexion à la base de données
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
-
+# SQLALCHEMY_DATABASE_URL = os.getenv(DATABASE_URL)
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:2547@localhost:5432/monopoly"
 # Créer un moteur pour se connecter à PostgreSQL
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
@@ -32,8 +32,8 @@ def create_tables():
     # from app.models import Cell
     # from app.models import Player
     # from app.models import PropertyCell
-    from app.models.user import User
-    from app.models.lobby import Lobby
+    from app.game.models.user import User
+    from app.game.models.lobby import Lobby
     Base.metadata.create_all(bind=engine)
 
 # Fonction pour récupérer la session de la base de données

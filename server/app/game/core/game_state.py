@@ -1,6 +1,6 @@
 from typing import Dict
-from app.models.player import Player
-from app.models.game_board import GameBoard
+from app.game.models.player import Player
+from app.game.models.game_board import GameBoard
 
 class GameState:
     """

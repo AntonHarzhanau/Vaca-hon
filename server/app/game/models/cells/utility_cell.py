@@ -1,5 +1,5 @@
-from app.models.cells.property_cell import PropertyCell
-from app.models.player import Player
+from app.game.models.cells.property_cell import PropertyCell
+from app.game.models.player import Player
 
 class UtilityCell(PropertyCell):
     amount: int = 0

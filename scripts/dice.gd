@@ -21,7 +21,7 @@ func _ready() -> void:
 	# Subscribe to timer signal
 	timer.timeout.connect(_on_timer_timeout)
 	# Subscribe to the signal of receiving a message from the server
-	WebSocketClient.message_received.connect(_on_server_response)
+	#WebSocketClient.message_received.connect(_on_server_response)
 
 # Handling the click event
 func _gui_input(event: InputEvent) -> void:
@@ -44,14 +44,11 @@ func _on_timer_timeout() -> void:
 	process_dice_result()
 
 # Processing the response from the server
-func _on_server_response(message: Variant) -> void:
-	if message.has("action") and message["action"] == "roll_dice":
-		if message.has("dice1") and message.has("dice2"):
-			server_dice1 = message["dice1"]
-			server_dice2 = message["dice2"]
-			roll_dice()
-		else:
-			print("Incorrect response from the server: required data is missing.")
+func _on_server_response(dice1, dice2) -> void:
+	server_dice1 = dice1
+	server_dice2 = dice2
+	roll_dice()
+
 
 # Function for processing throw results
 func process_dice_result() -> void:

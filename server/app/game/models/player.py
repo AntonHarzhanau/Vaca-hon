@@ -3,8 +3,8 @@ from pydantic import BaseModel, Field
 
 
 if TYPE_CHECKING:
-    from app.models.cells.property_cell import PropertyCell
-    from app.models.cells.street_cell import StreetCell
+    from app.game.models.cells.property_cell import PropertyCell
+    from app.game.models.cells.street_cell import StreetCell
 
 class Player(BaseModel):
     id: int

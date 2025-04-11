@@ -1,4 +1,4 @@
 from typing import Dict
-from app.models.lobby import Lobby
+from app.game.models.lobby import Lobby
 
 lobbies_connection: Dict[int, Lobby] = {}

@@ -1,13 +1,13 @@
 import json
 from typing import List, Optional
 from pydantic import BaseModel, Field
-from app.models.cells.cell import Cell
-from app.models.cells.property_cell import PropertyCell
-from app.models.cells.street_cell import StreetCell
-from app.models.cells.railway_cell import RailWayCell
-from app.models.cells.utility_cell import UtilityCell
-from app.models.cells.event_cell import EventCell
-from app.models.cells.corner_cell import CornerCell
+from app.game.models.cells.cell import Cell
+from app.game.models.cells.property_cell import PropertyCell
+from app.game.models.cells.street_cell import StreetCell
+from app.game.models.cells.railway_cell import RailWayCell
+from app.game.models.cells.utility_cell import UtilityCell
+from app.game.models.cells.event_cell import EventCell
+from app.game.models.cells.corner_cell import CornerCell
 
 class GameBoard(BaseModel):
     """
@@ -18,7 +18,7 @@ class GameBoard(BaseModel):
 
     def __init__(self, **data):
         super().__init__(**data)
-        self.load_board_from_json("data/data.json")
+        self.load_board_from_json("app/data/data.json")
         
 
     def load_board_from_json(self, file_path: str) -> None:

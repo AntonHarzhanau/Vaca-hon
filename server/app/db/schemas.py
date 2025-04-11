@@ -16,7 +16,7 @@ class Cell(CellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -50,7 +50,7 @@ class PropertyCellUpdate(BaseModel):
     owner_id: Optional[int] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -71,7 +71,7 @@ class RailWayCell(RailWayCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -99,7 +99,7 @@ class Player(PlayerBase):
     railways_owned: List[RailWayCellBase] = []  # Liste des Railways possédées par ce joueur (relation)
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class PlayerUpdate(BaseModel):
@@ -123,7 +123,7 @@ class EventCell(EventCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Schéma pour CardCell
@@ -139,7 +139,7 @@ class CardCell(CardCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -155,7 +155,7 @@ class CornerCell(CornerCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -173,7 +173,7 @@ class StreetCell(StreetCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Schéma pour UtilityCell
@@ -189,7 +189,7 @@ class UtilityCell(UtilityCellBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Schemas for Lobby

@@ -1,8 +1,8 @@
 import json
 from fastapi import WebSocket
-from app.core.connection_manager import ConnectionManager
-from app.core.game_manager import GameManager
-from app.models.lobby import Lobby
+from app.api.connection_manager import ConnectionManager
+from app.game.core.game_manager import GameManager
+from app.game.models.lobby import Lobby
 
 class GameHandler:
     # def __init__(self, game_manager: GameManager, lobby: Lobby):

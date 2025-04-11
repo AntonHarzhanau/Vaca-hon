@@ -3,7 +3,7 @@ import uuid
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean
 from pydantic import EmailStr
-from data.database import Base
+from app.db.database import Base
 #from fastapi_users_db_sqlalchemy.generics import GUID
 
 UUID_ID = uuid.UUID

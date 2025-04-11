@@ -1,5 +1,5 @@
-from app.models.cells.cell import Cell
-from app.models.player import Player
+from app.game.models.cells.cell import Cell
+from app.game.models.player import Player
 
 class CornerCell(Cell):
     event_type: str

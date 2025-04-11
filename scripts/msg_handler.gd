@@ -4,6 +4,7 @@ signal player_connected(players)
 signal player_disconnected(player_id: int)
 signal your_id(player_id)
 signal move_player(player_id, steps, prime:bool)
+signal roll_dice(dice1:int, dice2:int)
 signal change_turn(player_id:int, nb_turn_jail:int)
 signal offer_to_buy(cell_id, price)
 signal buy_property(player_id:int, cell_id:int, price:int, current_rent:int)
@@ -32,6 +33,8 @@ func _on_message_received(message: Variant) -> void:
 			emit_signal("player_disconnected", message["player_id"])
 		"your_id":
 			emit_signal("your_id", message["player_id"])
+		"roll_dice":
+			emit_signal("roll_dice", message["dice1"], message["dice2"])
 		"move_player":
 			emit_signal("move_player", message["player_id"], message["current_position"], message["prime"])
 		"change_turn":

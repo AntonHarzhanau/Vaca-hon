@@ -1,10 +1,10 @@
 from __future__ import annotations
 from typing import List, TYPE_CHECKING
-from app.models.cells.property_cell import PropertyCell
-from app.models.player import Player
+from app.game.models.cells.property_cell import PropertyCell
+from app.game.models.player import Player
 
 if TYPE_CHECKING:
-    from app.models.game_board import GameBoard
+    from app.game.models.game_board import GameBoard
 
 
 

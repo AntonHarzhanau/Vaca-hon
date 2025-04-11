@@ -1,7 +1,7 @@
 from typing import Dict, Any, Callable, Tuple
-from app.models.player import Player
-from app.core.game_state import GameState
-from app.core.game_logic import GameLogic
+from app.game.models.player import Player
+from app.game.core.game_state import GameState
+from app.game.core.game_logic import GameLogic
 import logging
 
 logger = logging.getLogger("GameManager")

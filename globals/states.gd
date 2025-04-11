@@ -15,7 +15,7 @@ const DiceContext := {
 var dice_active: bool = true
 var current_context: String = "move"
 
-var URL = "ws://127.0.0.1:8000/lobbies/ws"
+var URL = "ws://127.0.0.1:8000/ws"
 
 func set_url(adress:String, port:String, prefix:String):
 	URL = "ws://" +adress+":" +port+ "/"+prefix

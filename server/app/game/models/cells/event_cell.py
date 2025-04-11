@@ -1,5 +1,5 @@
-from app.models.cells.cell import Cell
-from app.models.player import Player
+from app.game.models.cells.cell import Cell
+from app.game.models.player import Player
 
 class EventCell(Cell):
     """EventCell class represents a cell on the board that triggers an event."""

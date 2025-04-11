@@ -3,8 +3,8 @@ from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 from sqlalchemy.ext.hybrid import hybrid_property
-from data.database import Base
-from app.core.connection_manager import ConnectionManager
+from app.db.database import Base
+from app.api.connection_manager import ConnectionManager
 
 class Lobby(Base):
     __tablename__ = 'lobbies'

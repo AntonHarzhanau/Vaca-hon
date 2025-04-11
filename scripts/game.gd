@@ -24,6 +24,7 @@ func _ready() -> void:
 	msg_handler.player_connected.connect(_on_player_connected)
 	msg_handler.player_disconnected.connect(_on_player_disconnected)
 	msg_handler.your_id.connect(_on_your_id)
+	msg_handler.roll_dice.connect(ui.dice._on_server_response)
 	msg_handler.move_player.connect(_on_move_player)
 	msg_handler.change_turn.connect(_on_change_turn)
 	msg_handler.offer_to_buy.connect(_on_offer_to_buy)

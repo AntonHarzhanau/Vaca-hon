@@ -1,7 +1,7 @@
 import random
 from typing import Dict
-from app.models.player import Player
-from app.models.game_board import GameBoard
+from app.game.models.player import Player
+from app.game.models.game_board import GameBoard
 
 class GameLogic:
     def __init__(self, players: Dict[int, Player], board: GameBoard, current_turn: int):

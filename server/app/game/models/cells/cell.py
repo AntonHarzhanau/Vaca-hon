@@ -1,6 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel
-from app.models.player import Player
+from app.game.models.player import Player
 
 class Cell(BaseModel):
     cell_id: int

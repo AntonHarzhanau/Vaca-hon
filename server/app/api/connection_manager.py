@@ -1,7 +1,7 @@
 import json
 from typing import Dict
 from fastapi import WebSocket
-from app.models.player import Player
+from app.game.models.player import Player
 
 class ConnectionManager:
     
