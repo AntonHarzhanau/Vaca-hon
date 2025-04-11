@@ -1,0 +1,28 @@
+
+
+pip install pydantic
+
+uvicorn
+
+fastapi[all] 
+
+sqlalchemy 
+pydantic
+
+alembic revision --autogenerate -m "Ajout de nouvelles colonnes à players"
+alembic upgrade head
+
+uvicorn
+
+
+pip freeze > requirements.txt
+
+
+
+
+
+
+uvicorn main:app --reload
+
+
+

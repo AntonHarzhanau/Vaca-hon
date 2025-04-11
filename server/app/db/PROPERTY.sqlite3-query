@@ -1,0 +1,11 @@
+-- database: ./server/vacashion.db
+
+SELECT * FROM cells;
+
+
+
+INSERT INTO propertycell (cell_id, price, mortgaged, rent)
+VALUES 
+(41, 200, FALSE, 25),       
+(42, 300, TRUE, 35),        
+(43, 500, FALSE, 50);      
