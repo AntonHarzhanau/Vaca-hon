@@ -2,7 +2,7 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
-from app.models import Cell, StreetCell,PropertyCell
+from app.db.models import Cell, StreetCell,PropertyCell
 
 
 class GameBoard(BaseModel):

@@ -1,10 +1,10 @@
 from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.data.database import get_db
+from app.db.database import get_db
 # from data.schemas import CellBase, CellCreate  
-from app.models import Cell
-from app.schemas.Cell_schema import CellBase, CellCreate  
+from app.db.models import Cell
+from app.db.schemas.Cell_schema import CellBase, CellCreate  
 
 router = APIRouter(prefix="/cells", tags=["cells"])
 

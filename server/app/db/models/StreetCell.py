@@ -1,6 +1,6 @@
 from sqlalchemy import  Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from app.data.database import Base
+from app.db.database import Base
 
 
 class StreetCell(Base):

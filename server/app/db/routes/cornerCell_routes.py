@@ -2,10 +2,10 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from app.schemas.CornerCell_schema import CornerCellBase, CornerCellCreate
-from app.services.CornerCell_crud import CRUD
-from app.data.database import get_db
-from app.models import CornerCell
+from app.db.schemas.CornerCell_schema import CornerCellBase, CornerCellCreate
+from app.db.services.CornerCell_crud import CRUD
+from app.db.data.database import get_db
+from app.db.models import CornerCell
 
 router = APIRouter(prefix="/corner_cells", tags=["Corner Cells"])
 
