@@ -24,12 +24,15 @@ class UserReadSchema(BaseModel):
 class UserUpdateSchema(BaseModel):
     email: Optional[str] = None
     username: Optional[str] = None
-    password: Optional[str] = None
+    password: Optional[str]
     
 class UserDeleteSchema(BaseModel):
     user_id: int
-    
+
 class UserFilterSchema(BaseModel):
-    email: Optional[bool] = None
-    username: Optional[bool] = None
-    id: Optional[int] = None
+    email: Optional[str] = None
+    username: Optional[str] = None
+
+class UserLoginSchema(UserFilterSchema):
+
+    password: str

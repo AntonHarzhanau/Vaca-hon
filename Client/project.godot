@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 States="*res://globals/states.gd"
 WebSocketClient="*res://globals/WebSocketClient.gd"
+HttpRequestClient="*res://globals/HTTPRequestClient.gd"
 
 [display]
 

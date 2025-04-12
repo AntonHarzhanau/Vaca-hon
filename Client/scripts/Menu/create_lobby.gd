@@ -7,16 +7,13 @@ extends Control
 @onready var create_lobby_btn: Button = $FormPanel/CreateButton
 @onready var message_feedback_label: RichTextLabel = $FormPanel/MessageFeedback
 @onready var back_to_home_btn: Button = $BackToHome
-@onready var http_client: HTTPRequestClient
 
 func _ready() -> void:
 	is_private_checkbutton.toggled.connect(_on_lobby_is_private_toggled)
 	create_lobby_btn.pressed.connect(_on_create_lobby_pressed)
 	back_to_home_btn.pressed.connect(_on_back_to_home_pressed)
-	
-	# Create an HTTPRequestClient node and add it to the tree
-	http_client = HTTPRequestClient.new("http://127.0.0.1:8000")	
-	add_child(http_client)
+
+	#Create an HTTPRequestClient node and add it to the tree
 	
 func _on_lobby_is_private_toggled(toggled_on: bool) -> void:
 	lobby_private_secret_group.visible = toggled_on
@@ -35,7 +32,7 @@ func _on_create_lobby_pressed():
 		"secret": secret
 	}
 	
-	var response = await http_client.__post("/lobbies", payload)
+	var response = await HttpRequestClient.__post("/lobbies", payload)
 	
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")

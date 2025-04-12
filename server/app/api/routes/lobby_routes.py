@@ -14,9 +14,9 @@ async def create_lobby(
     lobby_data: Annotated[LobbyCreateSchema, Depends()],
     service: Annotated[LobbyService, Depends(lobby_service)]
 ) -> LobbyReadSchema:
-    # new_lobby = await service.create_lobby(lobby_data)
-    # if new_lobby is None:
-    #     raise HTTPException(status_code=400, detail="Lobby creation failed")
+    new_lobby = await service.create_lobby(lobby_data)
+    if new_lobby is None:
+        raise HTTPException(status_code=400, detail="Lobby creation failed")
     return await service.create_lobby(lobby_data)
 
 

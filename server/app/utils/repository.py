@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from sqlalchemy import insert, select, update, delete, and_
+from sqlalchemy import insert, select, update, delete, and_, or_
 from app.db.database import async_session_maker
 from app.utils.filtering import build_filters
 from typing import List
@@ -59,22 +59,27 @@ class SqlAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one()
         
-    async def get(self, item_id: int | None = None, filters: BaseModel | None = None):
+    async def get(self, user_id: int | None = None, filters: BaseModel | None = None):
         async with async_session_maker() as session:
             stmt = select(self.model)
-            # priority: if item_id is set, use it as a filter
-            if item_id is not None:
-                stmt = stmt.where(self.model.id == item_id)
-            elif filters:
-                stmt = stmt.where(*build_filters(self.model, filters))
+
+            if user_id is not None:
+                stmt = stmt.where(self.model.id == user_id)
+                result = await session.execute(stmt)
+                user = result.scalar_one_or_none()
+                return user.to_read_model() if user else None
+
+            if filters:
+                conditions = [
+                    getattr(self.model, field) == value
+                    for field, value in filters.model_dump(exclude_unset=True).items()
+                    if hasattr(self.model, field)
+                ]
+                stmt = stmt.where(or_(*conditions))
 
             result = await session.execute(stmt)
+            return [row[0].to_read_model() for row in result.all()]
 
-            if item_id is not None:
-                obj = result.scalar_one_or_none()
-                return obj.to_read_model() if obj else None
-            else:
-                return [row[0].to_read_model() for row in result.all()]
     
     async def update(self, item_id:int, item_data: dict):
         async with async_session_maker() as session:
