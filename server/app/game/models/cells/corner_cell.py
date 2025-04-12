@@ -2,6 +2,7 @@ from app.game.models.cells.cell import Cell
 from app.game.models.player import Player
 
 class CornerCell(Cell):
+    
     event_type: str
     
     def activate(self, player: Player) -> None:

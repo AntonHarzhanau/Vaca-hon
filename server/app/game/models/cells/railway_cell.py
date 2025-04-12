@@ -2,6 +2,7 @@ from app.game.models.cells.property_cell import PropertyCell
 from app.game.models.player import Player
 
 class RailWayCell(PropertyCell):
+    
     def buy_property(self, player):
         player.nb_railway += 1
         self.current_rent = self.initial_rent * player.nb_railway

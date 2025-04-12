@@ -1,45 +1,45 @@
 import os
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import Session, sessionmaker
 
 # Load environment variables from .env
 load_dotenv() 
-DATABASE_URL="postgresql://postgres:2547@localhost:5432/monopoly"
 # URL de connexion à la base de données
 # SQLALCHEMY_DATABASE_URL = os.getenv(DATABASE_URL)
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:2547@localhost:5432/monopoly"
-# Créer un moteur pour se connecter à PostgreSQL
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-
-# Créer un constructeur de session
-db_session = Session(engine)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:2547@localhost:5432/monopoly"
+# SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
 # Déclarer la base
 Base = declarative_base()
 
+# Créer un moteur pour se connecter à PostgreSQL
+engine = create_async_engine(
+    SQLALCHEMY_DATABASE_URL,
+    echo=False,    
+)
 
+# Créer un constructeur de session
+async_session_maker = async_sessionmaker(
+    engine, 
+    expire_on_commit=False,
+    autoflush=False,
+    autocommit=False,
+)
 
+# async def get_async_session():
+#     async with async_session_maker() as session:
+#         yield session 
 
 # Créer toutes les tables définies dans les modèles SQLAlchemy
 
 # Créer les tables dans la base de données
+async def create_tables():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
-# Créer les tables dans la base de données
-def create_tables():
-    # from app.models import Cell
-    # from app.models import Player
-    # from app.models import PropertyCell
-    from app.game.models.user import User
-    from app.game.models.lobby import Lobby
-    Base.metadata.create_all(bind=engine)
-
-# Fonction pour récupérer la session de la base de données
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+# For testing purposes
+async def delete_tables():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)

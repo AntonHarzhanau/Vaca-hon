@@ -3,6 +3,7 @@ from app.game.models.player import Player
 from typing import Optional
 
 class PropertyCell(Cell):
+    
     price: int
     initial_rent: int
     current_rent: int

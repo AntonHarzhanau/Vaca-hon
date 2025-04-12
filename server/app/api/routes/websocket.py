@@ -1,6 +1,6 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, status
-from app.game.models.lobby import Lobby
-from app.game.models.user import User
+from app.models.lobby import Lobby
+from app.models.user import User
 from app.api.connection_manager import ConnectionManager
 from app.game.core.handlers import GameHandler
 from app.game.core.game_manager import GameManager
