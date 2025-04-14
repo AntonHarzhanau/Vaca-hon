@@ -26,21 +26,25 @@ func _on_create_lobby_pressed():
 	var secret = lobby_private_secret_lineedit.text if is_private else ""
 	
 	var payload = {
+		"owner_id": int(UserData.user_id),
 		"nb_player_max": nb_player_max,
 		"time_sec": time_sec,
 		"is_private": is_private,
 		"secret": secret
 	}
-	
-	var response = await HttpRequestClient.__post("/lobbies", payload)
+	var response = await HttpRequestClient.__post("/lobbies/", payload)
 	
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")
 		message_feedback_label.add_theme_color_override("default_color", "#ff2334")
-		message_feedback_label.text = "Une erreur s'est produite, merci de réessayer!"
+		message_feedback_label.text = "An error has occurred, please try again.!"
 	else:
 		message_feedback_label.add_theme_color_override("default_color", "#00994f")
-		message_feedback_label.text = "Nouveau Lobby créé !"
-
+		message_feedback_label.text = "New Lobby created!"
+		print(response.body)
+		States.lobby_id = int(response.body["id"])
+		get_tree().change_scene_to_file("res://scenes/Menu/lobby_menu.tscn")
+	
+	
 func _on_back_to_home_pressed():
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")

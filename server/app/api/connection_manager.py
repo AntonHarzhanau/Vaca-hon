@@ -1,67 +1,37 @@
-import json
 from typing import Dict
 from fastapi import WebSocket
-from app.game.models.player import Player
+from app.schemas.user_schema import UserReadSchema
 
-class ConnectionManager:
     
+class ConnectionManager:
     def __init__(self):
-        self.active_connections: Dict[WebSocket, int] = {}  # WebSocket -> player_id
-        self.players: Dict[int, Player] = {}  # player_id -> Player
-        self.next_id: int = 0
+        self.active_connections: Dict[WebSocket, UserReadSchema] = {}
 
-    async def connect(self, websocket: WebSocket) -> None:
-        await websocket.accept()
+    async def connect(self, websocket: WebSocket, user: UserReadSchema):
+        self.active_connections[websocket] = user
 
-        new_player = Player(id=self.next_id, name="Player" + str(self.next_id))
-        self.players[self.next_id] = new_player
-        self.active_connections[websocket] = self.next_id
-        self.next_id += 1
-        print(f"🔗 New player connected: ID {new_player.id}")
-
-
-        # Send the player his ID
-        await websocket.send_text(json.dumps({
-            "action": "your_id",
-            "player_id": new_player.id
-        }))
+    async def disconnect(self, websocket: WebSocket) -> UserReadSchema:
+        return self.active_connections.pop(websocket)
         
-       # Send the new player a list of connected players
-        await websocket.send_text(json.dumps({
-            "action": "player_connected",
-            "players": [player.model_dump() for player in self.players.values()]
-        }))
 
-        # Notify other players
-        new_player_data = json.dumps({
-            "action": "player_connected",
-            "players": [new_player.model_dump()]
-        })
-        await self.broadcast(new_player_data, exclude=websocket)
-
-    async def disconnect(self, websocket: WebSocket) -> None:
-        if websocket in self.active_connections:
-            player_id = self.active_connections.pop(websocket)
-            if player_id in self.players:
-                for property in self.players[player_id].properties:
-                    if type(property).__name__ == "StreetCell":
-                        property.nb_houses = 0
-                    property.cell_owner = None
-                    property.current_rent = property.initial_rent
-                # Remove the player from the game
-                del self.players[player_id]
-                print(f"Player {player_id} disconnected")
-                await self.broadcast(json.dumps({
-                    "action": "player_disconnected",
-                    "player_id": player_id
-                }))
-
-    async def send_personal_message(self, message: str, websocket: WebSocket) -> None:
+    async def send_personal_message(self, message: str, websocket: WebSocket):
         print(message)
         await websocket.send_text(message)
 
-    async def broadcast(self, message: str, exclude: WebSocket = None) -> None:
+    async def broadcast(self, message: str, exclude: WebSocket = None):
         print(message)
+        disconnected = []
         for connection in self.active_connections:
             if connection != exclude:
-                await connection.send_text(message)
+                try:
+                    await connection.send_text(message)
+                except Exception as e:
+                    print(f"⚠️ Error sending: {e}")
+                    disconnected.append(connection)
+        
+        # Remove unavailable connections
+        for conn in disconnected:
+            self.active_connections.pop(conn)
+
+
+# manager = ConnectionManager()

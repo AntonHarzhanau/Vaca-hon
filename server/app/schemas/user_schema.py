@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel
 from typing import Optional
 
 class UserSchema(BaseModel):
@@ -34,5 +34,4 @@ class UserFilterSchema(BaseModel):
     username: Optional[str] = None
 
 class UserLoginSchema(UserFilterSchema):
-
     password: str

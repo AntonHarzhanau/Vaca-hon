@@ -4,8 +4,13 @@ extends Control
 @onready var login: TextEdit = $ColorRect/MarginContainer/VBoxContainer/Login
 @onready var password: TextEdit = $ColorRect/MarginContainer/VBoxContainer/Password
 
-func _on_register_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Menu/registration.tscn")
+signal change_to_login
+
+func _ready() -> void:
+	login.text = UserData.user_name
+	password.text = UserData.password
+	
+
 
 func _on_login_pressed() -> void:
 	var payload = {
@@ -19,8 +24,17 @@ func _on_login_pressed() -> void:
 
 	if response.response_code == 200:
 		var user = response.body
+		print(user) 
+		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
+		UserData.user_id = int(response.body["id"])
+		UserData.save_user_data()
 		message.text = "Login successful:"
-		print(user)
+		#var url = "ws://127.0.0.1:8000/ws/login/" + UserData.user_id
+		#WebSocketClient.connect_to_server(url)
 	else:
 		message.text = "Incorrect login or password"
 		print(response.body)
+
+
+func _on_register_pressed() -> void:
+	emit_signal("change_to_login")

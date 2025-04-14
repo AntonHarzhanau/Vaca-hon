@@ -4,7 +4,6 @@ extends Control
 @onready var vbox = $ScrollContainer/VBoxContainer
 @onready var refresh_btn = $RefreshButton
 @onready var back_to_home_btn: Button = $BackToHome
-@onready var http_client: HTTPRequestClient
 
 # Load the lobby item scene
 var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item.tscn")
@@ -69,15 +68,16 @@ func _ready():
 	lobby_list_panel.add_child(scroll)
 
 func _on_join_pressed(lobby):
-	WebSocketClient.connect_to_server("ws://127.0.0.1:8000/lobbies/join/" + str(int(lobby.id)))
+	#var url = "ws://127.0.0.1:8000/ws/" + str(int(lobby.id))
+	States.lobby_id = int(lobby.id)
 	print("Joining lobby: ", lobby)
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	#var url = "ws://127.0.0.1:8000/ws/join/%s?user_id=%s" % [States.lobby_id, UserData.user_id]
+	#WebSocketClient.connect_to_server(url)
+	get_tree().change_scene_to_file("res://scenes/Menu/lobby_menu.tscn")
 	
 func _fetch_lobbies():
 	# Get Lobbies from Server
-	http_client = HTTPRequestClient.new("http://127.0.0.1:8000")	
-	add_child(http_client)
-	var response = await http_client.__get("/lobbies")
+	var response = await HttpRequestClient.__get("/lobbies")
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")
 		print("Error occured when retrieving lobbies from server")

@@ -10,8 +10,7 @@ var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
 func _ready() -> void:
 	# Subscribing GameManager to network signals
-	print(States.URL)
-	WebSocketClient.connect_to_server(States.URL)
+	#WebSocketClient.connect_to_server(States.URL)
 	WebSocketClient.message_received.connect(msg_handler._on_message_received)
 	if States.is_test:
 		var test_ui = load("res://Test/test_menu.tscn")
@@ -23,7 +22,6 @@ func _ready() -> void:
 	# Subscribing UI to GameManager signals
 	msg_handler.player_connected.connect(_on_player_connected)
 	msg_handler.player_disconnected.connect(_on_player_disconnected)
-	msg_handler.your_id.connect(_on_your_id)
 	msg_handler.roll_dice.connect(ui.dice._on_server_response)
 	msg_handler.move_player.connect(_on_move_player)
 	msg_handler.change_turn.connect(_on_change_turn)
@@ -40,19 +38,18 @@ func _ready() -> void:
 	msg_handler.get_out_jail.connect(_on_get_out_jail)
 	ui.end_turn_clicked.connect(_on_end_turn_clicked)
 
-func _on_your_id(player_id: int) -> void:
-	States.current_player_id = player_id
-
 func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
 		var new_player = board.add_player(i)
-		new_player.player_color = colors[new_player.id]
+		new_player.global_position += Vector2(10,10) * players.size()
+		#new_player.player_color = colors[new_player.id]
 		players[new_player.id] = new_player
 		new_player.state_changed.connect(_on_player_state_changed)
-		if new_player.id == States.current_player_id:
+		if new_player.id == UserData.user_id:
 			ui.create_main_player_hub(new_player)
 		else:
 			ui.create_guest_hub(new_player)
+		print("Player id" + str(new_player.id) +"was created")
 
 func _on_player_disconnected(player_id:int):
 	ui._on_player_disconnected(player_id)
@@ -60,20 +57,20 @@ func _on_player_disconnected(player_id:int):
 	players.erase(player_id)
 	
 func _on_player_state_changed(player:Player):
-	ui.update_hubs(player, States.current_player_id)
+	ui.update_hubs(player, UserData.user_id)
 	var offer = ui.popup_offer
 	if player.money >= offer.price:
 		ui.popup_offer.accept_btn.disabled = false
 
 func _on_move_player(player_id: int, steps: int, prime:bool) -> void:
-	var player = players[player_id]
+	var player = players[int(player_id)]
 	if prime:
 		player.earn(200)
 	player.move(cells, steps)
 
 func _on_offer_to_buy(cell_id:int, price:int) -> void:
 	var cell = cells[cell_id]
-	var player = players[States.current_player_id]
+	var player = players[UserData.user_id]
 	ui.popup_offer.price = price
 	if player.money < price:
 		ui.popup_offer.accept_btn.disabled = true
@@ -92,7 +89,7 @@ func _on_sell_property(player_id: int, cell_id: int, _price:int, current_rent:in
 func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
 	players[player_id].pay(rent)
 	players[cell_owner_id].earn(rent)
-	if player_id == States.current_player_id:
+	if player_id == UserData.user_id:
 		ui.show_info("you paid "+ str(rent)+ " to player" + str(cell_owner_id))
 
 func _on_buy_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
@@ -113,7 +110,7 @@ func _on_utility_rent():
 	ui.show_info("dice activate for" + States.current_context)
 
 func _on_change_turn(player_id:int, nb_turn_jail:int):
-	if player_id == States.current_player_id:
+	if player_id == UserData.user_id:
 		players[player_id].nb_turn_jail = nb_turn_jail
 		States.dice_active = true
 		if nb_turn_jail > 0:
@@ -125,7 +122,7 @@ func _on_change_turn(player_id:int, nb_turn_jail:int):
 	ui._on_change_turn()
 	
 func _on_get_out_jail(money: int):
-	var player = players[States.current_player_id]
+	var player = players[UserData.user_id]
 	player.pay(money)
 	player.nb_turn_jail = 0
 	States.dice_active = true
@@ -137,7 +134,7 @@ func _on_go_to_jail(player_id:int):
 func _on_end_turn_clicked():
 	var bankrupt: bool = false
 	if players:
-		if players[States.current_player_id].money < 0:
+		if players[UserData.user_id].money < 0:
 			bankrupt = true
 		var msg = {"action": "end_turn", "bankrupt": bankrupt}
 		WebSocketClient.send_message(JSON.stringify(msg))

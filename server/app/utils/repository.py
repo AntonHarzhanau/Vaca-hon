@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
-from sqlalchemy import insert, select, update, delete, and_, or_
+from sqlalchemy import insert, select, or_
 from app.db.database import async_session_maker
-from app.utils.filtering import build_filters
-from typing import List
 from pydantic import BaseModel
 from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException
@@ -46,7 +44,7 @@ class SqlAlchemyRepository(AbstractRepository):
     """
     model = None  # This should be set to the SQLAlchemy model class
     
-    async def add(self, data: dict) -> int:
+    async def add(self, data: dict):
         async with async_session_maker() as session:
             stmt = insert(self.model).values(**data).returning(self.model)
             try:
@@ -57,7 +55,7 @@ class SqlAlchemyRepository(AbstractRepository):
                 raise HTTPException(status_code=400, detail="A non-existent foreign key was specified.")
             
             await session.commit()
-            return res.scalar_one()
+            return res.scalar_one().to_read_model()
         
     async def get(self, user_id: int | None = None, filters: BaseModel | None = None):
         async with async_session_maker() as session:

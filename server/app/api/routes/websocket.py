@@ -1,75 +1,57 @@
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, status
-from app.models.lobby import Lobby
-from app.models.user import User
-from app.api.connection_manager import ConnectionManager
-from app.game.core.handlers import GameHandler
-from app.game.core.game_manager import GameManager
-from app.core.global_state import lobbies_connection
-from app.db.database import get_db, db_session
+from app.services.user_service import UserService 
+from app.services.lobby_service import LobbyService
+from app.game.core.lobby_manager import LobbyManager
+from app.game.core.lobby_instance import LobbyInstance
+from fastapi import Depends, Query
+from typing import Annotated
+from app.api.dependencies import lobby_service, user_service, get_lobby_manager
 
-router = APIRouter(prefix="/ws", tags=["lobby"])
-
-session = db_session
-
-manager = ConnectionManager()
-game_manager = GameManager(manager.players)
-game_handler = GameHandler(game_manager, manager)
-
-
-
-@router.websocket("")
-async def websocket_endpoint(websocket: WebSocket):
-    await manager.connect(websocket)
-    try:
-        while True:
-            data = await websocket.receive_json()
-            await game_handler.handle_event(websocket, data)
-    except WebSocketDisconnect:
-        await manager.disconnect(websocket)
-       #TODO: implement normal id assignment logic
-        manager.next_id -= 1
-
+router = APIRouter(prefix="/ws")
 
 @router.websocket("/join/{lobby_id}")
-async def join_lobby(
+async def websocket_endpoint(
     websocket: WebSocket,
-    lobby_id: int
+    lobby_id: int,
+    user_id: Annotated[int, Query(...)],  # pass user_id as a query parameter, for example ?user_id=1
+    lobby_service: Annotated[LobbyService, Depends(lobby_service)],
+    user_service: Annotated[UserService, Depends(user_service)],
+    lobby_manager: LobbyManager = Depends(get_lobby_manager),
 ):
-    connection_manager = None
-    lobby_obj = session.get(Lobby, lobby_id)
-    if not lobby_obj:
-        raise WebSocketDisconnect
+    await websocket.accept()
+    # TODO : implement authentication check
+    user = await user_service.get_users(user_id=user_id)
+    if not user:
+        await websocket.send_json({"error": "User not found"})
+        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+        return
 
-    if lobby_id in lobbies_connection:
-        connection_manager = lobbies_connection[lobby_id].get_connection_manager()
-        if len(connection_manager.active_connections) == lobby_obj.nb_player_max:
-            raise WebSocketDisconnect
-    else:
-        # Create new connection manager if lobby doesn't exist in the global state
-        connection_manager = ConnectionManager()
-
-        # Attache connection manager to lobby
-        lobby_obj.set_connection_manager(connection_manager)
-
-        # Update lobbies_connection global state
-        lobbies_connection[lobby_id] = lobby_obj
-            
-    await connection_manager.connect(websocket)
-
-    game_manager = GameManager(connection_manager.players)
-    game_handler = GameHandler(game_manager, lobby_obj)
-
+    
+    lobby = lobby_manager.get_lobby(lobby_id)
+    
+    if not lobby:
+        lobby = await lobby_service.get_lobbies(lobby_id)
+        if not lobby:
+            await websocket.send_json({"error": "Lobby not found"})
+            await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+            return
+        lobby = LobbyInstance(lobby)
+        lobby_manager.add_lobby(lobby)
+    
     try:
         while True:
             data = await websocket.receive_json()
-            # logger.info(f"Received data: {data}")
-            await game_handler.handle_event(websocket, data)
+            print(f"Received data from user {user_id}: {data}")
+            action = data.get("action")
+            if action == "user_joined":
+                user = await user_service.get_users(data.get("user_id"))
+                await lobby.add_user(websocket, user)
+            elif action == "start_game":
+                await lobby.start_game(user_id)
+            else:
+                await lobby.game_handler.handle_event(websocket, data)
     except WebSocketDisconnect:
-        await connection_manager.disconnect(websocket)
-       #TODO: implement normal id assignment logic
-        connection_manager.next_id -= 1
-   
-   
-   
-
-     
+        await lobby.remove_user(websocket)
+        if not lobby.connection_manager.active_connections:
+            lobby_manager.remove_lobby(lobby_id)
+            print("Lobby {lobby_id} destroed")

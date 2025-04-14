@@ -1,5 +1,4 @@
 extends Node
-
 signal message_received(message)
 signal connection_established()
 signal connection_closed()
@@ -8,7 +7,8 @@ signal connection_closed()
 var websocket_peer: WebSocketPeer
 
 func connect_to_server(websocket_url:String) -> void:
-	#var websocket_url = "ws://127.0.0.1:8000/ws"
+	#websocket_url = "ws://127.0.0.1:8000/ws/"
+	print(websocket_url)
 	websocket_peer = WebSocketPeer.new()
 	var err = websocket_peer.connect_to_url(websocket_url)
 	if err != OK:
@@ -44,8 +44,18 @@ func send_message(message: String) -> void:
 	else:
 		print("WebSocket is not connected.")
 
+
 func close_connection() -> void:
 	if websocket_peer and websocket_peer.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		websocket_peer.close()
-		print("WebSocket connection closed manually.")
+		print("Close message sent; waiting for connection to close...")
+	
+	var timeout := 1.0
+	var elapsed := 0.0
+	while websocket_peer.get_ready_state() != WebSocketPeer.STATE_CLOSED and elapsed < timeout:
+		websocket_peer.poll()
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+	
+	print("WebSocket connection closed, elapsed:", elapsed)
 	set_process(false)

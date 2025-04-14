@@ -1,10 +1,24 @@
 from fastapi import APIRouter, Depends, HTTPException
-from app.schemas.user import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema
 from app.api.dependencies import user_service
-from app.services.user import UserService
+from app.services.user_service import UserService
 from typing import Annotated
 
 router = APIRouter(prefix="/Users", tags=["Users"])
+
+@router.post("/login", response_model=UserReadSchema)
+async def login(
+    login_data: UserLoginSchema,
+    user_service: Annotated[UserService, Depends(user_service)]
+):
+    user = await user_service.authenticate_user(
+        email=login_data.email,
+        username=login_data.username,
+        password=login_data.password
+    )
+    if user is None:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    return user
 
 @router.post("/")
 async def create_user(
@@ -30,23 +44,6 @@ async def get_users_by_filters(
     if not users:
         raise HTTPException(status_code=404, detail="Users not found")
     return users
-
-# app/api/routes/user_routes.py
-
-@router.post("/login", response_model=UserReadSchema)
-async def login(
-    login_data: UserLoginSchema,
-    user_service: Annotated[UserService, Depends(user_service)]
-):
-    user = await user_service.authenticate_user(
-        email=login_data.email,
-        username=login_data.username,
-        password=login_data.password
-    )
-    if user is None:
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-    return user
-
 
 @router.get("/{user_id}")
 async def get_user(

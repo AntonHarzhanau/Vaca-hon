@@ -1,5 +1,5 @@
 from app.utils.repository import AbstractRepository
-from app.schemas.user import UserCreateScema, UserReadSchema, UserFilterSchema, UserLoginSchema
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserFilterSchema, UserLoginSchema
 from typing import Union
 
 class UserService():
@@ -9,6 +9,7 @@ class UserService():
     async def add_user(self, user: UserCreateScema) -> UserReadSchema:
         user_dict = user.model_dump()
         user = await self.user_repository.add(user_dict)
+        print(user)
         return user
     
     async def get_users(
@@ -20,9 +21,9 @@ class UserService():
         users = await self.user_repository.get(user_id=user_id, filters=filters)
 
         if user_id is not None:
-            return users if users else None  # один объект или None
+            return users if users else None  # one object or None
         else:
-            return users  # список
+            return users  # list of objects or empty list
         
     async def update_user(self, user_id: int, user_data: UserReadSchema) -> UserReadSchema | None:
         user = await self.user_repository.update(user_id, user_data.model_dump(exclude_unset=True))
@@ -40,6 +41,6 @@ class UserService():
         if users:
             user = users[0]
             if user.password == password:
-                return user #UserReadSchema.model_validate(user)
+                return user
         
         return None

@@ -1,4 +1,4 @@
-from app.models.lobby import LobbyOrm
+from app.models.lobby_model import LobbyOrm
 from app.utils.repository import SqlAlchemyRepository
 
 class LobbyRepository(SqlAlchemyRepository):

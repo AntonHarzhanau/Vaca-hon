@@ -1,6 +1,6 @@
-from sqlalchemy import  Column, Integer, String, Boolean, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.schemas.user import UserSchema
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped, mapped_column
+from app.schemas.user_schema import UserSchema
 
 from app.db.database import Base
 

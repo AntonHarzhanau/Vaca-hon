@@ -1,9 +1,8 @@
 extends Node
 var is_test: bool = false
 
-var current_player_id: int = -1
 var id_player_at_turn: int = 0
-
+var lobby_id: int = -1
 const DiceContext := {
 	MOVE = "move",
 	JAIL = "jail",

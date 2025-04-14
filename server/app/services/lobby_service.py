@@ -1,4 +1,4 @@
-from app.schemas.lobby import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema
+from app.schemas.lobby_schema import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema
 from app.utils.repository import AbstractRepository
 from fastapi import HTTPException
 
@@ -14,14 +14,11 @@ class LobbyService:
         lobby_dict = lobby_data.model_dump()
         try:
             lobby = await self.lobby_repository.add(lobby_dict)
+            print(type(lobby).__name__)
             return lobby
         except HTTPException as e:
             raise e
         
-    
-        
-       
-    
     async def delete_lobby(self, lobby_id: int) -> LobbyReadSchema | None:
         lobby = await self.lobby_repository.delete(lobby_id)
         return lobby

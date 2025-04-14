@@ -9,6 +9,9 @@ logger = logging.getLogger("GameManager")
 class GameManager:
     def __init__(self, players: Dict[int, Player]):
         self.state = GameState(players)
+        first_key = next(iter(players))
+        self.state.current_turn = players[first_key].id
+        print(self.state.current_turn)
         self.logic = GameLogic(self.state.players, self.state.board, self.state.current_turn)
         self.action_handlers: Dict[str, Callable[[int, dict], dict]] = {
             "roll_dice": self.handle_roll_dice,
@@ -25,6 +28,7 @@ class GameManager:
 
     def process_action(self, player_id: int, data: dict) -> dict:
         action = data.get("action")
+        print(f"player_id {player_id}== current_turn {self.state.current_turn}")
         if action not in self.action_handlers:
             return {"action": "error", "message": "Unknown action", "delivery": "personal"}
         # for all actions we check whose turn it is

@@ -1,23 +1,25 @@
-from fastapi import APIRouter, Depends, status, HTTPException
-from app.schemas.lobby import LobbyCreateSchema, LobbyReadSchema, LobbyUpdateSchema, LobbyFilterSchema
-from sqlalchemy import select, and_
-from fastapi import Depends
+from fastapi import APIRouter, Depends, HTTPException
+from app.schemas.lobby_schema import LobbyCreateSchema, LobbyReadSchema, LobbyFilterSchema
+from fastapi import Depends, Body
 from typing import Annotated
-from app.services.lobby import LobbyService
-from app.api.dependencies import lobby_service
+from app.services.lobby_service import LobbyService
+from app.game.core.lobby_manager import LobbyManager
+from app.api.dependencies import lobby_service, get_lobby_manager
 
 
 router = APIRouter(prefix="/lobbies", tags=["lobby"])
 
 @router.post("/")
 async def create_lobby(
-    lobby_data: Annotated[LobbyCreateSchema, Depends()],
-    service: Annotated[LobbyService, Depends(lobby_service)]
+    lobby_data: Annotated[LobbyCreateSchema, Body()],
+    service: Annotated[LobbyService, Depends(lobby_service)],
+    lobby_manager: Annotated[LobbyManager, Depends(get_lobby_manager)]
 ) -> LobbyReadSchema:
+    print("Creating lobby with data:", lobby_data)
     new_lobby = await service.create_lobby(lobby_data)
     if new_lobby is None:
         raise HTTPException(status_code=400, detail="Lobby creation failed")
-    return await service.create_lobby(lobby_data)
+    return new_lobby
 
 
 @router.get('', response_model=list[LobbyReadSchema])
@@ -45,52 +47,3 @@ async def delete_lobby(
     deleted_lobby = await service.delete_lobby(lobby_id)
     if deleted_lobby is None:
         raise HTTPException(status_code=404, detail="Lobby not found")
-
-# def delete_lobby(
-#     lobby_id: int,
-#     session: Session = Depends(get_db)
-# ):
-#     # Fetch the lobby from the database
-#     result = session.execute(select(Lobby).where(Lobby.id == lobby_id))
-#     lobby = result.scalars().first()
-
-#     if not lobby:
-#         raise HTTPException(status_code=404, detail="Lobby not found")
-
-#     # Ensure the user is the owner
-#     # if str(lobby.owner_id) != str(current_user.id):  
-#     #     raise HTTPException(status_code=403, detail="You are not the owner of this lobby")
-
-#     # Delete the lobby
-#     session.delete(lobby)
-#     session.commit()
-
-#     return None
-
-
-
-# @router.patch('/{lobby_id}')
-# def update_lobby(
-#     lobby_id: int,
-#     lobby_data: LobbyUpdate,
-#     session: Session = Depends(get_db)
-# ):
-#     # Fetch the lobby from the database
-#     result = session.execute(select(Lobby).where(Lobby.id == lobby_id))
-#     lobby = result.scalars().first()
-
-#     if not lobby:
-#         raise HTTPException(status_code=404, detail="Lobby not found")
-
-#     # Ensure the user is the owner
-#     # if str(lobby.owner_id) != str(current_user.id):  
-#     #     raise HTTPException(status_code=403, detail="You are not the owner of this lobby")
-
-#     # Update only provided fields
-#     for field, value in lobby_data.model_dump(exclude_unset=True).items():
-#         setattr(lobby, field, value)
-
-#     session.commit()
-#     session.refresh(lobby)  # Refresh to get updated values
-
-#     return lobby

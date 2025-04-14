@@ -8,8 +8,8 @@ from sqlalchemy.orm import declarative_base
 load_dotenv() 
 # URL de connexion à la base de données
 # SQLALCHEMY_DATABASE_URL = os.getenv(DATABASE_URL)
-SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:2547@localhost:5432/monopoly"
-# SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+# SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:2547@localhost:5432/monopoly" <- async postgress
+SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db" #   <- async sqlite
 
 # Déclarer la base
 Base = declarative_base()

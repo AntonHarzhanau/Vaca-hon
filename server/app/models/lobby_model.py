@@ -3,7 +3,7 @@ from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import func
 from app.db.database import Base
-from app.schemas.lobby import LobbyReadSchema
+from app.schemas.lobby_schema import LobbyReadSchema
 
 class LobbyOrm(Base):
     __tablename__ = 'Lobby'
@@ -38,22 +38,3 @@ class LobbyOrm(Base):
             created_at=self.created_at,
             last_action_at=self.last_action_at,        
         )
-        
-        
-    # def add_player(self, player_id: int):
-    #     if self.players is None:
-    #         self.players = []
-
-    #     player_str = str(player_id)
-    #     if player_id not in self.players:
-    #         self.players.append(player_str)
-
-    # def remove_player(self, player_id: int):
-    #     if player_id in self.players:
-    #         self.players.remove(player_id)
-
-    # def get_connection_manager(self):
-    #     return self.connection_manager
-
-    # def set_connection_manager(self, connection_manager: ConnectionManager):
-    #     self.connection_manager = connection_manager
