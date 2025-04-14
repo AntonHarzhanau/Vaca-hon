@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
+from .user_schema import UserReadSchema
+from typing import List
 
 # Schemas for Lobby
 class LobbyCreateSchema(BaseModel):
@@ -15,7 +17,7 @@ class LobbyReadSchema(BaseModel):
     id: int
     nb_player_max: int = 4
     time_sec: int = 1800
-    players: list[str]
+    players: list[UserReadSchema]
     owner_id: int
     is_active: bool
     is_private: bool
@@ -28,9 +30,10 @@ class LobbyReadSchema(BaseModel):
 class LobbyUpdateSchema(BaseModel):
     nb_player_max: Optional[int] = 4
     time_sec: Optional[int] = 1800
-    is_private: bool | None = None
-    is_active: bool | None = None
-    secret: str | None = None
+    is_private: Optional[bool] = None
+    is_active: Optional[bool] = None
+    secret: Optional[str] = None
+    players: Optional[List[UserReadSchema]] = None
 
 class LobbyFilterSchema(BaseModel):
     is_active: Optional[bool] = None

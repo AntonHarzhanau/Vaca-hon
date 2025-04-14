@@ -29,8 +29,8 @@ func _on_message_received(message: Variant) -> void:
 	match action:
 		"player_connected":
 			emit_signal("player_connected", message["players"])
-		"player_disconnected":
-			emit_signal("player_disconnected", message["player_id"])
+		"user_left":
+			emit_signal("player_disconnected", message["user_id"])
 		"your_id":
 			emit_signal("your_id", message["player_id"])
 		"roll_dice":

@@ -22,6 +22,7 @@ func _ready() -> void:
 	# Subscribing UI to GameManager signals
 	msg_handler.player_connected.connect(_on_player_connected)
 	msg_handler.player_disconnected.connect(_on_player_disconnected)
+	#msg_handler.user_left.connect(_on_player_disconnected)
 	msg_handler.roll_dice.connect(ui.dice._on_server_response)
 	msg_handler.move_player.connect(_on_move_player)
 	msg_handler.change_turn.connect(_on_change_turn)
@@ -52,6 +53,14 @@ func  _on_player_connected(player_data: Variant) -> void:
 		print("Player id" + str(new_player.id) +"was created")
 
 func _on_player_disconnected(player_id:int):
+	print("here")
+	var player = players[player_id]
+	for property: PropertyCell in player.properties:
+		if property is StreetCell:
+			property.nb_houses = 0
+		property.cell_owner = null
+		property.current_rent = property.initial_rent
+		property.player_lable.visible = false
 	ui._on_player_disconnected(player_id)
 	players[player_id].queue_free()
 	players.erase(player_id)

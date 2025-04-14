@@ -5,14 +5,17 @@ const USER_PANEL = preload("res://scenes/Menu/user.tscn")
 @onready var test: Label = $BackGround/TestMessage
 
 func _ready() -> void:
-	var url = "ws://127.0.0.1:8000/ws/join/%s?user_id=%s" % [States.lobby_id, UserData.user_id]
-	WebSocketClient.connect_to_server(url)
+	States.set_url(States.lobby_id,UserData.user_id)
+	#var url = "ws://127.0.0.1:8000/ws/join/%s?user_id=%s" % [States.lobby_id, UserData.user_id]
+
+	WebSocketClient.connect_to_server(States.URL)
 	WebSocketClient.message_received.connect(_on_message_received)
+	WebSocketClient.connection_closed.connect(_on_connection_closed)
 	lobby_id.text = "Lobby_id: " + str(States.lobby_id)
 	await get_tree().create_timer(0.3).timeout 
 	var msg = {"action": "user_joined", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))
-	await get_tree().create_timer(0.3).timeout 
+	await get_tree().create_timer(0.1).timeout 
 	
 func _on_message_received(message: Variant):
 	var action = message["action"]
@@ -37,7 +40,9 @@ func user_left(uid:int):
 		if user.uid == uid:
 			user.queue_free()
 
-
 func _on_close_pressed() -> void:
 	WebSocketClient.close_connection()
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")
+	
+func _on_connection_closed():
+	get_tree().change_scene_to_file("res://scenes/Menu/list_lobby.tscn")

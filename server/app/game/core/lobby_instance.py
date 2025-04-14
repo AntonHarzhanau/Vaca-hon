@@ -7,22 +7,16 @@ from app.schemas.user_schema import UserReadSchema
 from app.api.connection_manager import ConnectionManager
 from app.game.core.game_manager import GameManager
 from app.game.core.handlers import GameHandler
-from app.services.lobby_service import LobbyService
 from app.game.models.player import Player
 from app.game.core.game_state import GameState
 
 class LobbyInstance:
     def __init__(self, lobby: LobbyReadSchema):
         self.lobby = lobby  # data from the DB (e.g. lobby.id, nb_player_max, is_active etc.)
-        self.is_active = lobby.is_active  # lobby status before game start
         self.connection_manager = ConnectionManager()
-    
         self.game_state : GameState | None = None
         self.game_manager: GameManager | None = None
         self.game_handler: GameHandler | None = None
-        
-        # to work with the database uncomment
-        # self.lobby_service = LobbyService()
 
     async def add_user(self, websocket: WebSocket, user: UserReadSchema) -> None:
         for connected_user in self.connection_manager.active_connections.values():
@@ -46,6 +40,18 @@ class LobbyInstance:
     async def remove_user(self, websocket: WebSocket) -> None:
         if websocket in self.connection_manager.active_connections:
             user = await self.connection_manager.disconnect(websocket)
+            if self.game_manager:
+                player = self.game_manager.state.players.pop(user.id)
+                for property in player.properties:
+                    if type(property).__name__ == "StreetCell":
+                        property.current_rent = property.initial_rent
+                        property.nb_houses = 0
+                    property.cell_owner = None
+                await self.connection_manager.broadcast(json.dumps({
+                    "action": "player_disconnected",
+                    "player_id": player.id,
+                }))
+                await asyncio.sleep(0.2)
             await self.connection_manager.broadcast(json.dumps({
                 "action": "user_left",
                 "user_id": user.id
@@ -55,8 +61,6 @@ class LobbyInstance:
         if user_id != self.lobby.owner_id:
             print(f"user {user_id} is not owner")
             return
-       
-        self.is_active = False
 
         # Update the status in the database if required (for example, via LobbyService)???
         
@@ -76,7 +80,7 @@ class LobbyInstance:
         }))
         # the delay is needed so that the client has time to initialize the game
         # TODO: fix mechanics to not use delays
-        await asyncio.sleep(0.5) 
+        await asyncio.sleep(0.2) 
         await self.connection_manager.broadcast(json.dumps({
             "action":"player_connected",
             "players": [player.model_dump() for player in players.values()]

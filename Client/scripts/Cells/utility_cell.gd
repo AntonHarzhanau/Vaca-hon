@@ -20,4 +20,4 @@ func sell_property(player:Player, current_rent:int):
 func update_group(player, current_rent:int):
 	for i in player.properties:
 		if i is UtilityCell:
-			i.rent = current_rent
+			i.current_rent = current_rent

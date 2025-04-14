@@ -3,6 +3,8 @@ from app.services.user_service import UserService
 from app.services.lobby_service import LobbyService
 from app.game.core.lobby_manager import LobbyManager
 from app.game.core.lobby_instance import LobbyInstance
+from app.schemas.lobby_schema import LobbyUpdateSchema
+from app.schemas.user_schema import UserReadSchema
 from fastapi import Depends, Query
 from typing import Annotated
 from app.api.dependencies import lobby_service, user_service, get_lobby_manager
@@ -38,6 +40,11 @@ async def websocket_endpoint(
         lobby = LobbyInstance(lobby)
         lobby_manager.add_lobby(lobby)
     
+    if len(lobby.connection_manager.active_connections) >= lobby.lobby.nb_player_max:
+                    await websocket.send_json({"error": "Lobby is full"})
+                    await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+                    return
+    
     try:
         while True:
             data = await websocket.receive_json()
@@ -46,12 +53,27 @@ async def websocket_endpoint(
             if action == "user_joined":
                 user = await user_service.get_users(data.get("user_id"))
                 await lobby.add_user(websocket, user)
+                players = [user.model_dump() for user in lobby.connection_manager.active_connections.values()]
+                await lobby_service.update_lobby(
+                    lobby_id, 
+                    LobbyUpdateSchema(players=players)   
+                )
             elif action == "start_game":
+                await lobby_service.update_lobby(
+                    lobby_id, 
+                    LobbyUpdateSchema(is_active=False)   
+                )
                 await lobby.start_game(user_id)
             else:
                 await lobby.game_handler.handle_event(websocket, data)
     except WebSocketDisconnect:
         await lobby.remove_user(websocket)
+        players = [user.model_dump() for user in lobby.connection_manager.active_connections.values()]
+        await lobby_service.update_lobby(
+            lobby_id, 
+            LobbyUpdateSchema(players=players)
+        )
         if not lobby.connection_manager.active_connections:
+            await lobby_service.delete_lobby(lobby_id)
             lobby_manager.remove_lobby(lobby_id)
             print("Lobby {lobby_id} destroed")

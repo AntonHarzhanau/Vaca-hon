@@ -122,20 +122,20 @@ func create_cells(json_data: Array):
 				cell_instance.price = item["cost"]
 				var color = get_color(item["color"])
 				cell_instance.group_color = load_texture(color)
-				cell_instance.rent = item["rent"]
+				cell_instance.initial_rent = item["rent"]
 				cell_instance.house_cost = item["house"]
 			
 			"RailWay":
 				cell_instance = RAILWAY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
-				cell_instance.rent = item["rent"]
+				cell_instance.initial_rent = item["rent"]
 				if item.get("texture"):
 					cell_instance.image = load_texture(item["texture"])
 			
 			"Utility":
 				cell_instance = UTILITY_SCENE.instantiate()
 				cell_instance.price = item["cost"]
-				cell_instance.rent = item["rent"]
+				cell_instance.initial_rent = item["rent"]
 				if item.get("texture"):
 					cell_instance.image = load_texture(item["texture"])
 			

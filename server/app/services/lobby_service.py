@@ -1,4 +1,4 @@
-from app.schemas.lobby_schema import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema
+from app.schemas.lobby_schema import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema, LobbyUpdateSchema
 from app.utils.repository import AbstractRepository
 from fastapi import HTTPException
 
@@ -18,6 +18,14 @@ class LobbyService:
             return lobby
         except HTTPException as e:
             raise e
+        
+    async def update_lobby(self, lobby_id: int, data: LobbyUpdateSchema) -> LobbyReadSchema:
+        lobby_data = data.model_dump(exclude_unset=True)
+        updated_lobby = await self.lobby_repository.update(lobby_id, lobby_data)
+
+        if not updated_lobby:
+            raise HTTPException(status_code=404, detail="Lobby not found")
+        return updated_lobby
         
     async def delete_lobby(self, lobby_id: int) -> LobbyReadSchema | None:
         lobby = await self.lobby_repository.delete(lobby_id)

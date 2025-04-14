@@ -68,11 +68,8 @@ func _ready():
 	lobby_list_panel.add_child(scroll)
 
 func _on_join_pressed(lobby):
-	#var url = "ws://127.0.0.1:8000/ws/" + str(int(lobby.id))
 	States.lobby_id = int(lobby.id)
 	print("Joining lobby: ", lobby)
-	#var url = "ws://127.0.0.1:8000/ws/join/%s?user_id=%s" % [States.lobby_id, UserData.user_id]
-	#WebSocketClient.connect_to_server(url)
 	get_tree().change_scene_to_file("res://scenes/Menu/lobby_menu.tscn")
 	
 func _fetch_lobbies():
@@ -82,15 +79,23 @@ func _fetch_lobbies():
 		push_error("An error occurred in the HTTP request.")
 		print("Error occured when retrieving lobbies from server")
 	else:
+		for lobby in vbox.get_children():
+			lobby.queue_free()
 		lobbies = response.body
-		#print(lobbies)
 		for lobby in lobbies:
+			var nb_players = lobby.players.size()
+			var nb_player_max = lobby.nb_player_max
+			
+				
 			var new_lobby = lobby_item_scene.instantiate()
 			vbox.add_child(new_lobby)
 			new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyName").text = "Lobby N°" + str(int(lobby.id))
 			new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyPrivacy").text = "🔓 Public" if lobby.is_private == false else "🔒 Privé"
-			var join_button = new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/JoinLobby")
+			new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/NbPlayers").text = str(int(nb_players))+'/'+ str(int(nb_player_max))
+			var join_button:Button = new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/JoinLobby")
 			join_button.pressed.connect(_on_join_pressed.bind(lobby))
+			if nb_players >= nb_player_max:
+				join_button.disabled = true
 
 func _on_refresh_btn_pressed():
 	_fetch_lobbies()
