@@ -4,7 +4,6 @@ class_name CornerCell
 
 var corner_type: String
 @onready var texture: TextureRect = $BackGround/TextureRect
-
 var image: Texture2D
 
 func _ready():

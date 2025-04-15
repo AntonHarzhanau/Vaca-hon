@@ -8,9 +8,10 @@ script = ExtResource("1_8oya7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
 layout_mode = 0
-offset_top = 59.0
-offset_right = 149.0
-offset_bottom = 221.0
+offset_left = 2.0
+offset_top = 57.0
+offset_right = 151.0
+offset_bottom = 900.0
 
 [node name="PropertyContainer" type="VBoxContainer" parent="VBoxContainer" index="0"]
 layout_mode = 2

@@ -11,10 +11,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.5
-offset_top = -199.0
-offset_right = 214.5
-offset_bottom = 199.0
+offset_left = -147.5
+offset_top = -114.5
+offset_right = 147.5
+offset_bottom = 114.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.548963, 0.548963, 0.548963, 1)
@@ -40,17 +40,10 @@ layout_mode = 2
 text = "Rent:"
 
 [node name="NumberOfHouse" type="Label" parent="BackGround/Description"]
-visible = false
 layout_mode = 2
 text = "Number of house:"
 
-[node name="HouseCost" type="Label" parent="BackGround/Description"]
-visible = false
-layout_mode = 2
-text = "House cost: "
-
 [node name="HBoxContainer" type="HBoxContainer" parent="BackGround"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -86,10 +79,10 @@ text = "X"
 
 [node name="SellButton" type="Button" parent="BackGround"]
 layout_mode = 2
-offset_left = 163.5
-offset_top = 250.0
-offset_right = 270.5
-offset_bottom = 290.0
+offset_left = 99.5
+offset_top = 189.5
+offset_right = 206.5
+offset_bottom = 229.5
 text = "Sell Property"
 
 [connection signal="pressed" from="BackGround/HBoxContainer/BuyHouseButton" to="." method="_on_buy_house_button_pressed"]

@@ -22,13 +22,14 @@ WebSocketClient="*res://globals/WebSocketClient.gd"
 
 [display]
 
-window/size/viewport_width=1000
-window/size/viewport_height=800
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1500
+window/size/viewport_height=1500
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/vram_compression/import_etc2_astc=true

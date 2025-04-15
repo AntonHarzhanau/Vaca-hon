@@ -16,6 +16,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 21.0
+offset_right = 11.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501407, 0.501406, 0.501406, 1)
@@ -29,30 +33,6 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-
-[node name="IP" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Adress"
-
-[node name="Port" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Port"
-
-[node name="Prefix" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "lobbies/ws"
-
-[node name="Save" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Save"
 
 [node name="test" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -79,9 +59,12 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Exit"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[node name="Reglages" type="Button" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Reglages"
+
 [connection signal="pressed" from="ColorRect/VBoxContainer/test" to="." method="_on_test_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/CreateLobby" to="." method="_on_create_lobby_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/JoinLobby" to="." method="_on_join_lobby_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Reglages" to="." method="_on_reglages_pressed"]

@@ -14,11 +14,9 @@
 		"house": 50
 	},
 	{
-		"name": "PASSEPORT MYSTÈRE",
+		"name": "Community Chest",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
-		"description": "",
-		"event_type": "chance"
+		"texture": "res://assets/Event Cells/Community Chest.png"
 	},
 	{
 		"name": "Tehran",
@@ -32,16 +30,14 @@
 	{
 		"name": "Schengen Area Entry Tax",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/schengen.png",
-		"description": "",
-		"event_type": "income_tax"
+		"texture": "res://assets/Event Cells/schengen.png"
 	},
 	{
-		"name": "Aéroport International D'Ivato",
+		"name": "Ivato International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station1.png"
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Antsirabe",
@@ -53,11 +49,9 @@
 		"house": 50
 	},
 	{
-		"name": "VALISE CHANCE",
+		"name": "Chance",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png",
-		"description":"",
-		"event_type": "community_chest"
+		"texture": "res://assets/Event Cells/Question Mark Pink.png"
 	},
 	{
 		"name": "Toamasina",
@@ -80,7 +74,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Corner2.png"
+		"texture": "res://assets/Corners/In Jail Corner.png"
 	},
 	{
 		"name": "Mogilev",
@@ -92,7 +86,7 @@
 		"house": 100
 	},
 	{
-		"name": "Château de Mir",
+		"name": "Castle",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -117,11 +111,11 @@
 		"house": 100
 	},
 	{
-		"name": "Aéroport International du Caire",
+		"name": "Cairo International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station2.png"
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Luxor",
@@ -133,14 +127,11 @@
 		"house": 100
 	},
 	{
-		"name": "PASSEPORT MYSTÈRE",
+		"name": "Community Chest",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
-		"description": "",
-		"event_type": "chance"
-	},
+		"texture": "res://assets/Event Cells/Community Chest.png"	},
 	{
-		"name": "Alexandrie",
+		"name": "Alexandria",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -149,7 +140,7 @@
 		"house": 100
 	},
 	{
-		"name": "Le Caire",
+		"name": "Cairo",
 		"type": "Street",
 		"cost": 200,
 		"color": "GREEN",
@@ -160,7 +151,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Corner3.png"
+		"texture": "res://assets/Corners/Free Parking Corner.png"
 	},
 	{
 		"name": "Guangzhou",
@@ -172,11 +163,9 @@
 		"house": 150
 	},
 	{
-		"name": "VALISE CHANCE",
+		"name": "Chance",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png",
-		"description": "",
-		"event_type": "community_chest"
+		"texture": "res://assets/Event Cells/Question Mark Blue.png"
 	},
 	{
 		"name": "Shanghai",
@@ -188,7 +177,7 @@
 		"house": 150
 	},
 	{
-		"name": "Pékin",
+		"name": "Beijing",
 		"type": "Street",
 		"cost": 240,
 		"color": "YELLOW",
@@ -197,11 +186,11 @@
 		"house": 150
 	},
 	{
-		"name": "Aéroport International de Lomé-Tokoin",
+		"name": "Lomé-Tokoin International Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station3.png"
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
 		"name": "Sokodé",
@@ -222,7 +211,7 @@
 		"house": 150
 	},
 	{
-		"name": "Monument de L’Indépendance",
+		"name": "Museum",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -240,7 +229,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Corner4.png"
+		"texture": "res://assets/Corners/Go to Jail Corner.png"
 	},
 	{
 		"name": "Constantine",
@@ -261,14 +250,12 @@
 		"house": 200
 	},
 	{
-		"name": "PASSEPORT MYSTÈRE",
+		"name": "Community Chest",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
-		"description": "",
-		"event_type": "chance"
+		"texture": "res://assets/Event Cells/Community Chest.png"
 	},
 	{
-		"name": "Alger",
+		"name": "Algiers",
 		"type": "Street",
 		"cost": 320,
 		"color": "PINK",
@@ -277,18 +264,16 @@
 		"house": 200
 	},
 	{
-		"name": "Aéroport International Charles de Gaulle",
+		"name": "Charles de Gaulle Airport",
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station4.png"
+		"texture": "res://assets/Railroad/airport.png"
 	},
 	{
-		"name": "VALISE CHANCE",
+		"name": "Chance",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/chance.png",
-		"description": "",
-		"event_type": "community_chest"
+		"texture": "res://assets/Event Cells/Question Mark Orange.png"
 	},
 	{
 		"name": "Strasbourg",
@@ -300,11 +285,9 @@
 		"house": 200
 	},
 	{
-		"name": "Taxes Douanières",
+		"name": "Customs Tax",
 		"type": "Event",
-		"texture": "res://assets/Event Cells/tax.png",
-		"description": "",
-		"event_type": "luxury_tax"
+		"texture": "res://assets/Event Cells/tax.png"
 	},
 	{
 		"name": "Paris",

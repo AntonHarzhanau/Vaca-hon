@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://hb2fvfthjyux"]
+
+[ext_resource type="Script" uid="uid://c5lpp0os7p8pv" path="res://scripts/reglages.gd" id="1_bsbu6"]
+[ext_resource type="Script" uid="uid://yly7mq47i1ll" path="res://scripts/settingsm.gd" id="2_5vpvs"]
+
+[node name="Reglages" type="Node2D"]
+script = ExtResource("1_bsbu6")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 901.0
+offset_bottom = 510.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="."]
+offset_left = 352.0
+offset_top = 19.0
+offset_right = 471.0
+offset_bottom = 42.0
+text = "     Reglages"
+
+[node name="Vibrations" type="CheckBox" parent="."]
+offset_left = 83.0
+offset_top = 112.0
+offset_right = 139.0
+offset_bottom = 136.0
+
+[node name="Notifications" type="CheckBox" parent="."]
+offset_left = 729.0
+offset_top = 115.0
+offset_right = 785.0
+offset_bottom = 139.0
+
+[node name="Music" type="HSlider" parent="."]
+offset_left = 183.0
+offset_top = 115.0
+offset_right = 338.0
+offset_bottom = 131.0
+
+[node name="SFX" type="HSlider" parent="."]
+offset_left = 505.0
+offset_top = 114.0
+offset_right = 657.0
+offset_bottom = 130.0
+
+[node name="Language" type="OptionButton" parent="."]
+offset_left = 152.0
+offset_top = 206.0
+offset_right = 240.0
+offset_bottom = 226.0
+language = "francais"
+
+[node name="Label" type="Label" parent="Language"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -29.0
+offset_right = 81.0
+offset_bottom = -6.0
+text = "language"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 487.0
+offset_top = 205.0
+offset_right = 609.0
+offset_bottom = 223.0
+text = "!    RULES"
+
+[node name="Datapp" type="Button" parent="."]
+offset_left = 164.0
+offset_top = 361.0
+offset_right = 303.0
+offset_bottom = 390.0
+text = "Data privacy
+page"
+
+[node name="Privacy_Policy" type="ConfirmationDialog" parent="."]
+title = "Leave the app ?"
+size = Vector2i(253, 106)
+ok_button_text = "NO"
+dialog_text = "This document is on a website.
+do you want to go there now?"
+cancel_button_text = "YES"
+
+[node name="Review Data Consent" type="Button" parent="."]
+offset_left = 572.0
+offset_top = 368.0
+offset_right = 744.0
+offset_bottom = 399.0
+text = "Review Data Consent"
+
+[node name="Privacy Policy2" type="Button" parent="."]
+offset_left = 370.0
+offset_top = 373.0
+offset_right = 492.0
+offset_bottom = 404.0
+text = "Privacy Policy"
+
+[node name="Settingsm" type="Node" parent="."]
+script = ExtResource("2_5vpvs")
+
+[connection signal="pressed" from="Vibrations" to="." method="_on_vibrations_pressed"]
+[connection signal="pressed" from="Notifications" to="." method="_on_notifications_pressed"]
+[connection signal="changed" from="Music" to="." method="_on_music_changed"]
+[connection signal="changed" from="SFX" to="." method="_on_sfx_changed"]
+[connection signal="pressed" from="Datapp" to="." method="_on_datapp_pressed"]
+[connection signal="confirmed" from="Privacy_Policy" to="." method="_on_privacy_policy_confirmed"]
+[connection signal="pressed" from="Review Data Consent" to="." method="_on_review_data_consent_pressed"]
+[connection signal="pressed" from="Privacy Policy2" to="." method="_on_privacy_policy_2_pressed"]

@@ -1,27 +1,25 @@
 extends CanvasLayer
 class_name PopUpPropertyCard
 
-@onready var cell_owner: Label = $BackGround/VBoxContainer/Description/Cell_owner
-@onready var property_name: Label = $BackGround/Flag_Image/PropertyName
-@onready var property_cost: Label = $BackGround/VBoxContainer/Description/PropertyCost
-@onready var property_rent: Label = $BackGround/VBoxContainer/Description/Rent
-@onready var number_of_house: Label = $BackGround/VBoxContainer/Description/NumberOfHouse
+@onready var cell_owner: Label = $BackGround/Description/Cell_owner
+@onready var property_name: Label = $BackGround/Description/PropertyName
+@onready var property_cost: Label = $BackGround/Description/PropertyCost
+@onready var property_rent: Label = $BackGround/Description/Rent
+@onready var number_of_house: Label = $BackGround/Description/NumberOfHouse
 @onready var sell_btn: Button = $BackGround/SellButton
 @onready var buy_house_btn: Button = $BackGround/HBoxContainer/BuyHouseButton
 @onready var sell_house_btn: Button = $BackGround/HBoxContainer/SellHouseButton
-@onready var house_cost_label: Label = $BackGround/VBoxContainer/Description/HouseCost 
-@onready var flag_image: TextureRect = $BackGround/Flag_Image
+@onready var house_cost_label: Label = $BackGround/Description/HouseCost 
 var card: PropertyCell
 
 func _ready() -> void:
 	cell_owner.text = "Owner: " + card.cell_owner.player_name
-	property_name.text = card.cell_name
+	property_name.text = "Property name: " + card.cell_name
 	property_cost.text = "Property cost: " + str(card.price)
 	property_rent.text = "Rent: " + str(card.rent)
 	card.property_changed.connect(update_property)
 	if card is StreetCell:
 		card.nb_houses_changed.connect(update_houses)
-		flag_image.texture = card._group_color.texture
 		number_of_house.text = "Number of house: " + str(card.nb_houses)
 		house_cost_label.text = "House cost: " + str(card.house_cost)
 		number_of_house.visible = true

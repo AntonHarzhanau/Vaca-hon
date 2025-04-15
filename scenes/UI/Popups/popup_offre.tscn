@@ -1,34 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6uj0iy65iy0"]
+[gd_scene load_steps=2 format=3 uid="uid://y6uj0iy65iy0"]
 
 [ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/Popups/popup_offre.gd" id="1_dhl3q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdgjr"]
-bg_color = Color(0.368627, 0.164706, 0.0901961, 1)
-corner_radius_top_left = 55
-corner_radius_top_right = 55
-corner_radius_bottom_right = 55
-corner_radius_bottom_left = 55
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhl3q"]
-bg_color = Color(0.298039, 0.121569, 0.0588235, 1)
-corner_radius_top_left = 55
-corner_radius_top_right = 55
-corner_radius_bottom_right = 55
-corner_radius_bottom_left = 55
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjp8h"]
-bg_color = Color(0.227451, 0.184314, 0.168627, 1)
-corner_radius_top_left = 55
-corner_radius_top_right = 55
-corner_radius_bottom_right = 55
-corner_radius_bottom_left = 55
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1lvf"]
-bg_color = Color(0.164706, 0.141176, 0.133333, 1)
-corner_radius_top_left = 55
-corner_radius_top_right = 55
-corner_radius_bottom_right = 55
-corner_radius_bottom_left = 55
 
 [node name="PopUpOffre" type="Control"]
 layout_mode = 3
@@ -80,14 +52,10 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_cdgjr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_dhl3q")
 text = "Accept"
 
 [node name="Deny_btn" type="Button" parent="Back_ground/Button_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_bjp8h")
-theme_override_styles/normal = SubResource("StyleBoxFlat_k1lvf")
 text = "Deny"
