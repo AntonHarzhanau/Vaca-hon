@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deaiqjs2cp7fr"
-path="res://.godot/imported/Design sans titre (2) 4.png-d7a0465eed54a109cdae303008ec6f0e.ctex"
+path="res://.godot/imported/Pop-Up background.png-b36ba86bd44b93208bbfbe7844c107c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Design sans titre (2) 4.png"
-dest_files=["res://.godot/imported/Design sans titre (2) 4.png-d7a0465eed54a109cdae303008ec6f0e.ctex"]
+source_file="res://assets/Pop-Up background.png"
+dest_files=["res://.godot/imported/Pop-Up background.png-b36ba86bd44b93208bbfbe7844c107c7.ctex"]
 
 [params]
 

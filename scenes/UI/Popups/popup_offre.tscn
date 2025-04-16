@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://y6uj0iy65iy0"]
 
 [ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/Popups/popup_offre.gd" id="1_dhl3q"]
-[ext_resource type="Texture2D" uid="uid://deaiqjs2cp7fr" path="res://assets/Design sans titre (2) 4.png" id="2_k1lvf"]
+[ext_resource type="Texture2D" uid="uid://deaiqjs2cp7fr" path="res://assets/Pop-Up background.png" id="2_k1lvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwpom"]
 bg_color = Color(1, 1, 1, 1)
@@ -79,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwpom")
 
-[node name="TextureRect" type="TextureRect" parent="Back_ground"]
+[node name="Mountain Background" type="TextureRect" parent="Back_ground"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
