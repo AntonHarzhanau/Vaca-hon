@@ -1,0 +1,606 @@
+[gd_scene load_steps=21 format=3 uid="uid://j02a0bno0g4l"]
+
+[ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://b7eoun1g84iw2" path="res://assets/Lobby1.png" id="5_naexr"]
+[ext_resource type="Texture2D" uid="uid://cl4b4vcox5mhv" path="res://assets/Lobby2.png" id="6_5djgv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi5sa"]
+bg_color = Color(0.478431, 0.294118, 0.207843, 0.796078)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0, 0, 0.517647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naexr"]
+bg_color = Color(0.227613, 0.906696, 0.959497, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vag1c"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0, 0, 0.431373)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5djgv"]
+bg_color = Color(0.227613, 0.906696, 0.959497, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n3xd"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phtr0"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsd2j"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o00fx"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kts6"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_morag"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dlmw"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_altyt"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4whu"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[node name="TrouverLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_naexr")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+offset_right = 1330.0
+offset_bottom = 800.0
+stream = ExtResource("2_kt6ln")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1330.0
+offset_bottom = 800.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.14625
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 40
+text = "TROUVER UNE PARTIE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.128
+anchor_right = 0.086
+anchor_bottom = 0.735
+offset_left = -4.0
+offset_top = 0.0239992
+offset_bottom = 0.00499725
+grow_vertical = 2
+texture_normal = ExtResource("3_kt6ln")
+
+[node name="MarginContainer" type="Panel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 191.0
+offset_right = 1374.0
+offset_bottom = 738.0
+scale = Vector2(0.9, 0.9)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_37xlk")
+
+[node name="Panel" type="Panel" parent="TextureRect/MarginContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059
+anchor_top = 0.0571429
+anchor_right = 0.959
+anchor_bottom = 0.957143
+offset_left = -24.0
+offset_top = -1.0
+offset_right = 56.0001
+offset_bottom = 55.0
+scale = Vector2(0.95, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vi5sa")
+
+[node name="Partie_1" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
+layout_mode = 0
+anchor_left = 0.0454642
+anchor_top = 0.10031
+anchor_right = 0.322478
+anchor_bottom = 0.426774
+offset_left = -3.00006
+offset_top = -3.05176e-05
+offset_right = -3.00006
+offset_bottom = 0.999969
+texture = ExtResource("5_naexr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 22
+text = "Partie de SachAtlantis"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 18
+text = "Thème: Plage"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.503817
+anchor_bottom = 0.633333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 20
+text = "Joueurs: 2/3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true
+
+[node name="Partie_2" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0476317
+anchor_top = 0.503844
+anchor_right = 0.324646
+anchor_bottom = 0.830307
+offset_left = -5.05007
+offset_top = 0.000488281
+offset_right = -5.05008
+offset_bottom = 1.00049
+texture = ExtResource("6_5djgv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 22
+text = "Partie de adam2936"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 18
+text = "Thème: Neige"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.51145
+anchor_bottom = 0.633333
+offset_right = -2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 20
+text = "Joueurs: 3/4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true
+
+[node name="Partie_3" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.680779
+anchor_top = 0.100802
+anchor_right = 0.957793
+anchor_bottom = 0.427266
+offset_left = 10.1195
+offset_top = -0.269836
+offset_right = 10.1195
+offset_bottom = 0.730164
+texture = ExtResource("5_naexr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 22
+text = "Partie de jungle_tt"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 18
+text = "Thème: Plage"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.503817
+anchor_bottom = 0.633333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 20
+text = "Joueurs: 1/2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true
+
+[node name="Partie_4" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.366678
+anchor_top = 0.100802
+anchor_right = 0.643692
+anchor_bottom = 0.427266
+offset_left = 0.195526
+offset_top = -0.269836
+offset_right = 0.195557
+offset_bottom = 0.730164
+texture = ExtResource("6_5djgv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 22
+text = "Partie de kiiwaa"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 18
+text = "Thème: Neige"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.503817
+anchor_bottom = 0.633333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 20
+text = "Joueurs: 1/4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 650.0
+offset_right = 332.0
+offset_bottom = 751.0
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_5djgv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "CRÉER UNE
+PARTIE"
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 508.0
+offset_right = 372.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 30
+text = "Vous ne trouvez pas de partie qui vous convient ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MenuButton" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.004
+offset_left = 22.0
+offset_top = 144.0
+offset_right = 332.68
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_0n3xd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_phtr0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsd2j")
+text = "    FILTRER                     ▼"
+alignment = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 0
+offset_left = 35.0
+offset_top = 248.0
+offset_right = 1475.0
+offset_bottom = 1018.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Parties publiques" type="Button" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxFlat_o00fx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_0n3xd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8kts6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_morag")
+text = "Parties publiques"
+
+[node name="Parties privees" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxFlat_3dlmw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_altyt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4whu")
+text = "Parties privées"
+autowrap_mode = 3
+
+[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
