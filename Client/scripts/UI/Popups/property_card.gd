@@ -17,7 +17,7 @@ func _ready() -> void:
 	cell_owner.text = "Owner: " + card.cell_owner.player_name
 	property_name.text = card.cell_name
 	property_cost.text = "Property cost: " + str(card.price)
-	property_rent.text = "Rent: " + str(card.rent)
+	property_rent.text = "Rent: " + str(card.current_rent)
 	card.property_changed.connect(update_property)
 	if card is StreetCell:
 		card.nb_houses_changed.connect(update_houses)
@@ -32,7 +32,7 @@ func set_card(cell:PropertyCell):
 	card = cell
 
 func update_property():
-	self.property_rent.text = "Rent: " + str(card.rent)
+	self.property_rent.text = "Rent: " + str(card.current_rent)
 
 func update_houses():
 	number_of_house.text = "Number of house: " + str(card.nb_houses)

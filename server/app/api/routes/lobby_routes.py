@@ -3,8 +3,7 @@ from app.schemas.lobby_schema import LobbyCreateSchema, LobbyReadSchema, LobbyFi
 from fastapi import Depends, Body
 from typing import Annotated
 from app.services.lobby_service import LobbyService
-from app.game.core.lobby_manager import LobbyManager
-from app.api.dependencies import lobby_service, get_lobby_manager
+from app.api.dependencies import lobby_service
 
 
 router = APIRouter(prefix="/lobbies", tags=["lobby"])
@@ -13,7 +12,6 @@ router = APIRouter(prefix="/lobbies", tags=["lobby"])
 async def create_lobby(
     lobby_data: Annotated[LobbyCreateSchema, Body()],
     service: Annotated[LobbyService, Depends(lobby_service)],
-    lobby_manager: Annotated[LobbyManager, Depends(get_lobby_manager)]
 ) -> LobbyReadSchema:
     print("Creating lobby with data:", lobby_data)
     new_lobby = await service.create_lobby(lobby_data)

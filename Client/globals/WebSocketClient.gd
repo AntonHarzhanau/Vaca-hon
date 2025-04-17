@@ -24,7 +24,8 @@ func _process(_delta: float) -> void:
 			emit_signal("connection_established")
 			while websocket_peer.get_available_packet_count() > 0:
 				var packet = websocket_peer.get_packet().get_string_from_utf8()
-				var data = JSON.parse_string(packet)
+				var data: Dictionary = JSON.parse_string(packet)
+				
 				if data != null:
 					emit_signal("message_received", data)
 				else:

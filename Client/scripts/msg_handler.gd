@@ -3,7 +3,7 @@ extends Node
 signal player_connected(players)
 signal player_disconnected(player_id: int)
 signal your_id(player_id)
-signal move_player(player_id, steps, prime:bool)
+signal move_player(player_id:int, current_position:int, steps:int, prime:bool)
 signal roll_dice(dice1:int, dice2:int)
 signal change_turn(player_id:int, nb_turn_jail:int)
 signal offer_to_buy(cell_id, price)
@@ -18,14 +18,16 @@ signal utility_rent(player_id:int)
 signal go_to_jail(player_id:int)
 signal get_out_jail(money:int)
 signal offer_to_sell(rent:int)
+signal event(message: Dictionary)
+
 
 func _ready() -> void:
 	pass
 
-func _on_message_received(message: Variant) -> void:
+func _on_message_received(message: Dictionary) -> void:
 	print(message)
 	print("\n")
-	var action = message["action"]
+	var action = message.get("action", "Parsing Error")
 	match action:
 		"player_connected":
 			emit_signal("player_connected", message["players"])
@@ -36,7 +38,7 @@ func _on_message_received(message: Variant) -> void:
 		"roll_dice":
 			emit_signal("roll_dice", message["dice1"], message["dice2"])
 		"move_player":
-			emit_signal("move_player", message["player_id"], message["current_position"], message["prime"])
+			emit_signal("move_player", message["player_id"], message["current_position"],message["steps"], message["prime"])
 		"change_turn":
 			emit_signal("change_turn", message["player_id"], message["nb_turn_jail"])
 		"offer_to_buy":
@@ -65,5 +67,11 @@ func _on_message_received(message: Variant) -> void:
 			emit_signal("get_out_jail", message["money"])
 		"offer_to_sell":
 			emit_signal("offer_to_sell", message["rent"])
+		"event":
+			message.erase("action")
+			emit_signal(
+				"event", 
+				message
+				)
 		_:
 			print("Unknown action from server: ", action)

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cb1oxjx2fdmsu" path="res://icon.svg" id="2_lpeju"]
 
 [node name="Player" type="Node2D"]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_50kwe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lpeju")

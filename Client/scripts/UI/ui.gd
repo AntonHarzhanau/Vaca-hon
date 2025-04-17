@@ -16,7 +16,7 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var turn_lable:Label = $TurnLable
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
 @onready var info_message: Label = $VBoxContainer/InfoMessage
-
+@onready var event_card:EventCard = $EventCard
 
 func _ready() -> void:
 	# Subscribe to signals
@@ -24,9 +24,7 @@ func _ready() -> void:
 	dice.dice_rolled.connect(_on_dice_dice_rolled)
 	end_turn_btn.pressed.connect(_on_end_turn_button_pressed)
 	
-func _on_dice_dice_rolled(d1: int, d2: int):
-	#TODO: change logic
-	#var msg = {"action": "move_player", "steps": d1 + d2}
+func _on_dice_dice_rolled():
 	var msg = {"action": "dice_rolled", "for": States.current_context}
 	WebSocketClient.send_message(JSON.stringify(msg))
 

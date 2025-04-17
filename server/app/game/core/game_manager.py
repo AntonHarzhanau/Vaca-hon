@@ -1,18 +1,19 @@
-from typing import Dict, Any, Callable, Tuple
-from app.game.models.player import Player
+from typing import Dict, Callable, TYPE_CHECKING
 from app.game.core.game_state import GameState
 from app.game.core.game_logic import GameLogic
 import logging
 
+if TYPE_CHECKING:
+    from app.game.models.player import Player
+
 logger = logging.getLogger("GameManager")
 
 class GameManager:
-    def __init__(self, players: Dict[int, Player]):
+    def __init__(self, players: Dict[int, "Player"]):
         self.state = GameState(players)
         first_key = next(iter(players))
-        self.state.current_turn = players[first_key].id
-        print(self.state.current_turn)
-        self.logic = GameLogic(self.state.players, self.state.board, self.state.current_turn)
+        self.state.current_turn_player_id = players[first_key].id
+        self.logic = GameLogic(self.state)
         self.action_handlers: Dict[str, Callable[[int, dict], dict]] = {
             "roll_dice": self.handle_roll_dice,
             "dice_rolled": self.handle_dice_rolled,
@@ -28,11 +29,11 @@ class GameManager:
 
     def process_action(self, player_id: int, data: dict) -> dict:
         action = data.get("action")
-        print(f"player_id {player_id}== current_turn {self.state.current_turn}")
+        print(f"player_id {player_id}== current_turn {self.state.current_turn_player_id}")
         if action not in self.action_handlers:
             return {"action": "error", "message": "Unknown action", "delivery": "personal"}
         # for all actions we check whose turn it is
-        if player_id != self.state.current_turn:
+        if player_id != self.state.current_turn_player_id:
             return {"action": "error", "message": "Not your turn!", "delivery": "personal"}
 
         return self.action_handlers[action](player_id, data)
@@ -65,13 +66,11 @@ class GameManager:
         return self.logic.move_player(player_id, steps)
 
     def handle_end_turn(self, player_id: int, data: dict) -> dict:
-        state = self.state
-        state.current_dice_context = state.dice_context[0]
-        state.last_dice_roll = {"dice1": 0, "dice2": 0}
+        self.state.current_dice_context = self.state.dice_context[0]
+        self.state.last_dice_roll = {"dice1": 0, "dice2": 0}
         
         new_turn = self.logic.next_turn()
-        self.state.current_turn = new_turn
-        self.logic.current_turn_player_id = new_turn
+        self.state.current_turn_player_id = new_turn
         player = self.state.players[new_turn]
         
         if player.nb_turn_jail > 0:
@@ -98,9 +97,5 @@ class GameManager:
         return self.logic.sell_house(player_id=player_id, cell_id=cell)
     
     def jail_decision(self, player_id: int, data: dict) -> dict:
-        decision = data.get("accepted")
-        # player = self.players[player_id]
-        # if decision:
-        #     player.nb_turn_jail = 0
-            
+        decision = data.get("accepted")    
         return self.logic.jail_decision(player_id, decision)

@@ -247,6 +247,7 @@ func load_texture(file_name: String) -> Texture2D:
 func add_player(player_data: Dictionary) -> Player:
 	var new_player = PLAYER_SCENE.instantiate()
 	players_container.add_child(new_player)
+	#new_player.scale = 0.2
 	new_player.id = player_data["id"]
 	new_player.player_name = player_data["name"]
 	new_player.current_position = player_data["current_position"]

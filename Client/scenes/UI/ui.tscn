@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqqfabtceas0f"]
+[gd_scene load_steps=11 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy08nosal4m77" path="res://scenes/UI/Popups/pop_up_jail.tscn" id="4_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
 [ext_resource type="StyleBox" uid="uid://cuy6jfvmak18d" path="res://styles/button.tres" id="5_m41qk"]
+[ext_resource type="PackedScene" uid="uid://ba4dw7afjhbi2" path="res://scenes/UI/Popups/event_card.tscn" id="7_35jxk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m41qk"]
 
@@ -121,6 +122,9 @@ autowrap_mode = 2
 [node name="OkButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Ok"
+
+[node name="EventCard" parent="." instance=ExtResource("7_35jxk")]
+visible = false
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]

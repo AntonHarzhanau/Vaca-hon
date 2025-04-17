@@ -25,17 +25,24 @@ func _process(delta):
 			moving = false
 
 # player movement across the field cell by cell
-func move(cells_list:Array[Cell], next_position: int):
+func move(cells_list: Array[Cell], steps: int):
 	var temp_pos = current_position
-	var number_of_steps = next_position - current_position if next_position >= current_position else 40 - current_position + next_position
-	for i in number_of_steps:
-		temp_pos += 1 
-		temp_pos %= cells_list.size()
+	var direction = sign(steps)
+	var abs_steps = abs(steps)
+
+	for i in abs_steps:
+		temp_pos = (temp_pos + direction + cells_list.size()) % cells_list.size()
 		$".".global_position = cells_list[temp_pos].global_position
-		await get_tree().create_timer(0.3).timeout 
-	current_position = next_position
+		await get_tree().create_timer(0.3).timeout
+	
+	current_position = temp_pos
+	
 	if self.id == UserData.user_id:
-		var message = {"action": "cell_activate", "cell_id": cells_list[current_position].id_space, "player_id": id}
+		var message = {
+			"action": "cell_activate",
+			"cell_id": cells_list[current_position].id_space,
+			"player_id": id
+		}
 		WebSocketClient.send_message(JSON.stringify(message))
 
 func buy_property(cell: PropertyCell, price:int, current_rent:int) -> void:

@@ -37,6 +37,7 @@ func _ready() -> void:
 	msg_handler.utility_rent.connect(_on_utility_rent)
 	msg_handler.go_to_jail.connect(_on_go_to_jail)
 	msg_handler.get_out_jail.connect(_on_get_out_jail)
+	msg_handler.event.connect(_on_card_event)
 	ui.end_turn_clicked.connect(_on_end_turn_clicked)
 
 func  _on_player_connected(player_data: Variant) -> void:
@@ -71,7 +72,7 @@ func _on_player_state_changed(player:Player):
 	if player.money >= offer.price:
 		ui.popup_offer.accept_btn.disabled = false
 
-func _on_move_player(player_id: int, steps: int, prime:bool) -> void:
+func _on_move_player(player_id: int, current_position:int, steps: int, prime:bool) -> void:
 	var player = players[int(player_id)]
 	if prime:
 		player.earn(200)
@@ -150,6 +151,52 @@ func _on_end_turn_clicked():
 		if bankrupt:
 			ui.show_info("Game over!!!!!!!")
 			_exit_tree()
+			
+func _on_card_event(data:Dictionary):
+	var event_type = data.get("effect_type", "Error")
+	var player = players[int(data.get("player_id"))]
+	ui.event_card.descripton.text = data.get("description", "Error")
+	ui.event_card.visible = true
+	match event_type:
+		"gain_money": player.earn(data.get("amount"))
+		"gain_from_all": 
+			var total = 0
+			var amount: int = data.get("amount", 0)
+			for p in players.values():
+				if p != player:
+					p.pay(amount)
+					total += amount
+			player.earn(total)
+		"property_repair":
+			var total: int = 0
+			for property in player.properties:
+				if property is StreetCell:
+					total += property.nb_houses * data.get("house_cost", 0)
+			player.pay(total)
+		"pay_fine": player.pay(data.get("amount"))
+		"pay_all": 
+			var total = 0
+			var amount: int = data.get("amount", 0)
+			for p in players.values():
+				if p != player:
+					p.earn(amount)
+					total += amount
+			player.pay(total)
+		"move_to": player.move(cells, data.get("steps", 0))
+		"move_to_nearest": player.move(cells, data.get("steps", 0))
+		"move_and_gain": 
+			player.move(cells, data.get("steps", 0))
+			player.earn(data.get("amount"))
+		
+	#match type:
+		#"gain_money": 
+			#players[int(payload["player_id"])].earn(int(payload["amount"]))
+		#"pay_fine" : 
+			#players[int(payload["player_id"])].pay(int(payload["amount"]))
+		"move_steps": player.move(cells, data.get("steps", 0))
+		#"get_out_of_jail": pass
+		"go_to_jail": player.go_to_jail(cells)
+	
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game

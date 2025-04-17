@@ -7,7 +7,6 @@ from app.game.models.cells.street_cell import StreetCell
 from app.game.models.cells.railway_cell import RailWayCell
 from app.game.models.cells.utility_cell import UtilityCell
 from app.game.models.cells.event_cell import EventCell
-from app.game.models.cells.corner_cell import CornerCell
 
 class GameBoard(BaseModel):
     """
@@ -31,7 +30,7 @@ class GameBoard(BaseModel):
         except json.JSONDecodeError:
             print(f"⚠ Error: file {file_path} contains invalid JSON")
             return
-        #TODO: after implementing all cell classes, rework the logic
+       
         for index, cell_data in enumerate(data):
             cell_name = cell_data.get("name", f"Cell {index}")
             if "cost" in cell_data:
@@ -85,9 +84,10 @@ class GameBoard(BaseModel):
                     )
                     self.cells.append(event_cell)
                 elif cell_data.get("type") == "Сorner":
-                    corner_cell = CornerCell(
+                    corner_cell = EventCell(
                         cell_id=index,
                         cell_name=cell_name,
+                        description="",
                         event_type=cell_data["event_type"]
                     )
                     self.cells.append(corner_cell)

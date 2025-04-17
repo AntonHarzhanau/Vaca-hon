@@ -1,6 +1,9 @@
 from app.game.models.cells.cell import Cell
 from app.game.models.player import Player
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.game.core.game_state import GameState
 
 class PropertyCell(Cell):
     
@@ -9,7 +12,7 @@ class PropertyCell(Cell):
     current_rent: int
     cell_owner: Optional[Player] = None
 
-    def activate(self, player: Player) -> dict:
+    def activate(self, player: Player, state: "GameState") -> dict:
         if self.cell_owner is None:
             return {
                 "action": "offer_to_buy",

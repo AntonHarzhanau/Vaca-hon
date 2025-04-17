@@ -4,6 +4,8 @@ const USER_PANEL = preload("res://scenes/Menu/user.tscn")
 @onready var lobby_id: Label = $BackGround/LobbyId
 @onready var test: Label = $BackGround/TestMessage
 
+var close_manualy:bool = false
+
 func _ready() -> void:
 	States.set_url(States.lobby_id,UserData.user_id)
 	#var url = "ws://127.0.0.1:8000/ws/join/%s?user_id=%s" % [States.lobby_id, UserData.user_id]
@@ -41,8 +43,10 @@ func user_left(uid:int):
 			user.queue_free()
 
 func _on_close_pressed() -> void:
+	close_manualy = true
 	WebSocketClient.close_connection()
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")
 	
 func _on_connection_closed():
-	get_tree().change_scene_to_file("res://scenes/Menu/list_lobby.tscn")
+	if not close_manualy:
+		get_tree().change_scene_to_file("res://scenes/Menu/list_lobby.tscn")
