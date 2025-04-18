@@ -4,6 +4,7 @@ signal accept_offer_clicked
 signal reject_offer_clicked
 
 @onready var label_offer:Label = $Back_ground/Label
+@onready var title_label:Label = $Back_ground/Title
 @onready var accept_btn:Button = $Back_ground/Button_container/Accept_btn
 @onready var deny_btn:Button = $Back_ground/Button_container/Deny_btn
 
@@ -12,6 +13,7 @@ func _ready():
 	deny_btn.pressed.connect(_on_deny_pressed)
 
 func show_offer():
+	title_label.text = "JAIL"
 	label_offer.text = "Do you want to pay $50 to get out of jail??"
 	visible = true
 	#TODO: add check if the player has enough money and hide accept_btn if there is not enough money

@@ -143,6 +143,7 @@ func _on_go_to_jail(player_id:int):
 
 func _on_end_turn_clicked():
 	var bankrupt: bool = false
+<<<<<<< HEAD
 	if players:
 		if players[UserData.user_id].money < 0:
 			bankrupt = true
@@ -151,6 +152,7 @@ func _on_end_turn_clicked():
 		if bankrupt:
 			ui.show_info("Game over!!!!!!!")
 			_exit_tree()
+<<<<<<< HEAD:Client/scripts/game.gd
 			
 func _on_card_event(data:Dictionary):
 	var event_type = data.get("effect_type", "Error")
@@ -191,6 +193,17 @@ func _on_card_event(data:Dictionary):
 		#"get_out_of_jail": pass
 		"go_to_jail": player.go_to_jail(cells)
 	
+=======
+=======
+	if players[States.current_player_id].money <= 0:
+		bankrupt = true
+	var msg = {"action": "end_turn", "bankrupt": bankrupt}
+	WebSocketClient.send_message(JSON.stringify(msg))
+	if bankrupt:
+		ui.show_info("Game over!!!!!!!")
+		_exit_tree()
+>>>>>>> 6.7_TingtingJiang
+>>>>>>> 6.IHM_Menu_principal:scripts/game.gd
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game
