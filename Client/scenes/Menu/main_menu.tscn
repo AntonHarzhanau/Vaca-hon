@@ -53,13 +53,11 @@ layout_mode = 2
 [node name="IP" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "127.0.0.1"
 placeholder_text = "Adress"
 
 [node name="Port" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "8000"
 placeholder_text = "Port"
 
 [node name="Save" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer"]
@@ -86,6 +84,24 @@ text = "Join lobby"
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Exit"
+
+[node name="IP" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.014
+offset_left = 4.0
+offset_top = 91.0
+offset_right = 44.0
+offset_bottom = 102.8
+text = "IP"
+
+[node name="IP2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 145.0
+text = "IP2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

@@ -29,7 +29,7 @@ class GainMoneyFromAll(GainMoney):
             if p != player:
                 p.pay(self.amount)
                 player.earn(self.amount)
-        return super().activate(player)
+        return super().activate(player, state)
     
 class PayFineToAll(PayFine):
     effect_type:Literal['pay_all']

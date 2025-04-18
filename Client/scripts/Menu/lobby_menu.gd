@@ -49,4 +49,5 @@ func _on_close_pressed() -> void:
 	
 func _on_connection_closed():
 	if not close_manualy:
-		get_tree().change_scene_to_file("res://scenes/Menu/list_lobby.tscn")
+		#get_tree().change_scene_to_file("res://scenes/Menu/list_lobby.tscn")
+		pass

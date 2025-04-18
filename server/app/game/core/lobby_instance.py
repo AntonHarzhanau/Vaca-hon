@@ -80,7 +80,7 @@ class LobbyInstance:
         }))
         # the delay is needed so that the client has time to initialize the game
         # TODO: fix mechanics to not use delays
-        await asyncio.sleep(0.2) 
+        await asyncio.sleep(0.5) 
         await self.connection_manager.broadcast(json.dumps({
             "action":"player_connected",
             "players": [player.model_dump() for player in players.values()]

@@ -9,8 +9,6 @@ signal change_to_login
 func _ready() -> void:
 	login.text = UserData.user_name
 	password.text = UserData.password
-	
-
 
 func _on_login_pressed() -> void:
 	var payload = {
@@ -27,6 +25,7 @@ func _on_login_pressed() -> void:
 		print(user) 
 		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
 		UserData.user_id = int(response.body["id"])
+		UserData.user_name = response.body["username"]
 		UserData.save_user_data()
 		message.text = "Login successful:"
 		#var url = "ws://127.0.0.1:8000/ws/login/" + UserData.user_id
@@ -34,6 +33,7 @@ func _on_login_pressed() -> void:
 	else:
 		message.text = "Incorrect login or password"
 		print(response.body)
+
 
 
 func _on_register_pressed() -> void:

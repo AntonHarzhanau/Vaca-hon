@@ -30,6 +30,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.100563, 0.187988, 0.268288, 1)
 
+[node name="IP" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.02
+anchor_bottom = 0.029
+offset_left = 267.0
+offset_top = 168.0
+offset_right = 326.0
+offset_bottom = 176.8
+text = "IP"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5

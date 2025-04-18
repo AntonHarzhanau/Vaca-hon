@@ -74,6 +74,7 @@ func _on_join_pressed(lobby):
 	
 func _fetch_lobbies():
 	# Get Lobbies from Server
+	HttpRequestClient.set_base_url(States.HTTP_URL)
 	var response = await HttpRequestClient.__get("/lobbies")
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")

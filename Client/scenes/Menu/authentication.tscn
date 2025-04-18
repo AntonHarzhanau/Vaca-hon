@@ -75,5 +75,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Register"
 
+[node name="IP" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "IP: "
+
+[node name="IP2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 47.0
+text = "IP: "
+
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/Register" to="." method="_on_register_pressed"]

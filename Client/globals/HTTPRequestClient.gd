@@ -10,6 +10,7 @@ func set_base_url(url: String) -> void:
 	_base_url = url
 
 func __post(uri_path: String, payload: Dictionary) -> Dictionary:
+	print(_base_url)
 	var body = JSON.stringify(payload)  # <-- String, не PackedByteArray
 	var headers = ["Content-Type: application/json"]
 	var url = _base_url + uri_path
@@ -20,6 +21,7 @@ func __post(uri_path: String, payload: Dictionary) -> Dictionary:
 
 
 func __get(uri_path: String, payload: Dictionary = {}) -> Dictionary:
+	print(_base_url)
 	var body = JSON.stringify(payload)  # <-- String
 	var headers = ["Content-Type: application/json"]
 	var url = _base_url + uri_path

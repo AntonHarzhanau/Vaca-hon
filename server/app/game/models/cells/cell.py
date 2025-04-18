@@ -11,7 +11,7 @@ class Cell(BaseModel):
     cell_id: int
     cell_name: str
 
-    def activate(self, player: Player, state: "GameState") -> dict:
+    def activate(self, player: Player, state: "GameState"= None) -> dict:
         """Activates the cell and returns the default message."""
         return {
             "action": "nothing",

@@ -7,6 +7,9 @@ extends Control
 @onready var registation = $CanvasLayer/Registration
 @onready var auth = $CanvasLayer/Authentication
 
+@onready var ip:Label = $ColorRect/IP
+@onready var ip2:Label = $ColorRect/IP2
+
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
@@ -18,6 +21,8 @@ func _on_join_lobby_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	States.set_addres(adress.text, port.text)
+	ip.text = States.URL
+	ip2.text = States.HTTP_URL
 
 func _on_login_pressed() -> void:
 	$CanvasLayer.visible = true
@@ -32,10 +37,6 @@ func _on_authentication_change_to_login() -> void:
 
 func _on_close_auth_pressed() -> void:
 	$CanvasLayer.visible = false
-
-func _on_disconnect_pressed() -> void:
-	#WebSocketClient.close_connection()
-	pass
 
 func _on_test_toggled(toggled_on: bool) -> void:
 	States.is_test = toggled_on

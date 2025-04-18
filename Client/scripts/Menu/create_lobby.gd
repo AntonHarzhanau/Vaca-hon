@@ -12,7 +12,7 @@ func _ready() -> void:
 	is_private_checkbutton.toggled.connect(_on_lobby_is_private_toggled)
 	create_lobby_btn.pressed.connect(_on_create_lobby_pressed)
 	back_to_home_btn.pressed.connect(_on_back_to_home_pressed)
-
+	$ColorRect/IP.text = States.URL
 	#Create an HTTPRequestClient node and add it to the tree
 	
 func _on_lobby_is_private_toggled(toggled_on: bool) -> void:
@@ -32,6 +32,8 @@ func _on_create_lobby_pressed():
 		"is_private": is_private,
 		"secret": secret
 	}
+	HttpRequestClient.set_base_url(States.HTTP_URL)
+	
 	var response = await HttpRequestClient.__post("/lobbies/", payload)
 	
 	if response.result != OK:
