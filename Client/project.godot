@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Monopoly"
+run/main_scene="uid://dlrebauxx7ouu"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+States="*res://globals/states.gd"
+HttpRequestClient="*res://globals/HTTPRequestClient.gd"
+UserData="*res://globals/user_data.gd"
+WebSocketClient="*res://globals/WebSocketClient.gd"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

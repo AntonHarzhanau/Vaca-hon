@@ -1,0 +1,37 @@
+from typing import Dict
+from fastapi import WebSocket
+from app.schemas.user_schema import UserReadSchema
+
+    
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: Dict[WebSocket, UserReadSchema] = {}
+
+    async def connect(self, websocket: WebSocket, user: UserReadSchema):
+        self.active_connections[websocket] = user
+
+    async def disconnect(self, websocket: WebSocket) -> UserReadSchema:
+        return self.active_connections.pop(websocket)
+        
+
+    async def send_personal_message(self, message: str, websocket: WebSocket):
+        print(message)
+        await websocket.send_text(message)
+
+    async def broadcast(self, message: str, exclude: WebSocket = None):
+        print(message)
+        disconnected = []
+        for connection in self.active_connections:
+            if connection != exclude:
+                try:
+                    await connection.send_text(message)
+                except Exception as e:
+                    print(f"⚠️ Error sending: {e}")
+                    disconnected.append(connection)
+        
+        # Remove unavailable connections
+        for conn in disconnected:
+            self.active_connections.pop(conn)
+
+
+# manager = ConnectionManager()

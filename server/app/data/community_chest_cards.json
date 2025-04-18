@@ -1,0 +1,83 @@
+[
+  {
+    "description": "Social Media Travel Photo Contest! COLLECT ₥10.",
+    "effect_type": "gain_money",
+    "amount": 10
+
+  },
+  {
+    "description": "Travel Guide Tips! RECEIVE ₥25.",
+    "effect_type": "gain_money",
+    "amount": 25
+  },
+  {
+    "description": "Currency Conversion Error! Bank Error in Your Favour. COLLECT ₥200.",
+    "effect_type": "gain_money",
+    "amount": 200
+  },
+  {
+    "description": "Hotel Maintenance Costs! PAY ₥40 PER HOUSE AND ₥115 PER HOTEL YOU OWN.",
+    "effect_type": "property_repair",
+    "house_cost": 40
+  },
+  {
+    "description": "Language Course Fees. PAY ₥50.",
+    "effect_type": "pay_fine",
+    "amount": 50
+ 
+  },
+  {
+    "description": "BON VOYAGE PARTY! COLLECT ₥10 FROM EVERY TRAVELER.",
+    "effect_type": "gain_from_all",
+    "amount": 10
+  },
+  {
+    "description": "FAMILY TRAVEL FUND! ₥100 FOR YOUR NEXT ADVENTURE.",
+    "effect_type": "gain_money",
+    "amount": 100
+  },
+  {
+    "description": "Souvenir Sales Profit. YOU GET ₥50 FOR SELLING SOUVENIRS.",
+    "effect_type": "gain_money",
+    "amount": 50
+  },
+  {
+    "description": "EMERGENCY MEDICAL EXPENSES. PAY ₥100.",
+    "effect_type": "pay_fine",
+    "amount": 100
+  },
+  {
+    "description": "TRAVEL CLINIC FEES. PAY ₥50 FOR VACCINATIONS.",
+    "effect_type": "pay_fine",
+    "amount": 50
+  },
+  {
+    "description": "CUSTOMS DUTY REFUND. COLLECT ₥20.",
+    "effect_type": "gain_money",
+    "amount": 20
+  },
+  {
+    "description": "TRAVEL INSURANCE PAYOUT. COLLECT ₥100.",
+    "effect_type": "gain_money",
+    "amount": 100
+  },
+  {
+    "description": "TRAVEL SAVINGS MATURE. RECEIVE ₥100.",
+    "effect_type": "gain_money",
+    "amount": 100
+  },
+  {
+    "description": "GET OUT OF THE CUSTOMS FREE. This card may be kept until needed or traded.",
+    "effect_type": "get_out_of_jail"
+  },
+  {
+    "description": "GO TO CUSTOMS. DO NOT PASS GO, DO NOT COLLECT ₥200.",
+    "effect_type": "go_to_jail"
+  },
+  {
+    "description": "ADVANCE TO GO. (COLLECT ₥200)",
+    "effect_type": "move_to",
+    "target": "GO",
+    "money_bonus": 200
+  }
+]

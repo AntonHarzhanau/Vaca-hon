@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhsj508auqr47"]
+
+[ext_resource type="Script" uid="uid://b6wmlgxbqa0c0" path="res://scripts/Menu/main_menu_2.gd" id="1_cnkde"]
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_cb6tt"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_cnkde"]
+[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_ikq3i"]
+[ext_resource type="Texture2D" uid="uid://dm7sy4y7nslrl" path="res://assets/voyager.png" id="5_cnkde"]
+[ext_resource type="Texture2D" uid="uid://u5w5jyk8gywe" path="res://assets/voyagers.png" id="6_ikq3i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldvwn"]
+bg_color = Color(0.551599, 0.871557, 0.888565, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vag1c"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0, 0, 0.431373)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cnkde")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1330.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_cb6tt")
+autoplay = true
+expand = true
+loop = true
+
+[node name="control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1330.0
+offset_bottom = 800.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="control"]
+layout_mode = 0
+offset_right = 1330.0
+offset_bottom = 117.0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="Label" type="Label" parent="control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 40
+text = "SÉLECTION DU MODE DE JEU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.128
+anchor_right = 0.086
+anchor_bottom = 0.735
+offset_left = -4.0
+offset_top = 0.0239992
+offset_bottom = 0.00499725
+grow_vertical = 2
+texture_normal = ExtResource("4_ikq3i")
+
+[node name="CREER" type="Button" parent="control"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 585.0
+offset_right = 472.0
+offset_bottom = 686.0
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_ldvwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ldvwn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "CRÉER UNE
+PARTIE"
+
+[node name="REJOINDRE" type="Button" parent="control"]
+offset_left = 850.0
+offset_top = 585.0
+offset_right = 1122.0
+offset_bottom = 686.0
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_ldvwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ldvwn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "REJOINDRE UNE PARTIE"
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133835
+anchor_top = 0.32
+anchor_right = 0.340602
+anchor_bottom = 0.74
+offset_top = -1.0
+offset_bottom = -1.0
+texture = ExtResource("5_cnkde")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65188
+anchor_top = 0.31625
+anchor_right = 0.858647
+anchor_bottom = 0.73625
+offset_left = 6.10352e-05
+offset_top = 2.0
+offset_bottom = 2.0
+texture = ExtResource("6_ikq3i")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="control/CREER" to="." method="_on_creer_pressed"]
+[connection signal="pressed" from="control/REJOINDRE" to="." method="_on_rejoindre_pressed"]
