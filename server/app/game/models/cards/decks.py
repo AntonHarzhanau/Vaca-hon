@@ -9,12 +9,7 @@ from app.game.models.cards.card import EventCard
 from app.game.models.cards.money_event import GainMoney, GainMoneyFromAll, PayFine, PropertyRepair, PayFineToAll
 from app.game.models.cards.move_event import MoveTo, MoveToNearCell, MoveAndGain, MoveSteps
 from app.game.models.cards.jail_event import GoToJail, GetOutOfJail
-# Добавь сюда другие типы карточек по мере необходимости:
-# from app.game.models.cards.move_card import MoveCard
-# from app.game.models.cards.teleport_card import TeleportCard
 
-# Объединение всех типов карточек
-# CardUnion = Union[GainMoneyCard]  # добавляй сюда другие типы карточек
 CardUnion = Annotated[
     Union[
         GainMoney,
@@ -28,12 +23,12 @@ CardUnion = Annotated[
         MoveAndGain,
         MoveSteps,
         PayFineToAll,
-        # другие карточки
+        # other types of cards
     ],
     Field(discriminator="effect_type")
 ]
 
-# Адаптер с указанием discriminator-поля
+    # Adapter with discriminator field specified
 adapter = TypeAdapter(list[CardUnion])
 
 
@@ -48,7 +43,7 @@ class CardDeck:
         return card
 
 
-# --- Вспомогательная функция загрузки JSON-файлов карточек ---
+# --- Helper function for loading JSON cards files ---
 def load_json_cards(file_path: str) -> list[EventCard]:
     path = Path(file_path)
     try:
@@ -64,23 +59,7 @@ def load_json_cards(file_path: str) -> list[EventCard]:
     try:
         cards = adapter.validate_python(data)
     except Exception as e:
-        print(f"⚠ Ошибка валидации карточек: {e}")
+        print(f"⚠ Card validation error: {e}")
         return []
 
     return cards
-
-
-
-# --- Создание глобальных колод ---
-chance_deck = CardDeck(load_json_cards("app/data/chance_cards.json"))
-community_chest_deck = CardDeck(load_json_cards("app/data/community_chest_cards.json"))
-
-# print("chance_deck")
-# print(len(chance_deck.cards))
-# for i in chance_deck.cards:
-#     print(i)
-    
-# print("community_chest_deck")
-# print(len(community_chest_deck.cards))
-# for i in community_chest_deck.cards:
-#     print(i)

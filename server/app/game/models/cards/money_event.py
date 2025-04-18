@@ -48,6 +48,6 @@ class PropertyRepair(EventCard):
         total = 0
         for cell in player.properties:
             if type(cell).__name__ == "StreetCell":
-                total += self.house_cost * cell.house_count
+                total += self.house_cost * cell.nb_houses
         player.pay(total)
         return super().activate(player)

@@ -2,7 +2,7 @@
   {
       "description": "Airline Upgrade! Move to the nearest airport. If unowned, buy it. If owned, pay double rent.",
       "effect_type": "move_to_nearest",
-      "target": "RailWay"
+      "target": "RailWayCell"
   },
   {
       "description": "Security Check! Go back 3 spaces due to long queues.",

@@ -46,6 +46,11 @@ grow_vertical = 0
 visible = false
 
 [node name="PopUpJail" parent="." instance=ExtResource("4_7e3k0")]
+visible = false
+offset_left = -393.0
+offset_top = -243.0
+offset_right = 407.0
+offset_bottom = 157.0
 
 [node name="EndTurnButton" type="Button" parent="."]
 anchors_preset = 6

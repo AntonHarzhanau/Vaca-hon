@@ -20,14 +20,14 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout 
 	
 func _on_message_received(message: Variant):
-	var action = message["action"]
+	var action = message.get("action", "Error")
 	test.text = str(message)
 	print("In lobby\n" + str(message))
 	match action:
 		"user_joined": join_user(message["user_id"], message["user_name"])
 		"user_left": user_left(message["user_id"])
 		"game_started": get_tree().change_scene_to_file("res://scenes/game.tscn")
-
+		"Error": print(message)
 func _on_start_game_pressed() -> void:
 	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))

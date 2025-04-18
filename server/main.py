@@ -18,7 +18,7 @@ logger = logging.getLogger("monopoly-server")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
    await create_tables()
-   print("База готова")
+   logger.info("Database tables created.")
    yield
 #    await delete_tables()
 

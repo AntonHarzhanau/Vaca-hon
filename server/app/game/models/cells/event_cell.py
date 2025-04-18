@@ -1,14 +1,16 @@
 from app.game.models.cells.cell import Cell
 from app.game.models.player import Player
 from typing import TYPE_CHECKING
-from app.game.models.cards.decks import community_chest_deck, chance_deck
+
 if TYPE_CHECKING:
     from app.game.core.game_state import GameState
     from app.game.models.cards.card import EventCard
     
 
 class EventCell(Cell):
-    """Ячейка, запускающая событие"""
+    """
+    Represents an event cell on the game board.
+    """
     description: str
     event_type: str  # "chance", "community_chest", "income_tax", "luxury_tax"
 
@@ -27,11 +29,11 @@ class EventCell(Cell):
             return super().activate(player)
 
     def activate_chance_card(self, player: Player, state: "GameState") -> dict:
-        card:"EventCard" = chance_deck.draw_card()
+        card:"EventCard" = state.chance_deck.draw_card()
         return card.activate(player=player, state=state)
 
     def activate_community_chest_card(self, player: Player, state: "GameState") -> dict:
-        card:"EventCard" = community_chest_deck.draw_card()
+        card:"EventCard" = state.community_chest_deck.draw_card()
         return card.activate(player=player, state=state)
 
 

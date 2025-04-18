@@ -31,7 +31,7 @@ class Player(BaseModel):
 
         prime = False
         if steps > 0 and new_position < old_position:
-            self.money += 200  # бонус за прохождение через старт
+            self.money += 200  # bonus for passing through the start
             prime = True
 
         self.current_position = new_position
