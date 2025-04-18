@@ -43,7 +43,6 @@ class PayFineToAll(PayFine):
 class PropertyRepair(EventCard):
     effect_type:Literal['property_repair']
     house_cost:int
-    hotel_cost:int
     
     def activate(self, player, state):
         total = 0

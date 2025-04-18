@@ -8,8 +8,9 @@ if TYPE_CHECKING:
 class GoToJail(EventCard):
     effect_type:Literal["go_to_jail"]
     
-    delivery:Literal["personal"] = "personal"
     def activate(self, player: "Player", state:"GameState"):
+        player.current_position = 10
+        player.nb_turn_jail = 3
         return super().activate(player)
     
 class GetOutOfJail(EventCard):

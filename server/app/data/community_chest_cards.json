@@ -18,8 +18,7 @@
   {
     "description": "Hotel Maintenance Costs! PAY ₥40 PER HOUSE AND ₥115 PER HOTEL YOU OWN.",
     "effect_type": "property_repair",
-    "house_cost": 40,
-    "hotel_cost": 115
+    "house_cost": 40
   },
   {
     "description": "Language Course Fees. PAY ₥50.",

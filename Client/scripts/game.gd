@@ -187,12 +187,6 @@ func _on_card_event(data:Dictionary):
 		"move_and_gain": 
 			player.move(cells, data.get("steps", 0))
 			player.earn(data.get("amount"))
-		
-	#match type:
-		#"gain_money": 
-			#players[int(payload["player_id"])].earn(int(payload["amount"]))
-		#"pay_fine" : 
-			#players[int(payload["player_id"])].pay(int(payload["amount"]))
 		"move_steps": player.move(cells, data.get("steps", 0))
 		#"get_out_of_jail": pass
 		"go_to_jail": player.go_to_jail(cells)
