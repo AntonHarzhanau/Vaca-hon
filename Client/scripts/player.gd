@@ -17,6 +17,12 @@ var speed = 300
 var moving = false
 var target_position
 
+@onready var player_token_sprite: Sprite2D = $Sprite2D
+@export var player_token = preload("res://icon.svg")
+
+func _ready() -> void:
+	player_token_sprite.texture = player_token
+
 func _process(delta):
 	if moving:
 		position = position.move_toward(target_position, speed * delta)

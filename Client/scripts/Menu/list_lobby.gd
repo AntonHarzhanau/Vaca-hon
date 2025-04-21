@@ -8,13 +8,13 @@ extends Control
 # Load the lobby item scene
 var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item.tscn")
 
-
 var lobbies = []
 
 func _ready():
 	# Setup signals
 	back_to_home_btn.pressed.connect(_on_back_to_home_pressed)
 	refresh_btn.pressed.connect(_on_refresh_btn_pressed)
+	WebSocketClient.message_received.connect(_on_websocket_message_received)
 	
 	# Get Lobbies from Server
 	_fetch_lobbies()
@@ -69,8 +69,9 @@ func _ready():
 
 func _on_join_pressed(lobby):
 	States.lobby_id = int(lobby.id)
+	States.set_url(States.lobby_id, UserData.user_id)
 	print("Joining lobby: ", lobby)
-	get_tree().change_scene_to_file("res://scenes/Menu/lobby_menu.tscn")
+	WebSocketClient.connect_to_server(States.URL)
 	
 func _fetch_lobbies():
 	# Get Lobbies from Server
@@ -97,6 +98,17 @@ func _fetch_lobbies():
 			join_button.pressed.connect(_on_join_pressed.bind(lobby))
 			if nb_players >= nb_player_max:
 				join_button.disabled = true
+
+func _on_websocket_message_received(data):
+	if ["get_available_tokens"].has(data.action):
+		# Get available tokens for Token Selection Scene
+		var message = {"action": "get_available_tokens"}
+		var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
+		lobby_token_selection.lobby_id = str(States.lobby_id)
+		lobby_token_selection.player_id = int(UserData.user_id)
+		lobby_token_selection.available_tokens = data.available_tokens
+		get_tree().get_root().add_child(lobby_token_selection)
+
 
 func _on_refresh_btn_pressed():
 	_fetch_lobbies()

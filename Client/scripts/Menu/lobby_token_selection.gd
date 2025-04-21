@@ -12,9 +12,6 @@ extends Control
 @export var available_tokens: Array = []
 
 func _ready() -> void:
-	# Get available tokens from server
-	_get_availables_tokens_from_server()
-	
 	# Set signals handlers
 	validate_selection_btn.pressed.connect(_on_validate_selection_pressed)
 	back_btn.pressed.connect(_on_back_btn_pressed)
@@ -35,15 +32,15 @@ func _on_validate_selection_pressed() -> void:
 	Validate token selection to server and Redirect to the lobby waiting room
 	"""
 	# Send WebSocket "select_token" message to server to book the selected token
-	var message = {"action": "select_token", "selected_token": current_selected_token.text}
+	var message = {"action": "user_joined", "user_id": UserData.user_id, "selected_token": current_selected_token.text}
 	WebSocketClient.send_message(JSON.stringify(message))
 	
 func _on_websocket_message_received(data) -> void:	
-	if ["get_available_tokens", "token_selected"].has(data.action) :
+	if ["get_available_tokens", "user_joined"].has(data.action) :
 		# Update tokens list from server response
 		self.available_tokens = data.available_tokens
 		
-		if data.action == "token_selected" and self.player_id == int(data.player_id) :
+		if data.action == "user_joined" and self.player_id == int(data.user_id) :
 			self.players = data.players
 			print("SERVER")
 			print(data)
@@ -54,7 +51,7 @@ func _on_websocket_message_received(data) -> void:
 	if ["player_connected", "player_disconnected"].has(data.action) :
 		self.players = data.players
 		# Get available tokens from server
-		_get_availables_tokens_from_server()
+		#_get_availables_tokens_from_server()
 
 func _go_to_lobby_waiting_room():
 	"""

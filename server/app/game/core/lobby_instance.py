@@ -27,14 +27,14 @@ class LobbyInstance:
 
 
     async def add_user(self, websocket: WebSocket, user: UserReadSchemaWithToken, selected_token: str) -> None:
-        for connected_user in self.connection_manager.active_connections.values():
-            msg = {
-                "action": "user_joined",
-                "user_id": connected_user.id,
-                "user_name": connected_user.username,
-                "selected_token": connected_user.selected_token,
-            }
-            await self.connection_manager.send_personal_message(json.dumps(msg), websocket)
+        # for connected_user in self.connection_manager.active_connections.values():
+        #     msg = {
+        #         "action": "user_joined",
+        #         "user_id": connected_user.id,
+        #         "user_name": connected_user.username,
+        #         "selected_token": connected_user.selected_token,
+        #     }
+        #     await self.connection_manager.send_personal_message(json.dumps(msg), websocket)
 
         # Add WebSocket to the list of users
         if await self.use_token(selected_token, user.id):
@@ -53,12 +53,15 @@ class LobbyInstance:
             "user_id": user.id,
             "user_name": user.username,
             "selected_token": selected_token,
-            "available_tokens": self.available_tokens
+            "available_tokens": self.available_tokens,
+            "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
         }))
 
     async def remove_user(self, websocket: WebSocket) -> None:
         if websocket in self.connection_manager.active_connections:
             user = await self.connection_manager.disconnect(websocket)
+            # Make released token available again in the lobby
+            self.available_tokens.append(user.selected_token)
             if self.game_manager:
                 player = self.game_manager.state.players.pop(user.id)
                 for property in player.properties:
@@ -73,7 +76,9 @@ class LobbyInstance:
                 await asyncio.sleep(0.2)
             await self.connection_manager.broadcast(json.dumps({
                 "action": "user_left",
-                "user_id": user.id
+                "user_id": user.id,
+                "available_tokens": self.available_tokens,
+                "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
             }))
 
     async def start_game(self, user_id:int) -> None:

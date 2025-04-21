@@ -51,7 +51,7 @@ func  _on_player_connected(player_data: Variant) -> void:
 			ui.create_main_player_hub(new_player)
 		else:
 			ui.create_guest_hub(new_player)
-		print("Player id" + str(new_player.id) +"was created")
+		print("Player id" + str(new_player.id) +" was created")
 
 func _on_player_disconnected(player_id:int):
 	print("here")

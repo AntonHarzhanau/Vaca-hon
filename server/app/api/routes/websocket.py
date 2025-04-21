@@ -1,4 +1,3 @@
-import json
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, status
 from app.services.user_service import UserService 
 from app.services.lobby_service import LobbyService
@@ -79,6 +78,6 @@ async def websocket_endpoint(
             LobbyUpdateSchema(players=players)
         )
         if not lobby.connection_manager.active_connections:
-            #await lobby_service.delete_lobby(lobby_id)
-            #lobby_manager.remove_lobby(lobby_id)
+            await lobby_service.delete_lobby(lobby_id)
+            lobby_manager.remove_lobby(lobby_id)
             print("Lobby {lobby_id} destroed")

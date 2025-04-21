@@ -19,15 +19,25 @@ func _ready() -> void:
 	_refresh_player_list()
 
 func _on_websocket_message_received(data) -> void:
-	if ["player_connected", "player_disconnected"].has(data.action) :
-		self.players = data.players
+	#if ["player_connected", "player_disconnected"].has(data.action) :
+		#self.players = data.players
+		#
+		#if data.action == "player_disconnected":
+			#_refresh_player_list()
+		#
+	#if ["user_joined"].has(data.action):
+		#self.players = data.players
+		#_refresh_player_list()
 		
-		if data.action == "player_disconnected":
+	var action = data.get("action", "Error")
+	match action:
+		"user_joined", "user_left":
+			self.players = data.players
 			_refresh_player_list()
-		
-	if ["token_selected"].has(data.action):
-		self.players = data.players
-		_refresh_player_list()
+		"game_started": 
+			get_tree().change_scene_to_file("res://scenes/game.tscn")
+		"Error": 
+			print(data)
 		
 func _refresh_player_list() -> void:
 	# Remove all old children
@@ -38,7 +48,7 @@ func _refresh_player_list() -> void:
 	# Renew the list
 	for new_player in players:
 		var new_waiting_room_player = preload("res://scenes/Menu/waiting_room_player.tscn").instantiate();
-		new_waiting_room_player.player_name = new_player.name
+		new_waiting_room_player.player_name = new_player.username
 		new_waiting_room_player.player_token = load("res://assets/Players/" + new_player.selected_token + ".png")
 		connected_players_hbox.add_child(new_waiting_room_player)
 
@@ -47,4 +57,5 @@ func _on_back_btn_pressed() -> void:
 	get_parent().remove_child(self)
 	
 func _on_start_game_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
+	WebSocketClient.send_message(JSON.stringify(msg))
