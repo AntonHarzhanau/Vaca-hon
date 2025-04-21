@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://kwxktsmlv5q8"]
+
+[ext_resource type="Script" uid="uid://l4lx32382e1m" path="res://scripts/UI/Hubs/hub.gd" id="1_ha6g5"]
+
+[node name="Hub" type="Panel"]
+offset_right = 150.0
+offset_bottom = 58.0
+script = ExtResource("1_ha6g5")
+
+[node name="UIcontainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerName" type="Label" parent="UIcontainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="PlayerMoney" type="Label" parent="UIcontainer"]
+layout_mode = 2
+text = "Money"

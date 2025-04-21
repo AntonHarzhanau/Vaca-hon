@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp6462vc4t7ov"]
+
+[ext_resource type="Script" uid="uid://7b7xx71s8t7u" path="res://scripts/Menu/lobby_token_selection.gd" id="1_8fy2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1a8p"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fy2m"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttsq3"]
+bg_color = Color(0.693816, 0.73099, 0.911385, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fthea"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nstd5"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nksnj"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="LobbyTokenSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fy2m")
+
+[node name="ColorRectBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.597827, 0.731199, 0.910749, 1)
+
+[node name="GameTopBar" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n1a8p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameTopBar"]
+custom_minimum_size = Vector2(45, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+text = "Select TOKEN
+"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="GameTopBar"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.384314, 0.129412, 0.00784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8fy2m")
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072
+anchor_right = 0.527
+anchor_bottom = 0.86125
+offset_top = 186.0
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.642
+anchor_top = -0.05125
+anchor_right = 1.0
+anchor_bottom = 0.321
+offset_left = -6.10352e-05
+offset_top = 198.0
+offset_right = -99.0
+offset_bottom = 0.199982
+theme_override_font_sizes/normal_font_size = 32
+text = "Select Token for yourself"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SelectedToken" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65
+anchor_top = 0.05275
+anchor_right = 1.0
+anchor_bottom = 0.565
+offset_top = 359.8
+offset_right = -111.0
+offset_bottom = 3.05176e-05
+theme_override_font_sizes/normal_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ttsq3")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ValidateSelectionButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.689
+anchor_top = 0.757
+anchor_right = 1.0
+anchor_bottom = 1.01875
+offset_top = 0.399963
+offset_right = -133.0
+offset_bottom = -138.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_fthea")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nstd5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nksnj")
+text = "SELECT"
+metadata/_edit_use_anchors_ = true
+
+[node name="SelectedTokenTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.707
+anchor_top = 0.36875
+anchor_right = 1.0
+anchor_bottom = 0.5115
+offset_right = -175.0
+offset_bottom = -0.200012
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true

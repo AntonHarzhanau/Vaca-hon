@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpq4fxmq1ukwa"]
+
+[ext_resource type="Script" uid="uid://i2xqa0p0ktr0" path="res://scripts/UI/Hubs/main_player_hub.gd" id="1_8oya7"]
+[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/UI/Hub/hub.tscn" id="2_3vukn"]
+
+[node name="MainPlayerHub" instance=ExtResource("2_3vukn")]
+script = ExtResource("1_8oya7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 149.0
+offset_bottom = 221.0
+
+[node name="PropertyContainer" type="VBoxContainer" parent="VBoxContainer" index="0"]
+layout_mode = 2

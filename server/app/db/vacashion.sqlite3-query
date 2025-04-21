@@ -1,0 +1,242 @@
+-- database: ./server/vacashation.db
+
+
+-- Table principale pour toutes les cellules
+
+
+-- DROP TABLE cells;
+
+-- DROP TABLE corner_cells;
+
+
+-- DROP TABLE event_cells;
+
+-- DROP TABLE propertycell;
+
+-- DROP TABLE railway_cells;
+
+-- DROP TABLE utility_cells;
+
+-- DROP TABLE street_cells;
+
+CREATE TABLE cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL
+);
+
+-- Table pour les cellules de type "Street" (rue)
+CREATE TABLE street_cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT REFERENCES cells(id) NOT NULL,
+    cost INT,
+    color VARCHAR(50),
+    rent INT,
+    group_id INT,
+    house_cost INT
+);
+
+-- Table pour les cellules de type "Railway" (chemin de fer)
+CREATE TABLE railway_cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT REFERENCES cells(id) NOT NULL,
+    rent INT,
+    cost INT
+);
+
+
+
+-- Table pour les cellules de type "Utility" (services publics)
+CREATE TABLE utility_cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT REFERENCES cells(id) NOT NULL,
+    rent INT,
+    cost INT
+);
+
+-- Table pour les cellules de type "Event" (chance, coffre communautaire, taxes)
+CREATE TABLE event_cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT REFERENCES cells(id) NOT NULL
+);
+
+-- Table pour les cellules de type "Corner" (coin)
+CREATE TABLE corner_cells (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT REFERENCES cells(id) NOT NULL
+);
+
+
+CREATE TABLE propertycell (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cell_id INT,                -- Référence vers la table cells
+    price INT,                  -- Prix de la propriété
+    mortgaged BOOLEAN,          -- Indicateur hypothéqué (True/False)
+    rent INT,                   -- Loyer de la propriété
+    FOREIGN KEY (cell_id) REFERENCES cells(id)  -- Définir la contrainte de clé étrangère
+);
+
+
+
+-- Création de la table 'player'
+CREATE TABLE Player (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    player_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    money INT DEFAULT 1500,
+    current_position INT DEFAULT 0,
+    nb_turn_jail INT DEFAULT 0,
+    nb_railway INT DEFAULT 0,
+    nb_utility INT DEFAULT 0,
+    timer_turn INT DEFAULT 30,
+    properties_owned TEXT -- Liste des propriétés sous forme de texte (JSON ou séparé par des virgules)
+);
+
+
+
+
+
+
+
+-- Insertion des données dans la table cells
+
+INSERT INTO cells (name, type) VALUES 
+('Start', 'Corner'),
+('street1', 'Street'),
+('Chance', 'Event'),
+('Street2', 'Street'),
+('Income Tax', 'Event'),
+('Railroad1', 'Railway'),
+('Street3', 'Street'),
+('Chance', 'Event'),
+('Street4', 'Street'),
+('Street5', 'Street'),
+('Jail', 'Corner'),
+('Street6', 'Street'),
+('Electric Company', 'Utility'),
+('Street7', 'Street'),
+('Street8', 'Street'),
+('Railroad2', 'Railway'),
+('Street9', 'Street'),
+('Community Chest', 'Event'),
+('Street10', 'Street'),
+('Street11', 'Street'),
+('Free Parking', 'Corner'),
+('Street12', 'Street'),
+('Chance', 'Event'),
+('Street13', 'Street'),
+('Street14', 'Street'),
+('Railroad3', 'Railway'),
+('Street15', 'Street'),
+('Street16', 'Street'),
+('Water Works', 'Utility'),
+('Street17', 'Street'),
+('Go To Jail', 'Corner'),
+('Street18', 'Street'),
+('Street19', 'Street'),
+('Community Chest', 'Event'),
+('Street20', 'Street'),
+('Railroad4', 'Railway'),
+('Chance', 'Event'),
+('Street21', 'Street'),
+('Luxury Tax', 'Event'),
+('Street22', 'Street');
+
+
+
+-- DELETE FROM cells;
+
+
+
+
+
+
+-- Pour les cellules de type Street
+INSERT INTO street_cells (cell_id, cost, color, rent, group_id, house_cost) VALUES
+((SELECT id FROM cells WHERE name = 'street1'), 60, 'BROWN', '[2,10,30,90,160,250]', 0, 50),
+((SELECT id FROM cells WHERE name = 'Street2'), 60, 'BROWN', '[4,20,60,180,320,450]', 0, 50),
+((SELECT id FROM cells WHERE name = 'Street3'), 100, 'BLUE', '[6,30,90,270,400,550]', 1, 50),
+((SELECT id FROM cells WHERE name = 'Street4'), 100, 'BLUE', '[6,30,90,270,400,550]', 1, 50),
+((SELECT id FROM cells WHERE name = 'Street5'), 120, 'BLUE', '[8,40,100,300,450,600]', 1, 50),
+((SELECT id FROM cells WHERE name = 'Street6'), 140, 'RED', '[10,50,150,450,625,750]', 2, 100),
+((SELECT id FROM cells WHERE name = 'Street7'), 140, 'RED', '[10,50,150,450,625,750]', 2, 100),
+((SELECT id FROM cells WHERE name = 'Street8'), 160, 'RED', '[12,60,180,500,700,900]', 2, 100),
+((SELECT id FROM cells WHERE name = 'Street9'), 180, 'GREEN', '[14,70,200,550,750,950]', 3, 100),
+((SELECT id FROM cells WHERE name = 'Street10'), 180, 'GREEN', '[14,70,200,550,750,950]', 3, 100),
+((SELECT id FROM cells WHERE name = 'Street11'), 200, 'GREEN', '[16,80,220,600,800,1000]', 3, 100),
+((SELECT id FROM cells WHERE name = 'Street12'), 220, 'YELLOW', '[18,90,250,700,875,1050]', 4, 150),
+((SELECT id FROM cells WHERE name = 'Street13'), 220, 'YELLOW', '[18,90,250,700,875,1050]', 4, 150),
+((SELECT id FROM cells WHERE name = 'Street14'), 240, 'YELLOW', '[20,100,300,750,925,1100]', 4, 150),
+((SELECT id FROM cells WHERE name = 'Street15'), 260, 'ORANGE', '[22,110,330,800,975,1150]', 5, 150),
+((SELECT id FROM cells WHERE name = 'Street16'), 260, 'ORANGE', '[22,110,330,800,975,1150]', 5, 150),
+((SELECT id FROM cells WHERE name = 'Street17'), 280, 'ORANGE', '[24,120,360,850,1025,1200]', 5, 150),
+((SELECT id FROM cells WHERE name = 'Street18'), 300, 'PINK', '[26,130,390,900,1100,1275]', 6, 200),
+((SELECT id FROM cells WHERE name = 'Street19'), 300, 'PINK', '[26,130,390,900,1100,1275]', 6, 200),
+((SELECT id FROM cells WHERE name = 'Street20'), 320, 'PINK', '[28,150,450,1000,1200,1400]', 6, 200),
+((SELECT id FROM cells WHERE name = 'Street21'), 350, 'PURPLE', '[35,175,500,1100,1300,1500]', 7, 200),
+((SELECT id FROM cells WHERE name = 'Street22'), 400, 'PURPLE', '[50,200,600,1400,1700,2000]', 7, 200);
+
+
+
+
+-- Pour les cellules de type Railway
+INSERT INTO railway_cells (cell_id, rent, cost) VALUES
+((SELECT id FROM cells WHERE name = 'Railroad1'), 25, 200),
+((SELECT id FROM cells WHERE name = 'Railroad2'), 25, 200),
+((SELECT id FROM cells WHERE name = 'Railroad3'), 25, 200),
+((SELECT id FROM cells WHERE name = 'Railroad4'), 25, 200);
+
+-- Pour les cellules de type Utility
+INSERT INTO utility_cells (cell_id, rent, cost) VALUES
+((SELECT id FROM cells WHERE name = 'Electric Company'), 4, 150),
+((SELECT id FROM cells WHERE name = 'Water Works'), 4, 150);
+
+
+
+
+
+-- Pour les cellules de type Event
+INSERT INTO event_cells (cell_id) VALUES
+((SELECT id FROM cells WHERE name = 'Chance')),
+((SELECT id FROM cells WHERE name = 'Income Tax')),
+((SELECT id FROM cells WHERE name = 'Community Chest')),
+((SELECT id FROM cells WHERE name = 'Free Parking')),
+((SELECT id FROM cells WHERE name = 'Go To Jail')),
+((SELECT id FROM cells WHERE name = 'Luxury Tax'));
+
+-- Pour les cellules de type Corner
+INSERT INTO corner_cells (cell_id) VALUES
+((SELECT id FROM cells WHERE name = 'Start')),
+((SELECT id FROM cells WHERE name = 'Jail')),
+((SELECT id FROM cells WHERE name = 'Free Parking')),
+((SELECT id FROM cells WHERE name = 'Go To Jail'));
+
+
+
+
+
+
+-- Insertion des joueurs avec une liste de propriétés sous forme de texte séparé par des virgules
+INSERT INTO Player (player_name, email, username, password, money, current_position, nb_turn_jail, nb_railway, nb_utility, timer_turn, properties_owned)
+VALUES 
+('Olivia Smith', 'olivia@example.com', 'oliviasmith', 'password123', 1500, 0, 0, 0, 0, 30, '1,3'),  -- Olivia possède les propriétés 1 (Park Place) et 3 (Reading Railroad)
+('Anton Brown', 'anton@example.com', 'antonbrown', 'password123', 1500, 0, 0, 0, 0, 30, '2'),    -- Anton possède la propriété 2 (Boardwalk)
+('Tingting Li', 'tingting@example.com', 'tingtingli', 'password123', 1500, 0, 0, 0, 0, 30, '4'),    -- Tingting possède la propriété 4 (Electric Company)
+('Karim Youssef', 'karim@example.com', 'karimyoussef', 'password123', 1500, 0, 0, 0, 0, 30, '5, 6'),  -- Karim possède les propriétés 5 (Water Works) et 6 (Baltic Avenue)
+('Kian Ali', 'kian@example.com', 'kianali', 'password123', 1500, 0, 0, 0, 0, 30, '7'),    -- Kian possède la propriété 7 (Mediterranean Avenue)
+('Nambi Kumar', 'nambi@example.com', 'nambikumar', 'password123', 1500, 0, 0, 0, 0, 30, '8, 9'),    -- Nambi possède les propriétés 8 (Vermont Avenue) et 9 (Connecticut Avenue)
+('Sacha Dubois', 'sacha@example.com', 'sachadubois', 'password123', 1500, 0, 0, 0, 0, 30, '10'),  -- Sacha possède la propriété 10 (St. Charles Place)
+('Raouf Haddad', 'raouf@example.com', 'raoufhaddad', 'password123', 1500, 0, 0, 0, 0, 30, '11, 12'),  -- Raouf possède les propriétés 11 (States Avenue) et 12 (Virginia Avenue)
+('John Doe', 'john@example.com', 'johndoe', 'password123', 1500, 0, 0, 0, 0, 30, '13, 14'),  -- John Doe possède les propriétés 13 (St. James Place) et 14 (Tennessee Avenue)
+('Jane Smith', 'jane@example.com', 'janesmith', 'password123', 1500, 0, 0, 0, 0, 30, '15');  -- Jane Smith possède la propriété 15 (New York Avenue)
+
+
+
+
+INSERT INTO propertycell (cell_id, price, mortgaged, rent)
+VALUES 
+(41, 200, FALSE, 25),       
+(42, 300, TRUE, 35),        
+(43, 500, FALSE, 50);      
