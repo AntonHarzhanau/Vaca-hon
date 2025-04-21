@@ -1,16 +1,16 @@
 from typing import Dict
 from fastapi import WebSocket
-from app.schemas.user_schema import UserReadSchema
+from app.schemas.user_schema import UserReadSchema, UserReadSchemaWithToken
 
     
 class ConnectionManager:
     def __init__(self):
-        self.active_connections: Dict[WebSocket, UserReadSchema] = {}
+        self.active_connections: Dict[WebSocket, UserReadSchemaWithToken] = {}
 
-    async def connect(self, websocket: WebSocket, user: UserReadSchema):
+    async def connect(self, websocket: WebSocket, user: UserReadSchemaWithToken):
         self.active_connections[websocket] = user
 
-    async def disconnect(self, websocket: WebSocket) -> UserReadSchema:
+    async def disconnect(self, websocket: WebSocket) -> UserReadSchemaWithToken:
         return self.active_connections.pop(websocket)
         
 

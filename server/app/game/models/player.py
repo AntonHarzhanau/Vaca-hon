@@ -17,6 +17,7 @@ class Player(BaseModel):
     timer_turn: int = 30
     card_inventory: List[str] = Field(default_factory=list)
     properties: List["PropertyCell"] = Field(default_factory=list)
+    selected_token: str = None
 
     def get_property(self, cell_id: int):
         for property in self.properties:

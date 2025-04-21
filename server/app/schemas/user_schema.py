@@ -20,6 +20,9 @@ class UserReadSchema(BaseModel):
     id: int
     email:str
     username:str
+
+class UserReadSchemaWithToken(UserReadSchema):
+    selected_token: str = None
     
 class UserUpdateSchema(BaseModel):
     email: Optional[str] = None

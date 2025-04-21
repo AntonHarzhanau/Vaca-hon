@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsh8y7pfxgy4l"]
+
+[ext_resource type="Script" uid="uid://dua04s7xg46j" path="res://scripts/Menu/lobby_waiting_room.gd" id="1_ht0eu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cou2h"]
+bg_color = Color(0.846786, 0.855931, 0.835976, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j0kg"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fiu7"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh76q"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr32l"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l223"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht0eu"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="LobbyWaitingRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ht0eu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.791999, 0.791999, 0.791999, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.028
+anchor_right = 0.5
+anchor_bottom = 0.028
+offset_left = -750.0
+offset_right = 750.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.169245, 0.169245, 0.169245, 1)
+theme_override_font_sizes/normal_font_size = 48
+text = "PLAY ROOM - LOBBY N°{{lobby_id}}"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.049
+anchor_right = 0.953
+anchor_bottom = 0.475
+offset_left = 66.0
+offset_top = 193.5
+offset_right = 0.499878
+offset_bottom = 0.499939
+theme_override_styles/panel = SubResource("StyleBoxFlat_cou2h")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ConnectedPlayersHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StartGameButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.746
+anchor_top = 0.882333
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.499878
+offset_right = -65.9999
+offset_bottom = -67.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_5j0kg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_8fiu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vh76q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wr32l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1l223")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ht0eu")
+text = "START GAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.125
+anchor_bottom = 0.071
+offset_left = 28.0
+offset_top = 26.0
+offset_bottom = 0.199997
+text = "Back"
+metadata/_edit_use_anchors_ = true
