@@ -1,6 +1,6 @@
 extends Node
 
-var _base_url: String = "http://127.0.0.1:8000"
+var _base_url: String = "http://192.168.100.121:10000"
 @onready var http_request: HTTPRequest = HTTPRequest.new()
 
 func _ready() -> void:
