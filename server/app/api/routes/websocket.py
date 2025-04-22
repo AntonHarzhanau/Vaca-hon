@@ -45,8 +45,12 @@ async def websocket_endpoint(
                     await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
                     return
 
+    # Add the websocket directly to the connection_manager idle_connections list (before definitively joined a lobby with a token)
+    lobby.connection_manager.idle_connections[websocket] = user
+
     # Send available tokens for selection when connected to the websocket
     await lobby.send_available_tokens(websocket)
+    print({**lobby.connection_manager.active_connections, **lobby.connection_manager.idle_connections})
     
     try:
         while True:
@@ -78,6 +82,6 @@ async def websocket_endpoint(
             LobbyUpdateSchema(players=players)
         )
         if not lobby.connection_manager.active_connections:
-            await lobby_service.delete_lobby(lobby_id)
-            lobby_manager.remove_lobby(lobby_id)
+            #await lobby_service.delete_lobby(lobby_id)
+            #lobby_manager.remove_lobby(lobby_id)
             print("Lobby {lobby_id} destroed")

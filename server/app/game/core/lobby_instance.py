@@ -36,9 +36,11 @@ class LobbyInstance:
         #     }
         #     await self.connection_manager.send_personal_message(json.dumps(msg), websocket)
 
-        # Add WebSocket to the list of users
+        # Add WebSocket to the list of active_connections and remove from idle_connections
         if await self.use_token(selected_token, user.id):
-            user_with_token = UserReadSchemaWithToken(**user.dict())
+            del self.connection_manager.idle_connections[websocket]
+
+            user_with_token = UserReadSchemaWithToken(**user.model_dump())
             user_with_token.selected_token = selected_token
             await self.connection_manager.connect(websocket, user_with_token)
         else:
@@ -55,7 +57,7 @@ class LobbyInstance:
             "selected_token": selected_token,
             "available_tokens": self.available_tokens,
             "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
-        }))
+        }), send_to_idle=True)
 
     async def remove_user(self, websocket: WebSocket) -> None:
         if websocket in self.connection_manager.active_connections:
