@@ -15,11 +15,11 @@ const DiceContext := {
 var dice_active: bool = true
 var current_context: String = "move"
 #var BASE_URL = "ws://127.0.0.1:8000/ws/join/"
-var BASE_URL = "ws://192.168.100.121:10000/ws/join/"
+var BASE_URL = "ws://173.249.34.12:8000/ws/join/"
 #var URL = "ws://127.0.0.1:8000/ws/join/"
-var URL = "ws://192.168.100.121:10000/ws/join/"
+var URL = "ws://173.249.34.12:8000/ws/join/"
 #var HTTP_URL = "http://127.0.0.1:8000"
-var HTTP_URL = "http://192.168.100.121:10000"
+var HTTP_URL = "http://173.249.34.12:8000"
 
 func set_addres(adress:String, port:String):
 	BASE_URL = "ws://" +adress+":" +port+ "/ws/join/"

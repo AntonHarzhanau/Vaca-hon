@@ -18,6 +18,7 @@ func _on_login_pressed() -> void:
 		"password": password.text
 	}
 
+	print(HttpRequestClient._base_url)
 	var response = await HttpRequestClient.__post("/Users/login", payload)
 
 	if response.response_code == 200:
