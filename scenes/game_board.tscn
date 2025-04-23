@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnlojc3k6kjss"]
+[gd_scene load_steps=4 format=3 uid="uid://cnlojc3k6kjss"]
 
 [ext_resource type="Script" uid="uid://dg2hvdwcmyj3c" path="res://scripts/game_board.gd" id="1_cogkf"]
 [ext_resource type="Texture2D" uid="uid://dnhm70ikx17d6" path="res://assets/Center.png" id="2_3wu0g"]
+[ext_resource type="AudioStream" uid="uid://brxpo88i2j24e" path="res://audio/stranger-things-124008.mp3" id="3_0jtfi"]
 
 [node name="GameBoard" type="Control"]
 layout_mode = 3
@@ -30,3 +31,9 @@ pivot_offset = Vector2(340, 340)
 texture = ExtResource("2_3wu0g")
 
 [node name="Players" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0jtfi")
+autoplay = true
+bus = &"Music"
+playback_type = 1

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqqfabtceas0f"]
 
-[ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://dcolvny53nu5f" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
 [ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
-[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
+[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/ui/popup_offre.tscn" id="4_8dubc"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nt7q6")
@@ -16,6 +16,7 @@ offset_bottom = 488.0
 
 [node name="PopUpOffre" parent="." instance=ExtResource("4_8dubc")]
 visible = false
+script = null
 
 [node name="EndTurnButton" type="Button" parent="."]
 anchors_preset = 8
@@ -54,4 +55,3 @@ grow_horizontal = 0
 [node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
-[connection signal="accept_offer_clicked" from="PopUpOffre" to="." method="_on_pop_up_offre_accept_offer_clicked"]
