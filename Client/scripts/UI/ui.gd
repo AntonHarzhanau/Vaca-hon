@@ -20,7 +20,7 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 
 func _ready() -> void:
 	# Subscribe to signals
-	turn_lable.text = "Player's turn: 0"
+	#turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 	dice.dice_rolled.connect(_on_dice_dice_rolled)
 	end_turn_btn.pressed.connect(_on_end_turn_button_pressed)
 	
@@ -53,7 +53,7 @@ func _on_player_disconnected(player_id):
 			hub.queue_free()
 
 func _on_change_turn():
-	turn_lable.text = "Player's turn: " + str(States.id_player_at_turn)
+	turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 
 func _on_end_turn_button_pressed():
 	emit_signal("end_turn_clicked")

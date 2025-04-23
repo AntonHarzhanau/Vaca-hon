@@ -4,7 +4,7 @@ extends Node
 @onready var ui:UI = $UI
 @onready var board:GameBoard = $GameBoard
 # Local data 
-var players:Dictionary[int, Player]= {}
+
 var cells:Array[Cell] = []
 var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
@@ -43,19 +43,20 @@ func _ready() -> void:
 func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
 		var new_player = board.add_player(i)
-		new_player.global_position += Vector2(10,10) * players.size()
+		new_player.global_position += Vector2(10,10) * States.players.size()
 		#new_player.player_color = colors[new_player.id]
-		players[new_player.id] = new_player
+		States.players[new_player.id] = new_player
 		new_player.state_changed.connect(_on_player_state_changed)
 		if new_player.id == UserData.user_id:
 			ui.create_main_player_hub(new_player)
 		else:
 			ui.create_guest_hub(new_player)
 		print("Player id" + str(new_player.id) +" was created")
-
+		
+	ui.turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
+	
 func _on_player_disconnected(player_id:int):
-	print("here")
-	var player = players[player_id]
+	var player = States.players[player_id]
 	for property: PropertyCell in player.properties:
 		if property is StreetCell:
 			property.nb_houses = 0
@@ -63,8 +64,8 @@ func _on_player_disconnected(player_id:int):
 		property.current_rent = property.initial_rent
 		property.player_lable.visible = false
 	ui._on_player_disconnected(player_id)
-	players[player_id].queue_free()
-	players.erase(player_id)
+	States.players[player_id].queue_free()
+	States.players.erase(player_id)
 	
 func _on_player_state_changed(player:Player):
 	ui.update_hubs(player, UserData.user_id)
@@ -73,32 +74,32 @@ func _on_player_state_changed(player:Player):
 		ui.popup_offer.accept_btn.disabled = false
 
 func _on_move_player(player_id: int, current_position:int, steps: int, prime:bool) -> void:
-	var player = players[int(player_id)]
+	var player = States.players[int(player_id)]
 	if prime:
 		player.earn(200)
 	player.move(cells, steps)
 
 func _on_offer_to_buy(cell_id:int, price:int) -> void:
 	var cell = cells[cell_id]
-	var player = players[UserData.user_id]
+	var player = States.players[UserData.user_id]
 	ui.popup_offer.price = price
 	if player.money < price:
 		ui.popup_offer.accept_btn.disabled = true
 	ui.popup_offer.show_offer(cell.cell_name)
 
 func _on_buy_property(player_id:int, cell_id: int, _price: int, current_rent:int) -> void:
-	var player = players[player_id]
-	players[player_id].buy_property(cells[cell_id], _price, current_rent)
+	var player = States.players[player_id]
+	States.players[player_id].buy_property(cells[cell_id], _price, current_rent)
 
 func _on_sell_property(player_id: int, cell_id: int, _price:int, current_rent:int) -> void:
-	var player = players[player_id]
+	var player = States.players[player_id]
 	player.sell_property(cell_id, _price, current_rent)
 	var money = player.money
 	var properties = player.properties
 
 func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
-	players[player_id].pay(rent)
-	players[cell_owner_id].earn(rent)
+	States.players[player_id].pay(rent)
+	States.players[cell_owner_id].earn(rent)
 	if player_id == UserData.user_id:
 		ui.show_info("you paid "+ str(rent)+ " to player" + str(cell_owner_id))
 
@@ -109,10 +110,10 @@ func _on_sell_house(player_id:int, cell_id:int, num_of_house:int, current_rent:i
 	cells[cell_id].sell_house(num_of_house, current_rent)
 
 func _on_earn(player_id:int, amount:int):
-	players[player_id].earn(amount)
+	States.players[player_id].earn(amount)
 
 func _on_pay(player_id:int, amount:int):
-	players[player_id].pay(amount)
+	States.players[player_id].pay(amount)
 
 func _on_utility_rent():
 	States.dice_active = true
@@ -121,7 +122,7 @@ func _on_utility_rent():
 
 func _on_change_turn(player_id:int, nb_turn_jail:int):
 	if player_id == UserData.user_id:
-		players[player_id].nb_turn_jail = nb_turn_jail
+		States.players[player_id].nb_turn_jail = nb_turn_jail
 		States.dice_active = true
 		if nb_turn_jail > 0:
 			ui.jail_offre.show_offer()
@@ -132,19 +133,19 @@ func _on_change_turn(player_id:int, nb_turn_jail:int):
 	ui._on_change_turn()
 	
 func _on_get_out_jail(money: int):
-	var player = players[UserData.user_id]
+	var player = States.players[UserData.user_id]
 	player.pay(money)
 	player.nb_turn_jail = 0
 	States.dice_active = true
 	States.current_context = States.DiceContext.MOVE
 	
 func _on_go_to_jail(player_id:int):
-	players[player_id].go_to_jail(cells)
+	States.players[player_id].go_to_jail(cells)
 
 func _on_end_turn_clicked():
 	var bankrupt: bool = false
-	if players:
-		if players[UserData.user_id].money < 0:
+	if States.players:
+		if States.players[UserData.user_id].money < 0:
 			bankrupt = true
 		var msg = {"action": "end_turn", "bankrupt": bankrupt}
 		WebSocketClient.send_message(JSON.stringify(msg))
@@ -154,7 +155,7 @@ func _on_end_turn_clicked():
 			
 func _on_card_event(data:Dictionary):
 	var event_type = data.get("effect_type", "Error")
-	var player = players[int(data.get("player_id"))]
+	var player = States.players[int(data.get("player_id"))]
 	ui.event_card.descripton.text = data.get("description", "Error")
 	ui.event_card.visible = true
 	match event_type:
@@ -162,7 +163,7 @@ func _on_card_event(data:Dictionary):
 		"gain_from_all": 
 			var total = 0
 			var amount: int = data.get("amount", 0)
-			for p in players.values():
+			for p in States.players.values():
 				if p != player:
 					p.pay(amount)
 					total += amount
@@ -177,7 +178,7 @@ func _on_card_event(data:Dictionary):
 		"pay_all": 
 			var total = 0
 			var amount: int = data.get("amount", 0)
-			for p in players.values():
+			for p in States.players.values():
 				if p != player:
 					p.earn(amount)
 					total += amount

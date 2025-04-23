@@ -10,6 +10,7 @@ extends Control
 @onready var ip:Label = $ColorRect/IP
 @onready var ip2:Label = $ColorRect/IP2
 
+	
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 

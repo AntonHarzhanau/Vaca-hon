@@ -35,6 +35,7 @@ func _on_websocket_message_received(data) -> void:
 			self.players = data.players
 			_refresh_player_list()
 		"game_started": 
+			States.id_player_at_turn = int(data.get("current_turn_player_id", -1))
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
 		"Error": 
 			print(data)

@@ -104,6 +104,7 @@ class LobbyInstance:
         # We send everyone a message about the start of the game
         await self.connection_manager.broadcast(json.dumps({
             "action": "game_started",
+            "current_turn_player_id": self.game_manager.state.current_turn_player_id,
         }))
         # the delay is needed so that the client has time to initialize the game
         # TODO: fix mechanics to not use delays
