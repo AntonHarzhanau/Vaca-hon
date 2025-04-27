@@ -17,8 +17,8 @@ const DiceContext := {
 var dice_active: bool = true
 var current_context: String = "move"
 
-const DEFAULT_HTTP_BASE_URL = "http://173.249.34.12:8000"
-const DEFAULT_WS_BASE_URL = "ws://173.249.34.12:8000/ws/join"
+const DEFAULT_HTTP_BASE_URL = "https://185.155.93.105:20008"
+const DEFAULT_WS_BASE_URL = "wss://185.155.93.105:20008/ws/join"
 
 var HTTP_BASE_URL = DEFAULT_HTTP_BASE_URL
 var WS_BASE_URL = DEFAULT_WS_BASE_URL
