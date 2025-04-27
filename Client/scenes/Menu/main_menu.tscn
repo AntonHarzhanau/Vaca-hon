@@ -50,15 +50,15 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="IP" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
+[node name="HTTP_URL" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Adress"
+placeholder_text = "HTTP (Ex: https://127.0.0.1:8000)"
 
-[node name="Port" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
+[node name="WS_URL" type="TextEdit" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Port"
+placeholder_text = "WS (Ex: wss://127.0.0.1/ws/join)"
 
 [node name="Save" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -93,7 +93,7 @@ offset_left = 4.0
 offset_top = 91.0
 offset_right = 44.0
 offset_bottom = 102.8
-text = "IP"
+text = "CUSTOM HTTP URL : "
 
 [node name="IP2" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -101,7 +101,7 @@ offset_left = 7.0
 offset_top = 122.0
 offset_right = 47.0
 offset_bottom = 145.0
-text = "IP2"
+text = "CUSTOM WS URL : "
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

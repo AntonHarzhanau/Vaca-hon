@@ -16,16 +16,13 @@ const DiceContext := {
 }
 var dice_active: bool = true
 var current_context: String = "move"
-#var BASE_URL = "ws://127.0.0.1:8000/ws/join/"
-var BASE_URL = "wss://173.249.34.12:8000/ws/join/"
-#var URL = "ws://127.0.0.1:8000/ws/join/"
-var URL = "wss://173.249.34.12:8000/ws/join/"
-#var HTTP_URL = "http://127.0.0.1:8000"
-var HTTP_URL = "https://173.249.34.12:8000"
+
+const DEFAULT_HTTP_BASE_URL = "http://173.249.34.12:8000"
+const DEFAULT_WS_BASE_URL = "ws://173.249.34.12:8000/ws/join"
+
+var HTTP_BASE_URL = DEFAULT_HTTP_BASE_URL
+var WS_BASE_URL = DEFAULT_WS_BASE_URL
 
 func set_addres(adress:String, port:String):
-	BASE_URL = "wss://" +adress+":" +port+ "/ws/join/"
-	HTTP_URL = "https://"+adress+":" + port
-func set_url(lobby_id:int, user_id:int):
-	URL = BASE_URL
-	URL = URL+str(lobby_id)+"?user_id="+str(user_id)
+	HTTP_BASE_URL = adress+":" +port+ "/ws/join"
+	WS_BASE_URL = adress+":" + port

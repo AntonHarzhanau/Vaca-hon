@@ -12,7 +12,7 @@ func _ready() -> void:
 	is_private_checkbutton.toggled.connect(_on_lobby_is_private_toggled)
 	create_lobby_btn.pressed.connect(_on_create_lobby_pressed)
 	back_to_home_btn.pressed.connect(_on_back_to_home_pressed)
-	$ColorRect/IP.text = States.URL
+	$ColorRect/IP.text = "DEFAULT HTTP URL : " + States.HTTP_BASE_URL
 	#Create an HTTPRequestClient node and add it to the tree
 	
 func _on_lobby_is_private_toggled(toggled_on: bool) -> void:
@@ -32,8 +32,7 @@ func _on_create_lobby_pressed():
 		"is_private": is_private,
 		"secret": secret
 	}
-	HttpRequestClient.set_base_url(States.HTTP_URL)
-	
+		
 	var response = await HttpRequestClient.__post("/lobbies/", payload)
 	
 	if response.result != OK:
@@ -48,8 +47,8 @@ func _on_create_lobby_pressed():
 		var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
 		lobby_token_selection.lobby_id = str(States.lobby_id)
 		lobby_token_selection.player_id = int(UserData.user_id)
-		States.set_url(States.lobby_id, UserData.user_id)
-		WebSocketClient.connect_to_server(States.URL)
+#		States.set_url(States.lobby_id, UserData.user_id)
+		WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
 		get_tree().get_root().add_child(lobby_token_selection)
 	
 	

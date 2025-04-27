@@ -95,3 +95,10 @@ anchor_right = 0.8
 anchor_bottom = 0.072
 text = "Refresh"
 metadata/_edit_use_anchors_ = true
+
+[node name="HTTPDebug" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 249.0
+offset_bottom = 792.0
+bbcode_enabled = true
+text = "HTTP Debug : [p]"

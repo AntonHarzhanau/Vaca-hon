@@ -4,6 +4,7 @@ extends Control
 @onready var vbox = $ScrollContainer/VBoxContainer
 @onready var refresh_btn = $RefreshButton
 @onready var back_to_home_btn: Button = $BackToHome
+@onready var http_debug: RichTextLabel = $HTTPDebug
 
 # Load the lobby item scene
 var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item.tscn")
@@ -69,14 +70,21 @@ func _ready():
 
 func _on_join_pressed(lobby):
 	States.lobby_id = int(lobby.id)
-	States.set_url(States.lobby_id, UserData.user_id)
+	#States.set_url(States.lobby_id, UserData.user_id)
 	print("Joining lobby: ", lobby)
-	WebSocketClient.connect_to_server(States.URL)
+	WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
+func dict_to_string(dict: Dictionary) -> String:
+	var output := "{\n"
+	for key in dict.keys():
+		output += "  %s: %s\n" % [str(key), var_to_str(dict[key])]
+	output += "}"
+	return output
 	
 func _fetch_lobbies():
 	# Get Lobbies from Server
-	HttpRequestClient.set_base_url(States.HTTP_URL)
+	http_debug.text += "==> Setting base URL to " + States.HTTP_BASE_URL + "[p]"
 	var response = await HttpRequestClient.__get("/lobbies")
+	http_debug.text += "==> Getting response : " + dict_to_string(response) + "[p]"
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")
 		print("Error occured when retrieving lobbies from server")
