@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Vacashon"
-run/main_scene="uid://dlrebauxx7ouu"
+run/main_scene="uid://degjr5c86ahtn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.735132, 0.831498, 0.958921, 1)
 boot_splash/image="uid://by6e02wliy8r5"

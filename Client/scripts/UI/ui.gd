@@ -66,7 +66,7 @@ func _on_pop_up_offre_accept_offer_clicked() -> void:
 func _on_menu_btn_pressed() -> void:
 	#emit_signal("end_game")
 	WebSocketClient.close_connection()
-	get_tree().change_scene_to_file("res://scenes/Menu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
 	
 func show_info(info:String):
 	info_message.text = info

@@ -108,7 +108,7 @@ func _on_create_lobby_pressed():
 		"secret": lineedit_mdp.text if is_private else ""
 	}
 	
-	var response = await HttpRequestClient.__post("/lobbies/", payload)
+	var response = await HttpRequestClient.__post("/lobbies", payload)
 	
 	if response.result != OK:
 		print("An error occurred in the HTTP request.")

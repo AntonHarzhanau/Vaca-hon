@@ -145,5 +145,6 @@ offset_bottom = 2.0
 texture = ExtResource("6_ikq3i")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="control/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="control/CREER" to="." method="_on_creer_pressed"]
 [connection signal="pressed" from="control/REJOINDRE" to="." method="_on_rejoindre_pressed"]

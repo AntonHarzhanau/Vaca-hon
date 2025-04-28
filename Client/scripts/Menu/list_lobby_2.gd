@@ -1,6 +1,6 @@
 extends Control
 
-# Constants
+# Define constants for the four corners (used for rounded corners)
 const SIDE_TOP_LEFT = 0
 const SIDE_TOP_RIGHT = 1
 const SIDE_BOTTOM_RIGHT = 2
@@ -15,7 +15,7 @@ const SIDE_BOTTOM_LEFT = 3
 @onready var create_lobby_button = $TextureRect/CreateLobby
 @onready var texture_button = $TextureRect/TextureButton
 
-# Variable default values
+## Store the state of buttons
 var is_expanded := false
 var selected_button: Button = null
 var default_style: StyleBoxFlat = null
@@ -25,14 +25,16 @@ var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item2.tscn")
 var lobbies = []
 
 func _ready():
+	# Save default style (from the "publiques" button)
 	var base_style = button_publique.get("theme_override_styles/normal")
 	if base_style:
 		default_style = base_style.duplicate()
 	
+	# Initialize state
 	filter_menu.visible = false
 	filter_button.text = "  FILTRER         ▼"
 
-	# Setup signals
+	# Connect signals
 	filter_button.connect("pressed", _on_filter_button_pressed)
 	button_publique.connect("pressed", _on_publique_pressed)
 	button_privee.connect("pressed", _on_privee_pressed)
@@ -51,32 +53,32 @@ func _on_filter_button_pressed():
 
 func _on_publique_pressed():
 	_select_button(button_publique)
-	print("筛选：Parties publiques")
+	print("Filter：Parties publiques")
 
 func _on_privee_pressed():
 	_select_button(button_privee)
-	print("筛选：Parties privées")
+	print("Filter：Parties privées")
 
 func _select_button(button: Button):
-	# 重置上一个按钮样式
+	# Reset the previously selected button style
 	if selected_button and selected_button != button:
 		if default_style:
 			selected_button.set("theme_override_styles/normal", default_style.duplicate())
 
-	# 使用 hover 样式作为 normal
+	# Use hover style as the new normal style
 	var hover_style = button.get("theme_override_styles/hover")
 	if hover_style:
 		button.set("theme_override_styles/normal", hover_style.duplicate())
 
 	selected_button = button
 
-# 当点击返回按钮时，切换回主菜单场景
+# When the return button is pressed, switch back to the main menu scene
 func _on_texture_button_pressed() -> void:
-	print("Attempting to load scene: res://scenes/Menu/main_menu2.tscn")
-	var scene = load("res://scenes/Menu/main_menu2.tscn")
+	print("Attempting to load scene: res://scenes/Menu/home.tscn")
+	var scene = preload("res://scenes/Menu/home.tscn")
 	if scene:
 		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")  # 切换到主菜单场景
+		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")  # 切换到主菜单场景
 	else:
 		print("Failed to load scene.")
 
