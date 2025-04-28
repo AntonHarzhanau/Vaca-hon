@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuj23ias31fci"]
+
+[ext_resource type="Texture2D" uid="uid://b7eoun1g84iw2" path="res://assets/Lobby1.png" id="1_g402y"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_t0rw3"]
+[ext_resource type="Script" uid="uid://chwn1u8x2tggr" path="res://scripts/Menu/list_lobby_item_2.gd" id="2_wmb2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naexr"]
+bg_color = Color(0.227613, 0.906696, 0.959497, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vag1c"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0, 0, 0.431373)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[node name="ListLobbyItem" type="NinePatchRect"]
+custom_minimum_size = Vector2(260, 170)
+anchors_preset = -1
+anchor_left = 0.0450001
+anchor_top = 0.1
+anchor_right = 0.322
+anchor_bottom = 0.31375
+offset_left = -3.00006
+offset_top = -3.05176e-05
+offset_right = -3.00006
+offset_bottom = 0.999969
+texture = ExtResource("1_g402y")
+script = ExtResource("2_wmb2i")
+lobby_theme = ""
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyName" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 22
+text = "Partie de SachAtlantis"
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyTheme" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 18
+text = "Thème: Plage"
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyPlayers" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.503817
+anchor_bottom = 0.633333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 20
+text = "Joueurs: 2/3"
+metadata/_edit_use_anchors_ = true
+
+[node name="JoinLobby" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true

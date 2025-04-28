@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://j02a0bno0g4l"]
+[gd_scene load_steps=18 format=3 uid="uid://j02a0bno0g4l"]
 
 [ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
-[ext_resource type="Texture2D" uid="uid://b7eoun1g84iw2" path="res://assets/Lobby1.png" id="5_naexr"]
-[ext_resource type="Texture2D" uid="uid://cl4b4vcox5mhv" path="res://assets/Lobby2.png" id="6_5djgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -22,7 +20,7 @@ corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 shadow_color = Color(0, 0, 0, 0.517647)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naexr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5djgv"]
 bg_color = Color(0.227613, 0.906696, 0.959497, 1)
 border_width_left = 5
 border_width_top = 5
@@ -48,18 +46,6 @@ corner_radius_bottom_left = 60
 shadow_color = Color(0, 0, 0, 0.431373)
 shadow_size = 1
 shadow_offset = Vector2(2, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5djgv"]
-bg_color = Color(0.227613, 0.906696, 0.959497, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n3xd"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)
@@ -248,284 +234,30 @@ offset_bottom = 55.0
 scale = Vector2(0.95, 0.9)
 theme_override_styles/panel = SubResource("StyleBoxFlat_vi5sa")
 
-[node name="Partie_1" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
-layout_mode = 0
-anchor_left = 0.0454642
-anchor_top = 0.10031
-anchor_right = 0.322478
-anchor_bottom = 0.426774
-offset_left = -3.00006
-offset_top = -3.05176e-05
-offset_right = -3.00006
-offset_bottom = 0.999969
-texture = ExtResource("5_naexr")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
-layout_mode = 0
-anchor_left = 0.0839695
-anchor_top = 0.116667
-anchor_right = 0.877863
-anchor_bottom = 0.261111
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 22
-text = "Partie de SachAtlantis"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
-layout_mode = 0
-anchor_left = 0.0839695
-anchor_top = 0.305556
-anchor_right = 0.629771
-anchor_bottom = 0.433333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 18
-text = "Thème: Plage"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_1"]
-layout_mode = 0
-anchor_left = 0.0839695
-anchor_top = 0.5
-anchor_right = 0.503817
-anchor_bottom = 0.633333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 20
-text = "Joueurs: 2/3"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_1"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.10687
-anchor_top = 0.694444
-anchor_right = 0.562977
-anchor_bottom = 0.941667
-offset_right = 119.5
-offset_bottom = 44.5
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "Rejoindre"
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="Partie_2" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0476317
-anchor_top = 0.503844
-anchor_right = 0.324646
-anchor_bottom = 0.830307
-offset_left = -5.05007
-offset_top = 0.000488281
-offset_right = -5.05008
-offset_bottom = 1.00049
-texture = ExtResource("6_5djgv")
-metadata/_edit_use_anchors_ = true
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.116667
-anchor_right = 0.877863
-anchor_bottom = 0.261111
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 22
-text = "Partie de adam2936"
-metadata/_edit_use_anchors_ = true
+[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
 
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.305556
-anchor_right = 0.629771
-anchor_bottom = 0.433333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 18
-text = "Thème: Neige"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.5
-anchor_right = 0.51145
-anchor_bottom = 0.633333
-offset_right = -2.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 20
-text = "Joueurs: 3/4"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.10687
-anchor_top = 0.694444
-anchor_right = 0.562977
-anchor_bottom = 0.941667
-offset_right = 119.5
-offset_bottom = 44.5
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "Rejoindre"
-metadata/_edit_use_anchors_ = true
-
-[node name="Partie_3" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.680779
-anchor_top = 0.100802
-anchor_right = 0.957793
-anchor_bottom = 0.427266
-offset_left = 10.1195
-offset_top = -0.269836
-offset_right = 10.1195
-offset_bottom = 0.730164
-texture = ExtResource("5_naexr")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.116667
-anchor_right = 0.877863
-anchor_bottom = 0.261111
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 22
-text = "Partie de jungle_tt"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.305556
-anchor_right = 0.629771
-anchor_bottom = 0.433333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 18
-text = "Thème: Plage"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.5
-anchor_right = 0.503817
-anchor_bottom = 0.633333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 20
-text = "Joueurs: 1/2"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.10687
-anchor_top = 0.694444
-anchor_right = 0.562977
-anchor_bottom = 0.941667
-offset_right = 119.5
-offset_bottom = 44.5
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "Rejoindre"
-metadata/_edit_use_anchors_ = true
-
-[node name="Partie_4" type="NinePatchRect" parent="TextureRect/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.366678
-anchor_top = 0.100802
-anchor_right = 0.643692
-anchor_bottom = 0.427266
-offset_left = 0.195526
-offset_top = -0.269836
-offset_right = 0.195557
-offset_bottom = 0.730164
-texture = ExtResource("6_5djgv")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.116667
-anchor_right = 0.877863
-anchor_bottom = 0.261111
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 22
-text = "Partie de kiiwaa"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.305556
-anchor_right = 0.629771
-anchor_bottom = 0.433333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 18
-text = "Thème: Neige"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Partie_4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0839695
-anchor_top = 0.5
-anchor_right = 0.503817
-anchor_bottom = 0.633333
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 20
-text = "Joueurs: 1/4"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Partie_4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.10687
-anchor_top = 0.694444
-anchor_right = 0.562977
-anchor_bottom = 0.941667
-offset_right = 119.5
-offset_bottom = 44.5
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "Rejoindre"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="TextureRect"]
+[node name="CreateLobby" type="Button" parent="TextureRect"]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 650.0

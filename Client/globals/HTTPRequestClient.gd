@@ -16,6 +16,7 @@ func __post(uri_path: String, payload: Dictionary) -> Dictionary:
 	var body = JSON.stringify(payload)  # <-- String, не PackedByteArray
 	var headers = ["Content-Type: application/json"]
 	var url = _base_url + uri_path
+	print(HTTPClient.METHOD_POST)
 	print(url)
 
 	http_request.request(url, headers, HTTPClient.METHOD_POST, body)

@@ -8,7 +8,7 @@ from app.api.dependencies import lobby_service
 
 router = APIRouter(prefix="/lobbies", tags=["lobby"])
 
-@router.post("/")
+@router.post("")
 async def create_lobby(
     lobby_data: Annotated[LobbyCreateSchema, Body()],
     service: Annotated[LobbyService, Depends(lobby_service)],
@@ -20,7 +20,7 @@ async def create_lobby(
     return new_lobby
 
 
-@router.get('', response_model=list[LobbyReadSchema])
+@router.get("", response_model=list[LobbyReadSchema])
 async def get_all_lobbies(
     service: Annotated[LobbyService, Depends(lobby_service)] 
 ) -> list[LobbyReadSchema]:
