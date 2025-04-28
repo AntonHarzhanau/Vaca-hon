@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Monopoly"
+config/name="Vacashon"
 run/main_scene="uid://dlrebauxx7ouu"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.735132, 0.831498, 0.958921, 1)
+boot_splash/image="uid://by6e02wliy8r5"
+config/icon="uid://bt24u7yi7cbk5"
+config/windows_native_icon="res://assets/favicon.ico"
 
 [autoload]
 
