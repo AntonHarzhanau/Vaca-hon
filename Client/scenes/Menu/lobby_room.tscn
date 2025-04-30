@@ -614,6 +614,7 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="Panel" parent="TextureRect"]
 visible = false
+layout_mode = 0
 offset_left = 413.0
 offset_top = 224.0
 offset_right = 1409.0

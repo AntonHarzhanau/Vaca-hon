@@ -131,10 +131,7 @@ func _on_websocket_message_received(data):
 		get_tree().get_root().add_child(lobby_token_selection)
 
 func _on_join_pressed(lobby):
-	States.lobby_id = int(lobby.id)
-	#States.set_url(States.lobby_id, UserData.user_id)
-	print("Joining lobby: ", lobby)
-	WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
+	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():
 	_fetch_lobbies()
@@ -168,19 +165,6 @@ func _hide_rejoindre_popup():
 	await tween.finished
 	rejoindre_popup.visible = false
 	rejoindre_overlay.visible = false
-
-# Four Rejoindre buttons trigger a unified popup
-func _on_rejoindre_pressed() -> void:
-	_show_rejoindre_popup()
-
-func _on_rejoindre_2_pressed() -> void:
-	_show_rejoindre_popup()
-
-func _on_rejoindre_3_pressed() -> void:
-	_show_rejoindre_popup()
-
-func _on_rejoindre_4_pressed() -> void:
-	_show_rejoindre_popup()
 
 # NON button in the pop-up window: close the pop-up window
 func _on_non_pressed() -> void:
