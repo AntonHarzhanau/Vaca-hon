@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://il6ocjxqqq7f" path="res://assets/Vacashion.png" id="3_pq0dp"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_wqg4d"]
 [ext_resource type="Texture2D" uid="uid://ce2pchcsfhtup" path="res://assets/BeachChaire.png" id="5_kx5jl"]
-[ext_resource type="Texture2D" uid="uid://coehbgt567tbm" path="res://assets/?.png" id="6_8krf6"]
+[ext_resource type="Texture2D" uid="uid://coehbgt567tbm" path="res://assets/icon_help.png" id="6_8krf6"]
 [ext_resource type="Texture2D" uid="uid://ceio3ooqj02yc" path="res://assets/support.png" id="7_qaayy"]
 [ext_resource type="Texture2D" uid="uid://d174cm6pe1dyb" path="res://assets/parametre.png" id="8_xk4pu"]
 [ext_resource type="FontFile" uid="uid://cdj547dy11ia5" path="res://Fonts/Jua-Regular.ttf" id="9_qaayy"]
