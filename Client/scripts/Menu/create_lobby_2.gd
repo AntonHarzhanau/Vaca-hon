@@ -119,9 +119,10 @@ func _on_create_lobby_pressed():
 		#message_feedback_label.text = "New Lobby created!"
 		print(response.body)
 		States.lobby_id = int(response.body["id"])
-		var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
-		lobby_token_selection.lobby_id = str(States.lobby_id)
-		lobby_token_selection.player_id = int(UserData.user_id)
+		#var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
+		#lobby_token_selection.lobby_id = str(States.lobby_id)
+		#lobby_token_selection.player_id = int(UserData.user_id)
 		
 		WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
-		get_tree().get_root().add_child(lobby_token_selection)
+		#get_tree().get_root().add_child(lobby_token_selection)
+		get_tree().change_scene_to_file("res://scenes/Menu/lobby_token_selection.tscn")

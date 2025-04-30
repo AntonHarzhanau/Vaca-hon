@@ -11,8 +11,10 @@ extends Control
 func _ready() -> void:
 	# Set signals
 	WebSocketClient.message_received.connect(_on_websocket_message_received)
-	back_btn.pressed.connect(_on_back_btn_pressed)
 	start_game_btn.pressed.connect(_on_start_game_btn_pressed)
+	
+	players = States.users
+	lobby_id = str(States.lobby_id)
 	
 	# Update views
 	lobby_title_label.text = lobby_title_label.text.replacen("{{lobby_id}}", lobby_id)
@@ -52,11 +54,11 @@ func _refresh_player_list() -> void:
 		new_waiting_room_player.player_name = new_player.username
 		new_waiting_room_player.player_token = load("res://assets/Players/" + new_player.selected_token + ".png")
 		connected_players_hbox.add_child(new_waiting_room_player)
-
-func _on_back_btn_pressed() -> void:
-	# Get back to the token selection scene by remove this waiting scene child
-	get_parent().remove_child(self)
 	
 func _on_start_game_btn_pressed() -> void:
 	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")

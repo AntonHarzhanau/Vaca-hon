@@ -6,8 +6,7 @@ extends Control
 @onready var validate_selection_btn: Button = $ValidateSelectionButton
 @onready var back_btn: Button = $GameTopBar/BackButton
 
-@export var lobby_id: String = "Unknown"
-@export var players: Array = []
+
 @export var player_id: int
 @export var available_tokens: Array = []
 
@@ -16,6 +15,7 @@ func _ready() -> void:
 	validate_selection_btn.pressed.connect(_on_validate_selection_pressed)
 	back_btn.pressed.connect(_on_back_btn_pressed)
 	WebSocketClient.message_received.connect(_on_websocket_message_received)
+	player_id = int(UserData.user_id)
 	
 	# Populate Token List with available tokens from server
 	_refresh_token_list()
@@ -41,7 +41,7 @@ func _on_websocket_message_received(data) -> void:
 		self.available_tokens = data.available_tokens
 		
 		if data.action == "user_joined" and self.player_id == int(data.user_id) :
-			self.players = data.players
+			States.users = data.players
 			print("SERVER")
 			print(data)
 			_go_to_lobby_waiting_room()
@@ -49,7 +49,7 @@ func _on_websocket_message_received(data) -> void:
 		_refresh_token_list()
 		
 	if ["player_connected", "player_disconnected"].has(data.action) :
-		self.players = data.players
+		States.users = data.players
 		# Get available tokens from server
 		#_get_availables_tokens_from_server()
 
@@ -57,10 +57,10 @@ func _go_to_lobby_waiting_room():
 	"""
 	Redirect or update current scene to Lobby Waiting List
 	"""
-	var waiting_room_scene = preload("res://scenes/Menu/lobby_waiting_room.tscn").instantiate();
-	waiting_room_scene.lobby_id = self.lobby_id
-	waiting_room_scene.players = self.players
-	get_tree().get_root().add_child(waiting_room_scene)
+	#var waiting_room_scene = preload("res://scenes/Menu/lobby_waiting_room.tscn").instantiate();
+	#waiting_room_scene.players = self.players
+	#get_tree().get_root().add_child(waiting_room_scene)
+	get_tree().change_scene_to_file("res://scenes/Menu/lobby_waiting_room.tscn")
 	
 func _get_availables_tokens_from_server():
 	# Send WebSocket "get_available_tokens" message to server to get updated on available tokens

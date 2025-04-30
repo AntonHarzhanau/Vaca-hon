@@ -5,6 +5,7 @@ var id_player_at_turn: int = 0
 var lobby_id: int = 0
 
 var players:Dictionary[int, Player]= {}
+var users := []
 
 const DiceContext := {
 	MOVE = "move",
