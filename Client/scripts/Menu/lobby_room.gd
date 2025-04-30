@@ -6,8 +6,10 @@ extends Control
 @onready var filter_menu = $TextureRect/VBoxContainer
 @onready var button_publique = filter_menu.get_node("Parties publiques")
 @onready var button_privee = filter_menu.get_node("Parties privees")
+@onready var start_game_btn = $TextureRect/start
 
 # Traveler noeds
+@onready var connected_players_hbox = $TextureRect/HBoxContainer
 @onready var traveler2 = $TextureRect/HBoxContainer/Traveler2
 @onready var traveler3 = $TextureRect/HBoxContainer/Traveler3
 @onready var traveler4 = $TextureRect/HBoxContainer/Traveler4
@@ -28,15 +30,20 @@ extends Control
 
 var is_expanded := false
 
+var players: Array = []
+
 func _ready():
 	
 	filter_menu.visible = false
 	filter_button.text = "  FILTRER         ▼"
 	
+	# Set signals
 	filter_button.connect("pressed", _on_menu_button_pressed)
 	button_publique.connect("pressed", _on_parties_publiques_pressed)
 	button_privee.connect("pressed", _on_parties_publiques_pressed)
 	edit_button.connect("pressed",_on_edit_pressed)
+	start_game_btn.pressed.connect(_on_start_game_btn_pressed)
+	WebSocketClient.message_received.connect(_on_websocket_message_received)
 	
 	margin_container.visible = false
 
@@ -53,12 +60,19 @@ func _ready():
 	overlay_mask.connect("gui_input", _on_overlay_mask_input)
 	overlay_mask.visible = false
 	
+	# Hide start game button if not owner
+	if States.lobby_owner_id != UserData.user_id:
+		start_game_btn.visible = false
+	# Setting up initial player list
+	players = States.users
+	_refresh_player_list()
+	
 func _on_texture_button_pressed() -> void:
-	print("Attempting to load scene: res://scenes/Menu/select_token.tscn")
-	var scene = load("res://scenes/Menu/select_token.tscn")
+	print("Attempting to load scene: res://scenes/Menu/home.tscn")
+	var scene = load("res://scenes/Menu/home.tscn")
 	if scene:
 		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")  # Switch to main menu
+		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")  # Switch to main menu
 	else:
 		print("Failed to load scene.")
 
@@ -130,6 +144,36 @@ func _on_inviter_pressed() -> void:
 	traveler6.visible = false
 	traveler7.visible = false
 
-
-func _on_start_pressed() -> void:
-	pass # Replace with function body.
+func _on_websocket_message_received(data) -> void:		
+	var action = data.get("action", "Error")
+	match action:
+		"user_joined", "user_left":
+			self.players = data.players
+			_refresh_player_list()
+		"game_started": 
+			States.id_player_at_turn = int(data.get("current_turn_player_id", -1))
+			get_tree().change_scene_to_file("res://scenes/game.tscn")
+		"Error": 
+			print(data)
+		
+func _refresh_player_list() -> void:
+	# Remove all old children
+	var current_players = connected_players_hbox.get_children()
+	for player in current_players:
+		player.queue_free()
+	
+	# Renew the list
+	for i in range(States.lobby_max_players):
+		if i < len(players) and players[i]:
+			var new_waiting_room_player = preload("res://scenes/Menu/waiting_room_player_2.tscn").instantiate();
+			new_waiting_room_player.player_name = players[i].username
+			new_waiting_room_player.player_token = load("res://assets/Token/" + players[i].selected_token + ".png")
+			connected_players_hbox.add_child(new_waiting_room_player)
+		else:
+			var new_waiting_room_placeholder = preload("res://scenes/Menu/waiting_room_placeholder.tscn").instantiate();
+			connected_players_hbox.add_child(new_waiting_room_placeholder)
+		
+	
+func _on_start_game_btn_pressed() -> void:
+	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
+	WebSocketClient.send_message(JSON.stringify(msg))

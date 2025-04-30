@@ -3,9 +3,12 @@ var is_test: bool = false
 
 var id_player_at_turn: int = 0
 var lobby_id: int = 0
+var lobby_max_players: int = 4
+var lobby_owner_id: int = 0
 
 var players:Dictionary[int, Player]= {}
 var users := []
+var available_tokens = []
 
 const DiceContext := {
 	MOVE = "move",

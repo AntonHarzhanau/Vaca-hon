@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dloka1md5xig"]
+
+[ext_resource type="Script" uid="uid://devaggefdhj2w" path="res://scripts/Menu/waiting_room_player_2.gd" id="1_rxbcj"]
+[ext_resource type="Texture2D" uid="uid://cgqx5m2srf067" path="res://assets/Players/PLAYER.png" id="1_yv48x"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_xu3r2"]
+[ext_resource type="Texture2D" uid="uid://cglcyl6tbel17" path="res://assets/Token/TOKEN-1.png" id="3_r6c4w"]
+[ext_resource type="Texture2D" uid="uid://cwc2ug4keewgq" path="res://assets/edit.png" id="4_y2gfq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpevi"]
+bg_color = Color(0.686275, 0.321569, 0.870588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pamqj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkoo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m0en"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="WaitingRoomPlayer" type="TextureRect"]
+custom_minimum_size = Vector2(310, 0)
+layout_direction = 2
+script = ExtResource("1_rxbcj")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(148, 274)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_yv48x")
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0823529
+anchor_top = 0.21
+anchor_right = 0.797059
+anchor_bottom = 0.3216
+offset_right = 27.0
+offset_bottom = 6.2
+scale = Vector2(0.9, 0.9)
+theme_override_fonts/font = ExtResource("2_xu3r2")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpevi")
+text = "{{player_name}}"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerToken" type="Sprite2D" parent="."]
+position = Vector2(149, 344)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_r6c4w")
+
+[node name="edit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.632353
+anchor_top = 0.368
+anchor_right = 0.844118
+anchor_bottom = 0.512
+offset_right = -16.0
+offset_bottom = -16.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_pamqj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_chkoo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1m0en")
+icon = ExtResource("4_y2gfq")
+metadata/_edit_use_anchors_ = true

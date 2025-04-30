@@ -10,7 +10,8 @@ extends Control
 @onready var button_ship = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/ship
 @onready var button_car = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/car
 @onready var button_helicopter = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/helicopter
-@onready var button_support = $TextureRect/Support
+@onready var token_buttons_group = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer.get_children()
+@onready var validate_selection_btn = $TextureRect/ValidateSelectionButton
 
 # 大图节点
 @onready var img_flight = $TextureRect/flight
@@ -20,6 +21,8 @@ extends Control
 
 # 当前选中的按钮
 var selected_button: BaseButton = null
+var available_tokens: Array = []
+var player_id: int
 
 var popup_target_pos := Vector2(256, 201)
 var popup_start_pos := Vector2(256, 800)
@@ -29,17 +32,19 @@ func _ready():
 	overlay.visible = false
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  
 
-	# 默认显示飞机
-	_show_selected_token("flight")
-	_set_selected_button(button_flight)
-
 	# 连接所有按钮
 	button_flight.connect("pressed", _on_flight_pressed)
 	button_ship.connect("pressed", _on_ship_pressed)
 	button_car.connect("pressed", _on_car_pressed)
 	button_helicopter.connect("pressed", _on_helicopter_pressed)
 	#button_support.connect("pressed", _on_support_pressed)
-
+	
+	WebSocketClient.message_received.connect(_on_websocket_message_received)
+	player_id = int(UserData.user_id)
+	available_tokens = States.available_tokens
+	
+	# Populate Token List with available tokens from server
+	_refresh_token_list()
 
 func _on_texture_button_pressed() -> void:
 	quitter_partie.visible = true
@@ -63,9 +68,14 @@ func _on_oui_pressed() -> void:
 	if ResourceLoader.exists(path):
 		get_tree().change_scene_to_file(path)
 
-func _on_support_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Menu/lobby_wait.tscn")
-
+func _on_validate_selection_button_pressed() -> void:
+	if selected_button:
+		print("Selected Token : " + selected_button.name)
+		# Send WebSocket "user_joined" message to server to book the selected token
+		var message = {"action": "user_joined", "user_id": UserData.user_id, "selected_token": selected_button.name}
+		WebSocketClient.send_message(JSON.stringify(message))
+	else:
+		print("Show message : You should select a token to continue")
 
 # 四个 Token 按钮点击时
 func _on_flight_pressed():
@@ -100,3 +110,25 @@ func _set_selected_button(button: BaseButton) -> void:
 	# 当前按钮设置为 pressed
 	selected_button = button
 	selected_button.button_pressed = true
+
+func _refresh_token_list() -> void:	
+	# Renew the token list by making invisible unavailable tokens
+	for token_button in token_buttons_group:
+		if token_button.name in available_tokens:
+			token_button.visible = true
+		else:
+			token_button.visible = false
+
+func _on_websocket_message_received(data) -> void:	
+	if ["get_available_tokens", "user_joined"].has(data.action) :
+		# Update tokens list from server response
+		self.available_tokens = data.available_tokens
+		
+		if data.action == "user_joined" and self.player_id == int(data.user_id) :
+			States.users = data.players
+			get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
+			
+		_refresh_token_list()
+		
+	if ["player_connected", "player_disconnected"].has(data.action) :
+		States.users = data.players

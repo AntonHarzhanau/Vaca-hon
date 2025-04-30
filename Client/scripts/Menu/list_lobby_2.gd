@@ -122,15 +122,14 @@ func _fetch_lobbies():
 
 func _on_websocket_message_received(data):
 	if ["get_available_tokens"].has(data.action):
-		# Get available tokens for Token Selection Scene
-		var message = {"action": "get_available_tokens"}
-		var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
-		lobby_token_selection.lobby_id = str(States.lobby_id)
-		lobby_token_selection.player_id = int(UserData.user_id)
-		lobby_token_selection.available_tokens = data.available_tokens
-		get_tree().get_root().add_child(lobby_token_selection)
+		States.available_tokens = data.available_tokens
+		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")
+
 
 func _on_join_pressed(lobby):
+	States.lobby_id = int(lobby.id)
+	States.lobby_max_players = int(lobby.nb_player_max)
+	States.lobby_owner_id = int(lobby.owner_id)
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():
@@ -172,6 +171,5 @@ func _on_non_pressed() -> void:
 
 # OUI button in the pop-up window: jump to select role select_token.tscn
 func _on_oui_pressed() -> void:
-	var scene = load("res://scenes/Menu/select_token.tscn")
-	if scene:
-		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")
+	print("Joining lobby: ", States.lobby_id)
+	WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))

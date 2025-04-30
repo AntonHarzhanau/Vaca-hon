@@ -19,10 +19,10 @@ class LobbyInstance:
         self.game_handler: GameHandler | None = None
         # TODO : Gel all available tokens from Database
         self.available_tokens = [
-            "FLIGHT",
-            "HELICOPTER",
-            "SHIP",
-            "WHALE"
+            "flight",
+            "ship",
+            "car",
+            "helicopter"
         ]
 
 

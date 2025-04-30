@@ -1,18 +1,18 @@
 extends Control
 
-# 保存按钮组
+# Save button groups
 @onready var group_joueurs = $TextureRect/MarginContainer/Panel/HBoxContainer.get_children()
 @onready var group_temps = $TextureRect/MarginContainer/Panel/HBoxContainer2.get_children()
 @onready var group_type = $TextureRect/MarginContainer/Panel/HBoxContainer3.get_children()
 
-# 密码相关
+# Password-related nodes
 @onready var label_mdp = $TextureRect/MarginContainer/Panel/Label5
 @onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/LineEdit
 
-# 存储每个按钮的初始 normal 样式
+# Store the original normal style for each button
 var default_styles := {}
 
-# 按钮节点引用
+# Button node reference
 @onready var texture_button = $TextureRect/TextureButton
 
 @onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/SubmitCreateLobby
@@ -24,13 +24,13 @@ var is_private = false
 var secret = ''
 
 func _ready():
-	# 连接所有按钮组
+	# Connect all button groups
 	_connect_buttons(group_joueurs)
 	_connect_buttons(group_temps)
 	_connect_buttons(group_type)
 	create_lobby_btn.pressed.connect(_on_create_lobby_pressed)
 
-	# 初始隐藏密码字段
+	# Hide password fields initially
 	label_mdp.visible = false
 	lineedit_mdp.visible = false
 	
@@ -43,7 +43,7 @@ func _ready():
 func _connect_buttons(button_group: Array):
 	for button in button_group:
 		if button is Button:
-			# 保存按钮初始 normal 样式
+			# Save the original normal style of the button
 			var base_style = button.get("theme_override_styles/normal")
 			if base_style:
 				default_styles[button] = base_style.duplicate()
@@ -52,18 +52,18 @@ func _connect_buttons(button_group: Array):
 func _on_group_button_pressed(button_group: Array, selected: Button):
 	for button in button_group:
 		if button != selected:
-			# 恢复默认 normal 样式
+			# Restore the default normal style
 			if default_styles.has(button):
 				button.set("theme_override_styles/normal", default_styles[button].duplicate())
 				button.button_pressed = false
 
-	# 设置选中按钮样式（使用 hover 样式复制）
+	# Set the selected button style (copy hover style into normal)
 	var hover_style = selected.get("theme_override_styles/hover")
 	if hover_style:
 		selected.set("theme_override_styles/normal", hover_style.duplicate())
 		selected.button_pressed = true
 
-	# 特殊情况：显示/隐藏 mot de passe
+	# Special case: show/hide password field
 	if selected.name == "Button_Privee":
 		label_mdp.visible = true
 		lineedit_mdp.visible = true
@@ -73,7 +73,7 @@ func _on_group_button_pressed(button_group: Array, selected: Button):
 		
 	_update_selected_buttons()
 
-# 当点击返回按钮时，切换回主菜单场景
+# When the return button is clicked, switch back to the main menu scene
 func _on_texture_button_pressed() -> void:
 	print("Attempting to load scene: res://scenes/Menu/main_menu2.tscn")
 	var scene = load("res://scenes/Menu/main_menu2.tscn")
@@ -115,14 +115,9 @@ func _on_create_lobby_pressed():
 		#message_feedback_label.add_theme_color_override("default_color", "#ff2334")
 		#message_feedback_label.text = "An error has occurred, please try again.!"
 	else:
-		#message_feedback_label.add_theme_color_override("default_color", "#00994f")
-		#message_feedback_label.text = "New Lobby created!"
 		print(response.body)
 		States.lobby_id = int(response.body["id"])
-		#var lobby_token_selection = preload("res://scenes/Menu/lobby_token_selection.tscn").instantiate();
-		#lobby_token_selection.lobby_id = str(States.lobby_id)
-		#lobby_token_selection.player_id = int(UserData.user_id)
-		
+		States.lobby_max_players = int(response.body["nb_player_max"])
+		States.lobby_owner_id = int(response.body["owner_id"])
 		WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
-		#get_tree().get_root().add_child(lobby_token_selection)
-		get_tree().change_scene_to_file("res://scenes/Menu/lobby_token_selection.tscn")
+		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")
