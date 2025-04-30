@@ -436,7 +436,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Regle_du_jeu" type="Panel" parent="TextureRect"]
 auto_translate_mode = 1
-visible = false
 layout_mode = 0
 offset_left = 341.0
 offset_top = 165.0
@@ -994,6 +993,7 @@ color = Color(0, 0, 0, 0.196078)
 
 [node name="Log_out" type="Panel" parent="TextureRect"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.192481
@@ -1001,7 +1001,6 @@ anchor_top = 0.25125
 anchor_right = 0.789474
 anchor_bottom = 0.75125
 theme_override_styles/panel = SubResource("StyleBoxFlat_w86bu")
-metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Panel" parent="TextureRect/Log_out"]
 layout_mode = 1

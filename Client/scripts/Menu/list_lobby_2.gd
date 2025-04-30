@@ -20,6 +20,14 @@ var is_expanded := false
 var selected_button: Button = null
 var default_style: StyleBoxFlat = null
 
+# New: Added pop-up window and background mask nodes
+@onready var rejoindre_popup := $TextureRect/Rejoindre
+@onready var rejoindre_overlay := $TextureRect/Overlay
+
+# Rejoindre The start and target position of the popup (center of the screen & outside the bottom)
+var rejoindre_target_pos := Vector2(256, 201)
+var rejoindre_start_pos := Vector2(256, 800)
+
 # Load the lobby item scene
 var lobby_item_scene = preload("res://scenes/Menu/list_lobby_item2.tscn")
 var lobbies = []
@@ -33,6 +41,11 @@ func _ready():
 	# Initialize state
 	filter_menu.visible = false
 	filter_button.text = "  FILTRER         ▼"
+
+	# Initialize pop-up window and mask
+	rejoindre_popup.visible = false
+	rejoindre_overlay.visible = false
+	rejoindre_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Allow click-through
 
 	# Connect signals
 	filter_button.connect("pressed", _on_filter_button_pressed)
@@ -134,3 +147,47 @@ func _on_create_lobby_pressed() -> void:
 		get_tree().change_scene_to_file("res://scenes/Menu/create_lobby2.tscn")
 	else:
 		print("Failed to load scene.")
+
+# Public function: Pop up the Rejoindre pop-up window (with animation)
+func _show_rejoindre_popup():
+	rejoindre_popup.visible = true
+	rejoindre_overlay.visible = true
+	rejoindre_popup.position = rejoindre_start_pos
+
+	var tween = create_tween()
+	tween.tween_property(rejoindre_popup, "position", rejoindre_target_pos, 0.4)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
+
+# Public function: Close the Rejoindre pop-up window (with animation)
+func _hide_rejoindre_popup():
+	var tween = create_tween()
+	tween.tween_property(rejoindre_popup, "position", rejoindre_start_pos, 0.3)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_IN)
+	await tween.finished
+	rejoindre_popup.visible = false
+	rejoindre_overlay.visible = false
+
+# Four Rejoindre buttons trigger a unified popup
+func _on_rejoindre_pressed() -> void:
+	_show_rejoindre_popup()
+
+func _on_rejoindre_2_pressed() -> void:
+	_show_rejoindre_popup()
+
+func _on_rejoindre_3_pressed() -> void:
+	_show_rejoindre_popup()
+
+func _on_rejoindre_4_pressed() -> void:
+	_show_rejoindre_popup()
+
+# NON button in the pop-up window: close the pop-up window
+func _on_non_pressed() -> void:
+	_hide_rejoindre_popup()
+
+# OUI button in the pop-up window: jump to select role select_token.tscn
+func _on_oui_pressed() -> void:
+	var scene = load("res://scenes/Menu/select_token.tscn")
+	if scene:
+		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")

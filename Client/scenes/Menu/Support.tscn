@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b2v51s8epluwe"]
+[gd_scene load_steps=27 format=3 uid="uid://b2v51s8epluwe"]
 
 [ext_resource type="Script" uid="uid://yxkh4o4xiqft" path="res://scripts/Menu/support.gd" id="1_lf2ij"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_ivqpq"]
@@ -85,11 +85,32 @@ shadow_offset = Vector2(2, 3)
 
 [sub_resource type="Theme" id="Theme_5sje8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw7mh"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifvdk"]
 bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my37n"]
 bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [node name="Support" type="Control"]
 layout_mode = 3
@@ -299,6 +320,7 @@ theme = SubResource("Theme_5sje8")
 theme_override_icons/grabber = ExtResource("5_dw7mh")
 theme_override_icons/grabber_highlight = ExtResource("5_dw7mh")
 theme_override_icons/grabber_disabled = ExtResource("5_dw7mh")
+theme_override_styles/slider = SubResource("StyleBoxFlat_dw7mh")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ifvdk")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_my37n")
 max_value = 4.0
