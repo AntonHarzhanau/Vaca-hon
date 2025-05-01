@@ -471,7 +471,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="TextureRect/Rejoindre"]
+[node name="LobbyOwnerUsername" type="Label" parent="TextureRect/Rejoindre"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.542821

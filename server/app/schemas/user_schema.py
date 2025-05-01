@@ -23,6 +23,7 @@ class UserReadSchema(BaseModel):
 
 class UserReadSchemaWithToken(UserReadSchema):
     selected_token: str = None
+    player_color: str = "#af52de"
     
 class UserUpdateSchema(BaseModel):
     email: Optional[str] = None

@@ -24,6 +24,12 @@ class LobbyInstance:
             "car",
             "helicopter"
         ]
+        self.player_colors = [
+            "#af52de",
+            "#32ade6",
+            "#ffcc00",
+            "#34c759",
+        ]
 
 
     async def add_user(self, websocket: WebSocket, user: UserReadSchemaWithToken, selected_token: str) -> None:
@@ -42,6 +48,8 @@ class LobbyInstance:
 
             user_with_token = UserReadSchemaWithToken(**user.model_dump())
             user_with_token.selected_token = selected_token
+            # Set the player color based on active connection length
+            user_with_token.player_color = self.player_colors[len(self.connection_manager.active_connections)]
             await self.connection_manager.connect(websocket, user_with_token)
         else:
             msg = {

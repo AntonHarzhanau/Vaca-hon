@@ -22,6 +22,7 @@ var default_style: StyleBoxFlat = null
 
 # New: Added pop-up window and background mask nodes
 @onready var rejoindre_popup := $TextureRect/Rejoindre
+@onready var rejoindre_popup_lobby_owner := $TextureRect/Rejoindre/LobbyOwnerUsername
 @onready var rejoindre_overlay := $TextureRect/Overlay
 
 # Rejoindre The start and target position of the popup (center of the screen & outside the bottom)
@@ -130,6 +131,7 @@ func _on_join_pressed(lobby):
 	States.lobby_id = int(lobby.id)
 	States.lobby_max_players = int(lobby.nb_player_max)
 	States.lobby_owner_id = int(lobby.owner_id)
+	rejoindre_popup_lobby_owner.text = "User #" + str(int(lobby.owner_id))
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():

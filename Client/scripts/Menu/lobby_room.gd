@@ -168,6 +168,7 @@ func _refresh_player_list() -> void:
 			var new_waiting_room_player = preload("res://scenes/Menu/waiting_room_player_2.tscn").instantiate();
 			new_waiting_room_player.player_name = players[i].username
 			new_waiting_room_player.player_token = load("res://assets/Token/" + players[i].selected_token + ".png")
+			new_waiting_room_player.player_color = players[i].player_color
 			connected_players_hbox.add_child(new_waiting_room_player)
 		else:
 			var new_waiting_room_placeholder = preload("res://scenes/Menu/waiting_room_placeholder.tscn").instantiate();
