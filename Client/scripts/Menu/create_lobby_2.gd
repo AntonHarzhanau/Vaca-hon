@@ -1,21 +1,21 @@
 extends Control
 
 # 保存按钮组
-@onready var group_joueurs = $TextureRect/MarginContainer/Panel/HBoxContainer.get_children()
-@onready var group_temps = $TextureRect/MarginContainer/Panel/HBoxContainer2.get_children()
-@onready var group_type = $TextureRect/MarginContainer/Panel/HBoxContainer3.get_children()
+@onready var group_joueurs = $TextureRect/MarginContainer/Panel/Control/HBoxContainer.get_children()
+@onready var group_temps = $TextureRect/MarginContainer/Panel/Control/HBoxContainer2.get_children()
+@onready var group_type = $TextureRect/MarginContainer/Panel/Control2/HBoxContainer3.get_children()
 
 # 密码相关
-@onready var label_mdp = $TextureRect/MarginContainer/Panel/Label5
-@onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/LineEdit
+@onready var label_mdp = $TextureRect/MarginContainer/Panel/Control2/Label5
+@onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/Control2/LineEdit
 
 # 存储每个按钮的初始 normal 样式
 var default_styles := {}
 
 # 按钮节点引用
-@onready var texture_button = $TextureRect/TextureButton
+@onready var texture_button = $TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton
 
-@onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/SubmitCreateLobby
+@onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/MarginContainer/SubmitCreateLobby
 
 # Default selected button
 var nb_player_max = 2

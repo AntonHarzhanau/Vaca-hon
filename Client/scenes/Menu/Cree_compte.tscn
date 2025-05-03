@@ -1,13 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgvru7cbpgfu3"]
+[gd_scene load_steps=10 format=3 uid="uid://cgvru7cbpgfu3"]
 
 [ext_resource type="Script" uid="uid://d0f5mnxcxed7r" path="res://scripts/Menu/cree_compte.gd" id="1_18l02"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_18l02"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_ywi4s"]
-[ext_resource type="Texture2D" uid="uid://b0egvipo4oaeh" path="res://assets/eye.png" id="4_18l02"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_foc18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4o7"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdfu2"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5jbe"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.756863, 0.780392, 0.803922, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7imv"]
 bg_color = Color(0.551599, 0.871557, 0.888565, 1)
@@ -36,29 +45,16 @@ shadow_color = Color(0, 0, 0, 0.431373)
 shadow_size = 1
 shadow_offset = Vector2(2, 3)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdfu2"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.384314, 0.129412, 0.00392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5jbe"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.756863, 0.780392, 0.803922, 1)
-
 [node name="Cree" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_18l02")
 
-[node name="TextureRect" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 1330.0
-offset_bottom = 800.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Panel" type="Panel" parent="TextureRect"]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,44 +62,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eb4o7")
-metadata/_edit_use_anchors_ = true
 
-[node name="CREER" type="Button" parent="TextureRect/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.300752
-anchor_top = 0.81125
-anchor_right = 0.666165
-anchor_bottom = 0.9375
-offset_left = 3.05176e-05
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_18l02")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
-text = "CRÉER UN COMPTE"
-metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 66.0
-offset_top = -646.0
-offset_right = 1282.0
-offset_bottom = -161.0
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(600, 0)
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("4_foc18")
+
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_18l02")
+theme_override_font_sizes/font_size = 55
+text = "CRÉER UN COMPTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TextureRect/Panel/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(550, 0)
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -115,10 +134,9 @@ Nom d’utilisateur
 "
 vertical_alignment = 1
 
-[node name="UsernameLineEdit" type="LineEdit" parent="TextureRect/Panel/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(550, 100)
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -128,8 +146,17 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Veuillez entrer votre nom d’utilisateur..."
 
-[node name="Label2" type="Label" parent="TextureRect/Panel/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(550, 0)
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.741176, 0.741176, 0.741176, 1)
+theme_override_fonts/font = ExtResource("3_ywi4s")
+theme_override_font_sizes/font_size = 20
+text = "                                                                                                "
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -141,10 +168,9 @@ Adresse e-mail
 "
 vertical_alignment = 1
 
-[node name="EmailLineEdit" type="LineEdit" parent="TextureRect/Panel/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(550, 100)
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -154,13 +180,20 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "xxxx@vacashon.com"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(600, 0)
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TextureRect/Panel/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(550, 0)
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -172,10 +205,9 @@ Mot de passe
 "
 vertical_alignment = 1
 
-[node name="PasswordLineEdit" type="LineEdit" parent="TextureRect/Panel/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(550, 100)
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -184,19 +216,20 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Veuillez entrer un mot de passe..."
-right_icon = ExtResource("4_18l02")
 secret = true
 
-[node name="Label3" type="Label" parent="TextureRect/Panel/HBoxContainer/VBoxContainer2"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.741176, 0.741176, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 20
 text = "Il doit contenir au minimum 8 caractères, chiffres ou symboles."
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="TextureRect/Panel/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(550, 0)
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -208,10 +241,9 @@ Confirmez votre mot de passe
 "
 vertical_alignment = 1
 
-[node name="ConfirmPasswordLineEdit" type="LineEdit" parent="TextureRect/Panel/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(550, 100)
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -220,53 +252,25 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Veuillez confirmer votre mot de passe..."
-right_icon = ExtResource("4_18l02")
 secret = true
 
-[node name="FeedbackMessage" type="RichTextLabel" parent="TextureRect/Panel"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.234586
-anchor_top = 0.755
-anchor_right = 0.73609
-anchor_bottom = 0.7925
-theme_override_colors/default_color = Color(0.901961, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 18
-horizontal_alignment = 1
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="CREER" type="Button" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_18l02")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+text = "CRÉER UN COMPTE"
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="TextureRect"]
-layout_mode = 0
-offset_right = 1330.0
-offset_bottom = 117.0
-color = Color(0.384314, 0.129412, 0.00784314, 1)
-
-[node name="Label" type="Label" parent="TextureRect/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_18l02")
-theme_override_font_sizes/font_size = 55
-text = "CRÉER UN COMPTE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.019
-anchor_top = 0.128
-anchor_right = 0.086
-anchor_bottom = 0.735
-offset_left = -4.0
-offset_top = 0.0239992
-offset_bottom = 0.00499725
-grow_vertical = 2
-texture_normal = ExtResource("4_foc18")
-
-[connection signal="pressed" from="TextureRect/Panel/CREER" to="." method="_on_creer_pressed"]
-[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/CREER" to="." method="_on_creer_pressed"]

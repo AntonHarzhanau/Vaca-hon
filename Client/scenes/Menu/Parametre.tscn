@@ -101,11 +101,11 @@ anchor_bottom = 0.91625
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
-text = "Page de protection  des données"
+text = "Data Protection Page"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -119,11 +119,11 @@ anchor_bottom = 0.91875
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
-text = "Politique de confidentialité"
+text = "Privacy Policy"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -137,12 +137,11 @@ anchor_bottom = 0.91625
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
-text = "Review Data 
-Consent"
+text = "Review Data Consent"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -165,7 +164,7 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 40
-text = "Vibrations"
+text = "Vibes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -199,7 +198,7 @@ size_flags_horizontal = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 40
-text = "Langue"
+text = "Language"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -286,7 +285,7 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 40
-text = "Musique"
+text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -304,14 +303,11 @@ metadata/_edit_use_anchors_ = true
 [node name="EffetsSonores" type="VBoxContainer" parent="TextureRect/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.652632
-anchor_top = 0.51125
-anchor_right = 0.897744
-anchor_bottom = 0.69375
-offset_left = 40.0
-offset_top = -4.0
-offset_right = 40.0
-offset_bottom = -4.0
+anchor_left = 0.682707
+anchor_top = 0.50625
+anchor_right = 0.927819
+anchor_bottom = 0.68875
+offset_top = -3.05176e-05
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
@@ -322,7 +318,7 @@ size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 40
-text = "Effets sonores"
+text = "Sound effects"
 horizontal_alignment = 1
 vertical_alignment = 1
 

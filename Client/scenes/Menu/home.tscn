@@ -24,33 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dmu2jqqto1i1j" path="res://assets/Players/FLIGHT.png" id="21_1i7aa"]
 [ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="23_64ili"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gxoc"]
-bg_color = Color(0.551599, 0.871557, 0.888565, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx5jl"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-shadow_color = Color(0, 0, 0, 0.431373)
-shadow_size = 1
-shadow_offset = Vector2(2, 3)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxfmp"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)
 border_width_left = 7
@@ -158,6 +131,33 @@ corner_radius_top_left = 60
 corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gxoc"]
+bg_color = Color(0.551599, 0.871557, 0.888565, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx5jl"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_color = Color(0, 0, 0, 0.431373)
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaayy"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)
@@ -272,16 +272,18 @@ corner_radius_bottom_left = 60
 
 [node name="Home" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_8gxoc")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1330.0
-offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("2_kx5jl")
@@ -289,98 +291,92 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="TextureRect" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 1330.0
-offset_bottom = 800.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-metadata/_edit_use_anchors_ = true
-
-[node name="Vacashion" type="TextureRect" parent="TextureRect"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.182707
-anchor_top = 0.15125
-anchor_right = 0.778947
-anchor_bottom = 0.445
-texture = ExtResource("3_pq0dp")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Jouer" type="Button" parent="TextureRect"]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 506.0
-offset_right = 814.0
-offset_bottom = 607.0
-theme_override_fonts/font = ExtResource("3_wqg4d")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_8gxoc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8gxoc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_kx5jl")
-text = "Jouer"
-
-[node name="Trouver" type="Button" parent="TextureRect"]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 644.0
-offset_right = 815.0
-offset_bottom = 750.0
-theme_override_fonts/font = ExtResource("3_wqg4d")
-theme_override_font_sizes/font_size = 45
-theme_override_styles/hover = SubResource("StyleBoxFlat_8gxoc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8gxoc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_kx5jl")
-text = "Trouver une partie"
-autowrap_mode = 3
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 0
-offset_left = 1151.0
-offset_top = 15.0
-offset_right = 1292.0
-offset_bottom = 44.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_bottom = 29.0
+grow_horizontal = 0
 text = "Version Alpha 0.2"
 
-[node name="BeachChaire" type="TextureRect" parent="TextureRect"]
-layout_mode = 0
-anchor_left = 0.733835
-anchor_top = 0.35125
-anchor_right = 1.00947
-anchor_bottom = 0.928125
-offset_right = -84.6001
-offset_bottom = -106.5
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_kx5jl")
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 40
+
+[node name="Vacashion" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_pq0dp")
+expand_mode = 5
+stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Regle" type="Button" parent="TextureRect"]
-layout_mode = 0
-anchor_left = 0.0112782
-anchor_top = 0.6025
-anchor_right = 0.249624
-anchor_bottom = 0.705
-offset_top = -3.05176e-05
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="BeachChaire" type="TextureRect" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("5_kx5jl")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Regle" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_lxfmp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1g8gw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_871q6")
-text = "    Règles du jeu"
+text = "Rules of the game"
 icon = ExtResource("6_8krf6")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Support" type="Button" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0112782
-anchor_top = 0.7275
-anchor_right = 0.249624
-anchor_bottom = 0.83
+[node name="Support" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_073uw")
@@ -393,65 +389,106 @@ icon_alignment = 2
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Parametre" type="Button" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0112782
-anchor_top = 0.8525
-anchor_right = 0.249624
-anchor_bottom = 0.955
+[node name="Parametre" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_ss23m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ywbl1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p8ivx")
-text = "    Paramètres"
+text = "    Settings"
 icon = ExtResource("8_xk4pu")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Connection" type="Button" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.700752
-anchor_top = 0.76375
-anchor_right = 0.986466
-anchor_bottom = 0.93125
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Jouer" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(310, 101)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gxoc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8gxoc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kx5jl")
+text = "PLAYR"
+
+[node name="Trouver" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(310, 101)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gxoc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8gxoc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kx5jl")
+text = "Find a game"
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 80
+
+[node name="Connection" type="Button" parent="HBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(285, 134)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_qaayy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xk4pu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8krf6")
-text = "CONNECTÉ.E EN TANT QUE:
-     PLAYER NAME
-     DÉCONNEXION
-"
+text = "LOGGED IN AS:
+PLAYER NAME
+LOGGING OUT"
 icon = ExtResource("9_yvqbo")
 text_overrun_behavior = 3
 icon_alignment = 2
-metadata/_edit_use_anchors_ = true
 
-[node name="Regle_du_jeu" type="Panel" parent="TextureRect"]
+[node name="Regle_du_jeu" type="Panel" parent="."]
 auto_translate_mode = 1
 visible = false
-layout_mode = 0
-offset_left = 341.0
-offset_top = 165.0
-offset_right = 891.0
-offset_bottom = 765.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.225
+anchor_top = 0.25
+anchor_right = 0.775
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -93.0
+offset_right = 3.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w86bu")
 
-[node name="Title" type="Panel" parent="TextureRect/Regle_du_jeu"]
+[node name="Title" type="Panel" parent="Regle_du_jeu"]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 0.13
 theme_override_styles/panel = SubResource("StyleBoxFlat_2atvw")
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="TextureRect/Regle_du_jeu/Title"]
+[node name="Title" type="Label" parent="Regle_du_jeu/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,7 +501,7 @@ text = "RÈGLES DU JEU"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/Regle_du_jeu"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Regle_du_jeu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.183333
@@ -475,22 +512,22 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect/Regle_du_jeu/ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Regle_du_jeu/ScrollContainer"]
 custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Regle_du_jeu/ScrollContainer/CenterContainer"]
 custom_minimum_size = Vector2(530, 5000)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="How To Win" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="How To Win" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="How To Win" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/How To Win"]
+[node name="How To Win" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/How To Win"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -503,7 +540,7 @@ text = "How To Win"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Logo" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -511,7 +548,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_pq0dp")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -523,13 +560,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="On Your Turn" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="On Your Turn" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="On Your Turn" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/On Your Turn"]
+[node name="On Your Turn" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/On Your Turn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -542,7 +579,7 @@ text = "On Your Turn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -562,13 +599,13 @@ vertical_alignment = 1
 autowrap_mode = 3
 lines_skipped = 1
 
-[node name="property" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="property" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="property" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/property"]
+[node name="property" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/property"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -581,7 +618,7 @@ text = "property"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -593,14 +630,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Strasbourg" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Strasbourg" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(160, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("10_871q6")
 expand_mode = 1
 
-[node name="Label4" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -620,14 +657,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Strasbourg_Paris" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Strasbourg_Paris" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(288.5, 209.13)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("11_073uw")
 expand_mode = 1
 
-[node name="Label5" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -644,14 +681,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Stations" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Stations" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(246, 188.71)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("12_nxbyl")
 expand_mode = 1
 
-[node name="Label6" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label6" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -669,7 +706,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Label7" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label7" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -681,14 +718,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Utilities" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Utilities" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(290.59, 186.98)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("13_7pxac")
 expand_mode = 1
 
-[node name="Label8" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label8" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -702,13 +739,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Action Spaces" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Action Spaces" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="Action Spaces" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Action Spaces"]
+[node name="Action Spaces" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Action Spaces"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -721,23 +758,23 @@ text = "Action Spaces"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Douane" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Douane" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("14_2atvw")
 
-[node name="Escale" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Escale" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("15_yvqbo")
 
-[node name="Label9" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label9" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -749,13 +786,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decollage" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Decollage" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("16_64ili")
 
-[node name="Label10" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label10" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -767,13 +804,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decollage2" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Decollage2" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("17_x0ruf")
 
-[node name="Label11" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label11" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -793,13 +830,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Auctions" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Auctions" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="Auctions" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Auctions"]
+[node name="Auctions" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Auctions"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -812,7 +849,7 @@ text = "Auctions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label12" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label12" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -829,13 +866,13 @@ If anyone lands on an unowned Street, Station or Utility and doesn't want to buy
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Deal" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Deal" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="Deal" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Deal"]
+[node name="Deal" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Deal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -848,17 +885,17 @@ text = "Deal & Trades"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(100, 500)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TOKEN" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="TOKEN" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -866,7 +903,7 @@ size_flags_vertical = 3
 texture = ExtResource("18_vqllx")
 stretch_mode = 2
 
-[node name="TOKEN2" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="TOKEN2" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -874,7 +911,7 @@ size_flags_vertical = 3
 texture = ExtResource("19_s1swk")
 stretch_mode = 2
 
-[node name="TOKEN3" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="TOKEN3" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -882,7 +919,7 @@ size_flags_vertical = 3
 texture = ExtResource("20_vkny6")
 stretch_mode = 2
 
-[node name="TOKEN4" type="TextureRect" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="TOKEN4" type="TextureRect" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -890,7 +927,7 @@ size_flags_vertical = 3
 texture = ExtResource("21_1i7aa")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(400, 500)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -904,13 +941,13 @@ text = "- You can buy, sell or swap property with other players when it is your 
 - When you received a mortgaged property, either through trade or by bankrupting someone, you must immediately choose whether to unmortgage the property, or keep the mortgage and pay 10% of the mortdade value"
 autowrap_mode = 3
 
-[node name="Help" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Help" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="Help" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Help"]
+[node name="Help" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/Help"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -923,7 +960,7 @@ text = "Help! Can’t play!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label13" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Label13" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -962,13 +999,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="End" type="Panel" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="End" type="Panel" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(510, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
 
-[node name="End" type="Label" parent="TextureRect/Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/End"]
+[node name="End" type="Label" parent="Regle_du_jeu/ScrollContainer/CenterContainer/VBoxContainer/End"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -981,7 +1018,7 @@ text = "End"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Overlay" type="ColorRect" parent="TextureRect"]
+[node name="Overlay" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -992,18 +1029,20 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.196078)
 
-[node name="Log_out" type="Panel" parent="TextureRect"]
+[node name="Log_out" type="Panel" parent="."]
 auto_translate_mode = 1
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.192481
 anchor_top = 0.25125
 anchor_right = 0.789474
 anchor_bottom = 0.75125
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w86bu")
-metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Panel" parent="TextureRect/Log_out"]
+[node name="Title" type="Panel" parent="Log_out"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -1011,7 +1050,7 @@ anchor_bottom = 0.22
 theme_override_styles/panel = SubResource("StyleBoxFlat_2atvw")
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="TextureRect/Log_out/Title"]
+[node name="Title" type="Label" parent="Log_out/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1024,7 +1063,7 @@ text = "SE DÉCONNECTER "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="TextureRect/Log_out"]
+[node name="Label" type="Label" parent="Log_out"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.465995
@@ -1042,7 +1081,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/Log_out"]
+[node name="TextureRect" type="TextureRect" parent="Log_out"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0362217
@@ -1055,7 +1094,7 @@ grow_vertical = 2
 texture = ExtResource("23_64ili")
 metadata/_edit_use_anchors_ = true
 
-[node name="NON" type="Button" parent="TextureRect/Log_out"]
+[node name="NON" type="Button" parent="Log_out"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.117128
@@ -1074,7 +1113,7 @@ text = "NON"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="OUI" type="Button" parent="TextureRect/Log_out"]
+[node name="OUI" type="Button" parent="Log_out"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.560453
@@ -1093,11 +1132,11 @@ text = "OUI"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="TextureRect/Jouer" to="." method="_on_jouer_pressed"]
-[connection signal="pressed" from="TextureRect/Trouver" to="." method="_on_trouver_pressed"]
-[connection signal="pressed" from="TextureRect/Regle" to="." method="_on_regle_pressed"]
-[connection signal="pressed" from="TextureRect/Support" to="." method="_on_support_pressed"]
-[connection signal="pressed" from="TextureRect/Parametre" to="." method="_on_parametre_pressed"]
-[connection signal="pressed" from="TextureRect/Connection" to="." method="_on_connection_pressed"]
-[connection signal="pressed" from="TextureRect/Log_out/NON" to="." method="_on_non_pressed"]
-[connection signal="pressed" from="TextureRect/Log_out/OUI" to="." method="_on_oui_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Regle" to="." method="_on_regle_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Support" to="." method="_on_support_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Parametre" to="." method="_on_parametre_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Trouver" to="." method="_on_trouver_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer3/Connection" to="." method="_on_connection_pressed"]
+[connection signal="pressed" from="Log_out/NON" to="." method="_on_non_pressed"]
+[connection signal="pressed" from="Log_out/OUI" to="." method="_on_oui_pressed"]

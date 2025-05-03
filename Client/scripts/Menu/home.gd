@@ -1,15 +1,15 @@
 extends Control
 
-@onready var regle_button = $TextureRect/Regle
-@onready var regle_popup = $TextureRect/Regle_du_jeu
-@onready var log_out_popup = $TextureRect/Log_out
-@onready var log_out_button = $TextureRect/Connection
-@onready var overlay := $TextureRect/Overlay
+@onready var regle_button = $HBoxContainer/MarginContainer/VBoxContainer2/Regle
+@onready var regle_popup = $Regle_du_jeu
+@onready var log_out_popup = $Log_out
+@onready var log_out_button = $HBoxContainer/MarginContainer3/Connection
+@onready var overlay := $Overlay
 
-@onready var support_button = $TextureRect/Support
-@onready var parametre_button = $TextureRect/Parametre
-@onready var jouer_button = $TextureRect/Jouer
-@onready var trouver_button = $TextureRect/Trouver
+@onready var support_button = $HBoxContainer/MarginContainer/VBoxContainer2/Support
+@onready var parametre_button = $HBoxContainer/MarginContainer/VBoxContainer2/Parametre
+@onready var jouer_button = $HBoxContainer/MarginContainer2/VBoxContainer/Jouer
+@onready var trouver_button = $HBoxContainer/MarginContainer2/VBoxContainer/Trouver
 
 var popup_target_pos := Vector2(256, 201)
 var popup_start_pos := Vector2(256, 800)

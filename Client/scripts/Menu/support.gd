@@ -1,24 +1,24 @@
 extends Control
 
-@onready var emoji_1 = $TextureRect/Panel/RatingScale/Emoji_1
-@onready var emoji_2 = $TextureRect/Panel/RatingScale/Emoji_2
-@onready var emoji_3 = $TextureRect/Panel/RatingScale/Emoji_3
-@onready var emoji_4 = $TextureRect/Panel/RatingScale/Emoji_4
-@onready var emoji_5 = $TextureRect/Panel/RatingScale/Emoji_5
+@onready var emoji_1 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot/Emoji_1
+@onready var emoji_2 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot2/Emoji_2
+@onready var emoji_3 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot3/Emoji_3
+@onready var emoji_4 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot4/Emoji_4
+@onready var emoji_5 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot5/Emoji_5
 
-@onready var emoji_6 = $TextureRect/Panel/RatingScale/Emoji_6
-@onready var emoji_7 = $TextureRect/Panel/RatingScale/Emoji_7
-@onready var emoji_8 = $TextureRect/Panel/RatingScale/Emoji_8
-@onready var emoji_9 = $TextureRect/Panel/RatingScale/Emoji_9
-@onready var emoji_10 = $TextureRect/Panel/RatingScale/Emoji_10
+@onready var emoji_6 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot/Emoji_6
+@onready var emoji_7 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot2/Emoji_7
+@onready var emoji_8 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot3/Emoji_8
+@onready var emoji_9 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot4/Emoji_9
+@onready var emoji_10 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer2/EmojiSlot5/Emoji_10
 
-@onready var label_1 = $TextureRect/Panel/RatingScale/L1
-@onready var label_2 = $TextureRect/Panel/RatingScale/L2
-@onready var label_3 = $TextureRect/Panel/RatingScale/L3
-@onready var label_4 = $TextureRect/Panel/RatingScale/L4
-@onready var label_5 = $TextureRect/Panel/RatingScale/L5
+@onready var label_1 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L1
+@onready var label_2 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L2
+@onready var label_3 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L3
+@onready var label_4 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L4
+@onready var label_5 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L5
 
-@onready var slider = $TextureRect/Panel/RatingScale/HSlider
+@onready var slider = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HSlider
 
 var emojis_static = []
 var emojis_dynamic = []

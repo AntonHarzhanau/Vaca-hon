@@ -4,16 +4,15 @@
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[ext_resource type="PackedScene" uid="uid://cuj23ias31fci" path="res://scenes/Menu/list_lobby_item2.tscn" id="5_kt6ln"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi5sa"]
-bg_color = Color(0.478431, 0.294118, 0.207843, 0.796078)
+bg_color = Color(0.478431, 0.294118, 0.207843, 1)
+border_width_left = 30
+border_width_top = 30
+border_width_right = 30
+border_width_bottom = 30
+border_color = Color(0.384314, 0.129412, 0.00392157, 1)
 corner_radius_top_left = 60
 corner_radius_top_right = 60
 corner_radius_bottom_right = 60
@@ -157,23 +156,32 @@ corner_radius_bottom_left = 90
 
 [node name="TrouverLobby" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_naexr")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
-offset_right = 1330.0
-offset_bottom = 800.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("2_kt6ln")
 autoplay = true
 expand = true
 loop = true
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 1330.0
-offset_bottom = 800.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -184,131 +192,173 @@ anchor_bottom = 0.14625
 color = Color(0.384314, 0.129412, 0.00784314, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TextureRect/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_kt6ln")
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 40
-text = "TROUVER UNE PARTIE"
+text = "FIND A GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
+[node name="MarginContainer3" type="MarginContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(624, 680)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.019
-anchor_top = 0.128
-anchor_right = 0.086
-anchor_bottom = 0.735
-offset_left = -4.0
-offset_top = 0.0239992
-offset_bottom = 0.00499725
-grow_vertical = 2
-texture_normal = ExtResource("3_kt6ln")
+anchor_left = 0.376
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 584.0
+offset_top = 640.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="Panel" parent="TextureRect"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 191.0
-offset_right = 1374.0
-offset_bottom = 738.0
-scale = Vector2(0.9, 0.9)
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_37xlk")
-
-[node name="Panel" type="Panel" parent="TextureRect/MarginContainer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.059
-anchor_top = 0.0571429
-anchor_right = 0.959
-anchor_bottom = 0.957143
-offset_left = -24.0
-offset_top = -1.0
-offset_right = 56.0001
-offset_bottom = 55.0
-scale = Vector2(0.95, 0.9)
+[node name="Panel" type="Panel" parent="TextureRect/MarginContainer3"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vi5sa")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer3/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/Panel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer3/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/Panel/MarginContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(500, 540)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 3
+columns = 2
 
-[node name="CreateLobby" type="Button" parent="TextureRect"]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 650.0
-offset_right = 332.0
-offset_bottom = 751.0
+[node name="ListLobbyItem" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
+custom_minimum_size = Vector2(240, 170)
+layout_mode = 2
+
+[node name="ListLobbyItem2" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
+custom_minimum_size = Vector2(240, 170)
+layout_mode = 2
+
+[node name="ListLobbyItem3" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
+custom_minimum_size = Vector2(240, 170)
+layout_mode = 2
+
+[node name="ListLobbyItem4" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
+custom_minimum_size = Vector2(240, 170)
+layout_mode = 2
+
+[node name="ListLobbyItem5" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
+custom_minimum_size = Vector2(240, 170)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.62
+anchor_right = 0.375
+anchor_bottom = 1.0
+offset_top = 264.0
+offset_right = -335.0
+grow_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_bottom = 80
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(335, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4lpfj")
+theme_override_font_sizes/font_size = 30
+text = "Can't find a part that suits you?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CreateLobby" type="Button" parent="TextureRect/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 101)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_5djgv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "CRÉER UNE
-PARTIE"
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 508.0
-offset_right = 372.0
-offset_bottom = 630.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 30
-text = "Vous ne trouvez pas de partie qui vous convient ?"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "CREATE A GAME"
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuButton" type="Button" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.004
-offset_left = 22.0
-offset_top = 144.0
-offset_right = 332.68
-offset_bottom = 248.0
+anchor_left = 0.024
+anchor_top = 0.1875
+anchor_right = 0.3019
+anchor_bottom = 0.30475
+offset_right = 119.1
+offset_bottom = 40.2
+scale = Vector2(0.7, 0.7)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxFlat_0n3xd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_phtr0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsd2j")
-text = "    FILTRER                     ▼"
+text = "    FILTER                     ▼"
 alignment = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 custom_minimum_size = Vector2(3, 0)
-layout_mode = 0
-offset_left = 35.0
-offset_top = 248.0
-offset_right = 1475.0
-offset_bottom = 1018.0
-scale = Vector2(0.2, 0.2)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.305
+anchor_right = 0.295
+anchor_bottom = 0.480688
+offset_right = 1496.0
+offset_bottom = 796.45
+scale = Vector2(0.15, 0.15)
+metadata/_edit_use_anchors_ = true
 
 [node name="Parties publiques" type="Button" parent="TextureRect/VBoxContainer"]
 custom_minimum_size = Vector2(50, 40)
@@ -321,7 +371,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o00fx")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_0n3xd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8kts6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_morag")
-text = "Parties publiques"
+text = "Public room"
 
 [node name="Parties privees" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -332,7 +382,7 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/hover = SubResource("StyleBoxFlat_3dlmw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_altyt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g4whu")
-text = "Parties privées"
+text = "Private room"
 autowrap_mode = 3
 
-[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

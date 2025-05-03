@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coehbgt567tbm"
-path="res://.godot/imported/icon_help.png-69a435be95139eba9211b8132ef322d6.ctex"
+uid="uid://2cb0642ngqwr"
+path="res://.godot/imported/auction_logo.png-10ac957fd709bbbe91cee2d61d65ca78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon_help.png"
-dest_files=["res://.godot/imported/icon_help.png-69a435be95139eba9211b8132ef322d6.ctex"]
+source_file="res://assets/auction_logo.png"
+dest_files=["res://.godot/imported/auction_logo.png-10ac957fd709bbbe91cee2d61d65ca78.ctex"]
 
 [params]
 
