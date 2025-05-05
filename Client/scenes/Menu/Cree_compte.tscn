@@ -103,7 +103,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("2_18l02")
 theme_override_font_sizes/font_size = 55
-text = "CRÉER UN COMPTE"
+text = "CREATE AN ACCOUNT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -130,8 +130,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-Nom d’utilisateur
-"
+User name"
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
@@ -144,7 +143,7 @@ theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
-placeholder_text = "Veuillez entrer votre nom d’utilisateur..."
+placeholder_text = "Please enter your username..."
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -164,7 +163,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-Adresse e-mail
+E-mail address
 "
 vertical_alignment = 1
 
@@ -201,7 +200,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-Mot de passe
+Password
 "
 vertical_alignment = 1
 
@@ -215,7 +214,7 @@ theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
-placeholder_text = "Veuillez entrer un mot de passe..."
+placeholder_text = "Please enter a password..."
 secret = true
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
@@ -237,8 +236,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-Confirmez votre mot de passe
-"
+Confirm your password"
 vertical_alignment = 1
 
 [node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
@@ -251,7 +249,7 @@ theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
-placeholder_text = "Veuillez confirmer votre mot de passe..."
+placeholder_text = "Please confirm your password..."
 secret = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -269,7 +267,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
-text = "CRÉER UN COMPTE"
+text = "CREATE AN ACCOUNT"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="VBoxContainer/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

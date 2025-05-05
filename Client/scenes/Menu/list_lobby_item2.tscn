@@ -56,7 +56,7 @@ anchor_bottom = 0.261111
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_t0rw3")
 theme_override_font_sizes/font_size = 22
-text = "Partie de SachAtlantis"
+text = "Part of SachAtlantis"
 metadata/_edit_use_anchors_ = true
 
 [node name="LobbyTheme" type="Label" parent="."]
@@ -68,7 +68,7 @@ anchor_bottom = 0.433333
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_t0rw3")
 theme_override_font_sizes/font_size = 18
-text = "Thème: Plage"
+text = "Theme: Beach"
 metadata/_edit_use_anchors_ = true
 
 [node name="LobbyPlayers" type="Label" parent="."]
@@ -80,7 +80,7 @@ anchor_bottom = 0.633333
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_t0rw3")
 theme_override_font_sizes/font_size = 20
-text = "Joueurs: 2/3"
+text = "Players: 2/3"
 metadata/_edit_use_anchors_ = true
 
 [node name="JoinLobby" type="Button" parent="."]
@@ -97,7 +97,7 @@ theme_override_fonts/font = ExtResource("2_t0rw3")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
-text = "Rejoindre"
+text = "Join"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="JoinLobby" to="." method="_on_join_lobby_pressed"]

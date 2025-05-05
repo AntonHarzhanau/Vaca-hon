@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://baacyadjbsjgs"]
+
+[ext_resource type="Script" uid="uid://l7k1w466qlbw" path="res://scripts/card.gd" id="1_oach5"]
+[ext_resource type="PackedScene" uid="uid://cfgk8weio0tjv" path="res://scenes/UI/PlayerAvatar.tscn" id="2_k84l7"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_qdjmx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k84l7"]
+bg_color = Color(0.180392, 0.654902, 0.878431, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="bandeau" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oach5")
+
+[node name="Avatar" parent="." instance=ExtResource("2_k84l7")]
+layout_mode = 1
+anchor_left = 0.294
+anchor_top = 0.28125
+anchor_right = 0.711
+anchor_bottom = 0.54
+offset_bottom = -3.05176e-05
+grow_vertical = 1
+
+[node name="Panel3" type="Panel" parent="Avatar"]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.705036
+anchor_top = 0.603865
+anchor_right = 1.69305
+anchor_bottom = 1.08696
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_k84l7")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Avatar/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Avatar/Panel3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_qdjmx")
+theme_override_font_sizes/font_size = 55
+text = "PLAYERNAME’S TURN"
