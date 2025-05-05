@@ -166,31 +166,34 @@ grow_horizontal = 2
 color = Color(0.384314, 0.129412, 0.00784314, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TextureRect/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_y5sry")
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("3_xfkce")
 theme_override_font_sizes/font_size = 45
 text = "Select TOKEN"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.019
-anchor_top = 0.128
-anchor_right = 0.086
-anchor_bottom = 0.735
-offset_left = -4.0
-offset_top = 0.0239992
-offset_bottom = 0.00499725
-grow_vertical = 2
-texture_normal = ExtResource("4_y5sry")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect"]
 layout_mode = 1
@@ -333,13 +336,15 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Support" type="Button" parent="TextureRect"]
+custom_minimum_size = Vector2(230, 85)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.671429
 anchor_top = 0.8075
-anchor_right = 0.909774
-anchor_bottom = 0.91
-offset_right = -16.9999
+anchor_right = 0.901429
+anchor_bottom = 0.91375
+offset_right = -8.65485
+offset_bottom = -3.0
 theme_override_fonts/font = ExtResource("3_xfkce")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_rfa2b")
@@ -463,7 +468,7 @@ text = "OUI"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureRect/Support" to="." method="_on_support_pressed"]
 [connection signal="pressed" from="TextureRect/quitter_partie/NON" to="." method="_on_non_pressed"]
 [connection signal="pressed" from="TextureRect/quitter_partie/OUI" to="." method="_on_oui_pressed"]

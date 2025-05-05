@@ -1,7 +1,7 @@
 extends Control
 
 @onready var quitter_partie = $TextureRect/quitter_partie
-@onready var return_button = $TextureRect/ColorRect/TextureButton
+@onready var return_button = $TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton
 @onready var texture_rect := $TextureRect
 @onready var overlay := $TextureRect/Overlay
 

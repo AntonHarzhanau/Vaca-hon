@@ -71,13 +71,20 @@ expand_margin_bottom = 10.0
 
 [node name="Parametre" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3j7aq")
 
 [node name="TextureRect" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 1330.0
-offset_bottom = 800.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -89,7 +96,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eb4o7")
-metadata/_edit_use_anchors_ = true
 
 [node name="Protection" type="Button" parent="TextureRect/Panel"]
 layout_mode = 1
@@ -146,6 +152,7 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Vibrations" type="VBoxContainer" parent="TextureRect/Panel"]
+visible = false
 layout_mode = 0
 anchor_left = 0.0714286
 anchor_top = 0.2425
@@ -181,16 +188,14 @@ texture_hover = ExtResource("8_8od8g")
 [node name="Langue" type="VBoxContainer" parent="TextureRect/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.366917
-anchor_top = 0.29
-anchor_right = 0.63985
-anchor_bottom = 0.4975
-offset_left = 6.0
-offset_top = 68.0
-offset_right = 6.0
-offset_bottom = 68.0
+anchor_left = 0.371428
+anchor_top = 0.375
+anchor_right = 0.644361
+anchor_bottom = 0.5825
+offset_left = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Panel/Langue"]
 layout_mode = 2
@@ -231,6 +236,7 @@ icon = ExtResource("4_ekgrj")
 flat = true
 
 [node name="Notifications" type="VBoxContainer" parent="TextureRect/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.712782
@@ -334,18 +340,36 @@ max_value = 10.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect"]
-layout_mode = 0
-offset_right = 1330.0
-offset_bottom = 117.0
+custom_minimum_size = Vector2(0, 117)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 color = Color(0.384314, 0.129412, 0.00784314, 1)
 
-[node name="Label" type="Label" parent="TextureRect/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("16_a5tmk")
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 55
 text = "Parametre"
@@ -353,19 +377,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.019
-anchor_top = 0.128
-anchor_right = 0.086
-anchor_bottom = 0.735
-offset_left = -4.0
-offset_top = 0.0239992
-offset_bottom = 0.00499725
-grow_vertical = 2
-texture_normal = ExtResource("16_a5tmk")
-
 [connection signal="pressed" from="TextureRect/Panel/Langue/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/Panel/Langue/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
