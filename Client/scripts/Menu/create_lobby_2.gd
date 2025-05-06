@@ -15,7 +15,7 @@ var default_styles := {}
 # Button node reference
 @onready var texture_button = $TextureRect/TextureButton
 
-@onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/SubmitCreateLobby
+@onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/MarginContainer/SubmitCreateLobby
 
 # Default selected button
 var nb_player_max = 2

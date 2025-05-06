@@ -11,9 +11,9 @@ const SIDE_BOTTOM_LEFT = 3
 @onready var filter_menu = $TextureRect/VBoxContainer
 @onready var button_publique = filter_menu.get_node("Parties publiques")
 @onready var button_privee = filter_menu.get_node("Parties privees")
-@onready var lobbies_grid_container = $TextureRect/MarginContainer/Panel/MarginContainer/ScrollContainer/GridContainer
-@onready var create_lobby_button = $TextureRect/CreateLobby
-@onready var texture_button = $TextureRect/TextureButton
+@onready var lobbies_grid_container = $TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer
+@onready var create_lobby_button = $TextureRect/MarginContainer2/VBoxContainer2/CreateLobby
+@onready var texture_button = $TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton
 
 ## Store the state of buttons
 var is_expanded := false
