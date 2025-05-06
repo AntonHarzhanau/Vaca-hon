@@ -98,7 +98,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_tccpp")
 theme_override_font_sizes/font_size = 55
-text = "CONNECTION"
+text = "LOGIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -129,7 +129,7 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 40
 
-[node name="LineEdit" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer4"]
+[node name="EmailLineEdit" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer4"]
 custom_minimum_size = Vector2(850, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -165,7 +165,7 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 40
 
-[node name="LineEdit2" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer5"]
+[node name="PasswordLineEdit" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer5"]
 custom_minimum_size = Vector2(850, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -225,6 +225,18 @@ theme_override_fonts/font = ExtResource("2_v0t4l")
 theme_override_font_sizes/font_size = 20
 text = "Forgot your password?"
 text_direction = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 19
+
+[node name="FeedbackMessage" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer7"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.912271, 1.70864e-06, 3.85046e-07, 1)
+theme_override_font_sizes/normal_font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="buttom" type="HBoxContainer" parent="Panel"]
 custom_minimum_size = Vector2(800, 100)

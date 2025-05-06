@@ -1,26 +1,26 @@
 extends Control
 
 @onready var texture_button = $TextureRect/TextureButton
-@onready var edit_button = $TextureRect/HBoxContainer/Traveler1/edit
+#@onready var edit_button = $TextureRect/MarginContainer2/HBoxContainer/Traveler1/edit
 @onready var filter_button = $TextureRect/MenuButton
 @onready var filter_menu = $TextureRect/VBoxContainer
 @onready var button_publique = filter_menu.get_node("Parties publiques")
 @onready var button_privee = filter_menu.get_node("Parties privees")
-@onready var start_game_btn = $TextureRect/start
+@onready var start_game_btn = $TextureRect/MarginContainer/start
 
-# Traveler noeds
-@onready var connected_players_hbox = $TextureRect/HBoxContainer
-@onready var traveler2 = $TextureRect/HBoxContainer/Traveler2
-@onready var traveler3 = $TextureRect/HBoxContainer/Traveler3
-@onready var traveler4 = $TextureRect/HBoxContainer/Traveler4
-@onready var traveler5 = $TextureRect/HBoxContainer/Traveler5
-@onready var traveler6 = $TextureRect/HBoxContainer/Traveler6
-@onready var traveler7 = $TextureRect/HBoxContainer/Traveler7
+# Traveler nodes
+@onready var connected_players_hbox = $TextureRect/MarginContainer2/HBoxContainer
+@onready var traveler2 = $TextureRect/MarginContainer2/HBoxContainer/Traveler2
+@onready var traveler3 = $TextureRect/MarginContainer2/HBoxContainer/Traveler3
+@onready var traveler4 = $TextureRect/MarginContainer2/HBoxContainer/Traveler4
+@onready var traveler5 = $TextureRect/MarginContainer2/HBoxContainer/Traveler5
+@onready var traveler6 = $TextureRect/MarginContainer2/HBoxContainer/Traveler6
+@onready var traveler7 = $TextureRect/MarginContainer2/HBoxContainer/Traveler7
 
 #invite buttom
-@onready var invite2_5 = $TextureRect/HBoxContainer/Traveler5/invite2
-@onready var invite3_6 = $TextureRect/HBoxContainer/Traveler6/invite3
-@onready var invite4_7 = $TextureRect/HBoxContainer/Traveler7/invite4
+@onready var invite2_5 = $TextureRect/MarginContainer2/HBoxContainer/Traveler5/invite2
+@onready var invite3_6 = $TextureRect/MarginContainer2/HBoxContainer/Traveler6/invite3
+@onready var invite4_7 = $TextureRect/MarginContainer2/HBoxContainer/Traveler7/invite4
 
 # popup
 @onready var margin_container = $TextureRect/MarginContainer
@@ -41,12 +41,10 @@ func _ready():
 	filter_button.connect("pressed", _on_menu_button_pressed)
 	button_publique.connect("pressed", _on_parties_publiques_pressed)
 	button_privee.connect("pressed", _on_parties_publiques_pressed)
-	edit_button.connect("pressed",_on_edit_pressed)
+	#edit_button.connect("pressed",_on_edit_pressed)
 	start_game_btn.pressed.connect(_on_start_game_btn_pressed)
 	WebSocketClient.message_received.connect(_on_websocket_message_received)
 	
-	margin_container.visible = false
-
 	# initial Traveler5/6/7 non visible
 	traveler5.visible = false
 	traveler6.visible = false
@@ -61,6 +59,8 @@ func _ready():
 	overlay_mask.visible = false
 	
 	# Hide start game button if not owner
+	print("Current UserData : " + str(UserData.user_id))
+	print("Lobby Owner : " + str(States.lobby_owner_id))
 	if States.lobby_owner_id != UserData.user_id:
 		start_game_btn.visible = false
 	# Setting up initial player list
@@ -165,16 +165,17 @@ func _refresh_player_list() -> void:
 	# Renew the list
 	for i in range(States.lobby_max_players):
 		if i < len(players) and players[i]:
+			# For active players, show the waiting players scene
 			var new_waiting_room_player = preload("res://scenes/Menu/waiting_room_player_2.tscn").instantiate();
 			new_waiting_room_player.player_name = players[i].username
 			new_waiting_room_player.player_token = load("res://assets/Token/" + players[i].selected_token + ".png")
 			new_waiting_room_player.player_color = players[i].player_color
 			connected_players_hbox.add_child(new_waiting_room_player)
 		else:
+			# For remaining place, show the placeholder/invite scene
 			var new_waiting_room_placeholder = preload("res://scenes/Menu/waiting_room_placeholder.tscn").instantiate();
 			connected_players_hbox.add_child(new_waiting_room_placeholder)
-		
-	
+
 func _on_start_game_btn_pressed() -> void:
 	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhqo67v7whst7"]
+[gd_scene load_steps=32 format=3 uid="uid://c1tq6vioqps7k"]
 
 [ext_resource type="Script" uid="uid://b04nhqfw3m7u5" path="res://scripts/Menu/select_token.gd" id="1_00gpe"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_5xmv2"]
@@ -252,6 +252,7 @@ texture_pressed = ExtResource("14_1g1jl")
 texture_hover = ExtResource("15_hxltf")
 
 [node name="flight" type="TextureRect" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.690977
@@ -335,7 +336,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Support" type="Button" parent="TextureRect"]
+[node name="ValidateSelectionButton" type="Button" parent="TextureRect"]
 custom_minimum_size = Vector2(230, 85)
 layout_mode = 1
 anchors_preset = -1
@@ -350,7 +351,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/hover = SubResource("StyleBoxFlat_rfa2b")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w10hc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3qy8n")
-text = "Support"
+text = "SELECT"
 icon_alignment = 2
 expand_icon = true
 metadata/_edit_use_anchors_ = true
@@ -469,6 +470,6 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="TextureRect/Support" to="." method="_on_support_pressed"]
+[connection signal="pressed" from="TextureRect/ValidateSelectionButton" to="." method="_on_support_pressed"]
 [connection signal="pressed" from="TextureRect/quitter_partie/NON" to="." method="_on_non_pressed"]
 [connection signal="pressed" from="TextureRect/quitter_partie/OUI" to="." method="_on_oui_pressed"]

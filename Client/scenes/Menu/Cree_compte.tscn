@@ -133,7 +133,7 @@ text = "
 User name"
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="UsernameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -167,7 +167,7 @@ E-mail address
 "
 vertical_alignment = 1
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -204,7 +204,7 @@ Password
 "
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -239,7 +239,7 @@ text = "
 Confirm your password"
 vertical_alignment = 1
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
+[node name="ConfirmPasswordLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -251,6 +251,19 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Please confirm your password..."
 secret = true
+
+[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="FeedbackMessage" type="RichTextLabel" parent="VBoxContainer/MarginContainer7"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.912271, 1.70864e-06, 3.85046e-07, 1)
+theme_override_font_sizes/normal_font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

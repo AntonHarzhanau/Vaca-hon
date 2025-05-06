@@ -5,6 +5,7 @@
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
 [ext_resource type="PackedScene" uid="uid://cuj23ias31fci" path="res://scenes/Menu/list_lobby_item2.tscn" id="5_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://bko8xyytqdjkk" path="res://assets/playwith.png" id="7_5djgv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi5sa"]
 bg_color = Color(0.478431, 0.294118, 0.207843, 1)
@@ -323,10 +324,10 @@ anchor_bottom = 1.0
 offset_right = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer3/Panel/MarginContainer"]
 layout_mode = 2
@@ -339,23 +340,18 @@ size_flags_vertical = 6
 columns = 2
 
 [node name="ListLobbyItem" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-custom_minimum_size = Vector2(240, 170)
 layout_mode = 2
 
 [node name="ListLobbyItem2" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-custom_minimum_size = Vector2(240, 170)
 layout_mode = 2
 
 [node name="ListLobbyItem3" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-custom_minimum_size = Vector2(240, 170)
 layout_mode = 2
 
 [node name="ListLobbyItem4" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-custom_minimum_size = Vector2(240, 170)
 layout_mode = 2
 
 [node name="ListLobbyItem5" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-custom_minimum_size = Vector2(240, 170)
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
@@ -382,7 +378,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 30
-text = "Can't find a part that suits you?"
+text = "Can't find a game that suits you?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -590,3 +586,5 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/Rejoindre/NON" to="." method="_on_non_pressed"]
+[connection signal="pressed" from="TextureRect/Rejoindre/OUI" to="." method="_on_oui_pressed"]

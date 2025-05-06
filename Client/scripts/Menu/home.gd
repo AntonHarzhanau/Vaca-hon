@@ -22,10 +22,10 @@ func _ready():
 	overlay.visible = false
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  # 允许点击穿透
 
-	support_button.connect("pressed", Callable(self, "_on_support_pressed"))
-	parametre_button.connect("pressed", Callable(self, "_on_parametre_pressed"))
-	jouer_button.connect("pressed", Callable(self, "_on_jouer_pressed"))
-	trouver_button.connect("pressed", Callable(self, "_on_trouver_pressed"))
+	#support_button.connect("pressed", Callable(self, "_on_support_pressed"))
+	#parametre_button.connect("pressed", Callable(self, "_on_parametre_pressed"))
+	#jouer_button.connect("pressed", Callable(self, "_on_jouer_pressed"))
+	#trouver_button.connect("pressed", Callable(self, "_on_trouver_pressed"))
 	
 	# Setup player name if already logged in
 	if UserData.user_name:
@@ -50,8 +50,10 @@ func _on_jouer_pressed():
 		get_tree().change_scene_to_file(path)
 
 func _on_trouver_pressed():
+	print("Trouver pressed")
 	var path = "res://scenes/Menu/list_lobby2.tscn"
 	if ResourceLoader.exists(path):
+		print("path found : ", path)
 		get_tree().change_scene_to_file(path)
 
 func _on_connection_pressed() -> void:

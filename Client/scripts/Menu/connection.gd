@@ -1,12 +1,39 @@
 extends Control
 
+@onready var message: RichTextLabel = $Panel/VBoxContainer/MarginContainer7/FeedbackMessage
+@onready var login: LineEdit = $Panel/VBoxContainer/MarginContainer4/EmailLineEdit
+@onready var password: LineEdit = $Panel/VBoxContainer/MarginContainer5/PasswordLineEdit
+
+func _ready() -> void:
+	login.text = UserData.user_name
+	password.text = UserData.password
 
 func _on_connecter_pressed() -> void:
-	var scene = load("res://scenes/Menu/home.tscn")
-	if scene:
-		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
+	var payload = {
+		# "username" or "login"
+		"email": login.text,
+		"username": login.text,  
+		"password": password.text
+	}
+	
+	var response = await HttpRequestClient.__post("/Users/login", payload)
 
-
+	if response.response_code == 200:
+		var user = response.body
+		print(user) 
+		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
+		UserData.user_id = int(response.body["id"])
+		UserData.user_name = response.body["username"]
+		UserData.save_user_data()
+		message.add_theme_color_override("default_color", "#00994f")
+		message.text = "Login successful !"
+		var scene = load("res://scenes/Menu/home.tscn")
+		if scene:
+			get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
+	else:
+		message.text = "Invalid credentials. Please retry !"
+		print(response.body)
+	
 
 func _on_creer_pressed() -> void:
 	var scene = load("res://scenes/Menu/Cree_compte.tscn")

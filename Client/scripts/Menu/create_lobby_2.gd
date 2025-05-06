@@ -1,19 +1,20 @@
 extends Control
 
 # Save button groups
-@onready var group_joueurs = $TextureRect/MarginContainer/Panel/HBoxContainer.get_children()
-@onready var group_temps = $TextureRect/MarginContainer/Panel/HBoxContainer2.get_children()
-@onready var group_type = $TextureRect/MarginContainer/Panel/HBoxContainer3.get_children()
+@onready var group_joueurs = $TextureRect/MarginContainer/Panel/Control/HBoxContainer.get_children()
+@onready var group_temps = $TextureRect/MarginContainer/Panel/Control/HBoxContainer2.get_children()
+@onready var group_type = $TextureRect/MarginContainer/Panel/Control2/HBoxContainer3.get_children()
 
 # Password-related nodes
-@onready var label_mdp = $TextureRect/MarginContainer/Panel/Label5
-@onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/LineEdit
+@onready var label_mdp = $TextureRect/MarginContainer/Panel/Control2/Label5
+@onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/Control2/LineEdit
+@onready var message_mdp = $TextureRect/MarginContainer/Panel/Control2/FeedbackMessage
 
 # Store the original normal style for each button
 var default_styles := {}
 
 # Button node reference
-@onready var texture_button = $TextureRect/TextureButton
+@onready var texture_button = $TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton
 
 @onready var create_lobby_btn: Button = $TextureRect/MarginContainer/Panel/MarginContainer/SubmitCreateLobby
 
@@ -97,7 +98,8 @@ func _update_selected_buttons():
 	# Check selected on group_type
 	for button in group_type:
 		if button.button_pressed:
-			is_private = button.text == "Privée"
+			is_private = button.name == "Button_Privee"
+			
 
 func _on_create_lobby_pressed():
 	var payload = {
@@ -107,6 +109,12 @@ func _on_create_lobby_pressed():
 		"is_private": is_private,
 		"secret": lineedit_mdp.text if is_private else ""
 	}
+	
+	# Client validation
+	# Check if Lobby secret is provided if Lobby is private
+	if is_private and len(payload["secret"]) == 0:
+		message_mdp.text = "Please enter a password for your lobby"
+		return
 	
 	var response = await HttpRequestClient.__post("/lobbies", payload)
 	
