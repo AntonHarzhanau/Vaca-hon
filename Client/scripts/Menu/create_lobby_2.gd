@@ -113,7 +113,7 @@ func _on_create_lobby_pressed():
 	# Client validation
 	# Check if Lobby secret is provided if Lobby is private
 	if is_private and len(payload["secret"]) == 0:
-		message_mdp.text = "Please enter a password for your lobby"
+		message_mdp.text = "Please enter a password for your game"
 		return
 	
 	var response = await HttpRequestClient.__post("/lobbies", payload)

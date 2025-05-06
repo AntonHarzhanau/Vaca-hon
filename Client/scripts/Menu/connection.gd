@@ -15,6 +15,10 @@ func _on_connecter_pressed() -> void:
 		"username": login.text,  
 		"password": password.text
 	}
+	# Field Validation
+	if login.text.is_empty() or password.text.is_empty():
+		message.text = "Please enter all required fields."
+		return
 	
 	var response = await HttpRequestClient.__post("/Users/login", payload)
 
