@@ -15,14 +15,12 @@ func _ready() -> void:
 	
 func set_player(player: Player):
 	super.set_player(player)
-	player_id = player.id
 	
+
 func update_hub():
 	super.update_hub()
-#func update_hub():
-	#super.update_hub()
-	#player_name_lable.text = player.player_name
-	#player_money_lable.text = str(player.money)
+	player_name_lable.text = player.player_name
+	player_money_lable.text = str(player.money)
 
 func show_player_popup():
 	#var popup = preload("res://scenes/UI/Popups/PlayerPopup.tscn").instantiate()

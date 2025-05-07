@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://drucucpsarro8"]
+[gd_scene load_steps=22 format=3 uid="uid://drucucpsarro8"]
 
 [ext_resource type="Script" uid="uid://c8p7n4cif6ue7" path="res://scripts/Menu/lobby_room.gd" id="1_gfw6i"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_7ju5v"]
@@ -11,45 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cmw3h4iksi8ex" path="res://assets/cancel.png" id="8_vjysv"]
 [ext_resource type="Texture2D" uid="uid://bu2oceabbd5id" path="res://assets/Token/TOKEN-3.png" id="10_lysqt"]
 [ext_resource type="Texture2D" uid="uid://bx4vkn031pdsj" path="res://assets/Token/TOKEN.png" id="11_unnp8"]
-[ext_resource type="StyleBox" uid="uid://dbe6v4s5e6kax" path="res://styles/brown_hover.tres" id="14_unnp8"]
-[ext_resource type="StyleBox" uid="uid://dy6qo1bdyl8vr" path="res://styles/brown_pressed.tres" id="15_217gt"]
-[ext_resource type="StyleBox" uid="uid://1vlidxe7ekw3" path="res://styles/brown_normal.tres" id="16_8ijah"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfnhy"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_306rh"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tdqe"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pamqj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -72,79 +33,35 @@ bg_color = Color(1, 0.8, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bff1k"]
 bg_color = Color(0.203922, 0.780392, 0.34902, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gry0s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ijah"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7htu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8abp8"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y7f0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbq30"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtvvq"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afsdv"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcaqq"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 14
-border_width_top = 14
-border_width_right = 14
-border_width_bottom = 14
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8abp8"]
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
 [node name="Lobby_Wait" type="Control"]
 layout_mode = 3
@@ -434,128 +351,7 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Traveler5" type="TextureRect" parent="TextureRect/MarginContainer2/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(280, 0)
-layout_direction = 2
-layout_mode = 2
-
-[node name="invite2" type="TextureButton" parent="TextureRect/MarginContainer2/HBoxContainer/Traveler5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0571429
-anchor_top = 0.28
-anchor_right = 0.664643
-anchor_bottom = 0.7832
-offset_right = 72.9
-offset_bottom = 101.4
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("8_217gt")
-texture_pressed = ExtResource("9_8ijah")
-texture_hover = ExtResource("9_8ijah")
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Traveler6" type="TextureRect" parent="TextureRect/MarginContainer2/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(280, 0)
-layout_direction = 2
-layout_mode = 2
-
-[node name="invite3" type="TextureButton" parent="TextureRect/MarginContainer2/HBoxContainer/Traveler6"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.31
-anchor_top = 0.280851
-anchor_right = 0.824
-anchor_bottom = 0.784255
-offset_right = 72.9
-offset_bottom = 101.4
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("8_217gt")
-texture_pressed = ExtResource("9_8ijah")
-texture_hover = ExtResource("9_8ijah")
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Traveler7" type="TextureRect" parent="TextureRect/MarginContainer2/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(280, 0)
-layout_direction = 2
-layout_mode = 2
-
-[node name="invite4" type="TextureButton" parent="TextureRect/MarginContainer2/HBoxContainer/Traveler7"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.31
-anchor_top = 0.280851
-anchor_right = 0.824
-anchor_bottom = 0.784255
-offset_right = 72.9
-offset_bottom = 101.4
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("8_217gt")
-texture_pressed = ExtResource("9_8ijah")
-texture_hover = ExtResource("9_8ijah")
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
-custom_minimum_size = Vector2(3, 0)
-layout_mode = 0
-anchor_left = 0.764
-anchor_top = 0.17125
-anchor_right = 0.98
-anchor_bottom = 0.315625
-offset_right = 1224.0
-offset_bottom = 654.5
-scale = Vector2(0.15, 0.15)
-metadata/_edit_use_anchors_ = true
-
-[node name="Parties publiques" type="Button" parent="TextureRect/VBoxContainer"]
-custom_minimum_size = Vector2(1400, 350)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_bff1k")
-theme_override_font_sizes/font_size = 200
-theme_override_styles/hover = SubResource("StyleBoxFlat_gry0s")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_lfnhy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o7htu")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4y7f0")
-text = "#479816"
-
-[node name="Parties privees" type="Button" parent="TextureRect/VBoxContainer"]
-custom_minimum_size = Vector2(1400, 350)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("4_bff1k")
-theme_override_font_sizes/font_size = 200
-theme_override_styles/hover = SubResource("StyleBoxFlat_gtvvq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_afsdv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xcaqq")
-text = "888888"
-autowrap_mode = 3
-
-[node name="OverlayMask" type="Control" parent="TextureRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.725
@@ -571,13 +367,11 @@ metadata/_edit_use_anchors_ = true
 [node name="start" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(245, 94)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_bff1k")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8abp8")
-theme_override_styles/hover = ExtResource("14_unnp8")
-theme_override_styles/pressed = ExtResource("15_217gt")
-theme_override_styles/normal = ExtResource("16_8ijah")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ijah")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8abp8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mbq30")
 text = "START"
 icon_alignment = 2
 expand_icon = true

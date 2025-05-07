@@ -90,10 +90,8 @@ text = "Player's turn: 0"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -321.0
-offset_top = 1.0
-offset_right = -139.0
-offset_bottom = 349.0
+offset_left = -182.0
+offset_bottom = 348.0
 grow_horizontal = 0
 
 [node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
@@ -139,5 +137,6 @@ text = "Ok"
 [node name="EventCard" parent="." instance=ExtResource("7_35jxk")]
 visible = false
 
+[connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]

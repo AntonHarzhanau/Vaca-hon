@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dloka1md5xig"]
+[gd_scene load_steps=9 format=3 uid="uid://dloka1md5xig"]
 
 [ext_resource type="Script" uid="uid://devaggefdhj2w" path="res://scripts/Menu/waiting_room_player_2.gd" id="1_rxbcj"]
 [ext_resource type="Texture2D" uid="uid://cgqx5m2srf067" path="res://assets/Players/PLAYER.png" id="1_yv48x"]
@@ -7,8 +7,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpevi"]
 bg_color = Color(0.686275, 0.321569, 0.870588, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xu3r2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pamqj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,7 +38,6 @@ anchor_bottom = 0.3216
 offset_right = 27.0
 offset_bottom = 6.2
 scale = Vector2(0.9, 0.9)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_xu3r2")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_dpevi")
@@ -62,7 +59,6 @@ anchor_right = 0.844118
 anchor_bottom = 0.512
 offset_right = -16.0
 offset_bottom = -16.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xu3r2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pamqj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_chkoo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1m0en")

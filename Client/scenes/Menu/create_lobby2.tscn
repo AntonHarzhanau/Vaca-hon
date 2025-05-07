@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="2_2e2bd"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="4_vi5sa"]
-[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="5_0bggq"]
-[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="6_vag1c"]
-[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="7_b0npl"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_0bggq"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vag1c"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_b0npl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -294,7 +294,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vag1c")
@@ -307,7 +306,6 @@ text = "2"
 [node name="Button3" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b0npl")
@@ -320,7 +318,6 @@ text = "3"
 [node name="Button4" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4kb55")
@@ -365,7 +362,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w047n")
@@ -378,7 +374,6 @@ text = "30min"
 [node name="Button45" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pesm0")
@@ -391,7 +386,6 @@ text = "45min"
 [node name="Button60" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7b2c1")
@@ -426,7 +420,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ndisx")
@@ -439,7 +432,6 @@ text = "Public"
 [node name="Button_Privee" type="Button" parent="TextureRect/MarginContainer/Panel/Control2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lht2m")
@@ -552,7 +544,6 @@ metadata/_edit_use_anchors_ = true
 [node name="SubmitCreateLobby" type="Button" parent="TextureRect/MarginContainer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(272, 101)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_8oi6e")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3qtel")

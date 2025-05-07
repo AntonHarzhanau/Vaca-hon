@@ -16,4 +16,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("1_qadnr")
 texture_pressed = ExtResource("2_1v07d")
+texture_hover = ExtResource("2_1v07d")
 stretch_mode = 3
