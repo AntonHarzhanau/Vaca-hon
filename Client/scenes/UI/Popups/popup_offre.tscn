@@ -68,7 +68,6 @@ texture = ExtResource("2_rwpom")
 
 [node name="Title Label" type="Label" parent="Back_ground"]
 layout_mode = 0
-offset_left = 2.0
 offset_top = -2.0
 offset_right = 803.0
 offset_bottom = 90.0

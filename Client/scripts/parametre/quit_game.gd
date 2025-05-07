@@ -1,8 +1,8 @@
 extends Control
 
 @onready var quit_dialog_panel = $QuitDialogPanel
-@onready var confirm_button = $QuitDialogPanel/HBoxContainer/ConfirmButton
-@onready var cancel_button = $QuitDialogPanel/HBoxContainer/CancelButton
+@onready var confirm_button = $Back_ground/Button_container/ConfirmButton
+@onready var cancel_button = $Back_ground/Button_container/CancelButton
 
 func _ready():
 	quit_dialog_panel.visible = false

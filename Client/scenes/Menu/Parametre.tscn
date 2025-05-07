@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://b8kiax82hqv6v"]
 
-[ext_resource type="Script" path="res://scripts/Menu/parametre.gd" id="1_3j7aq"]
+[ext_resource type="Script" uid="uid://c3yx8f384crku" path="res://scripts/Menu/parametre.gd" id="1_3j7aq"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_m4m2w"]
 [ext_resource type="Texture2D" uid="uid://y5icpqw2qxyh" path="res://assets/icon_chevron_left.png" id="3_tps0i"]
 [ext_resource type="Texture2D" uid="uid://eiw3bf5h68m5" path="res://assets/icon_chevron_right.png" id="4_ekgrj"]
@@ -157,6 +157,7 @@ offset_bottom = 9.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Panel/Vibrations"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -168,6 +169,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect/Panel/Vibrations"]
+visible = false
 custom_minimum_size = Vector2(105, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -191,6 +193,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Panel/Langue"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -201,10 +204,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Panel/Langue"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 6
 
 [node name="Button" type="Button" parent="TextureRect/Panel/Langue/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -213,6 +218,7 @@ icon = ExtResource("3_tps0i")
 flat = true
 
 [node name="Label" type="Label" parent="TextureRect/Panel/Langue/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -223,6 +229,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="TextureRect/Panel/Langue/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -245,6 +252,7 @@ offset_bottom = 12.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="TextureRect/Panel/Notifications"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -256,6 +264,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect/Panel/Notifications"]
+visible = false
 custom_minimum_size = Vector2(105, 64)
 layout_mode = 2
 size_flags_horizontal = 4

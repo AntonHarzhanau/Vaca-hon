@@ -214,10 +214,10 @@ visible = false
 visible = false
 anchors_preset = -1
 anchor_right = 1.061
-offset_left = -118.0
-offset_top = 38.0
-offset_right = -532.0
-offset_bottom = -271.0
+offset_left = 101.0
+offset_top = 127.0
+offset_right = -159.0
+offset_bottom = -182.0
 
 [node name="Settings" parent="." instance=ExtResource("10_c5elv")]
 visible = false
@@ -403,23 +403,22 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_abj57")
 max_value = 10.0
 metadata/_edit_use_anchors_ = true
 
-[node name="setting" type="TextureButton" parent="."]
-offset_left = 204.0
-offset_top = 14.0
-offset_right = 266.0
-offset_bottom = 102.0
-texture_normal = ExtResource("16_umf6b")
-
-[node name="quit" type="TextureButton" parent="setting"]
-layout_mode = 1
+[node name="quit" type="TextureButton" parent="."]
 anchors_preset = -1
 anchor_right = 0.056
 anchor_bottom = 0.373
-offset_left = -204.0
-offset_top = 6.0
-offset_right = -148.0
-offset_bottom = 33.874
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 25.0
+offset_bottom = -212.4
 texture_normal = ExtResource("17_4p8sv")
+
+[node name="setting" type="TextureButton" parent="."]
+offset_left = 116.0
+offset_top = 20.0
+offset_right = 178.0
+offset_bottom = 90.0
+texture_normal = ExtResource("16_umf6b")
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
@@ -427,5 +426,5 @@ texture_normal = ExtResource("17_4p8sv")
 [connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="QuitDialogPanel2/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="setting" to="." method="_on_setting_pressed"]
-[connection signal="pressed" from="setting/quit" to="." method="_on_quit_pressed"]

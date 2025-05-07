@@ -1,35 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://bns4cfqvli8a7"]
+[gd_scene load_steps=12 format=3 uid="uid://bns4cfqvli8a7"]
 
 [ext_resource type="Script" uid="uid://bjpqodrj4x60i" path="res://scripts/parametre/quit_game.gd" id="1_keulw"]
 [ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="2_twpsu"]
-[ext_resource type="Texture2D" uid="uid://dc1mq1003if8q" path="res://assets/log out.png" id="3_sqa0i"]
+[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="4_eup1v"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_2o78c"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nj02x"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_pfor3"]
 
-[sub_resource type="Theme" id="Theme_kycxp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq8q7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hc2i"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5, 0.5, 0.5, 0.5)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
-[sub_resource type="Theme" id="Theme_pq8q7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7lqs"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyidc"]
-bg_color = Color(0.392157, 0.0745098, 0.0745098, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eup1v"]
 
-[sub_resource type="Theme" id="Theme_pyidc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o78c"]
+bg_color = Color(0.627451, 0.85098, 0.909804, 0.666667)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.482353, 0.776471, 0.854902, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvh5c"]
-bg_color = Color(0.448219, 0.187911, 0.100146, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28aoi"]
-bg_color = Color(0.295898, 0.664098, 0.94692, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj02x"]
 
 [node name="quit_game" type="Control"]
 layout_mode = 3
@@ -44,118 +42,93 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_keulw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 147.0
-offset_right = 471.0
-offset_bottom = 214.0
-theme_override_constants/separation = 8
-
-[node name="Exit" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_kycxp")
-texture_normal = ExtResource("3_sqa0i")
-
-[node name="Spacer" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-
-[node name="QuitButton" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 279.0
-offset_top = 140.0
-offset_right = 404.0
-offset_bottom = 186.0
-text = "Quit game"
-
 [node name="QuitDialogPanel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 119.0
-offset_top = 242.0
-offset_right = 630.0
-offset_bottom = 469.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pq8q7")
-
-[node name="MessageLabel" type="Label" parent="QuitDialogPanel"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 30.0
-offset_right = 381.0
-offset_bottom = 105.0
-text = "
-Voulez-vous vraiment quitter ?"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="QuitDialogPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -14.0
-offset_right = 1.0
-offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4hc2i")
 
-[node name="TitleLabel" type="Label" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_pq8q7")
-theme_type_variation = &"HeaderMedium"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+[node name="Mountain Background" type="TextureRect" parent="QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = 104.0
+offset_right = -352.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_twpsu")
+
+[node name="Title Label" type="Label" parent="QuitDialogPanel"]
+layout_mode = 0
+offset_right = 801.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_eup1v")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_pyidc")
-text = "QUITTER LA PARTIE ?"
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7lqs")
+text = "LEAVE THE GAME"
 horizontal_alignment = 1
-
-[node name="HBoxContent" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-
-[node name="MessageLabel" type="Label" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.133196, 0.133196, 0.133196, 1)
-theme_override_font_sizes/font_size = 20
-text = "Êtes-vous vraiment sûr.e de 
-quitter la partie en cours ?
-Votre progression ne
- sera pas sauvegardée."
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
-layout_mode = 2
-texture = ExtResource("2_twpsu")
-expand_mode = 3
-
-[node name="ButtonContainer" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="CancelButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
-layout_mode = 2
-theme = SubResource("Theme_pyidc")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_vvh5c")
-text = "NON"
-
-[node name="ConfirmButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_28aoi")
-text = "OUI"
-
-[node name="CloseButton" type="Button" parent="QuitDialogPanel"]
+[node name="Label" type="Label" parent="QuitDialogPanel"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -18.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "X"
+offset_left = 343.0
+offset_top = 133.0
+offset_bottom = 378.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 35
+text = "Are you sure you want to 
+quit the current game? 
+Your progress will 
+not be saved."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="Button_container" type="HBoxContainer" parent="QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ConfirmButton" type="Button" parent="QuitDialogPanel/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.784314)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eup1v")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2o78c")
+theme_override_styles/hover = ExtResource("5_2o78c")
+theme_override_styles/pressed = ExtResource("6_nj02x")
+theme_override_styles/normal = ExtResource("7_pfor3")
+text = "YES"
+
+[node name="CancelButton" type="Button" parent="QuitDialogPanel/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nj02x")
+theme_override_styles/hover = ExtResource("5_2o78c")
+theme_override_styles/pressed = ExtResource("6_nj02x")
+theme_override_styles/normal = ExtResource("7_pfor3")
+text = "NO"
