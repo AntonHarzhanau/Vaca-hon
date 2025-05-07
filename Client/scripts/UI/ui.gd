@@ -17,12 +17,18 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
 @onready var info_message: Label = $VBoxContainer/InfoMessage
 @onready var event_card:EventCard = $EventCard
+@onready var quit_dialog_panel = $QuitDialogPanel
+@onready var quit2_dialog_panel = $QuitDialogPanel2
 
 func _ready() -> void:
 	# Subscribe to signals
 	#turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 	dice.dice_rolled.connect(_on_dice_dice_rolled)
 	end_turn_btn.pressed.connect(_on_end_turn_button_pressed)
+	quit_dialog_panel.visible = false
+	quit2_dialog_panel.visible = false
+
+	
 	
 func _on_dice_dice_rolled():
 	var msg = {"action": "dice_rolled", "for": States.current_context}
@@ -74,3 +80,35 @@ func show_info(info:String):
 
 func _on_ok_button_pressed() -> void:
 	$VBoxContainer.visible = false	
+
+
+func _on_setting_pressed() -> void:
+	quit_dialog_panel.visible = true
+
+	
+	pass # Replace with function body.
+
+
+func _on_quit_pressed() -> void:
+	quit2_dialog_panel.visible = true
+
+	
+	
+	pass # Replace with function body.
+
+
+func _on_cancel_button_pressed() -> void:
+	quit_dialog_panel.visible = false
+	
+	pass # Replace with function body.
+
+
+func _on_confirm_button_pressed() -> void:
+	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_close_button_pressed() -> void:
+	quit2_dialog_panel.visible = false
+	
+	pass # Replace with function body.

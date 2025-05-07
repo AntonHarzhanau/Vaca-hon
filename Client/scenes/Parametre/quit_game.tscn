@@ -1,0 +1,161 @@
+[gd_scene load_steps=11 format=3 uid="uid://bns4cfqvli8a7"]
+
+[ext_resource type="Script" uid="uid://bjpqodrj4x60i" path="res://scripts/parametre/quit_game.gd" id="1_keulw"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="2_twpsu"]
+[ext_resource type="Texture2D" uid="uid://dc1mq1003if8q" path="res://assets/log out.png" id="3_sqa0i"]
+
+[sub_resource type="Theme" id="Theme_kycxp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq8q7"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 0.5)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_pq8q7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyidc"]
+bg_color = Color(0.392157, 0.0745098, 0.0745098, 1)
+
+[sub_resource type="Theme" id="Theme_pyidc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvh5c"]
+bg_color = Color(0.448219, 0.187911, 0.100146, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28aoi"]
+bg_color = Color(0.295898, 0.664098, 0.94692, 1)
+
+[node name="quit_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = 43.0
+offset_right = -274.0
+offset_bottom = -266.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_keulw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 147.0
+offset_right = 471.0
+offset_bottom = 214.0
+theme_override_constants/separation = 8
+
+[node name="Exit" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kycxp")
+texture_normal = ExtResource("3_sqa0i")
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="QuitButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 279.0
+offset_top = 140.0
+offset_right = 404.0
+offset_bottom = 186.0
+text = "Quit game"
+
+[node name="QuitDialogPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 242.0
+offset_right = 630.0
+offset_bottom = 469.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pq8q7")
+
+[node name="MessageLabel" type="Label" parent="QuitDialogPanel"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 30.0
+offset_right = 381.0
+offset_bottom = 105.0
+text = "
+Voulez-vous vraiment quitter ?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -14.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="QuitDialogPanel/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pq8q7")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyidc")
+text = "QUITTER LA PARTIE ?"
+horizontal_alignment = 1
+
+[node name="HBoxContent" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.133196, 0.133196, 0.133196, 1)
+theme_override_font_sizes/font_size = 20
+text = "Êtes-vous vraiment sûr.e de 
+quitter la partie en cours ?
+Votre progression ne
+ sera pas sauvegardée."
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
+layout_mode = 2
+texture = ExtResource("2_twpsu")
+expand_mode = 3
+
+[node name="ButtonContainer" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CancelButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pyidc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vvh5c")
+text = "NON"
+
+[node name="ConfirmButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_28aoi")
+text = "OUI"
+
+[node name="CloseButton" type="Button" parent="QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="QuitDialogPanel/CloseButton" to="." method="_on_close_button_pressed"]
