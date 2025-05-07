@@ -4,7 +4,8 @@ extends Control
 @onready var player_token_sprite: Sprite2D = $PlayerToken
 
 @export var player_name: String = "{{player_name}}"
-@export var player_color: String = "#af52de"
+#@export var player_color: String = "#af52de"
+@export var player_color: String
 @export var player_token = preload("res://assets/Token/flight.png")
 
 func _ready() -> void:

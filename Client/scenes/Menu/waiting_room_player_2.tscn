@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dloka1md5xig"]
+[gd_scene load_steps=9 format=3 uid="uid://dloka1md5xig"]
 
 [ext_resource type="Script" uid="uid://devaggefdhj2w" path="res://scripts/Menu/waiting_room_player_2.gd" id="1_rxbcj"]
 [ext_resource type="Texture2D" uid="uid://cgqx5m2srf067" path="res://assets/Players/PLAYER.png" id="1_yv48x"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_xu3r2"]
-[ext_resource type="Texture2D" uid="uid://cglcyl6tbel17" path="res://assets/Token/TOKEN-1.png" id="3_r6c4w"]
 [ext_resource type="Texture2D" uid="uid://cwc2ug4keewgq" path="res://assets/edit.png" id="4_y2gfq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpevi"]
@@ -22,6 +21,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 custom_minimum_size = Vector2(310, 0)
 layout_direction = 2
 script = ExtResource("1_rxbcj")
+player_token = null
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(148, 274)
@@ -49,7 +49,6 @@ metadata/_edit_use_anchors_ = true
 [node name="PlayerToken" type="Sprite2D" parent="."]
 position = Vector2(149, 344)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_r6c4w")
 
 [node name="edit" type="Button" parent="."]
 layout_mode = 1

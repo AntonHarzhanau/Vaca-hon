@@ -103,7 +103,7 @@ class LobbyInstance:
         for user in self.connection_manager.active_connections.values():
             # Create game entities based on user information (e.g. username, selected token, etc.)
             print(user)
-            players[user.id] = Player(id=user.id, name=user.username, selected_token=user.selected_token)
+            players[user.id] = Player(id=user.id, name=user.username, selected_token=user.selected_token, player_color=user.player_color)
 
         # Initialize the game state
         self.game_manager = GameManager(players)

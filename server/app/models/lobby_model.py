@@ -16,6 +16,7 @@ class LobbyOrm(Base):
     is_private: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     secret: Mapped[str] = mapped_column(String, nullable=True)
     owner_id: Mapped[int] = mapped_column(ForeignKey("User.id"), nullable=False)
+    owner_name: Mapped[str] = mapped_column(String, nullable=False)
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
@@ -33,6 +34,7 @@ class LobbyOrm(Base):
             time_sec=self.time_sec,
             players=self.players,
             owner_id=self.owner_id,
+            owner_name=self.owner_name,
             is_active=self.is_active,
             is_private=self.is_private,
             created_at=self.created_at,

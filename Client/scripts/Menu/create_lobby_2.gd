@@ -104,6 +104,7 @@ func _update_selected_buttons():
 func _on_create_lobby_pressed():
 	var payload = {
 		"owner_id": int(UserData.user_id),
+		"owner_name": UserData.user_name,
 		"nb_player_max": nb_player_max,
 		"time_sec": time_sec,
 		"is_private": is_private,

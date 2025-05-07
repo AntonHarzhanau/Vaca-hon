@@ -253,6 +253,7 @@ func add_player(player_data: Dictionary) -> Player:
 	new_player.player_name = player_data["name"]
 	new_player.current_position = player_data["current_position"]
 	new_player.money = player_data["money"]
+	new_player.player_color = player_data["player_color"]
 	new_player.global_position = game_board.get_children()[0].global_position
 	return new_player
 

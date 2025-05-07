@@ -72,16 +72,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gfw6i")
 
-[node name="TextureRect" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -351,6 +341,15 @@ icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
+[node name="OverlayMask" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -375,6 +374,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_mbq30")
 text = "START"
 icon_alignment = 2
 expand_icon = true
+
+[node name="TextureRect" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="pressed" from="ColorRect/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/Traveler1/Player/edit" to="." method="_on_edit_pressed"]

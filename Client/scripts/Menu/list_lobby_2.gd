@@ -19,6 +19,7 @@ const SIDE_BOTTOM_LEFT = 3
 var is_expanded := false
 var selected_button: Button = null
 var default_style: StyleBoxFlat = null
+var is_public: bool = true
 
 # New: Added pop-up window and background mask nodes
 @onready var rejoindre_popup := $TextureRect/Rejoindre
@@ -64,17 +65,21 @@ func _on_filter_button_pressed():
 	is_expanded = !is_expanded
 	filter_menu.visible = is_expanded
 	filter_button.text = "  FILTRER         ▲" if is_expanded else "  FILTRER         ▼"
+	
 
 func _on_publique_pressed():
+	is_public = true
 	_select_button(button_publique)
 	print("Filter：Parties publiques")
 
 func _on_privee_pressed():
+	is_public = false
 	_select_button(button_privee)
 	print("Filter：Parties privées")
 
 func _select_button(button: Button):
 	# Reset the previously selected button style
+	_fetch_lobbies()
 	if selected_button and selected_button != button:
 		if default_style:
 			selected_button.set("theme_override_styles/normal", default_style.duplicate())
@@ -92,27 +97,33 @@ func _on_texture_button_pressed() -> void:
 	var scene = preload("res://scenes/Menu/home.tscn")
 	if scene:
 		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")  # 切换到主菜单场景
+		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
 	else:
 		print("Failed to load scene.")
 
 func _fetch_lobbies():
 	# Get Lobbies from Server
-	var response = await HttpRequestClient.__get("/lobbies")
-	
+	var response
+	if is_public:
+		response = await HttpRequestClient.__get("/lobbies?is_active=true&is_private=false")
+	else : 
+		response = await HttpRequestClient.__get("/lobbies?is_active=true&is_private=true")
 	if response.result != OK:
 		push_error("An error occurred in the HTTP request.")
 		print("Error occured when retrieving lobbies from server")
 	else:
+		
 		for lobby in lobbies_grid_container.get_children():
 			lobby.queue_free()
+			
 		lobbies = response.body
+		print(lobbies)
 		for lobby in lobbies:
 			var nb_players = lobby.players.size()
 			var nb_player_max = lobby.nb_player_max
 			
 			var new_lobby = lobby_item_scene.instantiate()
-			new_lobby.get_node("LobbyName").text = "Partie N°" + str(int(lobby.id))
+			new_lobby.get_node("LobbyName").text = "Game of " + lobby.owner_name
 			#new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyPrivacy").text = "🔓 Public" if lobby.is_private == false else "🔒 Privé"
 			new_lobby.get_node("LobbyPlayers").text = "Joueurs: " + str(int(nb_players))+'/'+ str(int(nb_player_max))
 			var join_button:Button = new_lobby.get_node("JoinLobby")
@@ -131,7 +142,7 @@ func _on_join_pressed(lobby):
 	States.lobby_id = int(lobby.id)
 	States.lobby_max_players = int(lobby.nb_player_max)
 	States.lobby_owner_id = int(lobby.owner_id)
-	rejoindre_popup_lobby_owner.text = "User #" + str(int(lobby.owner_id))
+	rejoindre_popup_lobby_owner.text = lobby.owner_name
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():

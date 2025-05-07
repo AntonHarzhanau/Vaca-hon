@@ -3,13 +3,16 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import declarative_base
+import sqlalchemy.ext.asyncio
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import sessionmaker
 
 # Load environment variables from .env
 load_dotenv() 
 # URL de connexion à la base de données
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+#SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 #SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:2547@localhost:5432/monopoly" <- async postgress
-#SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db" #   <- async sqlite
+SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db" #   <- async sqlite
 
 # Déclarer la base
 Base = declarative_base()
