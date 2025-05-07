@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgvru7cbpgfu3"]
+[gd_scene load_steps=13 format=3 uid="uid://cgvru7cbpgfu3"]
 
 [ext_resource type="Script" uid="uid://d0f5mnxcxed7r" path="res://scripts/Menu/cree_compte.gd" id="1_18l02"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_18l02"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_ywi4s"]
 [ext_resource type="Texture2D" uid="uid://b0egvipo4oaeh" path="res://assets/eye.png" id="4_18l02"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_foc18"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="6_fv8al"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="7_makqq"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="8_3bfsa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4o7"]
 bg_color = Color(1, 1, 1, 1)
@@ -20,32 +23,7 @@ bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7imv"]
-bg_color = Color(0.551599, 0.871557, 0.888565, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itnoy"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-shadow_color = Color(0, 0, 0, 0.431373)
-shadow_size = 1
-shadow_offset = Vector2(2, 3)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv8al"]
 
 [node name="Cree" type="Control"]
 layout_mode = 3
@@ -132,7 +110,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-User name"
+Username"
 vertical_alignment = 1
 
 [node name="UsernameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
@@ -177,6 +155,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/caret_width = 2
@@ -217,6 +196,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/caret_width = 2
@@ -236,7 +216,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.741176, 0.741176, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 20
-text = "Il doit contenir au minimum 8 caractères, chiffres ou symboles."
+text = "It must contain minimum 8 characters, at least 1 number and 1 special character"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -256,6 +236,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/caret_width = 2
@@ -292,11 +273,13 @@ custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_18l02")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fv8al")
+theme_override_styles/hover = ExtResource("6_fv8al")
+theme_override_styles/pressed = ExtResource("7_makqq")
+theme_override_styles/normal = ExtResource("8_3bfsa")
 text = "CREATE AN ACCOUNT"
 metadata/_edit_use_anchors_ = true
 

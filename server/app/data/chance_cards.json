@@ -12,7 +12,7 @@
       "type": "chance"
   },
   {
-      "description": "Currency Exchange Win! Move to Beijing. Collect ₥50.",
+      "description": "Currency Exchange Win! Move to Beijing. Collect 50.",
       "effect_type": "move_and_gain",
       "target": "Beijing",
       "amount": 50,
@@ -24,7 +24,7 @@
       "type": "chance"
   },
   {
-      "description": "GO TO CUSTOMS. Go directly to Customs. Do not pass GO. Do not collect ₥200.",
+      "description": "GO TO CUSTOMS. Go directly to Customs. Do not pass GO. Do not collect 200.",
       "effect_type": "go_to_jail",
       "type": "chance"
   },
@@ -35,26 +35,26 @@
       "type": "chance"
   },
   {
-      "description": "Excess Baggage Fee. PAY ₥15.",
+      "description": "Excess Baggage Fee. PAY 15.",
       "effect_type": "pay_fine",
       "amount": 15,
       "type": "chance"
   },
   {
-      "description": "Successful Currency Exchange! COLLECT ₥150.",
+      "description": "Successful Currency Exchange! COLLECT 150.",
       "effect_type": "gain_money",
       "amount": 150,
       "type": "chance"
   },
   {
-      "description": "TAKE A TRIP TO TEHRAN. IF YOU PASS GO, COLLECT ₥200.",
+      "description": "TAKE A TRIP TO TEHRAN. IF YOU PASS GO, COLLECT 200.",
       "effect_type": "move_to",
       "target": "Tehran",
       "money_bonus": 200,
       "type": "chance"
   },
   {
-      "description": "Luxury Lounge Access! PAY EACH TRAVELER ₥50.",
+      "description": "Luxury Lounge Access! PAY EACH TRAVELER 50.",
       "effect_type": "pay_all",
       "amount": 50,
       "type": "chance"
@@ -67,21 +67,21 @@
       "type": "chance"
   },
   {
-      "description": "ADVANCE TO LUXOR. IF YOU PASS GO, COLLECT ₥200.",
+      "description": "ADVANCE TO LUXOR. IF YOU PASS GO, COLLECT 200.",
       "effect_type": "move_to",
       "target": "Luxor",
       "money_bonus": 200,
       "type": "chance"
   },
   {
-      "description": "ADVANCE TO ORAN. IF YOU PASS GO, COLLECT ₥200.",
+      "description": "ADVANCE TO ORAN. IF YOU PASS GO, COLLECT 200.",
       "effect_type": "move_to",
       "target": "Oran",
       "money_bonus": 200,
       "type": "chance"
   },
   {
-      "description": "ADVANCE TO GO. (COLLECT ₥200)",
+      "description": "ADVANCE TO GO. (COLLECT 200)",
       "effect_type": "move_to",
       "target": "GO",
       "money_bonus": 200,
@@ -95,7 +95,7 @@
       "type": "chance"
   },
   {
-      "description": "Hotel Renovation Costs! PAY ₥25 per house, ₥100 per hotel.",
+      "description": "Hotel Renovation Costs! PAY 25 per house, 100 per hotel.",
       "effect_type": "property_repair",
       "house_cost": 25,
       "type": "chance"

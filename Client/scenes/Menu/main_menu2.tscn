@@ -4,11 +4,11 @@
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_cb6tt"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_cnkde"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_ikq3i"]
-[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5ujfd"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="5_5ujfd"]
 [ext_resource type="Texture2D" uid="uid://dm7sy4y7nslrl" path="res://assets/voyager.png" id="5_cnkde"]
 [ext_resource type="Texture2D" uid="uid://u5w5jyk8gywe" path="res://assets/voyagers.png" id="6_ikq3i"]
-[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vg8mh"]
-[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_bmvja"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="6_vg8mh"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="7_bmvja"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k25rb"]
 
@@ -83,6 +83,7 @@ texture_normal = ExtResource("4_ikq3i")
 [node name="Label" type="Label" parent="control/VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
 theme_override_font_sizes/font_size = 40
 text = "GAME MODE SELECTION"
@@ -119,8 +120,9 @@ metadata/_edit_use_anchors_ = true
 [node name="CREER" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k25rb")
 theme_override_styles/hover = ExtResource("5_5ujfd")
 theme_override_styles/pressed = ExtResource("6_vg8mh")
@@ -151,8 +153,9 @@ metadata/_edit_use_anchors_ = true
 [node name="REJOINDRE" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b42ix")
 theme_override_styles/hover = ExtResource("5_5ujfd")
 theme_override_styles/pressed = ExtResource("6_vg8mh")

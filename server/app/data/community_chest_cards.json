@@ -1,31 +1,31 @@
 [
   {
-    "description": "Social Media Travel Photo Contest! COLLECT ₥10.",
+    "description": "Social Media Travel Photo Contest! COLLECT 10.",
     "effect_type": "gain_money",
     "amount": 10,
     "type": "community"
 
   },
   {
-    "description": "Travel Guide Tips! RECEIVE ₥25.",
+    "description": "Travel Guide Tips! RECEIVE 25.",
     "effect_type": "gain_money",
     "amount": 25,
     "type": "community"
   },
   {
-    "description": "Currency Conversion Error! Bank Error in Your Favour. COLLECT ₥200.",
+    "description": "Currency Conversion Error! Bank Error in Your Favour. COLLECT 200.",
     "effect_type": "gain_money",
     "amount": 200,
     "type": "community"
   },
   {
-    "description": "Hotel Maintenance Costs! PAY ₥40 PER HOUSE AND ₥115 PER HOTEL YOU OWN.",
+    "description": "Hotel Maintenance Costs! PAY 40 PER HOUSE AND 115 PER HOTEL YOU OWN.",
     "effect_type": "property_repair",
     "house_cost": 40,
     "type": "community"
   },
   {
-    "description": "Language Course Fees. PAY ₥50.",
+    "description": "Language Course Fees. PAY 50.",
     "effect_type": "pay_fine",
     "amount": 50,
     "type": "community"

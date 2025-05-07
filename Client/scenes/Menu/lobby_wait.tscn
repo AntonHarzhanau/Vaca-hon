@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dtnirlo71hwp2"]
+[gd_scene load_steps=24 format=3 uid="uid://dtnirlo71hwp2"]
 
 [ext_resource type="Script" uid="uid://mc6lkg7jndel" path="res://scripts/Menu/lobby_wait.gd" id="1_lfnhy"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_al50h"]
@@ -121,6 +121,8 @@ corner_radius_bottom_left = 90
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpevi"]
 bg_color = Color(0.686275, 0.321569, 0.870588, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4y7f0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pamqj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -222,6 +224,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(1400, 350)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_rgr5d")
 theme_override_font_sizes/font_size = 200
 theme_override_styles/hover = SubResource("StyleBoxFlat_gry0s")
@@ -234,6 +237,7 @@ text = "#479816"
 custom_minimum_size = Vector2(1400, 350)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_rgr5d")
 theme_override_font_sizes/font_size = 200
 theme_override_styles/hover = SubResource("StyleBoxFlat_gtvvq")
@@ -289,6 +293,7 @@ offset_top = -219.5
 offset_right = -50.2222
 offset_bottom = -188.0
 scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_rgr5d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_dpevi")
@@ -307,6 +312,7 @@ offset_left = -156.575
 offset_top = -261.552
 offset_right = -170.881
 offset_bottom = -268.768
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4y7f0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pamqj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_chkoo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1m0en")
@@ -334,7 +340,6 @@ grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("8_4y7f0")
 texture_pressed = ExtResource("9_gtvvq")
-texture_hover = ExtResource("9_gtvvq")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -358,7 +363,6 @@ grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("8_4y7f0")
 texture_pressed = ExtResource("9_gtvvq")
-texture_hover = ExtResource("9_gtvvq")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -382,7 +386,6 @@ grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("8_4y7f0")
 texture_pressed = ExtResource("9_gtvvq")
-texture_hover = ExtResource("9_gtvvq")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
