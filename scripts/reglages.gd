@@ -9,7 +9,8 @@ extends Node2D
 @onready var privacy_dialog = $Privacy_Policy
 @onready var settings_manager = get_node("Settingsm") 
 @onready var sfx_click = $SFX_click
-
+@onready var username_input = $UsernameLineEdit
+@onready var confirm_button = $UsernameLineEdit/ConfirmName
 
 func _ready():
 	$RulesPopup/ScrollContainer/Label.text = """
@@ -25,7 +26,7 @@ Have fun!
 """
 
 	settings_manager.load_settings()
-	
+	username_input.text = settings_manager.username
 	music_slider.value = settings_manager.music_volume
 	sfx_slider.value = settings_manager.sfx_volume
 	vibration_toggle.button_pressed = settings_manager.vibration_enabled
@@ -85,3 +86,17 @@ func _on_rules_pressed() -> void:
 func _on_close_button_pressed() -> void:
 	rules_popup.hide()
 	sfx_click.play()
+	
+func _on_username_line_edit_text_changed(new_text: String) -> void:
+	settings_manager.username = new_text
+	settings_manager.save_settings()
+
+
+func _on_confirm_name_pressed() -> void:
+	var new_name = username_input.text.strip_edges()
+	if new_name != "":
+		settings_manager.username = new_name
+		settings_manager.save_settings()
+		sfx_click.play()
+	else:
+		print("Nom d'utilisateur vide")

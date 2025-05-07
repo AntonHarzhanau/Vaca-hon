@@ -129,6 +129,21 @@ script = ExtResource("2_5vpvs")
 stream = ExtResource("3_od0du")
 autoplay = true
 
+[node name="UsernameLineEdit" type="LineEdit" parent="."]
+offset_left = 804.0
+offset_top = 43.0
+offset_right = 872.563
+offset_bottom = 74.0
+text = "joueur"
+
+[node name="ConfirmName" type="Button" parent="UsernameLineEdit"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 33.0
+offset_right = 79.0
+offset_bottom = 64.0
+text = "confirmer"
+
 [connection signal="pressed" from="Vibrations" to="." method="_on_vibrations_pressed"]
 [connection signal="pressed" from="Notifications" to="." method="_on_notifications_pressed"]
 [connection signal="changed" from="Music" to="." method="_on_music_changed"]
@@ -138,3 +153,4 @@ autoplay = true
 [connection signal="confirmed" from="Privacy_Policy" to="." method="_on_privacy_policy_confirmed"]
 [connection signal="pressed" from="Review Data Consent" to="." method="_on_review_data_consent_pressed"]
 [connection signal="pressed" from="Privacy Policy2" to="." method="_on_privacy_policy_2_pressed"]
+[connection signal="pressed" from="UsernameLineEdit/ConfirmName" to="." method="_on_confirm_name_pressed"]
