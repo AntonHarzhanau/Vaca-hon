@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://cdj547dy11ia5" path="res://Fonts/Jua-Regular.ttf" id="2_lf2ij"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_tw21i"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_lrsvt"]
-[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_c41ie"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="5_c41ie"]
 [ext_resource type="Texture2D" uid="uid://cbuqtbcynl8m8" path="res://assets/Grabber.png" id="5_dw7mh"]
 [ext_resource type="Texture2D" uid="uid://dy5cvw6icxbrq" path="res://assets/Emoji/1.png" id="6_d6ogl"]
-[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_sg3tt"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="6_sg3tt"]
 [ext_resource type="Texture2D" uid="uid://bdwkaoxjujc3g" path="res://assets/Emoji/2.png" id="7_2vvfj"]
-[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_40c3c"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="7_40c3c"]
 [ext_resource type="Texture2D" uid="uid://dv3fgfty4jtaj" path="res://assets/Emoji/3.png" id="8_c41ie"]
 [ext_resource type="Texture2D" uid="uid://dla2erfn7qytl" path="res://assets/Emoji/4.png" id="9_sg3tt"]
 [ext_resource type="Texture2D" uid="uid://b4k8ydt8yttd7" path="res://assets/Emoji/5.png" id="10_40c3c"]
@@ -531,6 +531,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ENVOYER" type="Button" parent="TextureRect/Panel/MarginContainer2"]
 custom_minimum_size = Vector2(225, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_tw21i")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_74p3v")
@@ -574,6 +575,7 @@ texture_normal = ExtResource("4_lrsvt")
 [node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_tw21i")
 theme_override_font_sizes/font_size = 55
 text = "SUPPORT"

@@ -58,6 +58,7 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="Avatar/Panel3/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_qdjmx")
 theme_override_font_sizes/font_size = 55
 text = "PLAYERNAME’S TURN"

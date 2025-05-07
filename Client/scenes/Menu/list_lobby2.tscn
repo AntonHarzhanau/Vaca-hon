@@ -4,11 +4,14 @@
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
-[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5djgv"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="5_5djgv"]
 [ext_resource type="PackedScene" uid="uid://cuj23ias31fci" path="res://scenes/Menu/list_lobby_item2.tscn" id="5_kt6ln"]
-[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nsd2j"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="6_nsd2j"]
 [ext_resource type="Texture2D" uid="uid://bko8xyytqdjkk" path="res://assets/playwith.png" id="7_5djgv"]
-[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_o00fx"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="7_o00fx"]
+[ext_resource type="StyleBox" uid="uid://dbe6v4s5e6kax" path="res://styles/brown_hover.tres" id="10_3dlmw"]
+[ext_resource type="StyleBox" uid="uid://dy6qo1bdyl8vr" path="res://styles/brown_pressed.tres" id="11_altyt"]
+[ext_resource type="StyleBox" uid="uid://1vlidxe7ekw3" path="res://styles/brown_normal.tres" id="12_g4whu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi5sa"]
 bg_color = Color(0.478431, 0.294118, 0.207843, 1)
@@ -151,65 +154,9 @@ bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
 corner_radius_top_left = 60
 corner_radius_top_right = 60
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noq5o"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n3xd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cmd7"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn22v"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4lyj"]
-bg_color = Color(0.552941, 0.870588, 0.890196, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf6ci"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phtr0"]
 
 [node name="TrouverLobby" type="Control"]
 layout_mode = 3
@@ -373,7 +320,7 @@ custom_minimum_size = Vector2(250, 101)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kts6")
 theme_override_styles/hover = ExtResource("5_5djgv")
 theme_override_styles/pressed = ExtResource("6_nsd2j")
@@ -394,7 +341,7 @@ offset_bottom = 40.2
 scale = Vector2(0.7, 0.7)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5djgv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0n3xd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_phtr0")
@@ -423,7 +370,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nsd2j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o00fx")
 theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_0n3xd")
@@ -437,7 +384,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o00fx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3dlmw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_altyt")
@@ -485,7 +432,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 45
-text = "REJOINDRE PARTIE"
+text = "JOIN LOBBY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -501,8 +448,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 30
-text = "Voulez-vous vraiment
-rejoindre la partie de :"
+text = "Do you really want to join this lobby :"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -550,11 +496,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 45
-theme_override_styles/hover = SubResource("StyleBoxFlat_noq5o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8cmd7")
-theme_override_styles/normal = SubResource("StyleBoxFlat_qn22v")
-text = "NON"
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n3xd")
+theme_override_styles/hover = ExtResource("10_3dlmw")
+theme_override_styles/pressed = ExtResource("11_altyt")
+theme_override_styles/normal = ExtResource("12_g4whu")
+text = "NO"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -569,11 +516,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 45
-theme_override_styles/hover = SubResource("StyleBoxFlat_x4lyj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pf6ci")
-theme_override_styles/normal = SubResource("StyleBoxFlat_pf6ci")
-text = "OUI"
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_phtr0")
+theme_override_styles/hover = ExtResource("5_5djgv")
+theme_override_styles/pressed = ExtResource("6_nsd2j")
+theme_override_styles/normal = ExtResource("7_o00fx")
+text = "YES"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 

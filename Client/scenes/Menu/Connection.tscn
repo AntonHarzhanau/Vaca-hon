@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
-[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
-[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
-[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/blue_hover2.tres" id="3_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/blue_normal2.tres" id="4_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/blue_pressed2.tres" id="4_offsg"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
