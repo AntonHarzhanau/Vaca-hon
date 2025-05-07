@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var rules_popup = $RulesPopup
 @onready var music_slider = $Music
 @onready var sfx_slider = $SFX
 @onready var vibration_toggle = $Vibrations
@@ -8,7 +9,21 @@ extends Node2D
 @onready var privacy_dialog = $Privacy_Policy
 @onready var settings_manager = get_node("Settingsm") 
 @onready var sfx_click = $SFX_click
+
+
 func _ready():
+	$RulesPopup/ScrollContainer/Label.text = """
+Welcome to the Game Rules!
+
+1. 
+2. 
+3. 
+4. 
+5. 
+
+Have fun!
+"""
+
 	settings_manager.load_settings()
 	
 	music_slider.value = settings_manager.music_volume
@@ -27,6 +42,7 @@ func _on_sfx_changed(value: float) -> void:
 
 func _on_vibrations_pressed() -> void:
 	settings_manager.vibration_enabled = vibration_toggle.button_pressed
+	Input.start_joy_vibration(0.0,5.0,5.0)
 	settings_manager.save_settings()
 	sfx_click.play()
 
@@ -58,4 +74,14 @@ func _on_datapp_pressed() -> void:
 
 func _on_review_data_consent_pressed() -> void:
 	privacy_dialog.popup_centered()
+	sfx_click.play()
+
+
+
+func _on_rules_pressed() -> void:
+	rules_popup.popup_centered()
+	sfx_click.play()
+	
+func _on_close_button_pressed() -> void:
+	rules_popup.hide()
 	sfx_click.play()

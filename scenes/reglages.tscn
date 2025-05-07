@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://hb2fvfthjyux"]
+[gd_scene load_steps=5 format=3 uid="uid://hb2fvfthjyux"]
 
 [ext_resource type="Script" uid="uid://c5lpp0os7p8pv" path="res://scripts/reglages.gd" id="1_bsbu6"]
 [ext_resource type="Script" uid="uid://yly7mq47i1ll" path="res://scripts/settingsm.gd" id="2_5vpvs"]
 [ext_resource type="AudioStream" uid="uid://dx6q45bofu8t6" path="res://audio/click.wav" id="3_od0du"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_od0du"]
 
 [node name="Reglages" type="Node2D"]
 script = ExtResource("1_bsbu6")
@@ -25,6 +27,11 @@ offset_left = 83.0
 offset_top = 112.0
 offset_right = 139.0
 offset_bottom = 136.0
+
+[node name="Label" type="Label" parent="Vibrations"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="Notifications" type="CheckBox" parent="."]
 offset_left = 729.0
@@ -50,6 +57,12 @@ offset_top = 206.0
 offset_right = 240.0
 offset_bottom = 226.0
 language = "francais"
+item_count = 2
+popup/item_0/text = "français"
+popup/item_0/icon = SubResource("CanvasTexture_od0du")
+popup/item_0/id = 0
+popup/item_1/text = "anglais"
+popup/item_1/id = 1
 
 [node name="Label" type="Label" parent="Language"]
 layout_mode = 0
@@ -59,12 +72,25 @@ offset_right = 81.0
 offset_bottom = -6.0
 text = "language"
 
-[node name="Button" type="Button" parent="."]
+[node name="Rules" type="Button" parent="."]
 offset_left = 487.0
 offset_top = 205.0
 offset_right = 609.0
 offset_bottom = 223.0
 text = "!    RULES"
+
+[node name="RulesPopup" type="Popup" parent="."]
+size = Vector2i(400, 400)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RulesPopup"]
+offset_top = 1.0
+offset_right = 901.0
+offset_bottom = 488.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="RulesPopup/ScrollContainer"]
+layout_mode = 2
 
 [node name="Datapp" type="Button" parent="."]
 offset_left = 164.0
@@ -107,6 +133,7 @@ autoplay = true
 [connection signal="pressed" from="Notifications" to="." method="_on_notifications_pressed"]
 [connection signal="changed" from="Music" to="." method="_on_music_changed"]
 [connection signal="changed" from="SFX" to="." method="_on_sfx_changed"]
+[connection signal="pressed" from="Rules" to="." method="_on_rules_pressed"]
 [connection signal="pressed" from="Datapp" to="." method="_on_datapp_pressed"]
 [connection signal="confirmed" from="Privacy_Policy" to="." method="_on_privacy_policy_confirmed"]
 [connection signal="pressed" from="Review Data Consent" to="." method="_on_review_data_consent_pressed"]

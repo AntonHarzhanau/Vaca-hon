@@ -4,6 +4,7 @@ extends Node
 @onready var ui:UI = $UI
 @onready var board:GameBoard = $GameBoard
 
+
 # Local data
 var current_player_id: int = -1
 var players:Dictionary[int, Player]= {}
@@ -11,6 +12,7 @@ var cells:Array[Cell] = []
 var id_player_at_turn: int = 0
 
 func _ready() -> void:
+	print(ui)  # Si null, chemin incorrect
 	# Subscribing GameManager to network signals
 	WebSocketClient.connect_to_server()
 	WebSocketClient.message_received.connect(msg_handler._on_message_received)
