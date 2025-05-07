@@ -34,8 +34,13 @@ Have fun!
 	language_option.select(settings_manager.language)
 
 func _on_music_changed(value: float) -> void:
-	settings_manager.music_volume = value
-	settings_manager.save_settings()
+	var music_bus_index = AudioServer.get_bus_index("Music")
+	if music_bus_index != -1:
+		var volume_db = linear_to_db(clamp(value, 0.001, 1.0)) 
+		AudioServer.set_bus_volume_db(music_bus_index, volume_db)
+		settings_manager.music_volume = value
+		settings_manager.save_settings()
+
 
 func _on_sfx_changed(value: float) -> void:
 	settings_manager.sfx_volume = value
@@ -90,6 +95,8 @@ func _on_close_button_pressed() -> void:
 func _on_username_line_edit_text_changed(new_text: String) -> void:
 	settings_manager.username = new_text
 	settings_manager.save_settings()
+	sfx_click.play()
+
 
 
 func _on_confirm_name_pressed() -> void:

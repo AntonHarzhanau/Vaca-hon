@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://hb2fvfthjyux"]
+[gd_scene load_steps=14 format=3 uid="uid://hb2fvfthjyux"]
 
 [ext_resource type="Script" uid="uid://c5lpp0os7p8pv" path="res://scripts/reglages.gd" id="1_bsbu6"]
 [ext_resource type="Script" uid="uid://yly7mq47i1ll" path="res://scripts/settingsm.gd" id="2_5vpvs"]
+[ext_resource type="Script" uid="uid://b343qrkcodp8n" path="res://scenes/vibrations.gd" id="2_e57hs"]
+[ext_resource type="Script" uid="uid://bvdh14l5t5ivo" path="res://scenes/rules.gd" id="2_mceag"]
+[ext_resource type="Script" uid="uid://d3fb814bcewwo" path="res://scenes/notifications.gd" id="3_novu0"]
 [ext_resource type="AudioStream" uid="uid://dx6q45bofu8t6" path="res://audio/click.wav" id="3_od0du"]
+[ext_resource type="Script" uid="uid://eakn6nf0o2jq" path="res://scenes/privacy_policy_2.gd" id="5_m72xn"]
+[ext_resource type="Script" uid="uid://bl048pawjmtkv" path="res://scenes/datapp.gd" id="5_rv2j3"]
+[ext_resource type="Script" uid="uid://c7mgt3xh7p8e0" path="res://scenes/privacy_policy.gd" id="5_uikxw"]
+[ext_resource type="Script" uid="uid://6fkc3gr0vy3o" path="res://scenes/review_data_consent.gd" id="7_gblyc"]
+[ext_resource type="AudioStream" uid="uid://onbufqwhh4ht" path="res://audio/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3" id="7_novu0"]
+[ext_resource type="Script" uid="uid://cjnj4kajds4wm" path="res://scenes/confirm_name.gd" id="8_x1qj6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_od0du"]
 
@@ -27,6 +36,7 @@ offset_left = 83.0
 offset_top = 112.0
 offset_right = 139.0
 offset_bottom = 136.0
+script = ExtResource("2_e57hs")
 
 [node name="Label" type="Label" parent="Vibrations"]
 layout_mode = 0
@@ -38,6 +48,7 @@ offset_left = 729.0
 offset_top = 115.0
 offset_right = 785.0
 offset_bottom = 139.0
+script = ExtResource("3_novu0")
 
 [node name="Music" type="HSlider" parent="."]
 offset_left = 183.0
@@ -78,6 +89,7 @@ offset_top = 205.0
 offset_right = 609.0
 offset_bottom = 223.0
 text = "!    RULES"
+script = ExtResource("2_mceag")
 
 [node name="RulesPopup" type="Popup" parent="."]
 size = Vector2i(400, 400)
@@ -99,6 +111,7 @@ offset_right = 303.0
 offset_bottom = 390.0
 text = "Data privacy
 page"
+script = ExtResource("5_rv2j3")
 
 [node name="Privacy_Policy" type="ConfirmationDialog" parent="."]
 title = "Leave the app ?"
@@ -107,6 +120,7 @@ ok_button_text = "NO"
 dialog_text = "This document is on a website.
 do you want to go there now?"
 cancel_button_text = "YES"
+script = ExtResource("5_uikxw")
 
 [node name="Review Data Consent" type="Button" parent="."]
 offset_left = 572.0
@@ -114,6 +128,7 @@ offset_top = 368.0
 offset_right = 744.0
 offset_bottom = 399.0
 text = "Review Data Consent"
+script = ExtResource("7_gblyc")
 
 [node name="Privacy Policy2" type="Button" parent="."]
 offset_left = 370.0
@@ -121,6 +136,7 @@ offset_top = 373.0
 offset_right = 492.0
 offset_bottom = 404.0
 text = "Privacy Policy"
+script = ExtResource("5_m72xn")
 
 [node name="Settingsm" type="Node" parent="."]
 script = ExtResource("2_5vpvs")
@@ -143,6 +159,13 @@ offset_top = 33.0
 offset_right = 79.0
 offset_bottom = 64.0
 text = "confirmer"
+script = ExtResource("8_x1qj6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_novu0")
+volume_db = -38.214
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Vibrations" to="." method="_on_vibrations_pressed"]
 [connection signal="pressed" from="Notifications" to="." method="_on_notifications_pressed"]

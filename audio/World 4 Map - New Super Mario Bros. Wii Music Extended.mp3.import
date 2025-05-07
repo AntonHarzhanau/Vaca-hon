@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://onbufqwhh4ht"
+path="res://.godot/imported/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3-fa41c4127e99c5654d5aa328377ccbf1.mp3str"
+
+[deps]
+
+source_file="res://audio/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3"
+dest_files=["res://.godot/imported/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3-fa41c4127e99c5654d5aa328377ccbf1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

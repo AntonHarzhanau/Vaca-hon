@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcbgh1hksfhu8"
+path="res://.godot/imported/Sonic Adventure 2 Music - Level Clear 0.mp3-7b0a454b47f4f61a02c43232d59a677e.mp3str"
+
+[deps]
+
+source_file="res://audio/Sonic Adventure 2 Music - Level Clear 0.mp3"
+dest_files=["res://.godot/imported/Sonic Adventure 2 Music - Level Clear 0.mp3-7b0a454b47f4f61a02c43232d59a677e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

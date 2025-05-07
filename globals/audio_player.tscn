@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://m36fjfn7ctjr"]
+
+[ext_resource type="Script" uid="uid://c47uhqpn7hjpr" path="res://globals/audio_player.gd" id="1_c5cyl"]
+[ext_resource type="AudioStream" uid="uid://onbufqwhh4ht" path="res://audio/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3" id="1_eej0m"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_eej0m")
+bus = &"Music"
+script = ExtResource("1_c5cyl")

@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlrebauxx7ouu"]
+[gd_scene load_steps=9 format=3 uid="uid://dlrebauxx7ouu"]
 
 [ext_resource type="Script" uid="uid://cl6532nuypydp" path="res://scripts/Menu/main_menu.gd" id="1_k0vh8"]
+[ext_resource type="Script" uid="uid://14vix6dk5334" path="res://scenes/Menu/test.gd" id="2_ymy3e"]
+[ext_resource type="Script" uid="uid://bvbefopmk5x1p" path="res://scenes/Menu/start.gd" id="3_evs2v"]
+[ext_resource type="Script" uid="uid://44o27oxwqs15" path="res://scenes/Menu/create_lobby.gd" id="4_4q1m5"]
+[ext_resource type="Script" uid="uid://c6cl3bxjgxisx" path="res://scenes/Menu/join_lobby.gd" id="5_4q1m5"]
+[ext_resource type="Script" uid="uid://brgr68w7nhpsv" path="res://scenes/Menu/exit.gd" id="6_n6xgq"]
+[ext_resource type="Script" uid="uid://doic1qdxol5in" path="res://scenes/Menu/reglages.gd" id="7_akboc"]
+[ext_resource type="AudioStream" uid="uid://onbufqwhh4ht" path="res://audio/World 4 Map - New Super Mario Bros. Wii Music Extended.mp3" id="8_akboc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -38,31 +45,42 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Test"
+script = ExtResource("2_ymy3e")
 
 [node name="Start" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Start"
+script = ExtResource("3_evs2v")
 
 [node name="CreateLobby" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Create lobby"
+script = ExtResource("4_4q1m5")
 
 [node name="JoinLobby" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Join lobby"
+script = ExtResource("5_4q1m5")
 
 [node name="Exit" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Exit"
+script = ExtResource("6_n6xgq")
 
 [node name="Reglages" type="Button" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Reglages"
+script = ExtResource("7_akboc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_akboc")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/test" to="." method="_on_test_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
