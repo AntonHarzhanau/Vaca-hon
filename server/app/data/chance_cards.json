@@ -2,86 +2,102 @@
   {
       "description": "Airline Upgrade! Move to the nearest airport. If unowned, buy it. If owned, pay double rent.",
       "effect_type": "move_to_nearest",
-      "target": "RailWayCell"
+      "target": "RailWayCell",
+      "type": "chance"
   },
   {
       "description": "Security Check! Go back 3 spaces due to long queues.",
       "effect_type": "move_steps",
-      "steps": -3
+      "steps": -3,
+      "type": "chance"
   },
   {
       "description": "Currency Exchange Win! Move to Beijing. Collect ₥50.",
       "effect_type": "move_and_gain",
       "target": "Beijing",
-      "amount": 50
+      "amount": 50,
+      "type": "chance"
   },
   {
       "description": "GET OUT OF CUSTOMS FREE. This card may be kept until needed or traded.",
-      "effect_type": "get_out_of_jail"
+      "effect_type": "get_out_of_jail",
+      "type": "chance"
   },
   {
       "description": "GO TO CUSTOMS. Go directly to Customs. Do not pass GO. Do not collect ₥200.",
-      "effect_type": "go_to_jail"
+      "effect_type": "go_to_jail",
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO THE NEAREST TOURIST ATTRACTION. If unowned, buy it. If owned, roll dice and pay 10x.",
       "effect_type": "move_to_nearest",
-      "target": "UtilityCell"
+      "target": "UtilityCell",
+      "type": "chance"
   },
   {
       "description": "Excess Baggage Fee. PAY ₥15.",
       "effect_type": "pay_fine",
-      "amount": 15
+      "amount": 15,
+      "type": "chance"
   },
   {
       "description": "Successful Currency Exchange! COLLECT ₥150.",
       "effect_type": "gain_money",
-      "amount": 150
+      "amount": 150,
+      "type": "chance"
   },
   {
       "description": "TAKE A TRIP TO TEHRAN. IF YOU PASS GO, COLLECT ₥200.",
       "effect_type": "move_to",
       "target": "Tehran",
-      "money_bonus": 200
+      "money_bonus": 200,
+      "type": "chance"
   },
   {
       "description": "Luxury Lounge Access! PAY EACH TRAVELER ₥50.",
       "effect_type": "pay_all",
-      "amount": 50
+      "amount": 50,
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO KARA.",
       "effect_type": "move_to",
       "target": "Kara",
-      "money_bonus": 200
+      "money_bonus": 200,
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO LUXOR. IF YOU PASS GO, COLLECT ₥200.",
       "effect_type": "move_to",
       "target": "Luxor",
-      "money_bonus": 200
+      "money_bonus": 200,
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO ORAN. IF YOU PASS GO, COLLECT ₥200.",
       "effect_type": "move_to",
       "target": "Oran",
-      "money_bonus": 200
+      "money_bonus": 200,
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO GO. (COLLECT ₥200)",
       "effect_type": "move_to",
       "target": "GO",
-      "money_bonus": 200
+      "money_bonus": 200,
+      "type": "chance"
   },
   {
       "description": "ADVANCE TO THE NEAREST AIRPORT. Buy if unowned, else pay double rent.",
       "effect_type": "move_to_nearest",
       "target": "RailWay",
-      "double_rent": 0
+      "double_rent": 0,
+      "type": "chance"
   },
   {
       "description": "Hotel Renovation Costs! PAY ₥25 per house, ₥100 per hotel.",
       "effect_type": "property_repair",
-      "house_cost": 25
+      "house_cost": 25,
+      "type": "chance"
   }
 ]

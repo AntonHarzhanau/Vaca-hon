@@ -1,42 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqqfabtceas0f"]
+[gd_scene load_steps=12 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
 [ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
 [ext_resource type="PackedScene" uid="uid://cy08nosal4m77" path="res://scenes/UI/Popups/pop_up_jail.tscn" id="4_7e3k0"]
 [ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="5_35jxk"]
+[ext_resource type="StyleBox" uid="uid://cuy6jfvmak18d" path="res://styles/button.tres" id="5_m41qk"]
+[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="5_tpnoy"]
 [ext_resource type="PackedScene" uid="uid://ba4dw7afjhbi2" path="res://scenes/UI/Popups/event_card.tscn" id="7_35jxk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35jxk"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m41qk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb61p"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e3k0"]
+bg_color = Color(0.368627, 0.164706, 0.0901961, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpnoy"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0.247059, 0.0941176, 0.00392157, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m41qk"]
+bg_color = Color(0.227451, 0.0862745, 0.0470588, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nt7q6")
@@ -65,28 +54,34 @@ offset_right = 407.0
 offset_bottom = 157.0
 
 [node name="EndTurnButton" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.785
-anchor_top = 0.53125
-anchor_right = 0.991
-anchor_bottom = 0.635
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = 14.0
+offset_right = -3.0
+offset_bottom = 60.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_35jxk")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_35jxk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vb61p")
-theme_override_styles/normal = SubResource("StyleBoxFlat_tpnoy")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_tpnoy")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m41qk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e3k0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m41qk")
+theme_override_styles/normal = ExtResource("5_m41qk")
 text = "End Turn"
-metadata/_edit_use_anchors_ = true
 
 [node name="TurnLable" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -108.0
+offset_top = 5.0
+offset_right = 108.0
+offset_bottom = 47.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Player's turn: 0"
@@ -100,10 +95,11 @@ offset_bottom = 348.0
 grow_horizontal = 0
 
 [node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
-offset_left = 79.0
-offset_top = 309.0
-offset_right = 229.0
-offset_bottom = 367.0
+layout_direction = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 344.0
+offset_bottom = 134.0
 
 [node name="MenuBtn" type="Button" parent="."]
 z_index = 1

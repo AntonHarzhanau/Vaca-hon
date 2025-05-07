@@ -156,7 +156,11 @@ func _on_end_turn_clicked():
 func _on_card_event(data:Dictionary):
 	var event_type = data.get("effect_type", "Error")
 	var player = States.players[int(data.get("player_id"))]
-	ui.event_card.descripton.text = data.get("description", "Error")
+	if data["type"] == "chance":
+		ui.event_card.descripton.text = data.get("description", "Error")
+	elif data["type"] == "community":
+		ui.event_card.descripton.text = data.get("description", "Error")
+	ui.event_card.show_card(data["type"])
 	ui.event_card.visible = true
 	match event_type:
 		"gain_money": player.earn(data.get("amount"))

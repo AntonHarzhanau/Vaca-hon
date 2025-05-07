@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgvru7cbpgfu3"]
+[gd_scene load_steps=11 format=3 uid="uid://cgvru7cbpgfu3"]
 
 [ext_resource type="Script" uid="uid://d0f5mnxcxed7r" path="res://scripts/Menu/cree_compte.gd" id="1_18l02"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_18l02"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_ywi4s"]
+[ext_resource type="Texture2D" uid="uid://b0egvipo4oaeh" path="res://assets/eye.png" id="4_18l02"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_foc18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4o7"]
@@ -14,6 +15,7 @@ border_width_bottom = 2
 border_color = Color(0.384314, 0.129412, 0.00392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5jbe"]
+content_margin_left = 15.0
 bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
@@ -137,13 +139,17 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Please enter your username..."
+caret_blink = true
+caret_blink_interval = 0.3
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -173,11 +179,14 @@ layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "xxxx@vacashon.com"
+caret_blink = true
+caret_blink_interval = 0.3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -210,11 +219,15 @@ layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Please enter a password..."
+right_icon = ExtResource("4_18l02")
+caret_blink = true
+caret_blink_interval = 0.3
 secret = true
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
@@ -245,11 +258,15 @@ layout_mode = 2
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Please confirm your password..."
+right_icon = ExtResource("4_18l02")
+caret_blink = true
+caret_blink_interval = 0.3
 secret = true
 
 [node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer"]

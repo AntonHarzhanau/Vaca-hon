@@ -1,35 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuj23ias31fci"]
+[gd_scene load_steps=8 format=3 uid="uid://cuj23ias31fci"]
 
 [ext_resource type="Texture2D" uid="uid://b7eoun1g84iw2" path="res://assets/Lobby1.png" id="1_g402y"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_t0rw3"]
 [ext_resource type="Script" uid="uid://chwn1u8x2tggr" path="res://scripts/Menu/list_lobby_item_2.gd" id="2_wmb2i"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_7lkbc"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_wi2sl"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_rcf8o"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naexr"]
-bg_color = Color(0.227613, 0.906696, 0.959497, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vag1c"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-shadow_color = Color(0, 0, 0, 0.431373)
-shadow_size = 1
-shadow_offset = Vector2(2, 3)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05lgx"]
 
 [node name="ListLobbyItem" type="NinePatchRect"]
 custom_minimum_size = Vector2(240, 170)
@@ -95,8 +73,10 @@ offset_bottom = 44.5
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("2_t0rw3")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_naexr")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vag1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lgx")
+theme_override_styles/hover = ExtResource("4_7lkbc")
+theme_override_styles/pressed = ExtResource("5_wi2sl")
+theme_override_styles/normal = ExtResource("6_rcf8o")
 text = "Join"
 metadata/_edit_use_anchors_ = true
 

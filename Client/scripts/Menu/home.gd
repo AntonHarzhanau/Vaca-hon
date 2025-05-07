@@ -77,3 +77,7 @@ func _on_oui_pressed() -> void:
 	var path = "res://scenes/Menu/Connection.tscn"
 	if ResourceLoader.exists(path):
 		get_tree().change_scene_to_file(path)
+
+func _on_close_area_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		regle_popup.visible = false

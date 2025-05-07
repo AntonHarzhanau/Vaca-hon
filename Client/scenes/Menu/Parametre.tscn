@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8kiax82hqv6v"]
+[gd_scene load_steps=24 format=3 uid="uid://b8kiax82hqv6v"]
 
 [ext_resource type="Script" path="res://scripts/Menu/parametre.gd" id="1_3j7aq"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_m4m2w"]
 [ext_resource type="Texture2D" uid="uid://y5icpqw2qxyh" path="res://assets/icon_chevron_left.png" id="3_tps0i"]
 [ext_resource type="Texture2D" uid="uid://eiw3bf5h68m5" path="res://assets/icon_chevron_right.png" id="4_ekgrj"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_qh40r"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_vpmvi"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="5_3j7aq"]
 [ext_resource type="Texture2D" uid="uid://cpcdr2de2wokh" path="res://assets/switch/Switch-2.png" id="6_bmkvy"]
 [ext_resource type="Texture2D" uid="uid://c8tke8o7wdvrw" path="res://assets/switch/Switch.png" id="7_cskwj"]
 [ext_resource type="Texture2D" uid="uid://u4qxmj16rop2" path="res://assets/switch/Switch-1.png" id="8_8od8g"]
@@ -15,32 +18,15 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4o7"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7imv"]
-bg_color = Color(0.551599, 0.871557, 0.888565, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onb5e"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itnoy"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-shadow_color = Color(0, 0, 0, 0.431373)
-shadow_size = 1
-shadow_offset = Vector2(2, 3)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2thx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpmvi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_om2lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1jkp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cskwj"]
 bg_color = Color(0.827451, 0.827451, 0.827451, 1)
@@ -109,9 +95,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_onb5e")
+theme_override_styles/hover = ExtResource("3_m4m2w")
+theme_override_styles/pressed = ExtResource("4_qh40r")
+theme_override_styles/normal = ExtResource("5_3j7aq")
 text = "Data Protection Page"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -128,9 +115,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j2thx")
+theme_override_styles/hover = ExtResource("3_m4m2w")
+theme_override_styles/pressed = ExtResource("4_qh40r")
+theme_override_styles/normal = ExtResource("5_3j7aq")
 text = "Privacy Policy"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -147,9 +135,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_vpmvi")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vpmvi")
+theme_override_styles/hover = ExtResource("3_m4m2w")
+theme_override_styles/pressed = ExtResource("4_qh40r")
+theme_override_styles/normal = ExtResource("5_3j7aq")
 text = "Review Data Consent"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -219,6 +208,7 @@ size_flags_vertical = 6
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_om2lw")
 icon = ExtResource("3_tps0i")
 flat = true
 
@@ -236,6 +226,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1jkp")
 icon = ExtResource("4_ekgrj")
 flat = true
 

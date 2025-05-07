@@ -12,6 +12,7 @@ var nb_utility: int = 0
 var timer_turn: int = 0
 var properties:Array[PropertyCell] = []
 var player_color: Color
+var bonus: int = 0
 
 var speed = 300
 var moving = false

@@ -2,82 +2,98 @@
   {
     "description": "Social Media Travel Photo Contest! COLLECT ₥10.",
     "effect_type": "gain_money",
-    "amount": 10
+    "amount": 10,
+    "type": "community"
 
   },
   {
     "description": "Travel Guide Tips! RECEIVE ₥25.",
     "effect_type": "gain_money",
-    "amount": 25
+    "amount": 25,
+    "type": "community"
   },
   {
     "description": "Currency Conversion Error! Bank Error in Your Favour. COLLECT ₥200.",
     "effect_type": "gain_money",
-    "amount": 200
+    "amount": 200,
+    "type": "community"
   },
   {
     "description": "Hotel Maintenance Costs! PAY ₥40 PER HOUSE AND ₥115 PER HOTEL YOU OWN.",
     "effect_type": "property_repair",
-    "house_cost": 40
+    "house_cost": 40,
+    "type": "community"
   },
   {
     "description": "Language Course Fees. PAY ₥50.",
     "effect_type": "pay_fine",
-    "amount": 50
+    "amount": 50,
+    "type": "community"
  
   },
   {
     "description": "BON VOYAGE PARTY! COLLECT ₥10 FROM EVERY TRAVELER.",
     "effect_type": "gain_from_all",
-    "amount": 10
+    "amount": 10,
+    "type": "community"
   },
   {
     "description": "FAMILY TRAVEL FUND! ₥100 FOR YOUR NEXT ADVENTURE.",
     "effect_type": "gain_money",
-    "amount": 100
+    "amount": 100,
+    "type": "community"
   },
   {
     "description": "Souvenir Sales Profit. YOU GET ₥50 FOR SELLING SOUVENIRS.",
     "effect_type": "gain_money",
-    "amount": 50
+    "amount": 50,
+    "type": "community"
   },
   {
     "description": "EMERGENCY MEDICAL EXPENSES. PAY ₥100.",
     "effect_type": "pay_fine",
-    "amount": 100
+    "amount": 100,
+    "type": "community"
   },
   {
     "description": "TRAVEL CLINIC FEES. PAY ₥50 FOR VACCINATIONS.",
     "effect_type": "pay_fine",
-    "amount": 50
+    "amount": 50,
+    "type": "community"
   },
   {
     "description": "CUSTOMS DUTY REFUND. COLLECT ₥20.",
     "effect_type": "gain_money",
-    "amount": 20
+    "amount": 20,
+    "type": "community"
   },
   {
     "description": "TRAVEL INSURANCE PAYOUT. COLLECT ₥100.",
     "effect_type": "gain_money",
-    "amount": 100
+    "amount": 100,
+    "type": "community"
   },
   {
     "description": "TRAVEL SAVINGS MATURE. RECEIVE ₥100.",
     "effect_type": "gain_money",
-    "amount": 100
+    "amount": 100,
+    "type": "community"
   },
   {
     "description": "GET OUT OF THE CUSTOMS FREE. This card may be kept until needed or traded.",
-    "effect_type": "get_out_of_jail"
+    "effect_type": "get_out_of_jail",
+    "type": "community"
   },
   {
     "description": "GO TO CUSTOMS. DO NOT PASS GO, DO NOT COLLECT ₥200.",
-    "effect_type": "go_to_jail"
+    "effect_type": "go_to_jail",
+    "type": "community"
   },
   {
     "description": "ADVANCE TO GO. (COLLECT ₥200)",
     "effect_type": "move_to",
     "target": "GO",
-    "money_bonus": 200
+    "money_bonus": 200,
+    "type": "community"
   }
 ]

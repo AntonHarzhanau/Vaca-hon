@@ -1,51 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba4dw7afjhbi2"]
+[gd_scene load_steps=3 format=3 uid="uid://ba4dw7afjhbi2"]
 
 [ext_resource type="Script" uid="uid://cef13xk7eat5u" path="res://scripts/UI/event_card.gd" id="1_8mx6b"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_bsatl"]
 
 [node name="EventCard" type="CanvasLayer"]
 script = ExtResource("1_8mx6b")
 
-[node name="Background" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.499
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.499
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 150.0
+offset_left = -233.0
+offset_top = -151.0
+offset_right = 233.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.389287, 0.389287, 0.389287, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
-layout_mode = 2
-
-[node name="Description" type="Label" parent="Background/MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="Background"]
 custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.482
+anchor_top = 0.535
+anchor_right = 0.482
+anchor_bottom = 0.535
+offset_left = -159.612
+offset_top = -76.5
+offset_right = 159.388
+offset_bottom = 76.5
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bsatl")
+theme_override_font_sizes/font_size = 20
 text = "Description"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="CloseBtn" type="Button" parent="Background/MarginContainer/VBoxContainer"]
+[node name="CloseBtn" type="Button" parent="Background"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 463.0
+offset_bottom = 293.0
 size_flags_vertical = 6
-text = "Close"
+theme_override_fonts/font = ExtResource("2_bsatl")
 
-[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="Background/CloseBtn" to="." method="_on_close_btn_pressed"]

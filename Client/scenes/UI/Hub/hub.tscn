@@ -1,21 +1,112 @@
-[gd_scene load_steps=2 format=3 uid="uid://kwxktsmlv5q8"]
+[gd_scene load_steps=8 format=3 uid="uid://kwxktsmlv5q8"]
 
-[ext_resource type="Script" uid="uid://l4lx32382e1m" path="res://scripts/UI/Hubs/hub.gd" id="1_ha6g5"]
+[ext_resource type="Script" uid="uid://cxqv1aiw3g5xo" path="res://scenes/UI/Hub/hub.gd" id="1_bdv2h"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_yguwj"]
+[ext_resource type="Texture2D" uid="uid://dmu2jqqto1i1j" path="res://assets/Players/FLIGHT.png" id="3_xjm0t"]
+[ext_resource type="Texture2D" uid="uid://ci4cl7hbxjcyg" path="res://assets/Popup Backgrounds/Line 6 (1).png" id="4_55m7s"]
+[ext_resource type="Texture2D" uid="uid://cfyv7wor0or2n" path="res://assets/Popup Backgrounds/MoneySign.png" id="5_0bdey"]
 
-[node name="Hub" type="Panel"]
-offset_right = 150.0
-offset_bottom = 58.0
-script = ExtResource("1_ha6g5")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jce87"]
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
-[node name="UIcontainer" type="VBoxContainer" parent="."]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yguwj"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[node name="Hub" type="Control"]
+layout_direction = 4
+layout_mode = 3
+anchors_preset = 0
+offset_right = 310.0
+offset_bottom = 93.0
+script = ExtResource("1_bdv2h")
+
+[node name="PanelBackground" type="Panel" parent="."]
+layout_direction = 4
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 310.0
+offset_bottom = 93.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jce87")
 
-[node name="PlayerName" type="Label" parent="UIcontainer"]
-layout_mode = 2
-text = "Name"
+[node name="TopBar" type="Panel" parent="PanelBackground"]
+layout_direction = 4
+layout_mode = 0
+offset_right = 310.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yguwj")
 
-[node name="PlayerMoney" type="Label" parent="UIcontainer"]
+[node name="PlayerName" type="Label" parent="PanelBackground/TopBar"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 15
+text = "Player Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fortune" type="Label" parent="PanelBackground/TopBar"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 15
+text = "Fortune"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftSide" type="HBoxContainer" parent="PanelBackground"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 166.0
+offset_bottom = 111.0
+
+[node name="PlayerFigure" type="TextureRect" parent="PanelBackground/LeftSide"]
 layout_mode = 2
-text = "Money"
+texture = ExtResource("3_xjm0t")
+
+[node name="AdvantagesContainer" type="VBoxContainer" parent="PanelBackground/LeftSide"]
+layout_mode = 2
+
+[node name="AdvantagesLabel" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 12
+text = "Advantages"
+
+[node name="AdvantagesValue" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
+layout_mode = 2
+
+[node name="Divider" type="TextureRect" parent="PanelBackground"]
+layout_mode = 0
+offset_left = 155.0
+offset_right = 170.0
+offset_bottom = 92.0
+texture = ExtResource("4_55m7s")
+
+[node name="RightSide" type="HBoxContainer" parent="PanelBackground"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 45.0
+offset_right = 299.0
+offset_bottom = 79.0
+
+[node name="MoneyIcon" type="TextureRect" parent="PanelBackground/RightSide"]
+layout_mode = 2
+texture = ExtResource("5_0bdey")
+stretch_mode = 3
+
+[node name="MoneyAmount" type="Label" parent="PanelBackground/RightSide"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 29
+text = "1500"

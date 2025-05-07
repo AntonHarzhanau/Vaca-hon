@@ -9,6 +9,7 @@ class EventCard(BaseModel):
     player_id: int = -1 
     effect_type: str
     description: str
+    type: str
     delivery: str = "broadcast"
     
     def activate(self, player: "Player", state=None) -> dict:

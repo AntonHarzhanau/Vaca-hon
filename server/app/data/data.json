@@ -19,7 +19,7 @@
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
-		"event_type": "chance"
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Tehran",
@@ -58,7 +58,7 @@
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description":"",
-		"event_type": "community_chest"
+		"event_type": "chance"
 	},
 	{
 		"name": "Toamasina",
@@ -139,7 +139,7 @@
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
-		"event_type": "chance"
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Alexandria",
@@ -179,7 +179,7 @@
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description": "",
-		"event_type": "community_chest"
+		"event_type": "chance"
 	},
 	{
 		"name": "Shanghai",
@@ -269,7 +269,7 @@
 		"type": "Event",
 		"texture": "res://assets/passport.png",
 		"description": "",
-		"event_type": "chance"
+		"event_type": "community_chest"
 	},
 	{
 		"name": "Algiers",
@@ -292,7 +292,7 @@
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description": "",
-		"event_type": "community_chest"
+		"event_type": "chance"
 	},
 	{
 		"name": "Strasbourg",

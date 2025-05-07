@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://degjr5c86ahtn"]
+[gd_scene load_steps=12 format=3 uid="uid://degjr5c86ahtn"]
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
@@ -17,32 +20,9 @@ bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7imv"]
-bg_color = Color(0.551599, 0.871557, 0.888565, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x52d1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itnoy"]
-bg_color = Color(0.0941176, 0.752941, 0.8, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.321569, 0.345098, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-shadow_color = Color(0, 0, 0, 0.431373)
-shadow_size = 1
-shadow_offset = Vector2(2, 3)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxbe4"]
 
 [node name="Connection" type="Control"]
 layout_mode = 3
@@ -133,14 +113,19 @@ theme_override_constants/margin_right = 40
 custom_minimum_size = Vector2(850, 0)
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("2_v0t4l")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "xxxx@vacashon.com"
+caret_blink = true
+caret_blink_interval = 0.3
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -170,13 +155,18 @@ custom_minimum_size = Vector2(850, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
 theme_override_fonts/font = ExtResource("2_v0t4l")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
 placeholder_text = "Please enter your password..."
+caret_blink = true
+caret_blink_interval = 0.3
+secret = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -220,7 +210,7 @@ text = "Remember me"
 [node name="LinkButton" type="LinkButton" parent="Panel/VBoxContainer/MarginContainer6/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_colors/font_color = Color(0.654902, 0.654902, 0.654902, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_v0t4l")
 theme_override_font_sizes/font_size = 20
 text = "Forgot your password?"
@@ -254,11 +244,13 @@ theme_override_constants/margin_bottom = 50
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_tccpp")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x52d1")
+theme_override_styles/hover = ExtResource("3_f5jbe")
+theme_override_styles/pressed = ExtResource("4_offsg")
+theme_override_styles/normal = ExtResource("4_f5jbe")
 text = "LOG IN"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -274,11 +266,13 @@ theme_override_constants/margin_bottom = 50
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_tccpp")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/hover = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h7imv")
-theme_override_styles/normal = SubResource("StyleBoxFlat_itnoy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxbe4")
+theme_override_styles/hover = ExtResource("3_f5jbe")
+theme_override_styles/pressed = ExtResource("4_offsg")
+theme_override_styles/normal = ExtResource("4_f5jbe")
 text = "CREATE AN ACCOUNT"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
