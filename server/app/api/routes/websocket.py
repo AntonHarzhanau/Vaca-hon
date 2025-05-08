@@ -22,7 +22,7 @@ async def websocket_endpoint(
 ):
     await websocket.accept()
     # TODO : implement authentication check
-    user = await user_service.get_users(user_id=user_id)
+    user: UserReadSchemaWithToken = await user_service.get_users(user_id=user_id)
     if not user:
         await websocket.send_json({"error": "User not found"})
         await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
@@ -46,11 +46,11 @@ async def websocket_endpoint(
                     return
 
     # Add the websocket directly to the connection_manager idle_connections list (before definitively joined a lobby with a token)
-    lobby.connection_manager.idle_connections[websocket] = user
+    # lobby.connection_manager.idle_connections[websocket] = user
 
     # Send available tokens for selection when connected to the websocket
-    await lobby.send_available_tokens(websocket)
-    print({**lobby.connection_manager.active_connections, **lobby.connection_manager.idle_connections})
+    # await lobby.send_available_tokens(websocket)
+    # print({**lobby.connection_manager.active_connections, **lobby.connection_manager.idle_connections})
     
     try:
         while True:
@@ -58,14 +58,21 @@ async def websocket_endpoint(
             print(f"Received data from user {user_id}: {data}")
             action = data.get("action")
             if action == "user_joined":
-                user = await user_service.get_users(data.get("user_id"))
-                selected_token = data.get('selected_token')
-                await lobby.add_user(websocket, user, selected_token)
+                user_raw = await user_service.get_users(data.get("user_id"))
+                user = UserReadSchemaWithToken(**user_raw.model_dump())
+                await lobby.add_user(websocket, user)
                 players = [user.model_dump() for user in lobby.connection_manager.active_connections.values()]
+                await lobby.send_available_tokens(websocket)
                 await lobby_service.update_lobby(
                     lobby_id, 
                     LobbyUpdateSchema(players=players)   
                 )
+            elif action == "select_token":
+                token = data.get("token")
+                user = await lobby.select_token(websocket, token)
+                if user:
+                    players = [user.model_dump() for user in lobby.connection_manager.active_connections.values()]
+                    await lobby.send_available_tokens(websocket)
             elif action == "start_game":
                 await lobby_service.update_lobby(
                     lobby_id, 
@@ -82,6 +89,6 @@ async def websocket_endpoint(
             LobbyUpdateSchema(players=players)
         )
         if not lobby.connection_manager.active_connections:
-            #await lobby_service.delete_lobby(lobby_id)
-            #lobby_manager.remove_lobby(lobby_id)
+            await lobby_service.delete_lobby(lobby_id)
+            lobby_manager.remove_lobby(lobby_id)
             print("Lobby {lobby_id} destroed")

@@ -58,12 +58,40 @@ grow_vertical = 2
 script = ExtResource("1_gfw6i")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 2
-offset_right = 1000.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("2_7ju5v")
 autoplay = true
 expand = true
 loop = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 117)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="BackButton" type="TextureButton" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("3_5133s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -72,40 +100,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -405.5
-offset_right = 500.0
-offset_bottom = 405.5
+offset_left = -306.0
+offset_top = -77.0
+offset_right = 306.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 0
-color = Color(0.384314, 0.129412, 0.00784314, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-
-[node name="BackButton" type="TextureButton" parent="VBoxContainer/ColorRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture_normal = ExtResource("3_5133s")
 
 [node name="Tokencontainer" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
-size_flags_vertical = 6
+alignment = 1
 
 [node name="flight" type="TextureButton" parent="VBoxContainer/Tokencontainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -158,18 +163,19 @@ texture_hover = ExtResource("14_kd438")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="PlayersContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
 
-[node name="PlayersContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="start" type="Button" parent="."]
+custom_minimum_size = Vector2(245, 94)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("4_bff1k")
 theme_override_font_sizes/font_size = 50
@@ -180,5 +186,5 @@ text = "START"
 icon_alignment = 2
 expand_icon = true
 
-[connection signal="pressed" from="VBoxContainer/ColorRect/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

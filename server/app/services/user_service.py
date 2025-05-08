@@ -1,5 +1,5 @@
 from app.utils.repository import AbstractRepository
-from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserFilterSchema, UserLoginSchema
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserFilterSchema, UserLoginSchema, UserReadSchemaWithToken
 from typing import Union
 
 class UserService():
@@ -16,7 +16,7 @@ class UserService():
         self,
         user_id: int | None = None,
         filters: UserFilterSchema | None = None
-    ) -> Union[UserReadSchema, list[UserReadSchema]]:
+    ) -> Union[UserReadSchema, list[UserReadSchema], UserReadSchemaWithToken]:
         
         users = await self.user_repository.get(user_id=user_id, filters=filters)
 

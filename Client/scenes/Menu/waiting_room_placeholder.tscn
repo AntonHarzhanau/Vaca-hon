@@ -1,20 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d01psbecedrg1"]
+[gd_scene load_steps=2 format=3 uid="uid://d01psbecedrg1"]
 
-[ext_resource type="Texture2D" uid="uid://dncppny3wuhm4" path="res://assets/PLUS.png" id="1_qadnr"]
 [ext_resource type="Texture2D" uid="uid://btj0ua5klp1ed" path="res://assets/PLUS-1.png" id="2_1v07d"]
 
 [node name="WaitingRoolPlaceholder" type="TextureRect"]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_direction = 2
-
-[node name="invite2" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("1_qadnr")
-texture_pressed = ExtResource("2_1v07d")
-texture_hover = ExtResource("2_1v07d")
-stretch_mode = 3
+offset_right = 250.0
+offset_bottom = 338.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1v07d")
+metadata/_edit_use_anchors_ = true

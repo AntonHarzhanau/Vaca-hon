@@ -2,6 +2,7 @@ from typing import Dict
 from fastapi import WebSocket
 from app.schemas.user_schema import UserReadSchema, UserReadSchemaWithToken
 
+
     
 class ConnectionManager:
     def __init__(self):
@@ -16,17 +17,14 @@ class ConnectionManager:
         
 
     async def send_personal_message(self, message: str, websocket: WebSocket):
-        print(message)
+        print(f"Sending message to {websocket}: {message}")
         await websocket.send_text(message)
 
-    async def broadcast(self, message: str, exclude: WebSocket = None, send_to_idle: bool = False):
-        print(message)
+    async def broadcast(self, message: str, exclude: WebSocket = None):
+        print(f"Broadcasting message: {message}")
         disconnected = []
-        """
-        Broadcast message to either only active connections (if send_to_idle = False) or both active_connections and idle_connections (if send_to_idle = True)
-        """
-        connections_list = {**self.active_connections, **self.idle_connections} if send_to_idle else self.active_connections
-        for connection in connections_list:
+
+        for connection in self.active_connections:
             if connection != exclude:
                 try:
                     await connection.send_text(message)

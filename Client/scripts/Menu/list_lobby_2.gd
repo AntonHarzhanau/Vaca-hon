@@ -135,7 +135,7 @@ func _fetch_lobbies():
 func _on_websocket_message_received(data):
 	if ["get_available_tokens"].has(data.action):
 		States.available_tokens = data.available_tokens
-		get_tree().change_scene_to_file("res://scenes/Menu/select_token.tscn")
+		get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
 
 
 func _on_join_pressed(lobby):
@@ -185,4 +185,4 @@ func _on_non_pressed() -> void:
 # OUI button in the pop-up window: jump to select role select_token.tscn
 func _on_oui_pressed() -> void:
 	print("Joining lobby: ", States.lobby_id)
-	WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
+	get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")

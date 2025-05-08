@@ -32,64 +32,95 @@ class LobbyInstance:
         ]
 
 
-    async def add_user(self, websocket: WebSocket, user: UserReadSchemaWithToken, selected_token: str) -> None:
-        # for connected_user in self.connection_manager.active_connections.values():
-        #     msg = {
-        #         "action": "user_joined",
-        #         "user_id": connected_user.id,
-        #         "user_name": connected_user.username,
-        #         "selected_token": connected_user.selected_token,
-        #     }
-        #     await self.connection_manager.send_personal_message(json.dumps(msg), websocket)
-
-        # Add WebSocket to the list of active_connections and remove from idle_connections
-        if await self.use_token(selected_token, user.id):
-            del self.connection_manager.idle_connections[websocket]
-
-            user_with_token = UserReadSchemaWithToken(**user.model_dump())
-            user_with_token.selected_token = selected_token
-            # Set the player color based on active connection length
-            user_with_token.player_color = self.player_colors[len(self.connection_manager.active_connections)]
-            await self.connection_manager.connect(websocket, user_with_token)
-        else:
+    async def add_user(self, websocket: WebSocket, user: UserReadSchemaWithToken) -> None:
+        
+        user.player_color = self.player_colors[len(self.connection_manager.active_connections) - 1]
+        self.connection_manager.active_connections[websocket] = user
+        for connected_user in self.connection_manager.active_connections.values():
             msg = {
-                "error": "Please select a valid token to start playing !",
+                "action": "user_joined",
+                "user_id": connected_user.id,
+                "user_name": connected_user.username,
+                "user_token": connected_user.selected_token,
+                "user_color": connected_user.player_color,
             }
             await self.connection_manager.send_personal_message(json.dumps(msg), websocket)
 
-        # Send a message to all lobby members
+            
         await self.connection_manager.broadcast(json.dumps({
             "action": "user_joined",
             "user_id": user.id,
             "user_name": user.username,
-            "selected_token": selected_token,
-            "available_tokens": self.available_tokens,
-            "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
-        }), send_to_idle=True)
+            "user_token": user.selected_token,
+            "user_color": user.player_color,
+            # "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
+        }), websocket)
 
+    async def select_token(self, websocket: WebSocket, token_name: str):
+            if token_name not in self.available_tokens:
+                await self.connection_manager.send_personal_message(json.dumps({
+                    "error": "Token already taken or invalid!"
+                }), websocket)
+                return None
+
+        # Получаем пользователя
+            user: UserReadSchemaWithToken = self.connection_manager.active_connections[websocket]
+
+            # Если у него уже был токен — возвращаем в список доступных
+            if user.selected_token:
+                self.available_tokens.append(user.selected_token)
+
+            # Назначаем новый токен и цвет
+            self.available_tokens.remove(token_name)
+            user.selected_token = token_name
+
+            # Рассылаем обновлённую информацию
+            await self.connection_manager.broadcast(json.dumps({
+                "action": "token_selected",
+                "token": token_name,
+                "user_id": user.id
+            }))
+
+            return user
+
+        
     async def remove_user(self, websocket: WebSocket) -> None:
         if websocket in self.connection_manager.active_connections:
-            user = await self.connection_manager.disconnect(websocket)
-            # Make released token available again in the lobby
-            self.available_tokens.append(user.selected_token)
-            if self.game_manager:
+            # Удаляем пользователя из списка подключений
+            user: UserReadSchemaWithToken = await self.connection_manager.disconnect(websocket)
+
+            # Возвращаем токен, если он был
+            if user.selected_token:
+                self.available_tokens.append(user.selected_token)
+                user.selected_token = None
+
+            # Сбрасываем цвет (если понадобится — можно добавить логику "used_colors")
+            user.player_color = "#af52de"
+
+            # Если игра уже началась, удаляем игрока из игрового состояния
+            if self.game_manager and user.id in self.game_manager.state.players:
                 player = self.game_manager.state.players.pop(user.id)
                 for property in player.properties:
                     if type(property).__name__ == "StreetCell":
                         property.current_rent = property.initial_rent
                         property.nb_houses = 0
                     property.cell_owner = None
+
                 await self.connection_manager.broadcast(json.dumps({
                     "action": "player_disconnected",
                     "player_id": player.id,
                 }))
-                await asyncio.sleep(0.2)
+                await asyncio.sleep(0.2)  # даём клиентам время обработать
+
+            # Уведомляем оставшихся пользователей
             await self.connection_manager.broadcast(json.dumps({
                 "action": "user_left",
                 "user_id": user.id,
+                "user_name": user.username,
                 "available_tokens": self.available_tokens,
-                "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
+                "players": [u.model_dump() for u in self.connection_manager.active_connections.values()]
             }))
+
 
     async def start_game(self, user_id:int) -> None:
         if user_id != self.lobby.owner_id:
@@ -130,7 +161,7 @@ class LobbyInstance:
             return False
 
     async def send_available_tokens(self, websocket):
-        await self.connection_manager.send_personal_message(message=json.dumps({
+        await self.connection_manager.broadcast(message=json.dumps({
             "action": "get_available_tokens",
             "available_tokens": self.available_tokens
-        }), websocket=websocket)
+        }))
