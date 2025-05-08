@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqqfabtceas0f"]
+[gd_scene load_steps=16 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
@@ -10,13 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ba4dw7afjhbi2" path="res://scenes/UI/Popups/event_card.tscn" id="7_35jxk"]
 [ext_resource type="PackedScene" uid="uid://bns4cfqvli8a7" path="res://scenes/Parametre/quit_game.tscn" id="9_owlbh"]
 [ext_resource type="PackedScene" uid="uid://bi68a6b5rjjg5" path="res://scenes/Parametre/settings.tscn" id="10_c5elv"]
-[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="11_5t1j6"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="12_4nac7"]
-[ext_resource type="Texture2D" uid="uid://sbgkjsicsfpo" path="res://assets/slider control.png" id="13_teulp"]
-[ext_resource type="Texture2D" uid="uid://sogvkm5nxf2o" path="res://assets/slider control-1.png" id="14_krw1k"]
-[ext_resource type="Texture2D" uid="uid://cbuqtbcynl8m8" path="res://assets/Grabber.png" id="15_l8uv8"]
-[ext_resource type="Texture2D" uid="uid://d174cm6pe1dyb" path="res://assets/parametre.png" id="16_umf6b"]
-[ext_resource type="Texture2D" uid="uid://dc1mq1003if8q" path="res://assets/log out.png" id="17_4p8sv"]
+[ext_resource type="Texture2D" uid="uid://cnhqd6hhljbpi" path="res://assets/Leave button.png" id="16_5t1j6"]
+[ext_resource type="Texture2D" uid="uid://dwxruxw80f1dr" path="res://assets/Settings button.png" id="17_4nac7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m41qk"]
 
@@ -35,70 +30,6 @@ corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tc23"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5, 0.5, 0.5, 0.5)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="Theme" id="Theme_q0fjp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyr6m"]
-bg_color = Color(0.392157, 0.0745098, 0.0745098, 1)
-
-[sub_resource type="Theme" id="Theme_tqkrj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uisvg"]
-bg_color = Color(0.448219, 0.187911, 0.100146, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_331jc"]
-bg_color = Color(0.295898, 0.664098, 0.94692, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeaqk"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.5, 0.5, 0.5, 0.5)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y52ao"]
-bg_color = Color(0.827451, 0.827451, 0.827451, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co6ef"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abj57"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nt7q6")
@@ -221,210 +152,29 @@ offset_bottom = -182.0
 
 [node name="Settings" parent="." instance=ExtResource("10_c5elv")]
 visible = false
-offset_left = -129.0
-offset_top = 391.0
-offset_right = -345.0
-offset_bottom = 8.0
+offset_left = 102.0
+offset_top = 139.0
+offset_right = -114.0
+offset_bottom = -244.0
 
-[node name="QuitDialogPanel" type="Panel" parent="."]
-visible = false
-offset_left = 119.0
-offset_top = 242.0
-offset_right = 630.0
-offset_bottom = 469.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6tc23")
-
-[node name="MessageLabel" type="Label" parent="QuitDialogPanel"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 30.0
-offset_right = 381.0
-offset_bottom = 105.0
-text = "
-Voulez-vous vraiment quitter ?"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="QuitDialogPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -14.0
-offset_right = 1.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TitleLabel" type="Label" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_q0fjp")
-theme_type_variation = &"HeaderMedium"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_yyr6m")
-text = "QUITTER LA PARTIE ?"
-horizontal_alignment = 1
-
-[node name="HBoxContent" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-
-[node name="MessageLabel" type="Label" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.133196, 0.133196, 0.133196, 1)
-theme_override_font_sizes/font_size = 20
-text = "Êtes-vous vraiment sûr.e de 
-quitter la partie en cours ?
-Votre progression ne
- sera pas sauvegardée."
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="QuitDialogPanel/VBoxContainer/HBoxContent"]
-layout_mode = 2
-texture = ExtResource("11_5t1j6")
-expand_mode = 3
-
-[node name="ButtonContainer" type="HBoxContainer" parent="QuitDialogPanel/VBoxContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="CancelButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
-layout_mode = 2
-theme = SubResource("Theme_tqkrj")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_uisvg")
-text = "NON"
-
-[node name="ConfirmButton" type="Button" parent="QuitDialogPanel/VBoxContainer/ButtonContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_331jc")
-text = "OUI"
-
-[node name="CloseButton" type="Button" parent="QuitDialogPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -18.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "X"
-
-[node name="QuitDialogPanel2" type="Panel" parent="."]
-visible = false
-offset_left = 126.0
-offset_top = 184.0
-offset_right = 708.0
-offset_bottom = 405.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_eeaqk")
-
-[node name="CloseButton" type="Button" parent="QuitDialogPanel2"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -36.0
-offset_top = -1.0
-offset_right = -4.0
-offset_bottom = 60.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 38
-text = "X"
-
-[node name="Musique" type="VBoxContainer" parent="QuitDialogPanel2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0352609
-anchor_top = 0.264957
-anchor_right = 0.280374
-anchor_bottom = 0.726496
-offset_left = -1.00001
-offset_top = -1.0
-offset_right = -1.0
-offset_bottom = -1.0
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="QuitDialogPanel2/Musique"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_4nac7")
-theme_override_font_sizes/font_size = 40
-text = "Musique"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSlider1" type="HSlider" parent="QuitDialogPanel2/Musique"]
-layout_mode = 2
-theme_override_icons/grabber = ExtResource("13_teulp")
-theme_override_icons/grabber_highlight = ExtResource("14_krw1k")
-theme_override_icons/grabber_disabled = ExtResource("15_l8uv8")
-theme_override_styles/slider = SubResource("StyleBoxFlat_y52ao")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_co6ef")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_abj57")
-max_value = 10.0
-metadata/_edit_use_anchors_ = true
-
-[node name="EffetsSonores" type="VBoxContainer" parent="QuitDialogPanel2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.416148
-anchor_top = 0.219519
-anchor_right = 0.826516
-anchor_bottom = 0.692308
-offset_left = 87.9511
-offset_top = -1.36749
-offset_right = 40.0
-offset_bottom = -4.0
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="QuitDialogPanel2/EffetsSonores"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("12_4nac7")
-theme_override_font_sizes/font_size = 40
-text = "Effets sonores"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSlider1" type="HSlider" parent="QuitDialogPanel2/EffetsSonores"]
-layout_mode = 2
-theme_override_icons/grabber = ExtResource("13_teulp")
-theme_override_icons/grabber_highlight = ExtResource("14_krw1k")
-theme_override_icons/grabber_disabled = ExtResource("15_l8uv8")
-theme_override_styles/slider = SubResource("StyleBoxFlat_y52ao")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_co6ef")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_abj57")
-max_value = 10.0
-metadata/_edit_use_anchors_ = true
-
-[node name="quit" type="TextureButton" parent="."]
-anchors_preset = -1
-anchor_right = 0.056
-anchor_bottom = 0.373
-offset_left = 33.0
-offset_top = 26.0
-offset_right = 25.0
-offset_bottom = -212.4
-texture_normal = ExtResource("17_4p8sv")
-
-[node name="setting" type="TextureButton" parent="."]
-offset_left = 116.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 20.0
 offset_top = 20.0
-offset_right = 178.0
-offset_bottom = 90.0
-texture_normal = ExtResource("16_umf6b")
+offset_right = 118.0
+offset_bottom = 70.0
+
+[node name="quit" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_5t1j6")
+stretch_mode = 0
+
+[node name="setting" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_4nac7")
+stretch_mode = 0
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel/VBoxContainer/ButtonContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="QuitDialogPanel2/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/setting" to="." method="_on_setting_pressed"]
