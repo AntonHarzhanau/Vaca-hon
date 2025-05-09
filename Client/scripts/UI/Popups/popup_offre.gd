@@ -1,6 +1,7 @@
 extends Control
 
 @onready var label_offer:Label = $Back_ground/Label
+@onready var title_label: Label = $"Back_ground/Title Label"
 @onready var accept_btn:Button = $Back_ground/Button_container/Accept_btn
 @onready var deny_btn:Button = $Back_ground/Button_container/Deny_btn
 
@@ -10,6 +11,7 @@ func _ready():
 	deny_btn.pressed.connect(_on_deny_pressed)
 
 func show_offer(cell_name: String):
+	title_label.text = cell_name
 	label_offer.text = cell_name + "\nDo you want to buy " + " for $" + str(price) + "?"
 	visible = true
 	#TODO: add check if the player has enough money and hide accept_btn if there is not enough money

@@ -9,8 +9,8 @@ const SIDE_BOTTOM_LEFT = 3
 # Load scene nodes
 @onready var filter_button = $TextureRect/MenuButton
 @onready var filter_menu = $TextureRect/VBoxContainer
-@onready var button_publique = filter_menu.get_node("Parties publiques")
-@onready var button_privee = filter_menu.get_node("Parties privees")
+@onready var button_publique = filter_menu.get_node("Public Room")
+@onready var button_privee = filter_menu.get_node("Private Room")
 @onready var lobbies_grid_container = $TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer
 @onready var create_lobby_button = $TextureRect/MarginContainer2/VBoxContainer2/CreateLobby
 @onready var texture_button = $TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton
@@ -42,7 +42,7 @@ func _ready():
 	
 	# Initialize state
 	filter_menu.visible = false
-	filter_button.text = "  FILTRER         ▼"
+	filter_button.text = "  FILTER         ▼"
 
 	# Initialize pop-up window and mask
 	rejoindre_popup.visible = false
@@ -64,18 +64,18 @@ func _ready():
 func _on_filter_button_pressed():
 	is_expanded = !is_expanded
 	filter_menu.visible = is_expanded
-	filter_button.text = "  FILTRER         ▲" if is_expanded else "  FILTRER         ▼"
+	filter_button.text = "  FILTER         ▲" if is_expanded else "  FILTER         ▼"
 	
 
 func _on_publique_pressed():
 	is_public = true
 	_select_button(button_publique)
-	print("Filter：Parties publiques")
+	print("Filter：Public Room")
 
 func _on_privee_pressed():
 	is_public = false
 	_select_button(button_privee)
-	print("Filter：Parties privées")
+	print("Filter：Private Room")
 
 func _select_button(button: Button):
 	# Reset the previously selected button style
@@ -124,8 +124,11 @@ func _fetch_lobbies():
 			
 			var new_lobby = lobby_item_scene.instantiate()
 			new_lobby.get_node("LobbyName").text = "Game of " + lobby.owner_name
-			#new_lobby.get_node("PanelContainer/MarginContainer/HBoxContainer/LobbyPrivacy").text = "🔓 Public" if lobby.is_private == false else "🔒 Privé"
-			new_lobby.get_node("LobbyPlayers").text = "Joueurs: " + str(int(nb_players))+'/'+ str(int(nb_player_max))
+			if lobby["is_private"]:
+				new_lobby.lobby_theme = "Private"
+			else:
+				new_lobby.lobby_theme = "Public"
+			new_lobby.get_node("LobbyPlayers").text = "Players: " + str(int(nb_players))+'/'+ str(int(nb_player_max))
 			var join_button:Button = new_lobby.get_node("JoinLobby")
 			join_button.pressed.connect(_on_join_pressed.bind(lobby))
 			lobbies_grid_container.add_child(new_lobby)

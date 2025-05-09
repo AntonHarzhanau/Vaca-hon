@@ -416,7 +416,7 @@ offset_bottom = 796.45
 scale = Vector2(0.15, 0.15)
 metadata/_edit_use_anchors_ = true
 
-[node name="Parties publiques" type="Button" parent="TextureRect/VBoxContainer"]
+[node name="Public Room" type="Button" parent="TextureRect/VBoxContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -431,7 +431,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8kts6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_morag")
 text = "Public room"
 
-[node name="Parties privees" type="Button" parent="TextureRect/VBoxContainer"]
+[node name="Private Room" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -485,7 +485,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 45
-text = "REJOINDRE PARTIE"
+text = "Join Lobby"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -501,8 +501,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 30
-text = "Voulez-vous vraiment
-rejoindre la partie de :"
+text = "Do you really want to join this lobby?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -520,7 +519,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 40
-text = "kiiwaa ?"
+text = "kiiwaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

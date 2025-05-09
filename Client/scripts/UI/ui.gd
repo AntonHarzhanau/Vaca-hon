@@ -27,10 +27,13 @@ func _ready() -> void:
 	end_turn_btn.pressed.connect(_on_end_turn_button_pressed)
 	quit_dialog_panel.visible = false
 	settings_panel.visible = false
-
-	
+	end_turn_btn.visible = false
 	
 func _on_dice_dice_rolled():
+	if States.id_player_at_turn == UserData.user_id:
+		end_turn_btn.visible = true
+	else: 
+		end_turn_btn.visible = false
 	var msg = {"action": "dice_rolled", "for": States.current_context}
 	WebSocketClient.send_message(JSON.stringify(msg))
 
@@ -59,6 +62,7 @@ func _on_player_disconnected(player_id):
 			hub.queue_free()
 
 func _on_change_turn():
+	end_turn_btn.visible = false
 	turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 
 func _on_end_turn_button_pressed():

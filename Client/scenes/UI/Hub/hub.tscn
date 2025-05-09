@@ -78,12 +78,14 @@ layout_mode = 2
 
 [node name="AdvantagesLabel" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yguwj")
 theme_override_font_sizes/font_size = 12
 text = "Advantages"
 
 [node name="AdvantagesValue" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Divider" type="TextureRect" parent="PanelBackground"]
 layout_mode = 0
@@ -109,4 +111,4 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yguwj")
 theme_override_font_sizes/font_size = 29
-text = "1500"
+text = "500"
