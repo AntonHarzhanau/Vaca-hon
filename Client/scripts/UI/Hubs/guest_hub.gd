@@ -19,6 +19,9 @@ func set_player(player: Player):
 
 func update_hub():
 	super.update_hub()
+	var style = top_bar.get_theme_stylebox("panel").duplicate()
+	style.bg_color = player_color
+	top_bar.add_theme_stylebox_override("panel", style)
 	player_name_lable.text = player.player_name
 	player_money_lable.text = str(player.money)
 

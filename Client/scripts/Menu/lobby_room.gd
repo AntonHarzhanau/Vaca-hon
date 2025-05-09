@@ -98,9 +98,4 @@ func _on_start_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	print("Attempting to load scene: res://scenes/Menu/home.tscn")
 	WebSocketClient.close_connection()
-	var scene = load("res://scenes/Menu/home.tscn")
-	if scene:
-		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")  # Switch to main menu
-	else:
-		print("Failed to load scene.")
+	get_tree().change_scene_to_file("res://scenes/Menu/create_lobby2.tscn")  # Switch to main menu

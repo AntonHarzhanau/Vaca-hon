@@ -37,10 +37,4 @@ func _on_rejoindre_pressed() -> void:
 
 # When the return button is clicked, go back to home.tscn
 func _on_texture_button_pressed() -> void:
-	print("Attempting to return to home scene: res://scenes/Menu/home.tscn")
-	var scene = load("res://scenes/Menu/home.tscn")
-	if scene:
-		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
-	else:
-		print("Failed to load scene.")
+	get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")

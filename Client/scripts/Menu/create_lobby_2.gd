@@ -80,10 +80,4 @@ func _on_submit_create_lobby_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	print("Attempting to load scene: res://scenes/Menu/main_menu2.tscn")
-	var scene = load("res://scenes/Menu/main_menu2.tscn")
-	if scene:
-		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")
-	else:
-		print("Failed to load scene.")
+	get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")

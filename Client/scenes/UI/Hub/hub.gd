@@ -6,17 +6,20 @@ class_name Hub
 @onready var player_name_lable:Label = $PanelBackground/TopBar/PlayerName
 @onready var player_money_lable:Label = $PanelBackground/RightSide/MoneyAmount
 @onready var player_bonus: Label = $PanelBackground/LeftSide/AdvantagesContainer/AdvantagesValue
-@onready var top_bar = $PanelBackground/TopBar
+@onready var top_bar: Panel = $PanelBackground/TopBar
 
 var player: Player
-var player_color: Color = Color("a450c7")
+var player_color: Color #= Color("a450c7")
 
 func _ready() -> void:
-	var sb = StyleBoxFlat.new()
-	sb.bg_color = player_color  # any Color, e.g. Color.hex("A450C7")
-	sb.corner_radius_top_left = 16
-	sb.corner_radius_top_right = 16
-	top_bar.add_theme_stylebox_override("panel", sb)
+	pass
+	#top_bar.self_modulate = player_color
+	#var style = top_bar.get_theme_stylebox("panel").duplicate()
+	#style.bg_color = player_color
+	#top_bar.add_theme_stylebox_override("panel", style)
+	#print("hub ready")
+	#print(player_color)
+
 
 func set_player(new_player: Player) -> void:
 	if new_player:

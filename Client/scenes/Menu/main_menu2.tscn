@@ -89,11 +89,11 @@ text = "GAME MODE SELECTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer"]
+[node name="MarginContainer" type="HBoxContainer" parent="control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_right = 80
+theme_override_constants/separation = 200
+alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="control/VBoxContainer/MarginContainer"]
 layout_mode = 2

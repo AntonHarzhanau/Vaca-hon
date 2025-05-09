@@ -5,11 +5,16 @@ class_name MainPlayerHub
 
 const PROPERTY_CARD = preload("res://scenes/UI/Popups/PropertyCard.tscn")
 #@onready var properties_container: VBoxContainer = $VBoxContainer/PropertyContainer
+func _ready():
+	super._ready()
 
 func set_player(player: Player):
 	super.set_player(player)
 
 func update_hub():
+	var style = top_bar.get_theme_stylebox("panel").duplicate()
+	style.bg_color = player_color
+	top_bar.add_theme_stylebox_override("panel", style)
 	super.update_hub()
 
 func update_properties_list(properties: Array[PropertyCell]) -> void:
