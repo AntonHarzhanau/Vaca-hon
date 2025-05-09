@@ -15,6 +15,9 @@ func _on_connecter_pressed() -> void:
 		"username": login.text,  
 		"password": password.text
 	}
+	#TODO delete this
+	UserData.password = password.text
+	UserData.save_user_data()
 	# Field Validation
 	if login.text.is_empty() or password.text.is_empty():
 		message.text = "Please enter all required fields."
@@ -24,7 +27,6 @@ func _on_connecter_pressed() -> void:
 
 	if response.response_code == 200:
 		var user = response.body
-		print(user) 
 		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
 		UserData.user_id = int(response.body["id"])
 		UserData.user_name = response.body["username"]

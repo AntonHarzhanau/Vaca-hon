@@ -11,10 +11,11 @@ router = APIRouter(prefix="/lobbies", tags=["lobby"])
 @router.post("")
 async def create_lobby(
     lobby_data: Annotated[LobbyCreateSchema, Body()],
-    service: Annotated[LobbyService, Depends(lobby_service)],
+    lobby_service: Annotated[LobbyService, Depends(lobby_service)],
 ) -> LobbyReadSchema:
     print("Creating lobby with data:", lobby_data)
-    new_lobby = await service.create_lobby(lobby_data)
+    new_lobby = await lobby_service.create_lobby(lobby_data)
+    print("New lobby created:", new_lobby)
     if new_lobby is None:
         raise HTTPException(status_code=400, detail="Lobby creation failed")
     return new_lobby
@@ -22,9 +23,12 @@ async def create_lobby(
 
 @router.get("", response_model=list[LobbyReadSchema])
 async def get_all_lobbies(
-    service: Annotated[LobbyService, Depends(lobby_service)] 
+    service: Annotated[LobbyService, Depends(lobby_service)],
+    filters: Annotated[LobbyFilterSchema, Depends()] 
 ) -> list[LobbyReadSchema]:
-    lobbies = await service.get_lobbies(filters=LobbyFilterSchema(is_active=True))
+    print(filters)
+    
+    lobbies = await service.get_lobbies(filters=filters)
     return lobbies
 
 @router.get("/{lobby_id}", response_model=LobbyReadSchema)

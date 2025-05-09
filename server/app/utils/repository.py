@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from sqlalchemy import insert, select, or_
+from sqlalchemy import insert, select, or_, and_
 from app.db.database import async_session_maker
 from pydantic import BaseModel
 from sqlalchemy.exc import IntegrityError
@@ -57,7 +57,7 @@ class SqlAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one().to_read_model()
         
-    async def get(self, user_id: int | None = None, filters: BaseModel | None = None):
+    async def get(self, user_id: int | None = None, filters: BaseModel | None = None, chose : bool = False):
         async with async_session_maker() as session:
             stmt = select(self.model)
 
@@ -73,7 +73,10 @@ class SqlAlchemyRepository(AbstractRepository):
                     for field, value in filters.model_dump(exclude_unset=True).items()
                     if hasattr(self.model, field)
                 ]
-                stmt = stmt.where(or_(*conditions))
+                if chose:
+                    stmt = stmt.where(and_(*conditions))
+                else:
+                    stmt = stmt.where(or_(*conditions))
 
             result = await session.execute(stmt)
             return [row[0].to_read_model() for row in result.all()]

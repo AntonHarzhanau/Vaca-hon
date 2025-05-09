@@ -8,7 +8,7 @@ var websocket_peer: WebSocketPeer
 	
 
 	
-func connect_to_server(websocket_url:String) -> void:
+func connect_to_server(websocket_url:String) -> bool:
 	#var tls_options = TLSOptions.client_unsafe()
 	#websocket_url = "ws://127.0.0.1:8000/ws/"
 	print(websocket_url)
@@ -17,8 +17,10 @@ func connect_to_server(websocket_url:String) -> void:
 	var err = websocket_peer.connect_to_url(websocket_url)
 	if err != OK:
 		print("Failed to connect to server: ", err)
-		return
-	set_process(true)
+		return false
+	else:
+		set_process(true)
+		return true
 
 func _process(_delta: float) -> void:
 	if websocket_peer:

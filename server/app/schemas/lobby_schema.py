@@ -7,6 +7,7 @@ from typing import List
 # Schemas for Lobby
 class LobbyCreateSchema(BaseModel):
     owner_id: int
+    owner_name: str
     nb_player_max: int = 4
     time_sec: int = 1800
     is_private: bool = True
@@ -19,6 +20,7 @@ class LobbyReadSchema(BaseModel):
     time_sec: int = 1800
     players: list[UserReadSchema]
     owner_id: int
+    owner_name: str
     is_active: bool
     is_private: bool
     created_at: datetime
@@ -36,6 +38,5 @@ class LobbyUpdateSchema(BaseModel):
     players: Optional[List[UserReadSchema]] = None
 
 class LobbyFilterSchema(BaseModel):
-    is_active: Optional[bool] = None
+    is_active: Optional[bool] = True
     is_private: Optional[bool] = None
-    owner_id: Optional[int] = None

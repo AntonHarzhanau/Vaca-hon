@@ -18,6 +18,7 @@ class Player(BaseModel):
     card_inventory: List[str] = Field(default_factory=list)
     properties: List["PropertyCell"] = Field(default_factory=list)
     selected_token: str = None
+    player_color: str = None
 
     def get_property(self, cell_id: int):
         for property in self.properties:

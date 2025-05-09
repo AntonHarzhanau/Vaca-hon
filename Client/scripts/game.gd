@@ -44,7 +44,7 @@ func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
 		var new_player = board.add_player(i)
 		new_player.global_position += Vector2(10,10) * States.players.size()
-		#new_player.player_color = colors[new_player.id]
+		
 		States.players[new_player.id] = new_player
 		new_player.state_changed.connect(_on_player_state_changed)
 		if new_player.id == UserData.user_id:

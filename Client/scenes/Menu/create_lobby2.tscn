@@ -1,10 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvuos1sssedww"]
+[gd_scene load_steps=33 format=3 uid="uid://dvuos1sssedww"]
 
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="2_2e2bd"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="4_vi5sa"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_0bggq"]
+[ext_resource type="ButtonGroup" uid="uid://cemqouo0xlwif" path="res://buttons/number_players_button_group.tres" id="5_vag1c"]
+[ext_resource type="ButtonGroup" uid="uid://dfh0vh5tgrit2" path="res://buttons/time_game_button.tres" id="6_4kb55"]
+[ext_resource type="ButtonGroup" uid="uid://bwkmfdjb24nwv" path="res://buttons/private_button_group.tres" id="6_b0npl"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vag1c"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_b0npl"]
 
@@ -171,6 +174,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 24.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -202,7 +209,7 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+[node name="BackButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -277,7 +284,7 @@ text = "Number of players:"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control"]
+[node name="NumPlayerBtnContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control"]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -290,7 +297,7 @@ offset_bottom = 150.6
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer"]
+[node name="Button2" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -300,10 +307,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vag1c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_b0npl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b0npl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jyvd")
-toggle_mode = true
+button_pressed = true
+button_group = ExtResource("5_vag1c")
 text = "2"
+alignment = 1
 
-[node name="Button3" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer"]
+[node name="Button3" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_8oi6e")
@@ -312,10 +321,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_b0npl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4kb55")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4kb55")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d8uk")
-toggle_mode = true
+button_group = ExtResource("5_vag1c")
 text = "3"
+alignment = 1
 
-[node name="Button4" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer"]
+[node name="Button4" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_8oi6e")
@@ -324,10 +334,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4kb55")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w047n")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w047n")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0bggq")
-toggle_mode = true
+button_group = ExtResource("5_vag1c")
 text = "4"
+alignment = 1
 
-[node name="Label2" type="Label" parent="TextureRect/MarginContainer/Panel/Control"]
+[node name="Playing time" type="Label" parent="TextureRect/MarginContainer/Panel/Control"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 0
 anchor_left = 0.0800866
@@ -344,7 +355,7 @@ text = "Playing time:"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control"]
+[node name="TimeGameBtnContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control"]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -358,7 +369,7 @@ offset_bottom = 150.6
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button30" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer2"]
+[node name="Button30" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/TimeGameBtnContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -368,10 +379,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w047n")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pesm0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pesm0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jyvd")
-toggle_mode = true
+button_pressed = true
+button_group = ExtResource("6_4kb55")
 text = "30min"
+alignment = 1
 
-[node name="Button45" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer2"]
+[node name="Button45" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/TimeGameBtnContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_8oi6e")
@@ -380,10 +393,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pesm0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7b2c1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7b2c1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d8uk")
-toggle_mode = true
+button_group = ExtResource("6_4kb55")
 text = "45min"
 
-[node name="Button60" type="Button" parent="TextureRect/MarginContainer/Panel/Control/HBoxContainer2"]
+[node name="Button60" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control/TimeGameBtnContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_8oi6e")
@@ -392,7 +405,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7b2c1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ndisx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ndisx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0bggq")
-toggle_mode = true
+button_group = ExtResource("6_4kb55")
 text = "60min"
 
 [node name="Control2" type="Control" parent="TextureRect/MarginContainer/Panel"]
@@ -404,7 +417,7 @@ offset_left = -3.05176e-05
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control2"]
+[node name="PrivateBtnContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/Panel/Control2"]
 custom_minimum_size = Vector2(3, 0)
 layout_mode = 0
 anchor_left = 0.431385
@@ -416,7 +429,7 @@ offset_bottom = 149.091
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button_Publique" type="Button" parent="TextureRect/MarginContainer/Panel/Control2/HBoxContainer3"]
+[node name="Button_Publique" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control2/PrivateBtnContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -426,10 +439,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ndisx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lht2m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lht2m")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2jyvd")
-toggle_mode = true
+button_pressed = true
+button_group = ExtResource("6_b0npl")
 text = "Public"
+alignment = 1
 
-[node name="Button_Privee" type="Button" parent="TextureRect/MarginContainer/Panel/Control2/HBoxContainer3"]
+[node name="Button_Privee" type="CheckButton" parent="TextureRect/MarginContainer/Panel/Control2/PrivateBtnContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_8oi6e")
@@ -438,11 +453,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_lht2m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3qtel")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3qtel")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0bggq")
-toggle_mode = true
+button_group = ExtResource("6_b0npl")
 text = "Private"
+alignment = 1
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="TextureRect/MarginContainer/Panel/Control2"]
+[node name="Type of game" type="Label" parent="TextureRect/MarginContainer/Panel/Control2"]
 custom_minimum_size = Vector2(200, 85)
 layout_mode = 0
 anchor_left = 0.0291677
@@ -460,27 +476,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="TextureRect/MarginContainer/Panel/Control2"]
-visible = false
-custom_minimum_size = Vector2(170, 85)
-layout_mode = 0
-anchor_left = 0.0291677
-anchor_top = 0.547765
-anchor_right = 0.265649
-anchor_bottom = 0.742125
-offset_top = -1.52588e-05
-offset_right = 38.5465
-offset_bottom = 21.25
-scale = Vector2(0.75, 0.75)
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8oi6e")
-theme_override_font_sizes/font_size = 35
-text = "Background theme:"
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Label5" type="Label" parent="TextureRect/MarginContainer/Panel/Control2"]
+[node name="Password" type="Label" parent="TextureRect/MarginContainer/Panel/Control2"]
 custom_minimum_size = Vector2(170, 85)
 layout_mode = 0
 anchor_left = 0.0291677
@@ -498,7 +494,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit" type="LineEdit" parent="TextureRect/MarginContainer/Panel/Control2"]
+[node name="PasswordEdit" type="LineEdit" parent="TextureRect/MarginContainer/Panel/Control2"]
 layout_mode = 0
 anchor_left = 0.463998
 anchor_top = 0.45393
@@ -553,4 +549,5 @@ theme_override_styles/normal = ExtResource("7_b0npl")
 text = "CREATE A GAME"
 autowrap_mode = 3
 
-[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/Panel/MarginContainer/SubmitCreateLobby" to="." method="_on_submit_create_lobby_pressed"]

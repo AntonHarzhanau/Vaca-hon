@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dtnirlo71hwp2"]
 
-[ext_resource type="Script" uid="uid://cg05c2jqapceb" path="res://scripts/Menu/lobby_wait.gd" id="1_lfnhy"]
+[ext_resource type="Script" uid="uid://mc6lkg7jndel" path="res://scripts/Menu/lobby_wait.gd" id="1_lfnhy"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_al50h"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_rgr5d"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_emke7"]
