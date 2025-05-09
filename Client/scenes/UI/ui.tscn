@@ -152,24 +152,26 @@ offset_bottom = -182.0
 
 [node name="Settings" parent="." instance=ExtResource("10_c5elv")]
 visible = false
-offset_left = 102.0
-offset_top = 139.0
-offset_right = -114.0
-offset_bottom = -244.0
+offset_left = 106.0
+offset_top = 100.0
+offset_right = -110.0
+offset_bottom = -283.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 20.0
+offset_left = 14.0
 offset_top = 20.0
-offset_right = 118.0
+offset_right = 112.0
 offset_bottom = 70.0
 
 [node name="quit" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("16_5t1j6")
 stretch_mode = 0
 
 [node name="setting" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("17_4nac7")
 stretch_mode = 0
 

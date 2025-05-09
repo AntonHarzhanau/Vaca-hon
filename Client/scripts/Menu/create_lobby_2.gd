@@ -1,14 +1,14 @@
 extends Control
 
 # Save button groups
-@onready var num_users_btn_group: HBoxContainer = $TextureRect/MarginContainer/Panel/Control/NumPlayerBtnContainer
-@onready var time_game_group:HBoxContainer = $TextureRect/MarginContainer/Panel/Control/TimeGameBtnContainer
-@onready var private_btn_group: HBoxContainer = $TextureRect/MarginContainer/Panel/Control2/PrivateBtnContainer
+@onready var num_users_btn_group: HBoxContainer = $TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer
+@onready var time_game_group:HBoxContainer = $TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer
+@onready var private_btn_group: HBoxContainer = $TextureRect/CenterContainer/MarginContainer/Panel/Control2/PrivateBtnContainer
 
 # Password-related nodes
-@onready var label_mdp = $TextureRect/MarginContainer/Panel/Control2/Password
-@onready var lineedit_mdp = $TextureRect/MarginContainer/Panel/Control2/PasswordEdit
-@onready var message_mdp = $TextureRect/MarginContainer/Panel/Control2/FeedbackMessage
+@onready var label_mdp = $TextureRect/CenterContainer/MarginContainer/Panel/Control2/Password
+@onready var lineedit_mdp = $TextureRect/CenterContainer/MarginContainer/Panel/Control2/PasswordEdit
+@onready var message_mdp = $TextureRect/CenterContainer/MarginContainer/Panel/Control2/FeedbackMessage
 
 # Default selected button
 var nb_player_max = 2

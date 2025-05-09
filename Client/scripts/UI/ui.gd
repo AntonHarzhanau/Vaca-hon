@@ -17,8 +17,8 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
 @onready var info_message: Label = $VBoxContainer/InfoMessage
 @onready var event_card:EventCard = $EventCard
-@onready var quit_dialog_panel = $QuitDialogPanel
-@onready var quit2_dialog_panel = $QuitDialogPanel2
+@onready var quit_dialog_panel = $quit_game
+@onready var settings_panel = $Settings
 
 func _ready() -> void:
 	# Subscribe to signals
@@ -26,7 +26,7 @@ func _ready() -> void:
 	dice.dice_rolled.connect(_on_dice_dice_rolled)
 	end_turn_btn.pressed.connect(_on_end_turn_button_pressed)
 	quit_dialog_panel.visible = false
-	quit2_dialog_panel.visible = false
+	settings_panel.visible = false
 
 	
 	
@@ -79,36 +79,17 @@ func show_info(info:String):
 	$VBoxContainer.visible = true
 
 func _on_ok_button_pressed() -> void:
-	$VBoxContainer.visible = false	
+	$VBoxContainer.visible = false
 
 
 func _on_setting_pressed() -> void:
-	quit_dialog_panel.visible = true
+	settings_panel.visible = !settings_panel.visible
 
 	
 	pass # Replace with function body.
 
 
 func _on_quit_pressed() -> void:
-	quit2_dialog_panel.visible = true
-
-	
-	
-	pass # Replace with function body.
-
-
-func _on_cancel_button_pressed() -> void:
-	quit_dialog_panel.visible = false
-	
-	pass # Replace with function body.
-
-
-func _on_confirm_button_pressed() -> void:
-	get_tree().quit()
-	pass # Replace with function body.
-
-
-func _on_close_button_pressed() -> void:
-	quit2_dialog_panel.visible = false
+	quit_dialog_panel.visible = !quit_dialog_panel.visible
 	
 	pass # Replace with function body.

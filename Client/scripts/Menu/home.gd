@@ -1,6 +1,5 @@
 extends Control
 
-@onready var regle_button = $HBoxContainer/MarginContainer/VBoxContainer2/Regle
 @onready var regle_popup = $Regle_du_jeu
 @onready var log_out_popup = $Log_out
 @onready var log_out_button = $HBoxContainer/MarginContainer3/Connection
@@ -15,12 +14,10 @@ var popup_target_pos := Vector2(256, 201)
 var popup_start_pos := Vector2(256, 800)
 
 func _ready():
-	regle_button.connect("pressed", Callable(self, "_on_regle_pressed"))
-	regle_popup.visible = false
 	log_out_button.connect("pressed", Callable(self, "_on_connection_pressed"))
 	log_out_popup.visible = false
 	overlay.visible = false
-	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  # 允许点击穿透
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	#support_button.connect("pressed", Callable(self, "_on_support_pressed"))
 	#parametre_button.connect("pressed", Callable(self, "_on_parametre_pressed"))

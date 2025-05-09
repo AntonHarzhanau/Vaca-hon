@@ -56,18 +56,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = 104.0
-offset_right = -352.0
-offset_bottom = -26.0
+offset_left = -118.0
+offset_top = 66.0
+offset_right = -96.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_twpsu")
+expand_mode = 1
 
 [node name="Title Label" type="Label" parent="QuitDialogPanel"]
-layout_mode = 0
-offset_right = 801.0
-offset_bottom = 90.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 46.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_eup1v")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7lqs")
@@ -79,9 +82,10 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 343.0
-offset_top = 133.0
-offset_bottom = 378.0
+offset_left = 350.0
+offset_top = 93.0
+offset_right = 7.0
+offset_bottom = 354.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_eup1v")
@@ -132,3 +136,6 @@ theme_override_styles/hover = ExtResource("5_2o78c")
 theme_override_styles/pressed = ExtResource("6_nj02x")
 theme_override_styles/normal = ExtResource("7_pfor3")
 text = "NO"
+
+[connection signal="pressed" from="QuitDialogPanel/Button_container/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="QuitDialogPanel/Button_container/CancelButton" to="." method="_on_cancel_button_pressed"]

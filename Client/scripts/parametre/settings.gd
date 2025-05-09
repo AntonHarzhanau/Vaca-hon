@@ -2,12 +2,12 @@ extends Control
 
 @onready var settings_panel = $SettingsPanel
 
-func _ready():
-	settings_panel.visible = false
+#func _ready():
+	#settings_panel.visible = false
 
 
 func _on_close_button_pressed() -> void:
-	settings_panel.visible = false
+	$".".visible = false
 
 	pass # Replace with function body.
 
