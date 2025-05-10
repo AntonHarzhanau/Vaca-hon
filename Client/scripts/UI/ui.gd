@@ -15,7 +15,7 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var end_turn_btn: Button = $EndTurnButton
 @onready var turn_lable:Label = $TurnLable
 @onready var guest_hubs_container:VBoxContainer = $GuestHubContainer
-@onready var info_message: Label = $VBoxContainer/InfoMessage
+@onready var info_message: Label = $Info/VBoxContainer/InfoMessage
 @onready var event_card:EventCard = $EventCard
 @onready var quit_dialog_panel = $quit_game
 @onready var settings_panel = $Settings
@@ -80,10 +80,10 @@ func _on_menu_btn_pressed() -> void:
 	
 func show_info(info:String):
 	info_message.text = info
-	$VBoxContainer.visible = true
+	$Info.visible = true
 
 func _on_ok_button_pressed() -> void:
-	$VBoxContainer.visible = false
+	$Info.visible = false
 
 
 func _on_setting_pressed() -> void:

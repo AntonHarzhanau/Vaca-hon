@@ -19,6 +19,7 @@ signal go_to_jail(player_id:int)
 signal get_out_jail(money:int)
 signal offer_to_sell(rent:int)
 signal event(message: Dictionary)
+signal double_roll(message: String)
 
 
 func _ready() -> void:
@@ -69,9 +70,8 @@ func _on_message_received(message: Dictionary) -> void:
 			emit_signal("offer_to_sell", message["rent"])
 		"event":
 			message.erase("action")
-			emit_signal(
-				"event", 
-				message
-				)
+			emit_signal("event", message)
+		"double_roll":
+			emit_signal("double_roll", message["message"])
 		_:
 			print("Unknown action from server: ", action)

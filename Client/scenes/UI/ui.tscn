@@ -58,6 +58,7 @@ offset_right = 407.0
 offset_bottom = 157.0
 
 [node name="EndTurnButton" type="Button" parent="."]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -123,25 +124,6 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "menu"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-offset_left = 350.0
-offset_top = 332.0
-offset_right = 650.0
-offset_bottom = 467.0
-
-[node name="InfoMessage" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0352941, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "INFO"
-autowrap_mode = 2
-
-[node name="OkButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Ok"
-
 [node name="EventCard" parent="." instance=ExtResource("7_35jxk")]
 visible = false
 
@@ -179,8 +161,34 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("17_4nac7")
 stretch_mode = 0
 
+[node name="Info" type="ColorRect" parent="."]
+offset_left = 350.0
+offset_top = 332.0
+offset_right = 650.0
+offset_bottom = 468.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoMessage" type="Label" parent="Info/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0352941, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "INFO"
+autowrap_mode = 2
+
+[node name="OkButton" type="Button" parent="Info/VBoxContainer"]
+layout_mode = 2
+text = "Ok"
+
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="HBoxContainer/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Info/VBoxContainer/OkButton" to="." method="_on_ok_button_pressed"]

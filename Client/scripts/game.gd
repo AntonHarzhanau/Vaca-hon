@@ -38,6 +38,7 @@ func _ready() -> void:
 	msg_handler.go_to_jail.connect(_on_go_to_jail)
 	msg_handler.get_out_jail.connect(_on_get_out_jail)
 	msg_handler.event.connect(_on_card_event)
+	msg_handler.double_roll.connect(_on_double_roll)
 	ui.end_turn_clicked.connect(_on_end_turn_clicked)
 
 func  _on_player_connected(player_data: Variant) -> void:
@@ -152,7 +153,12 @@ func _on_end_turn_clicked():
 		if bankrupt:
 			ui.show_info("Game over!!!!!!!")
 			_exit_tree()
-			
+
+func _on_double_roll(message:String):
+	States.dice_active = true
+	ui.show_info(message)
+	ui.end_turn_btn.visible = false
+
 func _on_card_event(data:Dictionary):
 	var event_type = data.get("effect_type", "Error")
 	var player = States.players[int(data.get("player_id"))]

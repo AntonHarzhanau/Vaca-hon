@@ -53,7 +53,6 @@ class LobbyInstance:
             "user_name": user.username,
             "user_token": user.selected_token,
             "user_color": user.player_color,
-            # "players": [user.model_dump() for user in self.connection_manager.active_connections.values()]
         }), websocket)
 
     async def select_token(self, websocket: WebSocket, token_name: str):

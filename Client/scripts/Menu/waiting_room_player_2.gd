@@ -12,4 +12,4 @@ var user_id:int
 func _ready() -> void:
 	player_name_label.text = player_name
 	player_name_label.self_modulate = Color.html(player_color)
-	player_token_sprite.texture = load("res://assets/Token/"+player_token+".png")
+	#player_token_sprite.texture = load("res://assets/Token/"+player_token+".png")

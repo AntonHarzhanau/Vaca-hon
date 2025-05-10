@@ -41,6 +41,15 @@ class GameManager:
     def handle_roll_dice(self, player_id: int, data: dict) -> dict:
         test = data.get("test")
         result = self.logic.roll_dice(test)
+        if result["dice1"] == result["dice2"]:
+            self.state.double_roll = True
+            self.state.double_roll_count += 1
+            if self.state.double_roll_count >= 3:
+                self.state.players[player_id].nb_turn_jail = 3
+                return {"action": "go_to_jail", 
+                        "player_id":player_id, 
+                        "message": "You rolled three doubles in a row, go to jail!", 
+                        "delivery": "broadcast"}
         self.state.last_dice_roll["dice1"] = result["dice1"]
         self.state.last_dice_roll["dice2"] = result["dice2"]
         return result
@@ -66,6 +75,9 @@ class GameManager:
         return self.logic.move_player(player_id, steps)
 
     def handle_end_turn(self, player_id: int, data: dict) -> dict:
+        if self.state.double_roll:
+            self.state.double_roll = False
+            return {"action": "double_roll", "message": "You rolled a double, you can roll again!", "delivery": "personal"} 
         self.state.current_dice_context = self.state.dice_context[0]
         self.state.last_dice_roll = {"dice1": 0, "dice2": 0}
         
