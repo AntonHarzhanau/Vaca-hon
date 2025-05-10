@@ -4,7 +4,7 @@ signal accept_offer_clicked
 signal reject_offer_clicked
 
 @onready var label_offer:Label = $Panel/Back_ground/Label
-@onready var title_label:Label = $Panel/Back_ground/Title_Label
+@onready var title_label:Label = $Panel/Back_ground/Title
 @onready var accept_btn:Button = $Panel/Back_ground/Button_container/Accept_btn
 @onready var deny_btn:Button = $Panel/Back_ground/Button_container/Deny_btn
 

@@ -2,6 +2,7 @@ extends Control
 
 @onready var regle_popup = $Regle_du_jeu
 @onready var log_out_popup = $Log_out
+@onready var log_out_panel = $Log_out/fulltoblock/Panel
 @onready var log_out_button = $HBoxContainer/MarginContainer3/Connection
 @onready var overlay := $Overlay
 
@@ -56,15 +57,15 @@ func _on_trouver_pressed():
 func _on_connection_pressed() -> void:
 	overlay.visible = true
 	log_out_popup.visible = true
-	log_out_popup.position = popup_start_pos
+	log_out_panel.position = popup_start_pos
 
 	var tween = create_tween()
-	tween.tween_property(log_out_popup, "position", popup_target_pos, 0.4)\
+	tween.tween_property(log_out_panel, "position", popup_target_pos, 0.4)\
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_non_pressed() -> void:
 	var tween = create_tween()
-	tween.tween_property(log_out_popup, "position", popup_start_pos, 0.3)\
+	tween.tween_property(log_out_panel, "position", popup_start_pos, 0.3)\
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await tween.finished
 	log_out_popup.visible = false

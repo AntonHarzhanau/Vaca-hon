@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bdqeodn4ygfq0"]
+[gd_scene load_steps=46 format=3 uid="uid://bdqeodn4ygfq0"]
 
 [ext_resource type="Script" uid="uid://bdnr0lp0qohks" path="res://scripts/Menu/home.gd" id="1_8gxoc"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kx5jl"]
@@ -92,6 +92,16 @@ corner_radius_top_right = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvqbo"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jts6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7l0i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkny6"]
 
@@ -856,13 +866,6 @@ text = "End"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect_Regle_du_jeu#CloseArea" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 1.0
-offset_right = 552.0
-offset_bottom = 601.0
-
 [node name="Overlay" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -874,20 +877,72 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.196078)
 
-[node name="Log_out" type="Panel" parent="."]
+[node name="Log_out" type="CanvasLayer" parent="."]
 auto_translate_mode = 1
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.192481
-anchor_top = 0.25125
-anchor_right = 0.789474
-anchor_bottom = 0.75125
+
+[node name="fulltoblock" type="Panel" parent="Log_out"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w86bu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jts6")
 
-[node name="Title" type="Panel" parent="Log_out"]
+[node name="Panel" type="Panel" parent="Log_out/fulltoblock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u7l0i")
+
+[node name="TextureRect" type="TextureRect" parent="Log_out/fulltoblock/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00587359
+anchor_top = 0.08495
+anchor_right = -0.0480846
+anchor_bottom = 0.0865
+offset_left = -32.4758
+offset_top = 63.02
+offset_right = 421.253
+offset_bottom = 347.4
+grow_vertical = 2
+texture = ExtResource("23_64ili")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Log_out/fulltoblock/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0334046
+anchor_top = -0.0565
+anchor_right = 0.563405
+anchor_bottom = -7.4275
+offset_left = 260.957
+offset_top = 106.6
+offset_right = 260.957
+offset_bottom = 3315.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 30
+text = "Souhaitez-vous vraiment vous déconnecter et être redirigé.e vers la page de connexion ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Panel" parent="Log_out/fulltoblock/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -895,7 +950,7 @@ anchor_bottom = 0.22
 theme_override_styles/panel = SubResource("StyleBoxFlat_2atvw")
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="Log_out/Title"]
+[node name="Title" type="Label" parent="Log_out/fulltoblock/Panel/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -908,44 +963,17 @@ text = "SE DÉCONNECTER "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Log_out"]
+[node name="NON" type="Button" parent="Log_out/fulltoblock/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.465995
-anchor_top = 0.2975
-anchor_right = 0.901763
-anchor_bottom = 0.7625
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_wqg4d")
-theme_override_font_sizes/font_size = 30
-text = "Souhaitez-vous vraiment vous déconnecter et être redirigé.e vers la page de connexion ?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Log_out"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0362217
-anchor_top = 0.1745
-anchor_right = 0.56801
-anchor_bottom = 0.965
-offset_left = -52.76
-offset_top = 0.199997
-grow_vertical = 2
-texture = ExtResource("23_64ili")
-metadata/_edit_use_anchors_ = true
-
-[node name="NON" type="Button" parent="Log_out"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.117128
-anchor_top = 0.885
-anchor_right = 0.424433
-anchor_bottom = 1.085
+anchor_left = -0.00598612
+anchor_top = 0.0285
+anchor_right = 0.301319
+anchor_bottom = 0.2285
+offset_left = 65.5917
+offset_top = 318.6
+offset_right = 67.2995
+offset_bottom = 376.6
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -959,13 +987,17 @@ text = "NON"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="OUI" type="Button" parent="Log_out"]
+[node name="OUI" type="Button" parent="Log_out/fulltoblock/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.560453
-anchor_top = 0.885
-anchor_right = 0.867758
-anchor_bottom = 1.085
+anchor_left = 0.0385772
+anchor_top = 0.0185
+anchor_right = 0.345882
+anchor_bottom = 0.2185
+offset_left = 313.854
+offset_top = 318.6
+offset_right = 321.561
+offset_bottom = 382.6
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -985,5 +1017,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Trouver" to="." method="_on_trouver_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer3/Connection" to="." method="_on_connection_pressed"]
-[connection signal="pressed" from="Log_out/NON" to="." method="_on_non_pressed"]
-[connection signal="pressed" from="Log_out/OUI" to="." method="_on_oui_pressed"]
+[connection signal="pressed" from="Log_out/fulltoblock/Panel/NON" to="." method="_on_non_pressed"]
+[connection signal="pressed" from="Log_out/fulltoblock/Panel/OUI" to="." method="_on_oui_pressed"]

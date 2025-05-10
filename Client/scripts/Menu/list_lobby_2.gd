@@ -22,8 +22,8 @@ var default_style: StyleBoxFlat = null
 var is_public: bool = true
 
 # New: Added pop-up window and background mask nodes
-@onready var rejoindre_popup := $TextureRect/Rejoindre
-@onready var rejoindre_popup_lobby_owner := $TextureRect/Rejoindre/LobbyOwnerUsername
+@onready var rejoindre_popup := $Rejoindre/rejoindre_popup
+@onready var rejoindre_popup_lobby_owner := $Rejoindre/rejoindre_popup/Panel/LobbyOwnerUsername
 @onready var rejoindre_overlay := $TextureRect/Overlay
 
 # Rejoindre The start and target position of the popup (center of the screen & outside the bottom)
