@@ -27,14 +27,13 @@ class Player(BaseModel):
         return None
         
         
-    def move(self, steps: int, with_prime: True) -> dict:
+    def move(self, steps: int) -> dict:
         old_position = self.current_position
         new_position = (self.current_position + steps) % 40
         prime = False
-        if with_prime:
-            if steps > 0 and new_position < old_position:
-                self.money += 200  # bonus for passing through the start
-                prime = True
+        if steps > 0 and new_position < old_position:
+            self.money += 200  # bonus for passing through the start
+            prime = True
 
         self.current_position = new_position
 

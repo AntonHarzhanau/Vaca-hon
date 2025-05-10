@@ -16,7 +16,6 @@ func _ready() -> void:
 		var test_ui = load("res://Test/test_menu.tscn")
 		var test_instance = test_ui.instantiate()
 		ui.add_child(test_instance)
-	
 	cells = board.get_cells()
 
 	# Subscribing UI to GameManager signals
@@ -54,7 +53,8 @@ func  _on_player_connected(player_data: Variant) -> void:
 			ui.create_main_player_hub(new_player)
 		else:
 			ui.create_guest_hub(new_player)
-		
+	if UserData.user_id == States.id_player_at_turn:
+		States.dice_active = true
 	ui.turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 	
 func _on_player_disconnected(player_id:int):

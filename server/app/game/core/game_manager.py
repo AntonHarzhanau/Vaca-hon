@@ -10,7 +10,7 @@ logger = logging.getLogger("GameManager")
 
 class GameManager:
     def __init__(self, players: Dict[int, "Player"]):
-        self.state = GameState(players)
+        self.state = GameState(players=players)
         first_key = next(iter(players))
         self.state.current_turn_player_id = players[first_key].id
         self.logic = GameLogic(self.state)
