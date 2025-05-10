@@ -47,8 +47,8 @@ func create_main_player_hub(player:Player):
 func create_guest_hub(player:Player):
 	var guest_hub = GUEST_HUB.instantiate()
 	guest_hub.player_id = player.id
-	guest_hub.set_player(player)
 	guest_hubs_container.add_child(guest_hub)
+	guest_hub.set_player(player)
 	guest_hub.update_hub()
 
 func update_hubs(player:Player, current_player_id):

@@ -10,7 +10,7 @@ corner_radius_top_right = 16
 [node name="MainPlayerHub" instance=ExtResource("2_3vukn")]
 script = ExtResource("1_8oya7")
 
-[node name="PanelBackground" parent="." index="0"]
+[node name="PanelBackground" parent="." index="1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
