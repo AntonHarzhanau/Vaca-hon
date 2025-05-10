@@ -2,8 +2,8 @@ extends CanvasLayer
 
 class_name EventCard
 
-@onready var descripton: Label = $Background/Description
-@onready var back: TextureRect  = $Background
+@onready var descripton: Label = $Panel/Background/Description
+@onready var back: TextureRect  = $Panel/Background
 
 var image_back_chance
 var image_back_community 

@@ -1,8 +1,8 @@
-extends Control
+extends CanvasLayer
 class_name FlyOffer
 
-@onready var offer: Label = $Background/Offer
-@onready var title_label: Label = $Background/Title_Label
+@onready var offer: Label = $Panel/Background/Offer
+@onready var title_label: Label = $Panel/Background/Title_Label
 var cell_id:int
 
 func show_offer(message:String, cell_id:int):

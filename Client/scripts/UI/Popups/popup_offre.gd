@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 
-@onready var label_offer:Label = $Back_ground/Label
-@onready var title_label: Label = $Back_ground/Title_Label
-@onready var accept_btn:Button = $Back_ground/Button_container/Accept_btn
-@onready var deny_btn:Button = $Back_ground/Button_container/Deny_btn
+@onready var label_offer:Label = $Panel/Back_ground/Label
+@onready var title_label: Label = $Panel/Back_ground/Title_Label
+@onready var accept_btn:Button = $Panel/Back_ground/Button_container/Accept_btn
+@onready var deny_btn:Button = $Panel/Back_ground/Button_container/Deny_btn
 
 var price:int
 func _ready():

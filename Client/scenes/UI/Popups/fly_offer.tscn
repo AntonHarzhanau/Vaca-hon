@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://irfsxn8puawo"]
+[gd_scene load_steps=13 format=3 uid="uid://irfsxn8puawo"]
 
 [ext_resource type="Script" uid="uid://b1f2i3gihuiyf" path="res://scenes/UI/Popups/fly_offer.gd" id="1_xvpm1"]
 [ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="2_i6q70"]
@@ -7,6 +7,9 @@
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_ouow1"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_x7gqb"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_6ti18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d0id"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwvhj"]
 bg_color = Color(1, 1, 1, 1)
@@ -18,8 +21,19 @@ bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v76ig"]
 
-[node name="FlyOffer" type="Control"]
-layout_mode = 3
+[node name="FlyOffer" type="CanvasLayer"]
+script = ExtResource("1_xvpm1")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5d0id")
+
+[node name="Background" type="Panel" parent="Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,18 +45,9 @@ offset_right = 400.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xvpm1")
-
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dwvhj")
 
-[node name="Flyover" type="TextureRect" parent="Background"]
+[node name="Flyover" type="TextureRect" parent="Panel/Background"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -54,7 +59,7 @@ offset_bottom = 159.0
 grow_vertical = 2
 texture = ExtResource("3_dwvhj")
 
-[node name="Title_Label" type="Label" parent="Background"]
+[node name="Title_Label" type="Label" parent="Panel/Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -67,7 +72,7 @@ text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Offer" type="Label" parent="Background"]
+[node name="Offer" type="Label" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 271.0
 offset_top = 94.0
@@ -82,9 +87,9 @@ Would you like to move
 to the next airport?"
 horizontal_alignment = 1
 
-[node name="Info" type="Label" parent="Background"]
+[node name="Info" type="Label" parent="Panel/Background"]
 layout_mode = 0
-offset_left = 318.0
+offset_left = 330.0
 offset_top = 295.0
 offset_right = 800.0
 offset_bottom = 354.0
@@ -94,7 +99,7 @@ theme_override_font_sizes/font_size = 20
 text = "If another traveler owns the next airport, 
 you will have to pay them the corresponding rent."
 
-[node name="Button_container" type="HBoxContainer" parent="Background"]
+[node name="Button_container" type="HBoxContainer" parent="Panel/Background"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -105,7 +110,7 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="AcceptBtn" type="Button" parent="Background/Button_container"]
+[node name="AcceptBtn" type="Button" parent="Panel/Background/Button_container"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -118,7 +123,7 @@ theme_override_styles/pressed = ExtResource("6_x7gqb")
 theme_override_styles/normal = ExtResource("7_6ti18")
 text = "Move"
 
-[node name="DenyBtn" type="Button" parent="Background/Button_container"]
+[node name="DenyBtn" type="Button" parent="Panel/Background/Button_container"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -131,5 +136,5 @@ theme_override_styles/pressed = ExtResource("6_x7gqb")
 theme_override_styles/normal = ExtResource("7_6ti18")
 text = "Deny"
 
-[connection signal="pressed" from="Background/Button_container/AcceptBtn" to="." method="_on_accept_btn_pressed"]
-[connection signal="pressed" from="Background/Button_container/DenyBtn" to="." method="_on_deny_btn_pressed"]
+[connection signal="pressed" from="Panel/Background/Button_container/AcceptBtn" to="." method="_on_accept_btn_pressed"]
+[connection signal="pressed" from="Panel/Background/Button_container/DenyBtn" to="." method="_on_deny_btn_pressed"]

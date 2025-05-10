@@ -1,8 +1,8 @@
-extends Control
+extends CanvasLayer
 
-@onready var quit_dialog_panel = $QuitDialogPanel
-@onready var confirm_button = $Back_ground/Button_container/ConfirmButton
-@onready var cancel_button = $Back_ground/Button_container/CancelButton
+@onready var quit_dialog_panel = $Panel/QuitDialogPanel
+@onready var confirm_button = $Panel/QuitDialogPanel/Button_container/ConfirmButton
+@onready var cancel_button = $Panel/QuitDialogPanel/Button_container/CancelButton
 
 func _on_confirm_button_pressed() -> void:
 	WebSocketClient.close_connection()

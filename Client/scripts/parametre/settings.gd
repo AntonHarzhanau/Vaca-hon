@@ -1,6 +1,6 @@
-extends Control
+extends CanvasLayer
 
-@onready var settings_panel = $SettingsPanel
+@onready var settings_panel = $Panel/SettingsPanel
 
 #func _ready():
 	#settings_panel.visible = false
