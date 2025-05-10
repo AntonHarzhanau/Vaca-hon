@@ -8,6 +8,8 @@ signal sell_property_clicked(cell_id)
 signal end_game
 
 const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
+const BANDEAU = preload("res://scenes/UI/bandeau.tscn")
+
 @onready var dice:Dice = $Dice
 @onready var main_player_hub:MainPlayerHub = $MainPlayerHub
 @onready var popup_offer = $PopUpOffre
@@ -65,6 +67,11 @@ func _on_player_disconnected(player_id):
 func _on_change_turn():
 	end_turn_btn.visible = false
 	turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
+	var band = BANDEAU.instantiate()
+	band.player_name = States.players[States.id_player_at_turn].player_name
+	band.texture = States.players[States.id_player_at_turn].player_token
+	band.player_color = States.players[States.id_player_at_turn].player_color
+	self.add_child(band)
 
 func _on_end_turn_button_pressed():
 	emit_signal("end_turn_clicked")

@@ -57,3 +57,18 @@ offset_right = 30.0
 offset_bottom = 0.0
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_6u1e1")
+
+[node name="HouseContainer" type="GridContainer" parent="BackGround" index="4"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 108.0
+offset_bottom = 74.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="HotelContainer" type="CenterContainer" parent="BackGround" index="6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

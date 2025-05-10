@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfgk8weio0tjv"]
 
-[ext_resource type="Script" uid="uid://l7k1w466qlbw" path="res://scripts/card.gd" id="1_5yib0"]
+[ext_resource type="Script" uid="uid://copmqmqob2hj7" path="res://scenes/UI/player_avatar.gd" id="1_u44wr"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_u44wr"]
 [ext_resource type="Texture2D" uid="uid://mcmhh1bcbtk5" path="res://assets/Token/flight.png" id="3_u44wr"]
 
@@ -32,12 +32,9 @@ anchor_top = 0.03875
 anchor_right = 0.575
 anchor_bottom = 0.2975
 offset_bottom = -1.52588e-05
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_5yib0")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_u44wr")
 metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="."]
@@ -87,7 +84,15 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ln53a")
 metadata/_edit_use_anchors_ = true
 
-[node name="Flight" type="Sprite2D" parent="Panel2"]
-position = Vector2(99, 97)
+[node name="Flight" type="TextureRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 24.0
+offset_right = 166.5
+offset_bottom = 258.0
+grow_horizontal = 2
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_u44wr")

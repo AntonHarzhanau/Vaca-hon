@@ -14,6 +14,10 @@ class_name PopUpPropertyCard
 var card: PropertyCell
 
 func _ready() -> void:
+	pass
+
+func set_card(cell:PropertyCell):
+	card = cell
 	cell_owner.text = "Owner: " + card.cell_owner.player_name
 	property_name.text = card.cell_name
 	property_cost.text = "Property cost: " + str(card.price)
@@ -27,9 +31,10 @@ func _ready() -> void:
 		number_of_house.visible = true
 		house_cost_label.visible = true
 		$BackGround/HBoxContainer.visible = true
-
-func set_card(cell:PropertyCell):
-	card = cell
+	else:
+		number_of_house.visible = false
+		house_cost_label.visible = false
+		$BackGround/HBoxContainer.visible = false
 
 func update_property():
 	self.property_rent.text = "Rent: " + str(card.current_rent)
@@ -38,7 +43,7 @@ func update_houses():
 	number_of_house.text = "Number of house: " + str(card.nb_houses)
 
 func _on_close_button_pressed() -> void:
-	queue_free()
+	visible = false
 
 func _on_buy_house_button_pressed() -> void:
 	var msg = {"action": "buy_house", "cell_id": card.id_space}
@@ -49,6 +54,6 @@ func _on_sell_house_button_pressed() -> void:
 	WebSocketClient.send_message(JSON.stringify(msg))
 
 func _on_sell_button_pressed() -> void:
-	queue_free()
+	visible = false
 	var msg = {"action": "sell_property", "cell_id": card.id_space}
 	WebSocketClient.send_message(JSON.stringify(msg))
