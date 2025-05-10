@@ -83,6 +83,7 @@ texture_normal = ExtResource("4_ikq3i")
 [node name="Label" type="Label" parent="control/VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
 theme_override_font_sizes/font_size = 40
 text = "GAME MODE SELECTION"
@@ -119,6 +120,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CREER" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k25rb")
@@ -151,6 +153,7 @@ metadata/_edit_use_anchors_ = true
 [node name="REJOINDRE" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_cnkde")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b42ix")
