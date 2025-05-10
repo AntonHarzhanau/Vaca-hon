@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bns4cfqvli8a7"]
+[gd_scene load_steps=11 format=3 uid="uid://bns4cfqvli8a7"]
 
 [ext_resource type="Script" uid="uid://bjpqodrj4x60i" path="res://scripts/parametre/quit_game.gd" id="1_keulw"]
-[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="2_twpsu"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="2_twpsu"]
 [ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="4_eup1v"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_2o78c"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nj02x"]
@@ -15,29 +15,17 @@ bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eup1v"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2o78c"]
-bg_color = Color(0.627451, 0.85098, 0.909804, 0.666667)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.482353, 0.776471, 0.854902, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj02x"]
 
 [node name="quit_game" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 79.0
-offset_top = 43.0
-offset_right = -182.0
-offset_bottom = -221.0
+anchor_left = 0.1
+anchor_top = 0.234
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_top = 12.8
+offset_right = -6.10352e-05
+offset_bottom = -6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_keulw")
@@ -56,10 +44,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -66.0
-offset_top = 93.0
-offset_right = -230.0
-offset_bottom = -1.0
+offset_left = -1.0
+offset_top = 92.0
+offset_right = -385.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_twpsu")
@@ -71,6 +59,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 79.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_eup1v")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7lqs")
@@ -82,10 +71,10 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 366.0
-offset_top = 144.0
-offset_right = 23.0
-offset_bottom = 405.0
+offset_left = 347.0
+offset_top = 79.0
+offset_right = -1.0
+offset_bottom = 350.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_eup1v")
@@ -113,12 +102,10 @@ grow_vertical = 0
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.784314)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_eup1v")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_eup1v")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_2o78c")
 theme_override_styles/hover = ExtResource("5_2o78c")
 theme_override_styles/pressed = ExtResource("6_nj02x")
 theme_override_styles/normal = ExtResource("7_pfor3")

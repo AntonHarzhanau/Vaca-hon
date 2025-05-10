@@ -3,7 +3,7 @@
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_5xmv2"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_xfkce"]
 [ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_y5sry"]
-[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="5_5xmv2"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="5_5xmv2"]
 [ext_resource type="Texture2D" uid="uid://bu3rpxp2fub81" path="res://assets/Token/TOKEN Bottom-1.png" id="5_j8ww2"]
 [ext_resource type="Texture2D" uid="uid://cglcyl6tbel17" path="res://assets/Token/TOKEN-1.png" id="5_xfkce"]
 [ext_resource type="Texture2D" uid="uid://crsokhxb4xfrx" path="res://assets/Token/TOKEN Bottom-9.png" id="6_23mpb"]

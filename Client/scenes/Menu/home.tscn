@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bdqeodn4ygfq0"]
+[gd_scene load_steps=44 format=3 uid="uid://bdqeodn4ygfq0"]
 
 [ext_resource type="Script" uid="uid://bdnr0lp0qohks" path="res://scripts/Menu/home.gd" id="1_8gxoc"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kx5jl"]
@@ -7,8 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ce2pchcsfhtup" path="res://assets/BeachChaire.png" id="5_kx5jl"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_s1swk"]
 [ext_resource type="Texture2D" uid="uid://tbcx5vlm5eqa" path="res://assets/icon_help.png" id="6_8krf6"]
+[ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="6_u7l0i"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vkny6"]
+[ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="7_0jts6"]
 [ext_resource type="Texture2D" uid="uid://ceio3ooqj02yc" path="res://assets/support.png" id="7_qaayy"]
+[ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="8_abvod"]
 [ext_resource type="Texture2D" uid="uid://d174cm6pe1dyb" path="res://assets/parametre.png" id="8_xk4pu"]
 [ext_resource type="FontFile" uid="uid://cdj547dy11ia5" path="res://Fonts/Jua-Regular.ttf" id="9_qaayy"]
 [ext_resource type="Texture2D" uid="uid://dc1mq1003if8q" path="res://assets/log out.png" id="9_yvqbo"]
@@ -24,122 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://dkkhttuydqqe1" path="res://assets/Players/SHIP.png" id="19_s1swk"]
 [ext_resource type="Texture2D" uid="uid://dy6f04mv8xfrk" path="res://assets/Players/HELICOPTER.png" id="20_vkny6"]
 [ext_resource type="Texture2D" uid="uid://dmu2jqqto1i1j" path="res://assets/Players/FLIGHT.png" id="21_1i7aa"]
-[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/exit.png" id="23_64ili"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="23_64ili"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="24_x0ruf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abvod"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxfmp"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g8gw"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_871q6"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqllx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_073uw"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxbyl"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pxac"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1swk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss23m"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywbl1"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8ivx"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 7
-border_width_top = 7
-border_width_right = 7
-border_width_bottom = 7
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0ruf"]
 
@@ -199,42 +94,6 @@ corner_radius_top_right = 60
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkny6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ili"]
-bg_color = Color(0.698039, 0.4, 0.258824, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0ruf"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqllx"]
-bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 60
-corner_radius_top_right = 60
-corner_radius_bottom_right = 60
-corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1i7aa"]
 
@@ -331,12 +190,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 33
 theme_override_styles/focus = SubResource("StyleBoxEmpty_abvod")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lxfmp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1g8gw")
-theme_override_styles/normal = SubResource("StyleBoxFlat_871q6")
-text = "Rules of the game"
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
+text = "Game Rules"
 icon = ExtResource("6_8krf6")
 alignment = 0
 icon_alignment = 2
@@ -351,9 +210,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vqllx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_073uw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nxbyl")
-theme_override_styles/normal = SubResource("StyleBoxFlat_7pxac")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
 text = "    Support"
 icon = ExtResource("7_qaayy")
 alignment = 0
@@ -369,9 +228,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s1swk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ss23m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ywbl1")
-theme_override_styles/normal = SubResource("StyleBoxFlat_p8ivx")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
 text = "    Settings"
 icon = ExtResource("8_xk4pu")
 alignment = 0
@@ -1093,9 +952,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vkny6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_64ili")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_x0ruf")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vqllx")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
 text = "NON"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true

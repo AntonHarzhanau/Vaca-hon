@@ -14,7 +14,7 @@ func _ready():
 
 func show_offer():
 	title_label.text = "JAIL"
-	label_offer.text = "Do you want to pay $50 to get out of jail??"
+	label_offer.text = "Do you want to pay 50 to get out of jail?"
 	visible = true
 	#TODO: add check if the player has enough money and hide accept_btn if there is not enough money
 

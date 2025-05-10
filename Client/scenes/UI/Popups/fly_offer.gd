@@ -1,10 +1,13 @@
-extends Panel
+extends Control
 class_name FlyOffer
 
-@onready var offer: Label = $VBoxContainer/Offer
+@onready var offer: Label = $Background/Offer
+@onready var title_label: Label = $Background/Title_Label
 var cell_id:int
 
 func show_offer(message:String, cell_id:int):
+	title_label.text = "Fly Over"
+	offer.text = "You own this Airport. \nWould you like to move to \nthe next airport?"
 	self.cell_id = cell_id
 	self.visible = true
 

@@ -3,14 +3,26 @@
 [ext_resource type="Script" uid="uid://cef13xk7eat5u" path="res://scripts/UI/event_card.gd" id="1_8mx6b"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_bsatl"]
 
-[node name="EventCard" type="CanvasLayer"]
+[node name="EventCard" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -150.0
+offset_right = 225.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_8mx6b")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -226.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -37,12 +49,17 @@ autowrap_mode = 2
 
 [node name="CloseBtn" type="Button" parent="Background"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 0
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 463.0
-offset_bottom = 293.0
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -1.0
+offset_right = -26.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("2_bsatl")
 

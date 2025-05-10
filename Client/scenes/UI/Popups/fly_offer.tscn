@@ -1,38 +1,135 @@
-[gd_scene load_steps=2 format=3 uid="uid://irfsxn8puawo"]
+[gd_scene load_steps=12 format=3 uid="uid://irfsxn8puawo"]
 
 [ext_resource type="Script" uid="uid://b1f2i3gihuiyf" path="res://scenes/UI/Popups/fly_offer.gd" id="1_xvpm1"]
+[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="2_i6q70"]
+[ext_resource type="Texture2D" uid="uid://cxo57q6dw0f25" path="res://assets/Popup Backgrounds/Fly_Over.png" id="3_dwvhj"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_5d0id"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_ouow1"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_x7gqb"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_6ti18"]
 
-[node name="FlyOffer" type="Panel"]
-offset_right = 331.0
-offset_bottom = 175.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwvhj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rgcb"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxv51"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v76ig"]
+
+[node name="FlyOffer" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_xvpm1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwvhj")
 
-[node name="Offer" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 2
-text = "Offer"
+[node name="Flyover" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -109.0
+offset_right = 335.0
+offset_bottom = 159.0
+grow_vertical = 2
+texture = ExtResource("3_dwvhj")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Title_Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_i6q70")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rgcb")
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="AcceptBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Accept"
+[node name="Offer" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 94.0
+offset_right = 799.0
+offset_bottom = 295.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5d0id")
+theme_override_font_sizes/font_size = 35
+text = "
+You own <BLANK>
+Would you like to move 
+to the next airport?"
+horizontal_alignment = 1
 
-[node name="DenyBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Info" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 295.0
+offset_right = 800.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_5d0id")
+theme_override_font_sizes/font_size = 20
+text = "If another traveler owns the next airport, 
+you will have to pay them the corresponding rent."
+
+[node name="Button_container" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AcceptBtn" type="Button" parent="Background/Button_container"]
+custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_5d0id")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxv51")
+theme_override_styles/hover = ExtResource("5_ouow1")
+theme_override_styles/pressed = ExtResource("6_x7gqb")
+theme_override_styles/normal = ExtResource("7_6ti18")
+text = "Move"
+
+[node name="DenyBtn" type="Button" parent="Background/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_5d0id")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v76ig")
+theme_override_styles/hover = ExtResource("5_ouow1")
+theme_override_styles/pressed = ExtResource("6_x7gqb")
+theme_override_styles/normal = ExtResource("7_6ti18")
 text = "Deny"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/AcceptBtn" to="." method="_on_accept_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/DenyBtn" to="." method="_on_deny_btn_pressed"]
+[connection signal="pressed" from="Background/Button_container/AcceptBtn" to="." method="_on_accept_btn_pressed"]
+[connection signal="pressed" from="Background/Button_container/DenyBtn" to="." method="_on_deny_btn_pressed"]

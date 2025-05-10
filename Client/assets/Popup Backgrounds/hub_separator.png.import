@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckby2q6umoakp"
-path="res://.godot/imported/exit.png-851c039c90041d896886fb5ebf4f1311.ctex"
+uid="uid://ci4cl7hbxjcyg"
+path="res://.godot/imported/hub_separator.png-b28193b94dc78ba87cc144ffdcf188e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/exit.png"
-dest_files=["res://.godot/imported/exit.png-851c039c90041d896886fb5ebf4f1311.ctex"]
+source_file="res://assets/Popup Backgrounds/hub_separator.png"
+dest_files=["res://.godot/imported/hub_separator.png-b28193b94dc78ba87cc144ffdcf188e0.ctex"]
 
 [params]
 

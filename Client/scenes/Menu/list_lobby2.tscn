@@ -272,6 +272,7 @@ texture_normal = ExtResource("3_kt6ln")
 [node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
 theme_override_font_sizes/font_size = 40
 text = "FIND A GAME"
@@ -373,7 +374,7 @@ custom_minimum_size = Vector2(250, 101)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_4lpfj")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kts6")
 theme_override_styles/hover = ExtResource("5_5djgv")
 theme_override_styles/pressed = ExtResource("6_nsd2j")

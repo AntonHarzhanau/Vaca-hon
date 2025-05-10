@@ -44,7 +44,7 @@
 		"texture": "res://assets/Railroad/Station1.png"
 	},
 	{
-		"name": "Nosy Be",
+		"name": "Antsirabe",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",

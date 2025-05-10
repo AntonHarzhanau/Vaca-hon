@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cxqv1aiw3g5xo" path="res://scenes/UI/Hub/hub.gd" id="1_bdv2h"]
 [ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_yguwj"]
 [ext_resource type="Texture2D" uid="uid://dmu2jqqto1i1j" path="res://assets/Players/FLIGHT.png" id="3_xjm0t"]
-[ext_resource type="Texture2D" uid="uid://ci4cl7hbxjcyg" path="res://assets/Popup Backgrounds/Line 6 (1).png" id="4_55m7s"]
+[ext_resource type="Texture2D" uid="uid://ci4cl7hbxjcyg" path="res://assets/Popup Backgrounds/hub_separator.png" id="4_55m7s"]
 [ext_resource type="Texture2D" uid="uid://cfyv7wor0or2n" path="res://assets/Popup Backgrounds/MoneySign.png" id="5_0bdey"]
 [ext_resource type="PackedScene" uid="uid://gt1tbowf0bfi" path="res://scenes/UI/Hub/player_info.tscn" id="6_55m7s"]
 

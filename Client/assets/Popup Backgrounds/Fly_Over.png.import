@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg4k08rb4tm14"
-path="res://.godot/imported/Jail Pop-Up Background.png-a1eec20b16084d193d3fcf0501c7f9c8.ctex"
+uid="uid://cxo57q6dw0f25"
+path="res://.godot/imported/Fly_Over.png-fa0bca802339d53e385e40fa257cf574.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Jail Pop-Up Background.png"
-dest_files=["res://.godot/imported/Jail Pop-Up Background.png-a1eec20b16084d193d3fcf0501c7f9c8.ctex"]
+source_file="res://assets/Popup Backgrounds/Fly_Over.png"
+dest_files=["res://.godot/imported/Fly_Over.png-fa0bca802339d53e385e40fa257cf574.ctex"]
 
 [params]
 
