@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqqfabtceas0f"]
+[gd_scene load_steps=17 format=3 uid="uid://dqqfabtceas0f"]
 
 [ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
 [ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba4dw7afjhbi2" path="res://scenes/UI/Popups/event_card.tscn" id="7_35jxk"]
 [ext_resource type="PackedScene" uid="uid://bns4cfqvli8a7" path="res://scenes/Parametre/quit_game.tscn" id="9_owlbh"]
 [ext_resource type="PackedScene" uid="uid://bi68a6b5rjjg5" path="res://scenes/Parametre/settings.tscn" id="10_c5elv"]
+[ext_resource type="PackedScene" uid="uid://irfsxn8puawo" path="res://scenes/UI/Popups/fly_offer.tscn" id="13_64obo"]
 [ext_resource type="Texture2D" uid="uid://cnhqd6hhljbpi" path="res://assets/Leave button.png" id="16_5t1j6"]
 [ext_resource type="Texture2D" uid="uid://dwxruxw80f1dr" path="res://assets/Settings button.png" id="17_4nac7"]
 
@@ -162,6 +163,7 @@ texture_normal = ExtResource("17_4nac7")
 stretch_mode = 0
 
 [node name="Info" type="ColorRect" parent="."]
+visible = false
 offset_left = 350.0
 offset_top = 332.0
 offset_right = 650.0
@@ -186,6 +188,20 @@ autowrap_mode = 2
 [node name="OkButton" type="Button" parent="Info/VBoxContainer"]
 layout_mode = 2
 text = "Ok"
+
+[node name="FlyOffer" parent="." instance=ExtResource("13_64obo")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -87.5
+offset_right = 165.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]

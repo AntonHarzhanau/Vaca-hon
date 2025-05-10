@@ -43,7 +43,7 @@ class GameLogic:
         player = self.state.players[player_id]
         if player.nb_turn_jail > 0:
             return {"action": "error", "message": "You are in jail", "delivery": "personal"}
-        move_data = player.move(steps)
+        move_data = player.move(steps, with_prime=True)
         return move_data
 
     def cell_action(self, player_id: int) -> dict:
@@ -116,3 +116,15 @@ class GameLogic:
         else:
             return {"action": "jail_decision", "message": "You are still in jail", "delivery": "personal"}
         
+    def accept_fly(self, player_id: int, cell_id: int) -> dict:
+        player = self.state.players[player_id]
+        cell = self.state.board.get_cell(cell_id)
+        if cell:
+            player.move(10, with_prime=False)
+            return {
+                "action": "fly_to_airport",
+                "player_id": player.id,
+                "cell_id": cell.cell_id,
+                "delivery": "broadcast"
+            }
+        return {"action": "error", "message": "Cell not found"}

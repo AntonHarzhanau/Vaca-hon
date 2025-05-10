@@ -40,6 +40,8 @@ func _ready() -> void:
 	msg_handler.event.connect(_on_card_event)
 	msg_handler.double_roll.connect(_on_double_roll)
 	ui.end_turn_clicked.connect(_on_end_turn_clicked)
+	msg_handler.offer_airplane.connect(ui.show_fly_offer)
+	msg_handler.fly_to_airport.connect(_on_fly_to_airport)
 
 func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
@@ -52,7 +54,6 @@ func  _on_player_connected(player_data: Variant) -> void:
 			ui.create_main_player_hub(new_player)
 		else:
 			ui.create_guest_hub(new_player)
-		print("Player id" + str(new_player.id) +" was created")
 		
 	ui.turn_lable.text = "Player's turn: " + States.players[States.id_player_at_turn].player_name
 	
@@ -158,6 +159,15 @@ func _on_double_roll(message:String):
 	States.dice_active = true
 	ui.show_info(message)
 	ui.end_turn_btn.visible = false
+func _on_fly_to_airport(player_id:int, cell_id:int):
+	var player:Player = States.players[player_id]
+	var board_centre = board.get_node("Centre")
+	var centre_g_pos = board_centre.position
+	var centre_size = board_centre.size
+	var center = centre_g_pos + centre_size / 2
+	
+	await player.move_through_center(center, cells[cell_id].position)
+	player.current_position = cell_id
 
 func _on_card_event(data:Dictionary):
 	var event_type = data.get("effect_type", "Error")

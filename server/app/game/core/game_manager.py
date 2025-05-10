@@ -25,6 +25,7 @@ class GameManager:
             "buy_house" : self.handle_buy_house,
             "sell_house":self.handle_sell_house,
             "jail_decision": self.jail_decision,
+            "accept_fly": self.handle_accep_fly,
         }
 
     def process_action(self, player_id: int, data: dict) -> dict:
@@ -111,3 +112,6 @@ class GameManager:
     def jail_decision(self, player_id: int, data: dict) -> dict:
         decision = data.get("accepted")    
         return self.logic.jail_decision(player_id, decision)
+    
+    def handle_accep_fly(self, player_id: int, data: dict) -> dict:
+        return self.logic.accept_fly(player_id, data.get("cell_id"))

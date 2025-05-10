@@ -11,6 +11,7 @@ const GUEST_HUB = preload("res://scenes/UI/Hub/guest_hub.tscn")
 @onready var dice:Dice = $Dice
 @onready var main_player_hub:MainPlayerHub = $MainPlayerHub
 @onready var popup_offer = $PopUpOffre
+@onready var fly_offer:FlyOffer = $FlyOffer
 @onready var jail_offre = $PopUpJail
 @onready var end_turn_btn: Button = $EndTurnButton
 @onready var turn_lable:Label = $TurnLable
@@ -92,6 +93,9 @@ func _on_setting_pressed() -> void:
 	
 	pass # Replace with function body.
 
+func show_fly_offer(message:Dictionary):
+	
+	fly_offer.show_offer(message["message"], message["cell_id"])
 
 func _on_quit_pressed() -> void:
 	quit_dialog_panel.visible = !quit_dialog_panel.visible

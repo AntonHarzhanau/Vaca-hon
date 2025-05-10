@@ -18,6 +18,7 @@ var speed = 300
 var moving = false
 var target_position
 
+
 @onready var player_token_sprite: Sprite2D = $Sprite2D
 @export var player_token = preload("res://icon.svg")
 
@@ -83,6 +84,21 @@ func go_to_jail(cells: Array[Cell]):
 func move_to(pos: Vector2):
 	target_position = pos
 	moving = true
-	
+
+func move_through_center(center_position: Vector2, final_cell_position: Vector2) -> void:
+	# Этап 1: движение в центр
+	target_position = center_position
+	moving = true
+	await _wait_until_reached()
+
+	# Этап 2: движение в целевую ячейку
+	target_position = final_cell_position
+	moving = true
+	await _wait_until_reached()
+
+func _wait_until_reached() -> void:
+	while moving:
+		await get_tree().process_frame
+
 func set_turn_timer():
 	pass

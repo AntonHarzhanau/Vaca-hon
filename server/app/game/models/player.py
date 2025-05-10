@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 class Player(BaseModel):
     id: int
     name: str
-    money: int = 500
+    money: int = 1500
     current_position: int = 0
     nb_turn_jail: int = 0
     nb_railway: int = 0
@@ -27,14 +27,14 @@ class Player(BaseModel):
         return None
         
         
-    def move(self, steps: int) -> dict:
+    def move(self, steps: int, with_prime: True) -> dict:
         old_position = self.current_position
         new_position = (self.current_position + steps) % 40
-
         prime = False
-        if steps > 0 and new_position < old_position:
-            self.money += 200  # bonus for passing through the start
-            prime = True
+        if with_prime:
+            if steps > 0 and new_position < old_position:
+                self.money += 200  # bonus for passing through the start
+                prime = True
 
         self.current_position = new_position
 
