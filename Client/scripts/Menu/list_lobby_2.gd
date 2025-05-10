@@ -66,7 +66,6 @@ func _on_filter_button_pressed():
 	filter_menu.visible = is_expanded
 	filter_button.text = "  FILTER         ▲" if is_expanded else "  FILTER         ▼"
 	
-
 func _on_publique_pressed():
 	is_public = true
 	_select_button(button_publique)
@@ -164,12 +163,7 @@ func _on_create_lobby_pressed() -> void:
 func _show_rejoindre_popup():
 	rejoindre_popup.visible = true
 	rejoindre_overlay.visible = true
-	rejoindre_popup.position = rejoindre_start_pos
-
-	var tween = create_tween()
-	tween.tween_property(rejoindre_popup, "position", rejoindre_target_pos, 0.4)\
-		.set_trans(Tween.TRANS_BACK)\
-		.set_ease(Tween.EASE_OUT)
+	$Rejoindre.visible = true
 
 # Public function: Close the Rejoindre pop-up window (with animation)
 func _hide_rejoindre_popup():

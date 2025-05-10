@@ -866,9 +866,19 @@ text = "End"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Overlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.196078)
+
 [node name="Log_out" type="CanvasLayer" parent="."]
 auto_translate_mode = 1
-visible = false
 
 [node name="fulltoblock" type="Panel" parent="Log_out"]
 anchors_preset = 15
@@ -879,7 +889,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0jts6")
 
 [node name="Panel" type="Panel" parent="Log_out/fulltoblock"]
-z_index = -2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -910,12 +919,17 @@ texture = ExtResource("23_64ili")
 expand_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Text" type="Label" parent="Log_out/fulltoblock/Panel"]
+[node name="Label" type="Label" parent="Log_out/fulltoblock/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 266.0
+anchors_preset = -1
+anchor_left = 0.033405
+anchor_top = -0.0115
+anchor_right = 0.563405
+anchor_bottom = -7.4275
+offset_left = 260.957
+offset_top = 106.6
+offset_right = 260.957
+offset_bottom = 3315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -925,6 +939,7 @@ text = "Souhaitez-vous vraiment vous déconnecter et être redirigé.e vers la p
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Panel" parent="Log_out/fulltoblock/Panel"]
 layout_mode = 1
