@@ -1,5 +1,5 @@
 extends Node
-var is_test: bool = true
+var is_test: bool = false
 
 var id_player_at_turn: int = 0
 var lobby_id: int = 0
