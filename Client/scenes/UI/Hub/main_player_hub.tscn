@@ -22,3 +22,6 @@ grow_vertical = 2
 
 [node name="TopBar" parent="PanelBackground" index="0"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_fn5ad")
+
+[node name="Divider" parent="PanelBackground" index="2"]
+offset_bottom = 98.0

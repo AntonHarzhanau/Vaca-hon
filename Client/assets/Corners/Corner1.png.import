@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bho3aqnmc73id"
-path="res://.godot/imported/Start Corner.png-b3343509b4daa58058c2d5f64abeb9ed.ctex"
+uid="uid://ba4vp1btbqhrg"
+path="res://.godot/imported/Corner1.png-0eaa55222c9efd6f5558c0cc04af4135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Corners/Start Corner.png"
-dest_files=["res://.godot/imported/Start Corner.png-b3343509b4daa58058c2d5f64abeb9ed.ctex"]
+source_file="res://assets/Corners/Corner1.png"
+dest_files=["res://.godot/imported/Corner1.png-0eaa55222c9efd6f5558c0cc04af4135.ctex"]
 
 [params]
 

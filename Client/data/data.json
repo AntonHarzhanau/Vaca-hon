@@ -2,7 +2,7 @@
 	{
 		"name": "",
 		"type": "Сorner",
-		"texture": "res://assets/Corners/Start Corner.png"
+		"texture": "res://assets/Corners/Corner1.png"
 	},
 	{
 		"name": "Mashhad",
@@ -30,7 +30,7 @@
 		"house": 50
 	},
 	{
-		"name": "Schengen\n Area\nEntry Tax",
+		"name": "Schengen\nEntry Tax",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/schengen.png",
 		"description": "",

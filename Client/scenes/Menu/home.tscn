@@ -307,7 +307,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xk4pu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8krf6")
 text = "LOGGED IN AS:
 PLAYER NAME
-LOGGING OUT"
+LOG OUT"
 icon = ExtResource("9_yvqbo")
 text_overrun_behavior = 3
 icon_alignment = 2

@@ -92,11 +92,11 @@ func _select_button(button: Button):
 
 # When the return button is pressed, switch back to the main menu scene
 func _on_texture_button_pressed() -> void:
-	print("Attempting to load scene: res://scenes/Menu/home.tscn")
-	var scene = preload("res://scenes/Menu/home.tscn")
+	print("Attempting to load scene: res://scenes/Menu/main_menu2.tscn")
+	var scene = preload("res://scenes/Menu/main_menu2.tscn")
 	if scene:
 		print("Scene loaded successfully!")
-		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
+		get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")
 	else:
 		print("Failed to load scene.")
 
