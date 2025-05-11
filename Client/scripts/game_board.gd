@@ -195,28 +195,28 @@ func place_cells():
 	@warning_ignore("integer_division")
 	start_position =  Vector2(bottom_right.x + cell_width_horizontal / 2 - cell_width_horizontal, bottom_right.y +  cell_height / 2)
 	cell_offset = Vector2(-cell_width_horizontal , 0)
-	index = place_side_cell(cards, index, start_position, cell_offset, Vector2(cell_width_horizontal, cell_height), 0)
+	index = place_side_cell(cards, index, start_position, cell_offset, Vector2(cell_width_horizontal, cell_height), 0, "down")
 
 	# left
 	@warning_ignore("integer_division")
 	start_position =  Vector2(top_left.x -cell_height / 2, bottom_right.y -cell_width_vertical / 2)
 	cell_offset = Vector2(0, -cell_width_vertical)
-	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), 90)
+	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), 90, "left")
 
 	# up
 	@warning_ignore("integer_division")
 	start_position =  Vector2(top_left.x + cell_width_horizontal/2, top_left.y - cell_height / 2)
 	cell_offset = Vector2(cell_width_horizontal, 0)
-	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_horizontal, cell_height), 180)
+	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_horizontal, cell_height), 0, "up")
 
 	# right
 	@warning_ignore("integer_division")
 	start_position =  Vector2(bottom_right.x + cell_height / 2, top_left.y + cell_width_vertical /2)
 	cell_offset = Vector2(0, cell_width_vertical)
-	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), -90)
+	index = place_side_cell(cards, index, start_position, cell_offset,Vector2(cell_width_vertical, cell_height), -90, "right")
 
 # placement of cells on the sides of the playing field
-func place_side_cell(cells:Array[Node], start_index: int ,start_position, offset: Vector2, cell_size, rotation_degree: int):
+func place_side_cell(cells:Array[Node], start_index: int ,start_position, offset: Vector2, cell_size, rotation_degree: int, side:String):
 	var index = start_index
 	for i in range(CELL_COUNT):
 		if cells[index] is CornerCell:
@@ -225,7 +225,13 @@ func place_side_cell(cells:Array[Node], start_index: int ,start_position, offset
 		cells[index].rotation_degrees = rotation_degree
 		cells[index].update()
 		cells[index].position = start_position + offset  * i
+		if cells[index] is PropertyCell:
+			if side == "up":
+				cells[index].player_lable = cells[index].player_lable_up
+			else:
+				cells[index].player_lable = cells[index].player_lable_down
 		index += 1
+	
 	return index
 
 func get_color(color_name: String) -> String:

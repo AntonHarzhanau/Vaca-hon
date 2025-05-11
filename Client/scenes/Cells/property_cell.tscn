@@ -44,7 +44,7 @@ horizontal_alignment = 1
 [node name="Name" parent="BackGround" index="2"]
 label_settings = SubResource("LabelSettings_g57kh")
 
-[node name="PlayerLable" type="ColorRect" parent="BackGround" index="3"]
+[node name="PlayerLableDown" type="ColorRect" parent="BackGround" index="3"]
 visible = false
 layout_mode = 1
 anchors_preset = 12
@@ -54,3 +54,13 @@ anchor_bottom = 1.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="PlayerLable2Up" type="ColorRect" parent="BackGround" index="4"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = -24.0
+offset_right = -1.0
+grow_horizontal = 2
