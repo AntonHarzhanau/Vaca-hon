@@ -17,7 +17,7 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
@@ -42,10 +42,10 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station1.png"
+		"texture": "res://assets/Railroad/Airport_1.png"
 	},
 	{
-		"name": "Antsirabe",
+		"name": "Nosy Be",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -61,7 +61,7 @@
 		"event_type": "chance"
 	},
 	{
-		"name": "Toamasina",
+		"name": "Tuléar",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -70,7 +70,7 @@
 		"house": 50
 	},
 	{
-		"name": "Antananarivo",
+		"name": "Fianar",
 		"type": "Street",
 		"cost": 120,
 		"color": "BLUE",
@@ -94,7 +94,7 @@
 		"house": 100
 	},
 	{
-		"name": "Castle",
+		"name": "Mir Castle",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -123,7 +123,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station2.png"
+		"texture": "res://assets/Railroad/Airport_2.png"
 	},
 	{
 		"name": "Luxor",
@@ -137,12 +137,12 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
 	{
-		"name": "Alexandria",
+		"name": "Aswan",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -166,7 +166,7 @@
 		"texture": "res://assets/Corners/Corner3.png"
 	},
 	{
-		"name": "Guangzhou",
+		"name": "Xiamen",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -182,7 +182,7 @@
 		"event_type": "chance"
 	},
 	{
-		"name": "Shanghai",
+		"name": "Suzhou",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -204,7 +204,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station3.png"
+		"texture": "res://assets/Railroad/Airport_3.png"
 	},
 	{
 		"name": "Sokodé",
@@ -225,7 +225,7 @@
 		"house": 150
 	},
 	{
-		"name": "Museum",
+		"name": "Independence Monument",
 		"type": "Utility",
 		"rent": 10,
 		"cost": 150,
@@ -247,7 +247,7 @@
 		"texture": "res://assets/Corners/Corner4.png"
 	},
 	{
-		"name": "Constantine",
+		"name": "Blida",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -267,7 +267,7 @@
 	{
 		"name": "PASSEPORT MYSTERE",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
@@ -285,7 +285,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station4.png"
+		"texture": "res://assets/Railroad/Airport_4.png"
 	},
 	{
 		"name": "VALISE CHANCE",
@@ -295,7 +295,7 @@
 		"event_type": "chance"
 	},
 	{
-		"name": "Strasbourg",
+		"name": "Lyon",
 		"type": "Street",
 		"cost": 350,
 		"color": "PURPLE",

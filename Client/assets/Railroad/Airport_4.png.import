@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be126dqq4qepx"
-path="res://.godot/imported/Question Mark Orange.png-f1a748f2e2519c4f48864b664c6a3fc1.ctex"
+uid="uid://cp8gslvfyheeo"
+path="res://.godot/imported/Airport_4.png-3f18548c59f7804d41090ddeebf6a5d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Event Cells/Question Mark Orange.png"
-dest_files=["res://.godot/imported/Question Mark Orange.png-f1a748f2e2519c4f48864b664c6a3fc1.ctex"]
+source_file="res://assets/Railroad/Airport_4.png"
+dest_files=["res://.godot/imported/Airport_4.png-3f18548c59f7804d41090ddeebf6a5d7.ctex"]
 
 [params]
 

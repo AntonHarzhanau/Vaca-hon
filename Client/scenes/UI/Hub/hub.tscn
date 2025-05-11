@@ -33,6 +33,7 @@ mouse_force_pass_scroll_events = false
 script = ExtResource("1_bdv2h")
 
 [node name="PlayerInfo" parent="." instance=ExtResource("6_55m7s")]
+visible = false
 
 [node name="PanelBackground" type="Panel" parent="."]
 layout_direction = 4

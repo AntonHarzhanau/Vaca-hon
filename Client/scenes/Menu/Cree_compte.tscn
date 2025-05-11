@@ -111,8 +111,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-User name"
-vertical_alignment = 1
+Username"
 
 [node name="UsernameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
@@ -148,8 +147,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-E-mail address
-"
+E-mail address"
 vertical_alignment = 1
 
 [node name="EmailLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
@@ -189,8 +187,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ywi4s")
 theme_override_font_sizes/font_size = 25
 text = "
-Password
-"
+Password"
 vertical_alignment = 1
 
 [node name="PasswordLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2"]
@@ -276,7 +273,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_18l02")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 34
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m8atq")
 theme_override_styles/hover = ExtResource("6_fv8al")
 theme_override_styles/pressed = ExtResource("7_makqq")

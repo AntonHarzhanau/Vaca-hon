@@ -32,13 +32,13 @@
  
   },
   {
-    "description": "BON VOYAGE PARTY! COLLECT 10 FROM EVERY TRAVELER.",
+    "description": "BON VOYAGE PARTY! COLLECT 10 FROM EACH TRAVELER.",
     "effect_type": "gain_from_all",
     "amount": 10,
     "type": "community"
   },
   {
-    "description": "FAMILY TRAVEL FUND! 100 FOR YOUR NEXT ADVENTURE.",
+    "description": "FAMILY TRAVEL FUND! Receive 100 FOR YOUR NEXT ADVENTURE.",
     "effect_type": "gain_money",
     "amount": 100,
     "type": "community"
