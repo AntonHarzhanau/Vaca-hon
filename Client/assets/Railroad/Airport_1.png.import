@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cat4s52bxlbrc"
-path="res://.godot/imported/Station2.png-a8f138bbe65a6b15db5ad6d437c72f4f.ctex"
+uid="uid://bte52idrd2nvg"
+path="res://.godot/imported/Airport_1.png-4dd2a68afdc96d216c6565b3738f9353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Railroad/Station2.png"
-dest_files=["res://.godot/imported/Station2.png-a8f138bbe65a6b15db5ad6d437c72f4f.ctex"]
+source_file="res://assets/Railroad/Airport_1.png"
+dest_files=["res://.godot/imported/Airport_1.png-4dd2a68afdc96d216c6565b3738f9353.ctex"]
 
 [params]
 

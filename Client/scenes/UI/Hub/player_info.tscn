@@ -6,6 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ke2"]
 
 [node name="PlayerInfo" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_b2jlx")
 
 [node name="BackGround" type="Panel" parent="."]

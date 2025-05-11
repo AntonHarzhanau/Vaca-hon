@@ -14,9 +14,9 @@
 		"house": 50
 	},
 	{
-		"name": "Mystery Passport",
+		"name": "Mystery\nPassport",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
@@ -30,7 +30,7 @@
 		"house": 50
 	},
 	{
-		"name": "Schengen Area Entry Tax",
+		"name": "Schengen\n Area\nEntry Tax",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/schengen.png",
 		"description": "",
@@ -41,10 +41,10 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station1.png"
+		"texture": "res://assets/Railroad/Airport_1.png"
 	},
 	{
-		"name": "Antsirabe",
+		"name": "Nosy Be",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -53,14 +53,14 @@
 		"house": 50
 	},
 	{
-		"name": "Lucky Suitcase",
+		"name": " Lucky \n Suitcase",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description":"",
 		"event_type": "chance"
 	},
 	{
-		"name": "Toamasina",
+		"name": "Tuléar",
 		"type": "Street",
 		"cost": 100,
 		"color": "BLUE",
@@ -69,7 +69,7 @@
 		"house": 50
 	},
 	{
-		"name": "Antananarivo",
+		"name": "Fianar",
 		"type": "Street",
 		"cost": 120,
 		"color": "BLUE",
@@ -121,7 +121,7 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station2.png"
+		"texture": "res://assets/Railroad/Airport_2.png"
 	},
 	{
 		"name": "Luxor",
@@ -133,14 +133,14 @@
 		"house": 100
 	},
 	{
-		"name": "Mystery Passport",
+		"name": "Mystery\nPassport",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
 	{
-		"name": "Alexandria",
+		"name": "Aswan",
 		"type": "Street",
 		"cost": 180,
 		"color": "GREEN",
@@ -163,7 +163,7 @@
 		"texture": "res://assets/Corners/Corner3.png"
 	},
 	{
-		"name": "Guangzhou",
+		"name": "Xiamen",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -172,14 +172,14 @@
 		"house": 150
 	},
 	{
-		"name": "Lucky Suitcase",
+		"name": " Lucky \n Suitcase",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description": "",
 		"event_type": "chance"
 	},
 	{
-		"name": "Shanghai",
+		"name": "Suzhou",
 		"type": "Street",
 		"cost": 220,
 		"color": "YELLOW",
@@ -201,10 +201,10 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station3.png"
+		"texture": "res://assets/Railroad/Airport_3.png"
 	},
 	{
-		"name": "Sokode",
+		"name": "Sokodé",
 		"type": "Street",
 		"cost": 260,
 		"color": "ORANGE",
@@ -243,7 +243,7 @@
 		"texture": "res://assets/Corners/Corner4.png"
 	},
 	{
-		"name": "Constantine",
+		"name": "Blida",
 		"type": "Street",
 		"cost": 300,
 		"color": "PINK",
@@ -261,9 +261,9 @@
 		"house": 200
 	},
 	{
-		"name": "Mystery Passport",
+		"name": "Mystery\nPassport",
 		"type": "Event",
-		"texture": "res://assets/passport.png",
+		"texture": "res://assets/Event Cells/passport.png",
 		"description": "",
 		"event_type": "community_chest"
 	},
@@ -281,17 +281,17 @@
 		"type": "RailWay",
 		"rent": 10,
 		"cost": 200,
-		"texture": "res://assets/Railroad/Station4.png"
+		"texture": "res://assets/Railroad/Airport_4.png"
 	},
 	{
-		"name": "Lucky Suitcase",
+		"name": " Lucky \n Suitcase",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/chance.png",
 		"description": "",
 		"event_type": "chance"
 	},
 	{
-		"name": "Strasbourg",
+		"name": "Lyon",
 		"type": "Street",
 		"cost": 350,
 		"color": "PURPLE",
@@ -300,7 +300,7 @@
 		"house": 200
 	},
 	{
-		"name": "Customs Taxes",
+		"name": "Customs\n Taxes",
 		"type": "Event",
 		"texture": "res://assets/Event Cells/tax.png",
 		"description": "",

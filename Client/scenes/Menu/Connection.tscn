@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://degjr5c86ahtn"]
+[gd_scene load_steps=13 format=3 uid="uid://degjr5c86ahtn"]
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
 [ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
@@ -19,6 +19,8 @@ border_color = Color(0.384314, 0.129412, 0.00392157, 1)
 bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_offsg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x52d1"]
 
@@ -206,6 +208,7 @@ theme_override_colors/icon_pressed_color = Color(0.0941176, 0.752941, 0.8, 1)
 theme_override_colors/font_color = Color(0.635294, 0.662745, 0.690196, 1)
 theme_override_colors/font_focus_color = Color(0.0941176, 0.752941, 0.8, 1)
 theme_override_colors/font_pressed_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_offsg")
 text = "Remember me"
 
 [node name="LinkButton" type="LinkButton" parent="Panel/VBoxContainer/MarginContainer6/HBoxContainer"]

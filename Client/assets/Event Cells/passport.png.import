@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckx7v2x87vbcp"
-path="res://.godot/imported/airport.png-84ef08b494fea0409327c65f51302d04.ctex"
+uid="uid://ca7n741hj8m4r"
+path="res://.godot/imported/passport.png-da4ac9291fed57070ff9e0639323d169.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Railroad/airport.png"
-dest_files=["res://.godot/imported/airport.png-84ef08b494fea0409327c65f51302d04.ctex"]
+source_file="res://assets/Event Cells/passport.png"
+dest_files=["res://.godot/imported/passport.png-da4ac9291fed57070ff9e0639323d169.ctex"]
 
 [params]
 
