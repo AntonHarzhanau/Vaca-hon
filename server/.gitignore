@@ -21,6 +21,9 @@ cucumber-report.json
 **/.vscode test/**
 **/.vscode-smoke/**
 **/.venv*/
+**/venv*/
+**/.env*/
+**/env*/
 port.txt
 precommit.hook
 python_files/lib/**
