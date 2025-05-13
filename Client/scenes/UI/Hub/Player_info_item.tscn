@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=3 uid="uid://cg70rady6gmmt"]
+
+[ext_resource type="Texture2D" uid="uid://c8fv6gbqaqp6f" path="res://assets/Street.png" id="1_rpfrm"]
+[ext_resource type="Script" uid="uid://d2jom4c316fuo" path="res://scripts/UI/Hubs/player_info_item.gd" id="2_rpfrm"]
+[ext_resource type="Texture2D" uid="uid://6qx4vnep4t6n" path="res://assets/color_groups/Colour Block_8.png" id="2_s58ex"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_na214"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppk2e"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd72x"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hmt1"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edkwa"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 16
+
+[node name="PlayerInfoItem" type="NinePatchRect"]
+custom_minimum_size = Vector2(150, 100)
+anchors_preset = -1
+anchor_right = 0.15
+anchor_bottom = 0.125
+offset_right = -150.0
+offset_bottom = -100.0
+texture = ExtResource("1_rpfrm")
+script = ExtResource("2_rpfrm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Country" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.46
+offset_bottom = -46.0
+grow_horizontal = 2
+texture = ExtResource("2_s58ex")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 15
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_na214")
+theme_override_font_sizes/font_size = 18
+text = "Paris"
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_na214")
+theme_override_font_sizes/font_size = 18
+text = "V400"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Details" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.72
+anchor_right = 0.9
+anchor_bottom = 0.92
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_na214")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxFlat_ppk2e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hd72x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1hmt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_edkwa")
+text = "Details"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Details" to="." method="_on_details_pressed"]

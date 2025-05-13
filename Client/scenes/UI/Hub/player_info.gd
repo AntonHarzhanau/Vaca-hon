@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 const PROPERTY_CARD = preload("res://scenes/UI/Popups/PropertyCard.tscn")
-@onready var property_container: GridContainer = $BackGround/PropertyContainer
+@onready var property_container: GridContainer = $BackGround/MarginContainer2/ScrollContainer/PropertyContainer
 @onready var property_card : PopUpPropertyCard = $PropertyCard
 
 
@@ -26,3 +26,7 @@ func update_properties_list(properties: Array[PropertyCell]) -> void:
 
 func _on_close_btn_pressed() -> void:
 	self.visible = false
+	
+func show_property_card():
+	property_card.visible = true
+	property_card.layer = 100 

@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://gt1tbowf0bfi"]
+[gd_scene load_steps=9 format=3 uid="uid://gt1tbowf0bfi"]
 
 [ext_resource type="Script" uid="uid://djday884lwg7t" path="res://scenes/UI/Hub/player_info.gd" id="1_b2jlx"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
 [ext_resource type="PackedScene" uid="uid://cygb8wb8gdlit" path="res://scenes/UI/Popups/PropertyCard.tscn" id="2_t77uo"]
+[ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
+[ext_resource type="PackedScene" uid="uid://cg70rady6gmmt" path="res://scenes/UI/Hub/Player_info_item.tscn" id="4_sxpl1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ke2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_k0els"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lue6"]
+bg_color = Color(0.686275, 0.321569, 0.870588, 1)
 
 [node name="PlayerInfo" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_b2jlx")
+
+[node name="PropertyCard" parent="." instance=ExtResource("2_t77uo")]
+visible = false
 
 [node name="BackGround" type="Panel" parent="."]
 anchors_preset = 15
@@ -15,39 +26,227 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 155.0
 offset_top = 218.0
-offset_right = -128.0
-offset_bottom = -223.0
+offset_right = -145.0
+offset_bottom = -222.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_63ke2")
 metadata/_edit_group_ = true
 
-[node name="PropertyContainer" type="GridContainer" parent="BackGround"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 59.0
-offset_top = 49.0
-offset_right = -51.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 4
-
 [node name="CloseBtn" type="Button" parent="BackGround"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.930265
 anchor_right = 1.0
-offset_left = -50.0
-offset_bottom = 35.0
+anchor_bottom = 0.097493
 grow_horizontal = 0
 text = "X"
+metadata/_edit_use_anchors_ = true
 
-[node name="PropertyCard" parent="." instance=ExtResource("2_t77uo")]
-visible = false
+[node name="Player_Name" type="Label" parent="BackGround"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_q1gij")
+theme_override_font_sizes/font_size = 30
+text = "PLAYER's NAME"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -310.0
+offset_right = 350.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer"]
+custom_minimum_size = Vector2(330, 310)
+layout_mode = 2
+
+[node name="Properties" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Properties"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "Properties"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Properties"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "V200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Buildings" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Buildings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "Buildings"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Buildings"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "V0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Money"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "Money"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Money"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "V1000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TOTAL" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = SubResource("Theme_k0els")
+
+[node name="Panel" type="Panel" parent="BackGround/MarginContainer/VBoxContainer/TOTAL"]
+custom_minimum_size = Vector2(330, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2lue6")
+
+[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/TOTAL/Panel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 4.0
+offset_right = 80.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "Total"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/TOTAL/Panel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "V1200"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Money2" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Money2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "Jail Free Cards"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Money2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sxpl1")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="BackGround"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -310.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/MarginContainer2"]
+layout_mode = 2
+
+[node name="PropertyContainer" type="GridContainer" parent="BackGround/MarginContainer2/ScrollContainer"]
+custom_minimum_size = Vector2(330, 310)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="PlayerInfoItem" parent="BackGround/MarginContainer2/ScrollContainer/PropertyContainer" instance=ExtResource("4_sxpl1")]
+layout_mode = 2
+
+[node name="PlayerInfoItem2" parent="BackGround/MarginContainer2/ScrollContainer/PropertyContainer" instance=ExtResource("4_sxpl1")]
+layout_mode = 2
+
+[node name="PlayerInfoItem3" parent="BackGround/MarginContainer2/ScrollContainer/PropertyContainer" instance=ExtResource("4_sxpl1")]
+layout_mode = 2
+
+[node name="PlayerInfoItem4" parent="BackGround/MarginContainer2/ScrollContainer/PropertyContainer" instance=ExtResource("4_sxpl1")]
+layout_mode = 2
+
+[node name="PlayerInfoItem5" parent="BackGround/MarginContainer2/ScrollContainer/PropertyContainer" instance=ExtResource("4_sxpl1")]
+layout_mode = 2
 
 [connection signal="pressed" from="BackGround/CloseBtn" to="." method="_on_close_btn_pressed"]
