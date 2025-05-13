@@ -10,8 +10,8 @@ class UserOrm(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     username: Mapped[str] = mapped_column(String(20), unique=True, index=True, nullable=False)
-    password:  Mapped[str] = mapped_column(String(50), nullable=False) 
-    email: Mapped[str] = mapped_column(String(50), unique=True, index=True, nullable=False) 
+    password:  Mapped[str] = mapped_column(String(255), nullable=False) 
+    email: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False) 
     confirm_code: Mapped[str] = mapped_column(String(100), nullable=True)
     confirm_code_expiry: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     is_active: Mapped[bool] = mapped_column(default=False, nullable=False)
