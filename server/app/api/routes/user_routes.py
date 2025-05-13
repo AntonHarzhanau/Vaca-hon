@@ -1,12 +1,32 @@
-from fastapi import APIRouter, Depends, HTTPException
-from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema
+from fastapi import APIRouter, Depends, HTTPException, Request
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema, UserConfirmationSchema, RequestPasswordReset, TokenResponse, ResetPasswordRequest
+
 from app.api.dependencies import user_service
 from app.services.user_service import UserService
 from typing import Annotated
+from app.services.email_sender import send_confirmation_email, send_reset_email
+import asyncio
+import uuid
+import jwt
+from datetime import datetime, timedelta
+import os
+import secrets
+from fastapi import Request
+import logging
+
+logger = logging.getLogger("monopoly-server")
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+
 
 router = APIRouter(prefix="/Users", tags=["Users"])
 
-@router.post("/login", response_model=UserReadSchema)
+def create_jwt_token(username: str):
+    expiration = datetime.utcnow() + timedelta(hours=3)
+    payload = {"sub": username, "exp": expiration}
+    return jwt.encode(payload, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+
+@router.post("/login", response_model=TokenResponse)
 async def login(
     login_data: UserLoginSchema,
     user_service: Annotated[UserService, Depends(user_service)]
@@ -19,14 +39,38 @@ async def login(
     )
     if user is None:
         raise HTTPException(status_code=401, detail="Invalid credentials")
-    return user
+    
+    token = create_jwt_token(user.username)
+    return {
+        "token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": user.id,
+            "email": user.email,
+            "username": user.username
+        }
+    }
+
 
 @router.post("/")
 async def create_user(
     user: UserCreateScema,
+    request : Request,
     user_service: Annotated[UserService, Depends(user_service)]
 )-> UserReadSchema:
-    user = await user_service.add_user(user)
+    client_ip = request.client.host
+    logger.info(f"Requête de reset depuis l’IP : {client_ip}")
+    created_user, confirm_code = await user_service.add_user(user)
+    await send_confirmation_email(created_user.email, created_user.username, confirm_code)
+    return created_user
+
+@router.post("/confirm")
+async def confirm_user(
+    data: UserConfirmationSchema,
+    user_service: Annotated[UserService, Depends(user_service)]
+):
+    user = await user_service.confirm_user(data.email, data.confirm_code)
+
     return user
 
 @router.get("/")
@@ -76,3 +120,25 @@ async def delete_user(
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return {"user_id": user.id}
+
+
+@router.post("/request-reset")
+async def request_password_reset(data: RequestPasswordReset, user_service: Annotated[UserService, Depends(user_service)]):
+    user = await user_service.get_user_by_email(data.email)
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilisateur introuvable")
+
+    reset_code = secrets.token_hex(4)
+    expiry = datetime.utcnow() + timedelta(hours=1)
+    
+    await user_service.set_reset_code(user.id, reset_code, expiry)
+    await send_reset_email(user.email, reset_code)
+    return user
+
+@router.post("/reset-password")
+async def reset_password(
+    data: ResetPasswordRequest,
+    user_service: Annotated[UserService, Depends(user_service)]
+):
+    user = await user_service.reset_password(data)
+    return {"message": "Mot de passe réinitialisé avec succès", "user_id": user.id}

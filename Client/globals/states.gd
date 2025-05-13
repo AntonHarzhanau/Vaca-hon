@@ -10,6 +10,8 @@ var players:Dictionary[int, Player]= {}
 var users : Dictionary[int, User] ={}
 var available_tokens = []
 
+var global_email: String = ""
+
 const DiceContext := {
 	MOVE = "move",
 	JAIL = "jail",

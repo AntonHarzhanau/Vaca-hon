@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj05dwta2jba3"]
+
+[ext_resource type="Script" uid="uid://b6fswkpgql4ai" path="res://scripts/Menu/send_email_reset.gd" id="1_n7pb7"]
+[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="2_uwp2o"]
+[ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_y4ovl"]
+[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_0owvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owvs"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4ovl"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcgi7"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.756863, 0.780392, 0.803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gsgn"]
+bg_color = Color(0.552941, 0.870588, 0.890196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6337"]
+bg_color = Color(0.552941, 0.870588, 0.890196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oxui"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00392157, 0.321569, 0.345098, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+shadow_size = 1
+shadow_offset = Vector2(2, 3)
+
+[node name="SendEmailReset" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7pb7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1330.0
+offset_bottom = 800.0
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+layout_mode = 0
+offset_right = 1330.0
+offset_bottom = 800.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0owvs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Panel"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 322.0
+offset_right = 865.0
+offset_bottom = 427.0
+
+[node name="EmailInput" type="LineEdit" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_y4ovl")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_y4ovl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vcgi7")
+placeholder_text = "Email"
+
+[node name="SendEmailButton" type="Button" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uwp2o")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_0gsgn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b6337")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oxui")
+text = "ENVOYER CODE"
+
+[node name="Label" type="Label" parent="TextureRect/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_right = 1330.0
+offset_bottom = 117.0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 26.0
+offset_right = 1179.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_uwp2o")
+theme_override_font_sizes/font_size = 55
+text = "RÉINITIALISATION DE MOT DE PASSE"
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 22.0
+offset_right = 112.0
+offset_bottom = 92.0
+texture_normal = ExtResource("3_0owvs")
+
+[connection signal="pressed" from="TextureRect/Panel/VBoxContainer/SendEmailButton" to="." method="_on_send_email_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]

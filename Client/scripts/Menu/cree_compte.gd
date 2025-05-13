@@ -52,9 +52,9 @@ func _on_creer_pressed() -> void:
 		UserData.email = response.body["email"]
 		UserData.user_name = response.body["username"]
 		UserData.save_user_data()
-		var scene = preload("res://scenes/Menu/home.tscn")
+		var scene = preload("res://scenes/Menu/confirm_account.tscn")
 		if scene:
-			get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
+			get_tree().change_scene_to_file("res://scenes/Menu/confirm_account.tscn")
 
 
 func _on_texture_button_pressed() -> void:
