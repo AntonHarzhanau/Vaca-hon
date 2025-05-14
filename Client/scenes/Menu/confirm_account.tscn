@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://cv37mo85cby5x"]
 
 [ext_resource type="Script" uid="uid://d2chstug26628" path="res://scripts/Menu/confirm_account.gd" id="1_d1yor"]
-[ext_resource type="FontFile" uid="uid://ca56b21un3eqb" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
-[ext_resource type="FontFile" uid="uid://bmc8arqdacex0" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
-[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="3_t3qm0"]
+[ext_resource type="FontFile" uid="uid://bgokd2a4g6nx0" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
+[ext_resource type="FontFile" uid="uid://b1anjqriscjas" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
+[ext_resource type="Texture2D" uid="uid://cp17tmh22t6rg" path="res://assets/BACK.png" id="3_t3qm0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3qm0"]
 bg_color = Color(1, 1, 1, 1)
@@ -76,23 +76,35 @@ grow_vertical = 2
 script = ExtResource("1_d1yor")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(1330, 800)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="TextureRect"]
-layout_mode = 0
-offset_right = 1330.0
-offset_bottom = 800.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t3qm0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Panel"]
-layout_mode = 0
-offset_left = 396.0
-offset_top = 305.0
-offset_right = 938.0
-offset_bottom = 425.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -84.5
+offset_right = 271.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CODE" type="LineEdit" parent="TextureRect/Panel/VBoxContainer"]
 layout_mode = 2
@@ -129,28 +141,36 @@ text = "CONFIRM"
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect"]
-layout_mode = 0
-offset_right = 1330.0
-offset_bottom = 117.0
+custom_minimum_size = Vector2(0, 117)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 color = Color(0.384314, 0.129412, 0.00784314, 1)
 
-[node name="Label" type="Label" parent="TextureRect/ColorRect"]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 27.0
-offset_right = 955.0
-offset_bottom = 103.0
-theme_override_fonts/font = ExtResource("2_utwyh")
-theme_override_font_sizes/font_size = 55
-text = "VALIDER LE COMPTE"
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect"]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 22.0
-offset_right = 112.0
-offset_bottom = 92.0
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 texture_normal = ExtResource("3_t3qm0")
 
+[node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_utwyh")
+theme_override_font_sizes/font_size = 55
+text = "VALIDATE THE ACCOUNT"
+
 [connection signal="pressed" from="TextureRect/Panel/VBoxContainer/CONFIRM" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="TextureRect/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
