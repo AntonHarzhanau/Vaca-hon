@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://degjr5c86ahtn"]
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
-[ext_resource type="FontFile" uid="uid://dnneukkpgwaqs" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
+[ext_resource type="FontFile" uid="uid://cmmqbq5l04e13" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
-[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
+[ext_resource type="FontFile" uid="uid://bmbommmkgdmms" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
 bg_color = Color(1, 1, 1, 1)
@@ -215,6 +215,8 @@ text = "Remember me"
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.301961, 0.301961, 1)
 theme_override_fonts/font = ExtResource("2_v0t4l")
 theme_override_font_sizes/font_size = 20
 text = "Forgot your password?"

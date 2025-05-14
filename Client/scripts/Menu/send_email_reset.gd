@@ -1,7 +1,7 @@
 extends Control
 
-@onready var email = $TextureRect/Panel/VBoxContainer/EmailInput
-@onready var notif = $TextureRect/Panel/VBoxContainer/Label
+@onready var email = $Main/Panel/VBoxContainer/EmailInput
+@onready var notif = $Main/Panel/VBoxContainer/Label
 
 func _on_send_email_button_pressed() -> void:
 	
@@ -12,7 +12,7 @@ func _on_send_email_button_pressed() -> void:
 	var email_regex = RegEx.new()
 	email_regex.compile(r"^[\w\.-]+@[\w\.-]+\.\w{2,}$")
 	if not email_regex.search(email.text):
-		notif.text = "Veuillez entrer une adresse e-mail valide."
+		notif.text = "Please enter a valid email address."
 		return
 	
 	var payload = { "email": email.text }
@@ -24,10 +24,10 @@ func _on_send_email_button_pressed() -> void:
 	print(response)
 	
 	if response.response_code == 200:
-		notif.text ="✅ Code envoyé à l'adresse !"
+		notif.text ="✅ Code sent to your email address!"
 		notif.modulate = Color(0, 1, 0)
 	else:
-		notif.text = "❌ Email incorrect."
+		notif.text = "❌ Invalid email address."
 		notif.modulate = Color(1, 0, 0)
 
 func _on_texture_button_pressed() -> void:

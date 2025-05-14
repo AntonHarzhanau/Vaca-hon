@@ -1,8 +1,8 @@
 extends Control
 
-@onready var code = $TextureRect/Panel/VBoxContainer/CODE
-@onready var email = $TextureRect/Panel/VBoxContainer/EMAIL
-@onready var notif = $TextureRect/Panel/VBoxContainer/Label
+@onready var code = $Main/Panel/VBoxContainer/CODE
+@onready var email = $Main/Panel/VBoxContainer/EMAIL
+@onready var notif = $Main/Panel/VBoxContainer/Label
 
 func _on_confirm_pressed() -> void:
 	var payload = {
@@ -13,10 +13,10 @@ func _on_confirm_pressed() -> void:
 	print(response)
 	
 	if response.response_code == 200:
-		notif.text ="✅ Compte confirmé avec succès !"
+		notif.text ="✅ Account successfully confirmed!"
 		notif.modulate = Color(0, 1, 0)
 	else:
-		notif.text = "❌ Code invalide ou email incorrect."
+		notif.text = "❌ Invalid code or incorrect email."
 		notif.modulate = Color(1, 0, 0)
 	
 func _on_texture_button_pressed() -> void:
