@@ -32,7 +32,8 @@ func _on_connecter_pressed() -> void:
 		var user = response.body
 		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
 		UserData.user_id = int(response.body["user"]["id"])
-		UserData.user_name = response.body["user"]["username"]
+		UserData.user_name = response.body["user"]["username"]		
+	
 		if checkbox.button_pressed:
 			UserData.email = login.text
 			UserData.password = password.text
@@ -46,6 +47,8 @@ func _on_connecter_pressed() -> void:
 		if scene:
 			get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
 	else:
+		if UserData.is_active == false:
+			get_tree().change_scene_to_file("res://scenes/Menu/confirm_account.tscn")
 		message.text = "Invalid credentials. Please retry !"
 		print(response.body)
 	
