@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://dvuos1sssedww"]
+[gd_scene load_steps=34 format=3 uid="uid://dvuos1sssedww"]
 
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
+[ext_resource type="FontFile" uid="uid://cgra13aa16h66" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
-[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="2_2e2bd"]
+[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="2_2e2bd"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="4_vi5sa"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_0bggq"]
 [ext_resource type="ButtonGroup" uid="uid://cemqouo0xlwif" path="res://buttons/number_players_button_group.tres" id="5_vag1c"]
@@ -10,6 +10,7 @@
 [ext_resource type="ButtonGroup" uid="uid://bwkmfdjb24nwv" path="res://buttons/private_button_group.tres" id="6_b0npl"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vag1c"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_b0npl"]
+[ext_resource type="AudioStream" uid="uid://cngamvh1a8il6" path="res://audio/SFX/click.wav" id="11_w047n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -247,7 +248,7 @@ offset_bottom = 150.6
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
+[node name="Button2" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer" groups=["CreateAGame"]]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -263,7 +264,7 @@ button_group = ExtResource("5_vag1c")
 text = "2"
 alignment = 1
 
-[node name="Button3" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
+[node name="Button3" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer" groups=["CreateAGame"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -277,7 +278,7 @@ button_group = ExtResource("5_vag1c")
 text = "3"
 alignment = 1
 
-[node name="Button4" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer"]
+[node name="Button4" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/NumPlayerBtnContainer" groups=["CreateAGame"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -322,7 +323,7 @@ offset_bottom = 150.6
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button30" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer"]
+[node name="Button30" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer" groups=["CreateAGame"]]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -338,7 +339,7 @@ button_group = ExtResource("6_4kb55")
 text = "30min"
 alignment = 1
 
-[node name="Button45" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer"]
+[node name="Button45" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer" groups=["CreateAGame"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -351,7 +352,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1d8uk")
 button_group = ExtResource("6_4kb55")
 text = "45min"
 
-[node name="Button60" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer"]
+[node name="Button60" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control/TimeGameBtnContainer" groups=["CreateAGame"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -385,7 +386,7 @@ offset_bottom = 149.091
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="Button_Publique" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control2/PrivateBtnContainer"]
+[node name="Button_Publique" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control2/PrivateBtnContainer" groups=["CreateAGame"]]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -401,7 +402,7 @@ button_group = ExtResource("6_b0npl")
 text = "Public"
 alignment = 1
 
-[node name="Button_Privee" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control2/PrivateBtnContainer"]
+[node name="Button_Privee" type="CheckButton" parent="TextureRect/CenterContainer/MarginContainer/Panel/Control2/PrivateBtnContainer" groups=["CreateAGame"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -495,7 +496,7 @@ grow_vertical = 0
 theme_override_constants/margin_bottom = 40
 metadata/_edit_use_anchors_ = true
 
-[node name="SubmitCreateLobby" type="Button" parent="TextureRect/CenterContainer/MarginContainer/Panel/MarginContainer"]
+[node name="SubmitCreateLobby" type="Button" parent="TextureRect/CenterContainer/MarginContainer/Panel/MarginContainer" groups=["CreateAGame"]]
 custom_minimum_size = Vector2(272, 101)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -531,7 +532,7 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
 layout_mode = 2
 
-[node name="BackButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+[node name="BackButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer" groups=["CreateAGame"]]
 z_index = 6
 layout_mode = 2
 size_flags_horizontal = 0
@@ -547,6 +548,9 @@ theme_override_font_sizes/font_size = 40
 text = "CREATE A GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_w047n")
 
 [connection signal="pressed" from="TextureRect/CenterContainer/MarginContainer/Panel/MarginContainer/SubmitCreateLobby" to="." method="_on_submit_create_lobby_pressed"]
 [connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

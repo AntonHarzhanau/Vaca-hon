@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://mc6lkg7jndel" path="res://scripts/Menu/lobby_wait.gd" id="1_lfnhy"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_al50h"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_rgr5d"]
-[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_emke7"]
-[ext_resource type="Texture2D" uid="uid://cgqx5m2srf067" path="res://assets/Players/PLAYER.png" id="5_gry0s"]
-[ext_resource type="Texture2D" uid="uid://cwc2ug4keewgq" path="res://assets/edit.png" id="7_o7htu"]
-[ext_resource type="Texture2D" uid="uid://dncppny3wuhm4" path="res://assets/PLUS.png" id="8_4y7f0"]
-[ext_resource type="Texture2D" uid="uid://btj0ua5klp1ed" path="res://assets/PLUS-1.png" id="9_gtvvq"]
-[ext_resource type="Texture2D" uid="uid://cglcyl6tbel17" path="res://assets/Token/TOKEN-1.png" id="17_gyhv4"]
+[ext_resource type="FontFile" uid="uid://cgra13aa16h66" path="res://data/LilitaOne-Regular.ttf" id="3_rgr5d"]
+[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="4_emke7"]
+[ext_resource type="Texture2D" uid="uid://iv0t5giukkw5" path="res://assets/Players/PLAYER.png" id="5_gry0s"]
+[ext_resource type="Texture2D" uid="uid://nnrrky7tgcu5" path="res://assets/edit.png" id="7_o7htu"]
+[ext_resource type="Texture2D" uid="uid://q0e4iitbkeb7" path="res://assets/PLUS.png" id="8_4y7f0"]
+[ext_resource type="Texture2D" uid="uid://eysujsk33dsb" path="res://assets/PLUS-1.png" id="9_gtvvq"]
+[ext_resource type="Texture2D" uid="uid://bm7mxc2cims6b" path="res://assets/Token/TOKEN-1.png" id="17_gyhv4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfnhy"]
 bg_color = Color(0.698039, 0.4, 0.258824, 1)

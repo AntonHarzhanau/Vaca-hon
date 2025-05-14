@@ -56,10 +56,11 @@ func _on_connecter_pressed() -> void:
 	
 
 func _on_creer_pressed() -> void:
+	$Click.play()
 	var scene = load("res://scenes/Menu/Cree_compte.tscn")
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/Cree_compte.tscn")
-	$Click.play()
+	
 
 
 func _on_link_button_pressed() -> void:

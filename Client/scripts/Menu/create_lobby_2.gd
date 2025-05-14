@@ -17,6 +17,11 @@ var is_private = false
 var secret = ''
 
 func _ready():
+
+	for button in get_tree().get_nodes_in_group("CreateAGame"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
 	for child in num_users_btn_group.get_children():
 		if child is CheckButton:
 			child.toggled.connect(_on_num_player_selected.bind(child))
@@ -35,10 +40,12 @@ func _ready():
 
 func _on_num_player_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
+		$Click.play()
 		nb_player_max = int(button.text)
 		
 func _on_private_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
+		$Click.play()
 		if button.text == "Public":
 			self.is_private = false
 			label_mdp.visible = false
@@ -50,9 +57,11 @@ func _on_private_selected(pressed: bool, button: CheckButton) -> void:
 
 func _on_time_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
+		$Click.play()
 		time_sec = int(button.text)
 
 func _on_submit_create_lobby_pressed() -> void:
+	$Click.play()
 	var payload = {
 		"owner_id": int(UserData.user_id),
 		"owner_name": UserData.user_name,
@@ -80,4 +89,18 @@ func _on_submit_create_lobby_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
+	$Click.play()
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")
+	
+func _hover(button: Button, entering: bool):
+	var tween := button.create_tween()
+	var target_scale: Vector2
+	if entering:
+		target_scale = Vector2(1.1, 1.1)
+		tween.set_ease(Tween.EASE_OUT)
+	else:
+		target_scale = Vector2(1, 1)
+		tween.set_ease(Tween.EASE_IN)
+
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(button, "scale", target_scale, 0.2)
