@@ -868,7 +868,6 @@ vertical_alignment = 1
 
 [node name="Log_out" type="CanvasLayer" parent="."]
 auto_translate_mode = 1
-visible = false
 
 [node name="fulltoblock" type="Panel" parent="Log_out"]
 anchors_preset = 15
@@ -921,7 +920,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 30
-text = "Souhaitez-vous vraiment vous déconnecter et être redirigé.e vers la page de connexion ?"
+text = "Do you really want to log out and be redirected to the login page?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -943,7 +942,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_wqg4d")
 theme_override_font_sizes/font_size = 45
-text = "SE DÉCONNECTER "
+text = "LOG OUT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -967,7 +966,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vkny6")
 theme_override_styles/hover = ExtResource("6_u7l0i")
 theme_override_styles/pressed = ExtResource("7_0jts6")
 theme_override_styles/normal = ExtResource("8_abvod")
-text = "NON"
+text = "NO"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -991,7 +990,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1i7aa")
 theme_override_styles/hover = ExtResource("5_s1swk")
 theme_override_styles/pressed = ExtResource("6_vkny6")
 theme_override_styles/normal = ExtResource("24_x0ruf")
-text = "OUI"
+text = "YES
+"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 

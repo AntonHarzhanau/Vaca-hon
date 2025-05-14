@@ -1,13 +1,13 @@
 [gd_scene load_steps=32 format=3 uid="uid://j02a0bno0g4l"]
 
 [ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
+[ext_resource type="FontFile" uid="uid://c4wnsf365upst" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
-[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://bj3tlv5id2vcb" path="res://assets/BACK.png" id="3_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5djgv"]
 [ext_resource type="PackedScene" uid="uid://cuj23ias31fci" path="res://scenes/Menu/list_lobby_item2.tscn" id="5_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nsd2j"]
-[ext_resource type="Texture2D" uid="uid://bko8xyytqdjkk" path="res://assets/playwith.png" id="7_5djgv"]
+[ext_resource type="Texture2D" uid="uid://rosuxo7y6ddy" path="res://assets/playwith.png" id="7_5djgv"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_o00fx"]
 [ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="10_3dlmw"]
 [ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="11_altyt"]
@@ -311,7 +311,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8cmd7")
 theme_override_styles/hover = ExtResource("10_3dlmw")
 theme_override_styles/pressed = ExtResource("11_altyt")
 theme_override_styles/normal = ExtResource("12_g4whu")
-text = "NON"
+text = "NO"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -335,7 +335,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qn22v")
 theme_override_styles/hover = ExtResource("5_5djgv")
 theme_override_styles/pressed = ExtResource("6_nsd2j")
 theme_override_styles/normal = ExtResource("7_o00fx")
-text = "OUI"
+text = "YES"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
