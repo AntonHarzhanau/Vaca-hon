@@ -14,8 +14,8 @@ config/name="Vacashon"
 run/main_scene="uid://degjr5c86ahtn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.799437, 0.974127, 0.885938, 1)
-boot_splash/image="uid://by6e02wliy8r5"
-config/icon="uid://bt24u7yi7cbk5"
+boot_splash/image="uid://dyhtga6gb03f2"
+config/icon="uid://chadoqevl1nlf"
 config/windows_native_icon="res://assets/favicon.ico"
 
 [autoload]
