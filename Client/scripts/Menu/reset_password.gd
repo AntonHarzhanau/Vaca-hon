@@ -8,7 +8,7 @@ extends Control
 func _on_change_password_button_pressed() -> void:
 	
 	if new_password.text.strip_edges() == "" or new_password_confirm.text.strip_edges() == "" or code.text.strip_edges() == "":
-		notif.text = "Remplir tous les champs."
+		notif.text = "Please fill in all fields."
 		notif.modulate = Color(1, 0, 0)
 		return
 		

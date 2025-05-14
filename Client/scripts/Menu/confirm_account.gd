@@ -4,7 +4,7 @@ extends Control
 @onready var notif = $Main/Panel/VBoxContainer/Label
 
 func _ready() -> void:
-	notif.text = "Votre compte n'est pas activé. Veuillez entrer le code qui vous a été envoyé par mail."
+	notif.text = "Your account is not activated. Please enter the code that was sent to your email."
 	notif.modulate = Color(0, 0, 1)
 
 func _on_confirm_pressed() -> void:
@@ -17,7 +17,7 @@ func _on_confirm_pressed() -> void:
 	
 	if response.response_code == 200:
 		UserData.is_active = response.body["is_active"]
-		notif.text ="✅ Compte confirmé avec succès !"
+		notif.text ="✅ Account successfully verified!"
 		notif.modulate = Color(0, 1, 0)
 		get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")
 	else:

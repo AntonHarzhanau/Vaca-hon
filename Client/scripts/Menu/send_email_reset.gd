@@ -6,7 +6,7 @@ extends Control
 func _on_send_email_button_pressed() -> void:
 	
 	if email.text.strip_edges() == "":
-		notif.text = "Remplir tous les champs."
+		notif.text = "Please fill in all fields."
 		return
 	
 	var email_regex = RegEx.new()
