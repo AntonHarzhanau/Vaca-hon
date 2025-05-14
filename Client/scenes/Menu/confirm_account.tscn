@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv37mo85cby5x"]
+[gd_scene load_steps=11 format=3 uid="uid://cv37mo85cby5x"]
 
 [ext_resource type="Script" uid="uid://d2chstug26628" path="res://scripts/Menu/confirm_account.gd" id="1_d1yor"]
-[ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
-[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
-[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="3_t3qm0"]
+[ext_resource type="FontFile" uid="uid://bd6mel6xlq4ng" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
+[ext_resource type="FontFile" uid="uid://bewpdc3jdwqrn" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
+[ext_resource type="Texture2D" uid="uid://bsnkqx35f1253" path="res://assets/BACK.png" id="3_t3qm0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3qm0"]
 bg_color = Color(1, 1, 1, 1)
@@ -14,16 +14,6 @@ border_width_bottom = 2
 border_color = Color(0.384314, 0.129412, 0.00392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr5rl"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.756863, 0.780392, 0.803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg0vw"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.384314, 0.129412, 0.00392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mvcc"]
 bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
@@ -104,17 +94,6 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_k6677")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xr5rl")
 placeholder_text = "Code"
-
-[node name="EMAIL" type="LineEdit" parent="TextureRect/Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
-theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_bcxth")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxFlat_dg0vw")
-theme_override_styles/normal = SubResource("StyleBoxFlat_1mvcc")
-placeholder_text = "Email"
 
 [node name="CONFIRM" type="Button" parent="TextureRect/Panel/VBoxContainer"]
 layout_mode = 2

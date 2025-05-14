@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
-from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema, UserConfirmationSchema, RequestPasswordReset, TokenResponse, ResetPasswordRequest
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema, UserConfirmationSchemaById, RequestPasswordReset, TokenResponse, ResetPasswordRequest
 
 from app.api.dependencies import user_service
 from app.services.user_service import UserService
@@ -65,10 +65,10 @@ async def create_user(
 
 @router.post("/confirm")
 async def confirm_user(
-    data: UserConfirmationSchema,
+    data: UserConfirmationSchemaById,
     user_service: Annotated[UserService, Depends(user_service)]
 ):
-    user = await user_service.confirm_user(data.email, data.confirm_code)
+    user = await user_service.confirm_user_by_id(data.id, data.confirm_code)
 
     return user
 
