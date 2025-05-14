@@ -1,8 +1,7 @@
 extends Control
 
-@onready var code = $TextureRect/Panel/VBoxContainer/CODE
-@onready var email = $TextureRect/Panel/VBoxContainer/EMAIL
-@onready var notif = $TextureRect/Panel/VBoxContainer/Label
+@onready var code = $Main/Panel/VBoxContainer/CODE
+@onready var notif = $Main/Panel/VBoxContainer/Label
 
 func _ready() -> void:
 	notif.text = "Votre compte n'est pas activé. Veuillez entrer le code qui vous a été envoyé par mail."

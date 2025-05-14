@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv37mo85cby5x"]
+[gd_scene load_steps=12 format=3 uid="uid://cv37mo85cby5x"]
 
 [ext_resource type="Script" uid="uid://d2chstug26628" path="res://scripts/Menu/confirm_account.gd" id="1_d1yor"]
 [ext_resource type="FontFile" uid="uid://cmmqbq5l04e13" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
@@ -17,16 +17,6 @@ border_width_bottom = 2
 border_color = Color(0.384314, 0.129412, 0.00392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr5rl"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.756863, 0.780392, 0.803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg0vw"]
-bg_color = Color(0.94902, 0.956863, 0.972549, 1)
-border_width_bottom = 2
-border_color = Color(0.384314, 0.129412, 0.00392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mvcc"]
 bg_color = Color(0.94902, 0.956863, 0.972549, 1)
 border_width_bottom = 2
 border_color = Color(0.756863, 0.780392, 0.803922, 1)
@@ -87,22 +77,6 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxFlat_k6677")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xr5rl")
 placeholder_text = "Code"
-caret_blink = true
-caret_blink_interval = 0.3
-
-[node name="EMAIL" type="LineEdit" parent="Main/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(250, 100)
-layout_mode = 2
-theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
-theme_override_colors/caret_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/caret_width = 2
-theme_override_fonts/font = ExtResource("2_bcxth")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxFlat_dg0vw")
-theme_override_styles/normal = SubResource("StyleBoxFlat_1mvcc")
-placeholder_text = "Email"
 caret_blink = true
 caret_blink_interval = 0.3
 
