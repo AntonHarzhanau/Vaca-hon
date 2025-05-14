@@ -3,7 +3,7 @@ extends Control
 @onready var code = $Main/Panel/VBoxContainer/CodeInput
 @onready var new_password = $Main/Panel/VBoxContainer/NewPassword
 @onready var new_password_confirm = $Main/Panel/VBoxContainer/ConfirmNewPassword
-@onready var notif = $Main/Panel/VBoxContainer/ResetNotif
+@onready var notif = $Main/Panel/ResetNotif
 
 func _on_change_password_button_pressed() -> void:
 	
