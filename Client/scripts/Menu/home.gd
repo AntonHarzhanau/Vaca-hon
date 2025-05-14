@@ -16,7 +16,10 @@ func _ready():
 	# Setup player name if already logged in
 	if UserData.user_name:
 		log_out_button.text = log_out_button.text.replace("PLAYER NAME", UserData.user_name)
-
+	for button in get_tree().get_nodes_in_group("HomeButtons"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
 func _on_regle_pressed():
 	regle_popup.visible = !regle_popup.visible
 
@@ -51,3 +54,16 @@ func _on_oui_pressed() -> void:
 func _on_close_area_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		regle_popup.visible = false
+
+func _hover(button: Button, entering: bool):
+	var tween := button.create_tween()
+	var target_scale: Vector2
+	if entering:
+		target_scale = Vector2(1.1, 1.1)
+		tween.set_ease(Tween.EASE_OUT)
+	else:
+		target_scale = Vector2(1, 1)
+		tween.set_ease(Tween.EASE_IN)
+
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(button, "scale", target_scale, 0.2)

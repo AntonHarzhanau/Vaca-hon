@@ -6,6 +6,11 @@ extends Control
 @onready var password: LineEdit = $VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/PasswordLineEdit
 @onready var confirm_password: LineEdit = $VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/ConfirmPasswordLineEdit
 
+func _ready() -> void:
+	for button in get_tree().get_nodes_in_group("CreateAnAccount"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
 func _on_creer_pressed() -> void:
 	message.text = ""
 	
@@ -91,3 +96,16 @@ func is_valid_password(password: String) -> bool:
 		print("Regex compile error:", error)
 		return false
 	return regex.search(password) != null
+	
+func _hover(button: Button, entering: bool):
+	var tween := button.create_tween()
+	var target_scale: Vector2
+	if entering:
+		target_scale = Vector2(1.1, 1.1)
+		tween.set_ease(Tween.EASE_OUT)
+	else:
+		target_scale = Vector2(1, 1)
+		tween.set_ease(Tween.EASE_IN)
+
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(button, "scale", target_scale, 0.2)

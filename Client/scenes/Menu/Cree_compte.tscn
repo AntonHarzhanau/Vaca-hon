@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgvru7cbpgfu3"]
 
 [ext_resource type="Script" uid="uid://d0f5mnxcxed7r" path="res://scripts/Menu/cree_compte.gd" id="1_18l02"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_18l02"]
-[ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_ywi4s"]
-[ext_resource type="Texture2D" uid="uid://b0egvipo4oaeh" path="res://assets/eye.png" id="4_18l02"]
-[ext_resource type="Texture2D" uid="uid://djbea4m2qkck4" path="res://assets/BACK.png" id="4_foc18"]
+[ext_resource type="FontFile" uid="uid://cgra13aa16h66" path="res://data/LilitaOne-Regular.ttf" id="2_18l02"]
+[ext_resource type="FontFile" uid="uid://ca56b21un3eqb" path="res://Fonts/Roboto-Regular-14.ttf" id="3_ywi4s"]
+[ext_resource type="Texture2D" uid="uid://b5oilcnlpmxj4" path="res://assets/eye.png" id="4_18l02"]
+[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="4_foc18"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="6_fv8al"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="7_makqq"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="8_3bfsa"]
@@ -72,7 +72,7 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/ColorRect/MarginContainer/HBoxContainer" groups=["CreateAnAccount"]]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -266,7 +266,7 @@ layout_mode = 2
 size_flags_vertical = 10
 theme_override_constants/margin_bottom = 40
 
-[node name="CREER" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="CREER" type="Button" parent="VBoxContainer/MarginContainer" groups=["CreateAnAccount"]]
 custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 size_flags_horizontal = 4

@@ -8,8 +8,13 @@ extends Control
 func _ready() -> void:
 	login.text = UserData.user_name
 	password.text = UserData.password
+	for button in get_tree().get_nodes_in_group("hover_buttons"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
 
 func _on_connecter_pressed() -> void:
+	$Click.play()
 	var payload = {
 		# "username" or "login"
 		"email": login.text,
@@ -54,7 +59,25 @@ func _on_creer_pressed() -> void:
 	var scene = load("res://scenes/Menu/Cree_compte.tscn")
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/Cree_compte.tscn")
+	$Click.play()
 
 
 func _on_link_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Menu/send_email_reset.tscn")
+	$Click.play()
+	
+
+
+func _hover(button: Button, entering: bool):
+	var tween := button.create_tween()
+	var target_scale: Vector2
+	if entering:
+		target_scale = Vector2(1.1, 1.1)
+		tween.set_ease(Tween.EASE_OUT)
+	else:
+		target_scale = Vector2(1, 1)
+		tween.set_ease(Tween.EASE_IN)
+
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(button, "scale", target_scale, 0.2)
+	

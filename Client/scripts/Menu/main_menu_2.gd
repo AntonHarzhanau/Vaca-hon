@@ -13,7 +13,10 @@ extends Control
 @onready var image2 = $control/VBoxContainer/MarginContainer/HBoxContainer2/VBoxContainer2/TextureRect2
 
 func _ready():
-	pass
+	for button in get_tree().get_nodes_in_group("MainButtons"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
 	
 # When "CRÉER UNE PARTIE" is clicked, switch to create_lobby2.tscn
 func _on_creer_pressed() -> void:
@@ -38,3 +41,16 @@ func _on_rejoindre_pressed() -> void:
 # When the return button is clicked, go back to home.tscn
 func _on_texture_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
+
+func _hover(button: Button, entering: bool):
+	var tween := button.create_tween()
+	var target_scale: Vector2
+	if entering:
+		target_scale = Vector2(1.1, 1.1)
+		tween.set_ease(Tween.EASE_OUT)
+	else:
+		target_scale = Vector2(1, 1)
+		tween.set_ease(Tween.EASE_IN)
+
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(button, "scale", target_scale, 0.2)
