@@ -1,26 +1,32 @@
-import smtplib
+import os
+from dotenv import load_dotenv
 from email.message import EmailMessage
 import uuid
 import aiosmtplib
 
+# Load environment variables from .env
+load_dotenv() 
+
 # Infos SMTP
-SMTP_HOST = "mail.vacashon.online"
-SMTP_PORT = 587
-EMAIL_ADDRESS = "contact@vacashon.online"
-EMAIL_PASSWORD = "N(68&:HH8b34"  # ⚠️ ne jamais le laisser exposé publiquement
+
+SMTP_HOST = os.getenv("SMTP_HOST")
+SMTP_PORT = os.getenv("SMTP_PORT")
+EMAIL_ADDRESS = os.getenv("SMTP_USER")
+EMAIL_PASSWORD = os.getenv("SMTP_PASSWORD")
+SMTP_SENDFROM = os.getenv("SMTP_SENDFROM")
 
 async def send_confirmation_email(to_email: str, username: str, code: str):
     msg = EmailMessage()
-    msg["Subject"] = f"{username}, bienvenue dans l'aventure Monopoly 🎲"
-    msg["From"] = EMAIL_ADDRESS
+    msg["Subject"] = f"{username}, bienvenue dans l'aventure Vacashon 🎲"
+    msg["From"] = SMTP_SENDFROM
     msg["To"] = to_email
-    msg["Reply-To"] = EMAIL_ADDRESS
+    msg["Reply-To"] = SMTP_SENDFROM
     msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
 
     msg.set_content(f"""
     Salut {username} 👋
 
-    Merci pour ton inscription sur Monopoly ! 🎲
+    Merci pour ton inscription sur Vacashon ! 🎲
 
     Pour confirmer ton compte, rends-toi dans le jeu et saisis ce code :
 
@@ -29,7 +35,7 @@ async def send_confirmation_email(to_email: str, username: str, code: str):
     Ce code expire dans 24 heures.
 
     À très vite,
-    — L’équipe Monopoly
+    — L’équipe Vacashon
     """)
 
     try:
@@ -47,15 +53,15 @@ async def send_confirmation_email(to_email: str, username: str, code: str):
 async def send_reset_email(to_email: str, reset_code: str):
     msg = EmailMessage()
     msg["Subject"] = f"🔐 Code de réinitialisation : {reset_code}"
-    msg["From"] = EMAIL_ADDRESS
+    msg["From"] = SMTP_SENDFROM
     msg["To"] = to_email
-    msg["Reply-To"] = EMAIL_ADDRESS
+    msg["Reply-To"] = SMTP_SENDFROM
     msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
 
     msg.set_content(f"""
     Salut 👋
 
-    Tu as demandé à réinitialiser ton mot de passe pour Monopoly.
+    Tu as demandé à réinitialiser ton mot de passe pour Vacashon.
 
     Voici ton code de réinitialisation :
     ➡️ {reset_code}
@@ -63,7 +69,7 @@ async def send_reset_email(to_email: str, reset_code: str):
     Si tu n'es pas à l'origine de cette demande, tu peux ignorer ce message.
 
     À très vite sur le plateau ! 🎲  
-    — L’équipe Monopoly
+    — L’équipe Vacashon
     """)
 
     try:
