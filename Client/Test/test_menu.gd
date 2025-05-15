@@ -11,5 +11,7 @@ func _on_move_player_pressed() -> void:
 
 
 func _on_double_pressed() -> void:
-	var message = {"action": "roll_dice", "for": States.current_context, "test": true}
-	WebSocketClient.send_message(JSON.stringify(message))
+	if States.dice_active:
+		var message = {"action": "roll_dice", "for": States.current_context, "test": true}
+		States.dice_active = false
+		WebSocketClient.send_message(JSON.stringify(message))

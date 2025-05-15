@@ -9,6 +9,7 @@ var user_name: String
 var email: String
 var password: String
 var token: String
+var is_remebered: bool
 
 func _ready() -> void:
 	load_user_data()
@@ -20,6 +21,7 @@ func save_user_data() -> void:
 	config.set_value(section_name, "email", email)
 	config.set_value(section_name, "password", password)
 	config.set_value(section_name, "token", token)
+	config.set_value(section_name, "is_remebered", is_remebered)
 	config.save_encrypted_pass(path_to_save_file, OS.get_unique_id())
 	
 func load_user_data() -> void:
@@ -29,4 +31,5 @@ func load_user_data() -> void:
 	user_name = config.get_value(section_name, "user_name", "")
 	email = config.get_value(section_name, "email", "")
 	password = config.get_value(section_name, "password", "")
+	is_remebered = config.get_value(section_name, "is_remebered", false)
 	token = config.get_value(section_name, "token", "")

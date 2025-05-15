@@ -1,10 +1,5 @@
-# app/core/lobby_manager.py
-
-from typing import Dict
 from app.game.core.lobby_instance import LobbyInstance
-from app.schemas.lobby_schema import LobbyReadSchema
 
-# app/core/lobby_manager.py
 
 class LobbyManager:
     def __init__(self):

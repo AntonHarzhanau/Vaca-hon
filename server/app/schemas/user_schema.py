@@ -63,5 +63,6 @@ class UserFilterSchema(BaseModel):
     email: Optional[str] = None
     username: Optional[str] = None
 
-class UserLoginSchema(UserFilterSchema):
+class UserLoginSchema(BaseModel):
+    login: str
     password: str

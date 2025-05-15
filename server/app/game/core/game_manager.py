@@ -44,13 +44,9 @@ class GameManager:
         result = self.logic.roll_dice(test)
         if result["dice1"] == result["dice2"]:
             self.state.double_roll = True
-            self.state.double_roll_count += 1
-            if self.state.double_roll_count >= 3:
-                self.state.players[player_id].nb_turn_jail = 3
-                return {"action": "go_to_jail", 
-                        "player_id":player_id, 
-                        "message": "You rolled three doubles in a row, go to jail!", 
-                        "delivery": "broadcast"}
+        else:
+            self.state.double_roll = False
+            self.state.double_roll_count = 0
         self.state.last_dice_roll["dice1"] = result["dice1"]
         self.state.last_dice_roll["dice2"] = result["dice2"]
         return result
@@ -62,11 +58,32 @@ class GameManager:
         dice2 = self.state.last_dice_roll["dice2"]
         
         if context == "move":
+           
             if player.nb_turn_jail > 0 and (dice1 != dice2 or dice1 + dice2 > 0):
-                return {"action": "error", "message": "You are in jail", "delivery": "personal"}
-            return self.logic.move_player(player_id, self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"])
+                return {
+                    "action": "error", 
+                    "message": "You are in jail", 
+                    "delivery": "personal"
+                    }
+            if self.state.double_roll:
+                self.state.double_roll_count += 1
+                if self.state.double_roll_count >= 3:
+                    player.nb_turn_jail = 3
+                    player.current_position = 10
+                    self.state.double_roll_count = 0
+                    self.state.double_roll = False
+                    return {"action": "go_to_jail", 
+                            "player_id":player_id, 
+                            "message": "You rolled three doubles in a row, go to jail!", 
+                            "delivery": "broadcast"}   
+            return self.logic.move_player(
+                player_id, 
+                self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"]
+                )
         elif context == "utility_rent":
-            return self.logic.pay_utility_rent(player_id, self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"])
+            return self.logic.pay_utility_rent(
+                player_id, 
+                self.state.last_dice_roll["dice1"] + self.state.last_dice_roll["dice2"])
         elif context == "get_out_of_jail":
             return self.logic.get_out_of_jail(player_id, dice1, dice2)
         
@@ -78,7 +95,12 @@ class GameManager:
     def handle_end_turn(self, player_id: int, data: dict) -> dict:
         if self.state.double_roll:
             self.state.double_roll = False
-            return {"action": "double_roll", "message": "You rolled a double, you can roll again!", "delivery": "personal"} 
+            return {"action": "double_roll", 
+                    "message": "You rolled a double, you can roll again!", 
+                    "delivery": "personal"
+                    }
+        self.state.double_roll_count = 0
+        self.state.double_roll = False 
         self.state.current_dice_context = self.state.dice_context[0]
         self.state.last_dice_roll = {"dice1": 0, "dice2": 0}
         
@@ -89,7 +111,11 @@ class GameManager:
         if player.nb_turn_jail > 0:
             player.nb_turn_jail -= 1
             
-        return {"action": "change_turn", "player_id": new_turn, "nb_turn_jail": player.nb_turn_jail, "delivery": "broadcast"}
+        return {"action": "change_turn", 
+                "player_id": new_turn, 
+                "nb_turn_jail": player.nb_turn_jail, 
+                "delivery": "broadcast"
+                }
 
     def handle_cell_activate(self, player_id: int, data: dict) -> dict:
         return self.logic.cell_action(player_id)

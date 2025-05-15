@@ -1,10 +1,8 @@
 import random
-from typing import Dict, TYPE_CHECKING
+from typing import TYPE_CHECKING
 
 
 if TYPE_CHECKING:
-    from app.game.models.player import Player
-    from app.game.models.game_board import GameBoard
     from app.game.core.game_state import GameState
     from app.game.models.cells.property_cell import PropertyCell
     from app.game.models.cells.street_cell import StreetCell

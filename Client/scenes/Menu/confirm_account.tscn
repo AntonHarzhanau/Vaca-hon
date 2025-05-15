@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://cv37mo85cby5x"]
 
 [ext_resource type="Script" uid="uid://d2chstug26628" path="res://scripts/Menu/confirm_account.gd" id="1_d1yor"]
-[ext_resource type="FontFile" uid="uid://bgokd2a4g6nx0" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
-[ext_resource type="FontFile" uid="uid://b1anjqriscjas" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
-[ext_resource type="Texture2D" uid="uid://cp17tmh22t6rg" path="res://assets/BACK.png" id="3_t3qm0"]
+[ext_resource type="FontFile" uid="uid://bvubk5sg275em" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="3_t3qm0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3qm0"]
 bg_color = Color(1, 1, 1, 1)

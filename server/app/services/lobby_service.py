@@ -6,7 +6,12 @@ class LobbyService:
     def __init__(self, lobby_repository: AbstractRepository):
         self.lobby_repository: AbstractRepository = lobby_repository()
 
-    async def get_lobbies(self, lobby_id: int| None = None, filters: LobbyFilterSchema | None = None) -> list[LobbyReadSchema]:
+    async def get_lobbies(
+        self, 
+        lobby_id: int| None = None, 
+        filters: LobbyFilterSchema | None = None
+        ) -> list[LobbyReadSchema]:
+        
         lobbies = await self.lobby_repository.get(lobby_id, filters, chose=True)
         return lobbies
     

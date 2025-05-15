@@ -1,5 +1,5 @@
 from app.utils.repository import AbstractRepository
-from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserFilterSchema, UserLoginSchema, UserReadSchemaWithToken, ResetPasswordRequest
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserFilterSchema, UserReadSchemaWithToken, ResetPasswordRequest
 from typing import Union
 import bcrypt
 from datetime import datetime, timedelta
@@ -13,7 +13,10 @@ class UserService():
     async def add_user(self, user: UserCreateScema) -> UserReadSchema:
         user_dict = user.model_dump()
 
-        hashed_password = bcrypt.hashpw(user_dict["password"].encode(), bcrypt.gensalt()).decode()
+        hashed_password = bcrypt.hashpw(
+            user_dict["password"].encode(), 
+            bcrypt.gensalt()
+            ).decode()
         user_dict["password"] = hashed_password
 
         confirm_code = secrets.token_hex(4)
@@ -39,7 +42,11 @@ class UserService():
         else:
             return users  # list of objects or empty list
         
-    async def update_user(self, user_id: int, user_data: UserReadSchema) -> UserReadSchema | None:
+    async def update_user(self, 
+                          user_id: int, 
+                          user_data: UserReadSchema
+                          ) -> UserReadSchema | None:
+        
         user = await self.user_repository.update(user_id, user_data.model_dump(exclude_unset=True))
         return user
         
@@ -51,11 +58,11 @@ class UserService():
     async def authenticate_user(self, email: str = None, username: str = None, password: str = ""):
         filters = UserFilterSchema(email=email, username=username)
         users = await self.user_repository.get(filters=filters)
-        user = users[0]
+        
 
         if not users:
             return None
-        
+        user = users[0]
         if not user.is_active:
             raise HTTPException(status_code=403, detail="Compte non activé. Veuillez confirmer votre adresse e-mail.")
 

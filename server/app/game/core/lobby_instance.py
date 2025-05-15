@@ -3,7 +3,7 @@ import asyncio
 from typing import Dict
 from fastapi import WebSocket
 from app.schemas.lobby_schema import LobbyReadSchema
-from app.schemas.user_schema import UserReadSchema, UserReadSchemaWithToken
+from app.schemas.user_schema import UserReadSchemaWithToken
 from app.api.connection_manager import ConnectionManager
 from app.game.core.game_manager import GameManager
 from app.game.core.handlers import GameHandler
@@ -62,18 +62,14 @@ class LobbyInstance:
                 }), websocket)
                 return None
 
-        # Получаем пользователя
             user: UserReadSchemaWithToken = self.connection_manager.active_connections[websocket]
 
-            # Если у него уже был токен — возвращаем в список доступных
             if user.selected_token:
                 self.available_tokens.append(user.selected_token)
 
-            # Назначаем новый токен и цвет
             self.available_tokens.remove(token_name)
             user.selected_token = token_name
 
-            # Рассылаем обновлённую информацию
             await self.connection_manager.broadcast(json.dumps({
                 "action": "token_selected",
                 "token": token_name,
@@ -85,18 +81,15 @@ class LobbyInstance:
         
     async def remove_user(self, websocket: WebSocket) -> None:
         if websocket in self.connection_manager.active_connections:
-            # Удаляем пользователя из списка подключений
+
             user: UserReadSchemaWithToken = await self.connection_manager.disconnect(websocket)
 
-            # Возвращаем токен, если он был
             if user.selected_token:
                 self.available_tokens.append(user.selected_token)
                 user.selected_token = None
 
-            # Сбрасываем цвет (если понадобится — можно добавить логику "used_colors")
             user.player_color = "#af52de"
 
-            # Если игра уже началась, удаляем игрока из игрового состояния
             if self.game_manager and user.id in self.game_manager.state.players:
                 player = self.game_manager.state.players.pop(user.id)
                 for property in player.properties:
@@ -109,9 +102,8 @@ class LobbyInstance:
                     "action": "player_disconnected",
                     "player_id": player.id,
                 }))
-                await asyncio.sleep(0.2)  # даём клиентам время обработать
+                await asyncio.sleep(0.2)
 
-            # Уведомляем оставшихся пользователей
             await self.connection_manager.broadcast(json.dumps({
                 "action": "user_left",
                 "user_id": user.id,
@@ -133,7 +125,12 @@ class LobbyInstance:
         for user in self.connection_manager.active_connections.values():
             # Create game entities based on user information (e.g. username, selected token, etc.)
             print(user)
-            players[user.id] = Player(id=user.id, name=user.username, selected_token=user.selected_token, player_color=user.player_color)
+            players[user.id] = Player(
+                id=user.id, 
+                name=user.username, 
+                selected_token=user.selected_token, 
+                player_color=user.player_color
+                )
 
         # Initialize the game state
         self.game_manager = GameManager(players)

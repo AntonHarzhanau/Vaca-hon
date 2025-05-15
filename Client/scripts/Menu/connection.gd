@@ -8,6 +8,7 @@ extends Control
 func _ready() -> void:
 	login.text = UserData.user_name
 	password.text = UserData.password
+	checkbox.button_pressed = UserData.is_remebered
 	for button in get_tree().get_nodes_in_group("hover_buttons"):
 		if button is Button:
 			button.mouse_entered.connect(func(): _hover(button, true))
@@ -17,8 +18,7 @@ func _on_connecter_pressed() -> void:
 	$Click.play()
 	var payload = {
 		# "username" or "login"
-		"email": login.text,
-		"username": login.text,  
+		"login": login.text,  
 		"password": password.text
 	}
 
@@ -82,3 +82,7 @@ func _hover(button: Button, entering: bool):
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	tween.tween_property(button, "scale", target_scale, 0.2)
 	
+
+
+func _on_check_box_pressed() -> void:
+	UserData.is_remebered = checkbox.toggle_mode
