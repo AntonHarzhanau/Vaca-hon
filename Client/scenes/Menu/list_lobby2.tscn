@@ -1,13 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://j02a0bno0g4l"]
+[gd_scene load_steps=31 format=3 uid="uid://j02a0bno0g4l"]
 
 [ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
-[ext_resource type="FontFile" uid="uid://c4wnsf365upst" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
-[ext_resource type="Texture2D" uid="uid://bj3tlv5id2vcb" path="res://assets/BACK.png" id="3_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="3_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5djgv"]
-[ext_resource type="PackedScene" uid="uid://cuj23ias31fci" path="res://scenes/Menu/list_lobby_item2.tscn" id="5_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nsd2j"]
-[ext_resource type="Texture2D" uid="uid://rosuxo7y6ddy" path="res://assets/playwith.png" id="7_5djgv"]
+[ext_resource type="Texture2D" uid="uid://ctoqgrrdbpu2e" path="res://assets/playwith.png" id="7_5djgv"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_o00fx"]
 [ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="10_3dlmw"]
 [ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="11_altyt"]
@@ -430,21 +429,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 columns = 2
-
-[node name="ListLobbyItem" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-layout_mode = 2
-
-[node name="ListLobbyItem2" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-layout_mode = 2
-
-[node name="ListLobbyItem3" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-layout_mode = 2
-
-[node name="ListLobbyItem4" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-layout_mode = 2
-
-[node name="ListLobbyItem5" parent="TextureRect/MarginContainer3/Panel/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("5_kt6ln")]
-layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
 layout_mode = 1

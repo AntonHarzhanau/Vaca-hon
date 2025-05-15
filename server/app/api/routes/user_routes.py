@@ -148,6 +148,8 @@ async def reset_password(
 async def request_support(data: UserSupportRequestSchema):
     try:
         response = await send_support_email(data)
-        return {"message": "Support request successfully sent.", "data": data}
+        if response:
+            return {"message": "Support request successfully sent.", "data": data}
+        raise HTTPException(status_code=500, detail="Something went wrong when sending the email.")
     except Exception as e:
         raise HTTPException(status_code=400, detail=e)

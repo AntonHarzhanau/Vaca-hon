@@ -18,7 +18,12 @@ extends Control
 @onready var label_4 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L4
 @onready var label_5 = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HBoxContainer/L5
 
+@onready var username = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer_1/LineEdit
+@onready var email = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer_2/LineEdit
+@onready var phone = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer_3/LineEdit
+@onready var message = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/LineEdit
 @onready var slider = $TextureRect/Panel/MarginContainer/HBoxContainer/VBoxContainer2/RatingScale/VBoxContainer/HSlider
+@onready var notif = $TextureRect/Panel/ResetNotif
 
 var emojis_static = []
 var emojis_dynamic = []
@@ -35,6 +40,10 @@ func _ready():
 	# Initialize default state (slider at far left)
 	_reset_emoji_and_text()
 	_update_emoji_display(0)  # Display first animated emoji by default
+
+	# Auto-fill username and email
+	username.text = UserData.user_name
+	email.text = UserData.email
 
 	# Connect signal (in case not connected in the editor)
 	slider.connect("value_changed", Callable(self, "_on_h_slider_value_changed"))
@@ -74,3 +83,52 @@ func _update_emoji_display(index):
 
 	# Change label text color
 	labels[index].add_theme_color_override("font_color", selected_color)
+
+func _on_envoyer_pressed():
+	var payload = {
+	  "username": username.text.strip_edges(),
+	  "email": email.text.strip_edges(),
+	  "phone": phone.text.strip_edges(),
+	  "rating": labels[slider.value].text.strip_edges(),
+	  "message": message.text.strip_edges()
+	}	
+	# Validate fields
+	if payload["email"].is_empty():
+		notif.text = "Please enter your email address"
+		notif.modulate = Color(1, 0, 0)
+		print("Please enter your email address")
+		return
+		
+	if payload["message"].is_empty():
+		notif.text = "Please enter your message"
+		notif.modulate = Color(1, 0, 0)
+		print("Please enter your message")
+		return
+	
+	if not CreeCompte.is_valid_email(payload["email"]):
+		notif.text = "Please enter a valid password (Min: 8 characters. At least 1 number and 1 special character)."
+		notif.modulate = Color(1, 0, 0)
+		print("Please enter a valid email")
+		return
+	
+	print(payload)
+	# Post message to the /Users/request-support endpoint
+	var response = await HttpRequestClient.__post("/Users/request-support", payload)
+	print(response)
+	
+	if response.response_code == 200:
+		#Show Message Feedback
+		notif.text ="✅ Your support request has been sent!"
+		notif.modulate = Color(0, 1, 0)
+		
+		# Reset fields
+		username.text = ""
+		email.text = ""
+		phone.text = ""
+		message.text = ""
+		print("✅ Support Request successfully sent!")
+	else:
+		#Show Message Feedback
+		notif.text = "❌ An error occured while sending your message. Please retry !"
+		notif.modulate = Color(1, 0, 0)
+		print("❌ An error occured while sending your message. Please retry !")

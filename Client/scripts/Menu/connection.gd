@@ -40,10 +40,10 @@ func _on_connecter_pressed() -> void:
 		UserData.user_name = response.body["user"]["username"]		
 	
 		if checkbox.button_pressed:
-			UserData.email = login.text
+			UserData.user_name = login.text
 			UserData.password = password.text
 		else:
-			UserData.email = ""
+			UserData.user_name = ""
 			UserData.password = ""
 		UserData.save_user_data()
 		message.add_theme_color_override("default_color", "#00994f")

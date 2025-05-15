@@ -15,6 +15,7 @@ SMTP_PORT = os.getenv("SMTP_PORT")
 EMAIL_ADDRESS = os.getenv("SMTP_USER")
 EMAIL_PASSWORD = os.getenv("SMTP_PASSWORD")
 SMTP_SENDFROM = os.getenv("SMTP_SENDFROM")
+SUPPORT_EMAIL = os.getenv("SUPPORT_EMAIL")
 
 async def send_confirmation_email(to_email: str, username: str, code: str):
     msg = EmailMessage()
@@ -106,8 +107,8 @@ async def send_support_email(support_payload: UserSupportRequestSchema):
     msg = EmailMessage()
     msg["Subject"] = f"Support Request from : {email}"
     msg["From"] = SMTP_SENDFROM
-    msg["To"] = "support@vacashon.online"
-    msg["Reply-To"] = SMTP_SENDFROM
+    msg["To"] = SUPPORT_EMAIL
+    msg["Reply-To"] = email
     msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
 
     msg.set_content(f"""
@@ -133,6 +134,9 @@ async def send_support_email(support_payload: UserSupportRequestSchema):
         await smtp.send_message(msg)
         await smtp.quit()
 
-        print(f"✅ Email envoyé à 'support@vacashon.online'")
+        print(f"✅ Email envoyé à '{SUPPORT_EMAIL}'")
+
+        return True
     except Exception as e:
         print(f"❌ Erreur lors de l'envoi de l'email : {e}")
+        return False
