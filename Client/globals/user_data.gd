@@ -10,6 +10,7 @@ var email: String
 var password: String
 var token: String
 var is_remebered: bool
+var is_active: bool
 
 func _ready() -> void:
 	load_user_data()

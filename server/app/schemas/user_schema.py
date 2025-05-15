@@ -15,8 +15,8 @@ class UserSchema(BaseModel):
         from_attributes = True
 
 
-class UserConfirmationSchema(BaseModel):
-    email: str
+class UserConfirmationSchemaById(BaseModel):
+    id: int
     confirm_code: str
 
 class RequestPasswordReset(BaseModel):

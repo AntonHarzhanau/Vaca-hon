@@ -71,18 +71,14 @@ class UserService():
                 return user
         
         return None
-    
 
-    async def confirm_user(self, email: str, code: str) -> UserReadSchema:
-        filters = UserFilterSchema(email=email)
-        users = await self.user_repository.get(filters=filters)
+    async def confirm_user_by_id(self, user_id: int, code: str) -> UserReadSchema:
+        user = await self.user_repository.get(user_id)
 
-        if not users:
+        if not user:
             raise HTTPException(status_code=404, detail="Utilisateur introuvable")
 
-        user = users[0]
-
-        # Comparaison du code de confirmation
+        # Vérification du code de confirmation
         if user.confirm_code != code:
             raise HTTPException(status_code=400, detail="Code incorrect")
 
@@ -97,7 +93,7 @@ class UserService():
 
         updated_user = await self.user_repository.update(user.id, user.model_dump())
         return updated_user
-    
+
     async def set_reset_code(self, user_id: int, reset_code: str, expiry: datetime):
         await self.user_repository.update(user_id, {
             "confirm_code": reset_code,

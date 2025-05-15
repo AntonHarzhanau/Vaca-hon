@@ -1,22 +1,26 @@
 extends Control
 
-@onready var code = $TextureRect/Panel/VBoxContainer/CodeInput
-@onready var new_password = $TextureRect/Panel/VBoxContainer/NewPassword
-@onready var new_password_confirm = $TextureRect/Panel/VBoxContainer/ConfirmNewPassword
-@onready var notif = $TextureRect/Panel/VBoxContainer/ResetNotif
+@onready var code = $Main/Panel/VBoxContainer/CodeInput
+@onready var new_password = $Main/Panel/VBoxContainer/NewPassword
+@onready var new_password_confirm = $Main/Panel/VBoxContainer/ConfirmNewPassword
+@onready var notif = $Main/Panel/ResetNotif
 
 func _on_change_password_button_pressed() -> void:
 	
 	if new_password.text.strip_edges() == "" or new_password_confirm.text.strip_edges() == "" or code.text.strip_edges() == "":
-		notif.text = "Remplir tous les champs."
+		notif.text = "Please fill in all fields."
+		notif.modulate = Color(1, 0, 0)
 		return
-	
-	if new_password.text.length() < 8 :
-		notif.text = "Le mot de passe doit contenir au moins 8 caractères."
-		notif.modulate = Color(1, 0 , 0)
+		
+	## Check for valid password : at least 8 charcters, at least 1 number AND 1 special characer (@$!%*?&+-)
+	if not CreeCompte.is_valid_password(new_password.text):
+		notif.text = "Please enter a valid password (Min: 8 characters. At least 1 number and 1 special character)."
+		notif.modulate = Color(1, 0, 0)
 		return
+		
+	## Check if confirmation password match
 	if new_password.text != new_password_confirm.text:
-		notif.text = "Les mots de passes ne correspondent pas."
+		notif.text = "Passwords do not match."
 		notif.modulate = Color(1, 0, 0)
 		return
 	
@@ -30,10 +34,11 @@ func _on_change_password_button_pressed() -> void:
 	print(response)
 	
 	if response.response_code == 200:
-		notif.text ="✅ Mot de passe réinitialisé !"
+		notif.text ="✅ Password successfully reset!"
 		notif.modulate = Color(0, 1, 0)
+		get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")
 	else:
-		notif.text = "❌ Code incorrect."
+		notif.text = "❌ Incorrect code."
 		notif.modulate = Color(1, 0, 0)
 
 func _on_texture_button_pressed() -> void:

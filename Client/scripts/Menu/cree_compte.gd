@@ -87,7 +87,7 @@ func is_valid_username(username: String) -> bool:
 
 func is_valid_password(password: String) -> bool:
 	"""
-	Required a password having at least 8 chars, at least 1 number and 1 special character
+	Required a password having at least 8 characters, at least 1 number and 1 special character
 	"""
 	var regex = RegEx.new()
 	var pattern = r"^(?=.*\d)(?=.*[@$!%*?&+\-]).{8,}$"
