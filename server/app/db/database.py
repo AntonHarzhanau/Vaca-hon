@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 # Load environment variables from .env
 load_dotenv() 
 # URL de connexion à la base de données
-#SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 #SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://postgres:2547@localhost:5432/monopoly" <- async postgress
 # SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///./test.db" #   <- async sqlite
 
