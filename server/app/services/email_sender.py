@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from email.message import EmailMessage
+from app.schemas.user_schema import UserSupportRequestSchema
 import uuid
 import aiosmtplib
 
@@ -81,5 +82,57 @@ async def send_reset_email(to_email: str, reset_code: str):
         await smtp.quit()
 
         print(f"✅ Email envoyé à {to_email}")
+    except Exception as e:
+        print(f"❌ Erreur lors de l'envoi de l'email : {e}")
+
+async def send_support_email(support_payload: UserSupportRequestSchema):
+    """
+    Sends email to 'support@vacashon.email' when Support form is submitted from client
+    """
+    
+    # Check if user's email is not empty
+    username = support_payload.username
+    email = support_payload.email
+    phone = support_payload.phone
+    rating = support_payload.rating
+    message = support_payload.message
+
+
+    # Payload validattion
+    if not email and email == "":
+        return
+    
+    # Setup Email to send
+    msg = EmailMessage()
+    msg["Subject"] = f"Support Request from : {email}"
+    msg["From"] = SMTP_SENDFROM
+    msg["To"] = "support@vacashon.online"
+    msg["Reply-To"] = SMTP_SENDFROM
+    msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
+
+    msg.set_content(f"""
+    Hello,
+                    
+    A new Support Request has been submitted by a player :
+                    
+    - Username : {username}
+    - Email : {email}
+    - Phone number : {phone}
+    - Rating : {rating}
+    - Message :  {message}
+
+    Thank you.
+    — Vacashon Game
+    """)
+
+    try:
+        # Création d'une instance SMTP
+        smtp = aiosmtplib.SMTP(hostname=SMTP_HOST, port=SMTP_PORT, start_tls=True)
+        await smtp.connect()
+        await smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        await smtp.send_message(msg)
+        await smtp.quit()
+
+        print(f"✅ Email envoyé à 'support@vacashon.online'")
     except Exception as e:
         print(f"❌ Erreur lors de l'envoi de l'email : {e}")

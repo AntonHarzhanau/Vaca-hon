@@ -65,3 +65,10 @@ class UserFilterSchema(BaseModel):
 
 class UserLoginSchema(UserFilterSchema):
     password: str
+
+class UserSupportRequestSchema(BaseModel):
+    username: str = None
+    email: str
+    phone: str = None
+    rating: str
+    message: str
