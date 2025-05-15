@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
-from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema, UserConfirmationSchemaById, RequestPasswordReset, TokenResponse, ResetPasswordRequest
+from app.schemas.user_schema import UserCreateScema, UserReadSchema, UserUpdateSchema, UserDeleteSchema, UserFilterSchema, UserLoginSchema, UserConfirmationSchemaById, RequestPasswordReset, TokenResponse, ResetPasswordRequest, UserSupportRequestSchema
 
 from app.api.dependencies import user_service
 from app.services.user_service import UserService
 from typing import Annotated
-from app.services.email_sender import send_confirmation_email, send_reset_email
+from app.services.email_sender import send_confirmation_email, send_reset_email, send_support_email
 import asyncio
 import uuid
 import jwt
@@ -142,3 +142,12 @@ async def reset_password(
 ):
     user = await user_service.reset_password(data)
     return {"message": "Mot de passe réinitialisé avec succès", "user_id": user.id}
+
+# Route for Support Request
+@router.post("/request-support")
+async def request_support(data: UserSupportRequestSchema):
+    try:
+        response = await send_support_email(data)
+        return {"message": "Support request successfully sent.", "data": data}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=e)

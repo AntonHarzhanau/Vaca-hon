@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes.lobby_routes import router as lobby_router
 from app.api.routes.user_routes import router as user_router
 from app.api.routes.websocket import router as websocket_router
-from app.db.database import create_tables, delete_tables
+from app.db.database import create_tables
 from contextlib import asynccontextmanager
 import logging
 
