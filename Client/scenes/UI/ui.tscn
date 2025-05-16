@@ -168,6 +168,7 @@ visible = false
 visible = false
 
 [node name="Info" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="Info"]
 anchors_preset = 15
