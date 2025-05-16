@@ -16,10 +16,14 @@ func _ready():
 	# Setup player name if already logged in
 	if UserData.user_name:
 		log_out_button.text = log_out_button.text.replace("PLAYER NAME", UserData.user_name)
-	#for button in get_tree().get_nodes_in_group("HomeButtons"):
-		#if button is Button:
-			#button.mouse_entered.connect(func(): _hover(button, true))
-			#button.mouse_exited.connect(func(): _hover(button, false))
+	for button in get_tree().get_nodes_in_group("HomeButtons"):
+		if button is Button:
+			button.mouse_entered.connect(func(): _hover(button, true))
+			button.mouse_exited.connect(func(): _hover(button, false))
+			
+	# Start Playing BGM
+	AudioManager.play_bgm(preload("res://audio/music/bgm_menu.ogg"))
+	
 func _on_regle_pressed():
 	regle_popup.visible = !regle_popup.visible
 
