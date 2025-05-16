@@ -57,6 +57,9 @@ func _on_websocket_message_received(data) -> void:
 			print(data)
 
 func _on_token_select(pressed: bool, button) -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	if pressed:
 		var msg = {"action": "select_token", "user_id": int(UserData.user_id), "token":button.name}
 		WebSocketClient.send_message(JSON.stringify(msg))
@@ -91,11 +94,17 @@ func refresh_token(tokens):
 			i.visible = false
 
 func _on_start_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var msg = {"action": "start_game", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))
 
 
 func _on_back_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	print("Attempting to load scene: res://scenes/Menu/home.tscn")
 	WebSocketClient.close_connection()
 	get_tree().change_scene_to_file("res://scenes/Menu/create_lobby2.tscn")  # Switch to main menu

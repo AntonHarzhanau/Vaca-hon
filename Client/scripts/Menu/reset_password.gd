@@ -6,7 +6,9 @@ extends Control
 @onready var notif = $Main/Panel/ResetNotif
 
 func _on_change_password_button_pressed() -> void:
-	
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+		
 	if new_password.text.strip_edges() == "" or new_password_confirm.text.strip_edges() == "" or code.text.strip_edges() == "":
 		notif.text = "Please fill in all fields."
 		notif.modulate = Color(1, 0, 0)
@@ -42,7 +44,13 @@ func _on_change_password_button_pressed() -> void:
 		notif.modulate = Color(1, 0, 0)
 
 func _on_texture_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")
 
 func _on_change_mail_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/send_email_reset.tscn")

@@ -7,11 +7,16 @@ extends Control
 @onready var confirm_password: LineEdit = $VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer2/ConfirmPasswordLineEdit
 
 func _ready() -> void:
-	for button in get_tree().get_nodes_in_group("CreateAnAccount"):
-		if button is Button:
-			button.mouse_entered.connect(func(): _hover(button, true))
-			button.mouse_exited.connect(func(): _hover(button, false))
+	pass
+	#for button in get_tree().get_nodes_in_group("CreateAnAccount"):
+		#if button is Button:
+			#button.mouse_entered.connect(func(): _hover(button, true))
+			#button.mouse_exited.connect(func(): _hover(button, false))
+			
 func _on_creer_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	message.text = ""
 	
 	# Fields Validation
@@ -63,6 +68,9 @@ func _on_creer_pressed() -> void:
 
 
 func _on_texture_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var scene = preload("res://scenes/Menu/Connection.tscn")
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")
@@ -97,15 +105,15 @@ func is_valid_password(password: String) -> bool:
 		return false
 	return regex.search(password) != null
 	
-func _hover(button: Button, entering: bool):
-	var tween := button.create_tween()
-	var target_scale: Vector2
-	if entering:
-		target_scale = Vector2(1.1, 1.1)
-		tween.set_ease(Tween.EASE_OUT)
-	else:
-		target_scale = Vector2(1, 1)
-		tween.set_ease(Tween.EASE_IN)
-
-	tween.set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(button, "scale", target_scale, 0.2)
+#func _hover(button: Button, entering: bool):
+	#var tween := button.create_tween()
+	#var target_scale: Vector2
+	#if entering:
+		#target_scale = Vector2(1.1, 1.1)
+		#tween.set_ease(Tween.EASE_OUT)
+	#else:
+		#target_scale = Vector2(1, 1)
+		#tween.set_ease(Tween.EASE_IN)
+#
+	#tween.set_trans(Tween.TRANS_ELASTIC)
+	#tween.tween_property(button, "scale", target_scale, 0.2)

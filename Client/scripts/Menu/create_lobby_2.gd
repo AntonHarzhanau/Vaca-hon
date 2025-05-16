@@ -18,10 +18,10 @@ var secret = ''
 
 func _ready():
 
-	for button in get_tree().get_nodes_in_group("CreateAGame"):
-		if button is Button:
-			button.mouse_entered.connect(func(): _hover(button, true))
-			button.mouse_exited.connect(func(): _hover(button, false))
+	#for button in get_tree().get_nodes_in_group("CreateAGame"):
+		#if button is Button:
+			#button.mouse_entered.connect(func(): _hover(button, true))
+			#button.mouse_exited.connect(func(): _hover(button, false))
 	for child in num_users_btn_group.get_children():
 		if child is CheckButton:
 			child.toggled.connect(_on_num_player_selected.bind(child))
@@ -40,12 +40,16 @@ func _ready():
 
 func _on_num_player_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
-		$Click.play()
+		# Play Click SFX Audio
+		AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+		
 		nb_player_max = int(button.text)
 		
 func _on_private_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
-		$Click.play()
+		# Play Click SFX Audio
+		AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+		
 		if button.text == "Public":
 			self.is_private = false
 			label_mdp.visible = false
@@ -57,11 +61,15 @@ func _on_private_selected(pressed: bool, button: CheckButton) -> void:
 
 func _on_time_selected(pressed: bool, button: CheckButton) -> void:
 	if pressed:
-		$Click.play()
+		# Play Click SFX Audio
+		AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+		
 		time_sec = int(button.text)
 
 func _on_submit_create_lobby_pressed() -> void:
-	$Click.play()
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var payload = {
 		"owner_id": int(UserData.user_id),
 		"owner_name": UserData.user_name,
@@ -89,7 +97,9 @@ func _on_submit_create_lobby_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	$Click.play()
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")
 	
 func _hover(button: Button, entering: bool):

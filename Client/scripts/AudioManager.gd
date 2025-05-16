@@ -25,6 +25,8 @@ func _ready():
 	add_child(sfx_player)
 
 	# Set initial volume
+	bgm_volume = UserData.bgm_volume
+	sfx_volume = UserData.sfx_volume
 	update_volumes()
 
 func update_volumes():
@@ -34,10 +36,16 @@ func update_volumes():
 func set_bgm_volume(value: float):
 	bgm_volume = value
 	update_volumes()
+	UserData.bgm_volume = bgm_volume
+	UserData.save_user_data()
+	print("Change BGM volume to : ", value)
 
 func set_sfx_volume(value: float):
 	sfx_volume = value
 	update_volumes()
+	UserData.sfx_volume = sfx_volume
+	UserData.save_user_data()
+	print("Change SFX volume to : ", value)
 
 func play_bgm(stream: AudioStream):
 	if current_bgm == stream:
@@ -48,8 +56,17 @@ func play_bgm(stream: AudioStream):
 
 func stop_bgm():
 	bgm_player.stop()
+	bgm_player.volume_db = 0  # Reset for next play
 	current_bgm = null
 
 func play_sfx(stream: AudioStream):
 	sfx_player.stream = stream
 	sfx_player.play()
+	
+func fade_out_bgm(duration: float = 1.0):
+	if not bgm_player.playing:
+		return  # No music to fade out
+
+	var tween := create_tween()
+	tween.tween_property(bgm_player, "volume_db", -80, duration)
+	tween.tween_callback(Callable(self, "stop_bgm"))

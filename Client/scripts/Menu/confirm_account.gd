@@ -8,6 +8,9 @@ func _ready() -> void:
 	notif.modulate = Color(0, 0, 1)
 
 func _on_confirm_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var payload = {
 	"id": UserData.user_id, 
 	"confirm_code": code.text
@@ -25,4 +28,7 @@ func _on_confirm_pressed() -> void:
 		notif.modulate = Color(1, 0, 0)
 	
 func _on_texture_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")

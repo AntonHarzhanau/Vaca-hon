@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://c3yx8f384crku" path="res://scripts/Menu/parametre.gd" id="1_3j7aq"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_m4m2w"]
-[ext_resource type="Texture2D" uid="uid://cec4oro55xov4" path="res://assets/icon_chevron_left.png" id="3_tps0i"]
-[ext_resource type="Texture2D" uid="uid://jy43vlcb6no4" path="res://assets/icon_chevron_right.png" id="4_ekgrj"]
+[ext_resource type="Texture2D" uid="uid://35y8wjmet28a" path="res://assets/icon_chevron_left.png" id="3_tps0i"]
+[ext_resource type="Texture2D" uid="uid://qho270u7qmlg" path="res://assets/icon_chevron_right.png" id="4_ekgrj"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_qh40r"]
-[ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="4_vpmvi"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="4_vpmvi"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="5_3j7aq"]
-[ext_resource type="Texture2D" uid="uid://dgjt2cjvsu836" path="res://assets/switch/Switch-2.png" id="6_bmkvy"]
-[ext_resource type="Texture2D" uid="uid://bgdq3fi5y1kbu" path="res://assets/switch/Switch.png" id="7_cskwj"]
-[ext_resource type="Texture2D" uid="uid://bbmcw7mvqcvsb" path="res://assets/switch/Switch-1.png" id="8_8od8g"]
-[ext_resource type="Texture2D" uid="uid://shteeisevaui" path="res://assets/slider control.png" id="8_cskwj"]
-[ext_resource type="Texture2D" uid="uid://px2r283mqh6f" path="res://assets/slider control-1.png" id="9_8od8g"]
-[ext_resource type="Texture2D" uid="uid://ki8wdudtlbn2" path="res://assets/Grabber.png" id="10_4brve"]
-[ext_resource type="Texture2D" uid="uid://d057uhcu5vnfr" path="res://assets/BACK.png" id="16_a5tmk"]
+[ext_resource type="Texture2D" uid="uid://c13ii4e5uujre" path="res://assets/switch/Switch-2.png" id="6_bmkvy"]
+[ext_resource type="Texture2D" uid="uid://b0vqhj4rjmp6f" path="res://assets/switch/Switch.png" id="7_cskwj"]
+[ext_resource type="Texture2D" uid="uid://cgm6gdiq0jufn" path="res://assets/switch/Switch-1.png" id="8_8od8g"]
+[ext_resource type="Texture2D" uid="uid://e0s3fhryd31s" path="res://assets/slider control.png" id="8_cskwj"]
+[ext_resource type="Texture2D" uid="uid://c2lnb6ti66msl" path="res://assets/slider control-1.png" id="9_8od8g"]
+[ext_resource type="Texture2D" uid="uid://bl68f8y70ude8" path="res://assets/Grabber.png" id="10_4brve"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="16_a5tmk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb4o7"]
 bg_color = Color(1, 1, 1, 1)
@@ -307,10 +307,9 @@ theme_override_icons/grabber_disabled = ExtResource("10_4brve")
 theme_override_styles/slider = SubResource("StyleBoxFlat_cskwj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qh40r")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_3j7aq")
-min_value = -80.0
-max_value = 24.0
-value = 10.0
-tick_count = 16
+max_value = 1.0
+step = 0.01
+value = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EffetsSonores" type="VBoxContainer" parent="TextureRect/Panel"]
@@ -346,7 +345,9 @@ theme_override_icons/grabber_disabled = ExtResource("10_4brve")
 theme_override_styles/slider = SubResource("StyleBoxFlat_cskwj")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qh40r")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_3j7aq")
-max_value = 10.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect"]
@@ -390,5 +391,6 @@ uppercase = true
 
 [connection signal="pressed" from="TextureRect/Panel/Langue/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureRect/Panel/Langue/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="value_changed" from="TextureRect/Panel/Musique/HSlider1" to="." method="_on_h_slider_1_value_changed"]
+[connection signal="value_changed" from="TextureRect/Panel/Musique/HSlider1" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="value_changed" from="TextureRect/Panel/EffetsSonores/HSlider1" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

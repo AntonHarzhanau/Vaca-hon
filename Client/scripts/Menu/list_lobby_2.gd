@@ -60,21 +60,33 @@ func _ready():
 	WebSocketClient.message_received.connect(_on_websocket_message_received)
    
 func _on_filter_button_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	is_expanded = !is_expanded
 	filter_menu.visible = is_expanded
 	filter_button.text = "  FILTER         ▲" if is_expanded else "  FILTER         ▼"
 	
 func _on_publique_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	is_public = true
 	_select_button(button_publique)
 	print("Filter：Public Room")
 
 func _on_privee_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	is_public = false
 	_select_button(button_privee)
 	print("Filter：Private Room")
 
 func _select_button(button: Button):
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	# Reset the previously selected button style
 	_fetch_lobbies()
 	if selected_button and selected_button != button:
@@ -90,6 +102,9 @@ func _select_button(button: Button):
 
 # When the return button is pressed, switch back to the main menu scene
 func _on_texture_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	print("Attempting to load scene: res://scenes/Menu/main_menu2.tscn")
 	var scene = preload("res://scenes/Menu/main_menu2.tscn")
 	if scene:
@@ -139,6 +154,9 @@ func _on_websocket_message_received(data):
 
 
 func _on_join_pressed(lobby):
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	States.lobby_id = int(lobby.id)
 	States.lobby_max_players = int(lobby.nb_player_max)
 	States.lobby_owner_id = int(lobby.owner_id)
@@ -149,6 +167,9 @@ func _on_refresh_btn_pressed():
 	_fetch_lobbies()
 
 func _on_create_lobby_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	print("Attempting to load scene: res://scenes/Menu/create_lobby2.tscn")
 	var scene = load("res://scenes/Menu/create_lobby2.tscn") 
 	if scene:
@@ -168,9 +189,15 @@ func _hide_rejoindre_popup():
 
 # NON button in the pop-up window: close the pop-up window
 func _on_non_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	_hide_rejoindre_popup()
 
 # OUI button in the pop-up window: jump to select role select_token.tscn
 func _on_oui_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	print("Joining lobby: ", States.lobby_id)
 	get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")

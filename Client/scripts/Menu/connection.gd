@@ -9,13 +9,18 @@ func _ready() -> void:
 	login.text = UserData.user_name
 	password.text = UserData.password
 	checkbox.button_pressed = UserData.is_remebered
-	for button in get_tree().get_nodes_in_group("hover_buttons"):
-		if button is Button:
-			button.mouse_entered.connect(func(): _hover(button, true))
-			button.mouse_exited.connect(func(): _hover(button, false))
+	#for button in get_tree().get_nodes_in_group("hover_buttons"):
+		#if button is Button:
+			#button.mouse_entered.connect(func(): _hover(button, true))
+			#button.mouse_exited.connect(func(): _hover(button, false))
+			
+	# Stop playing BGM after logout
+	AudioManager.fade_out_bgm()
 
 func _on_connecter_pressed() -> void:
-	$Click.play()
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var payload = {
 		# "username" or "login"
 		"login": login.text,  
@@ -59,7 +64,9 @@ func _on_connecter_pressed() -> void:
 	
 
 func _on_creer_pressed() -> void:
-	$Click.play()
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var scene = load("res://scenes/Menu/Cree_compte.tscn")
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/Cree_compte.tscn")
@@ -67,23 +74,24 @@ func _on_creer_pressed() -> void:
 
 
 func _on_link_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/send_email_reset.tscn")
-	$Click.play()
 	
 
-
-func _hover(button: Button, entering: bool):
-	var tween := button.create_tween()
-	var target_scale: Vector2
-	if entering:
-		target_scale = Vector2(1.1, 1.1)
-		tween.set_ease(Tween.EASE_OUT)
-	else:
-		target_scale = Vector2(1, 1)
-		tween.set_ease(Tween.EASE_IN)
-
-	tween.set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(button, "scale", target_scale, 0.2)
+#func _hover(button: Button, entering: bool):
+	#var tween := button.create_tween()
+	#var target_scale: Vector2
+	#if entering:
+		#target_scale = Vector2(1.1, 1.1)
+		#tween.set_ease(Tween.EASE_OUT)
+	#else:
+		#target_scale = Vector2(1, 1)
+		#tween.set_ease(Tween.EASE_IN)
+#
+	#tween.set_trans(Tween.TRANS_ELASTIC)
+	#tween.tween_property(button, "scale", target_scale, 0.2)
 	
 
 

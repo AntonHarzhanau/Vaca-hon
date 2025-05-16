@@ -4,6 +4,8 @@ extends Control
 @onready var notif = $Main/Panel/VBoxContainer/Label
 
 func _on_send_email_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
 	
 	if email.text.strip_edges() == "":
 		notif.text = "Please fill in all fields."
@@ -31,4 +33,7 @@ func _on_send_email_button_pressed() -> void:
 		notif.modulate = Color(1, 0, 0)
 
 func _on_texture_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")

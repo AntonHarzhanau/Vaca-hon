@@ -49,6 +49,9 @@ func _ready():
 	slider.connect("value_changed", Callable(self, "_on_h_slider_value_changed"))
 
 func _on_texture_button_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var scene = load("res://scenes/Menu/home.tscn")
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
@@ -85,6 +88,9 @@ func _update_emoji_display(index):
 	labels[index].add_theme_color_override("font_color", selected_color)
 
 func _on_envoyer_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	var payload = {
 	  "username": username.text.strip_edges(),
 	  "email": email.text.strip_edges(),

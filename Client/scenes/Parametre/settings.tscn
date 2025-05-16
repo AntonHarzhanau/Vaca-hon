@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://bi68a6b5rjjg5"]
 
 [ext_resource type="Script" uid="uid://caxbxgvsn8xcw" path="res://scripts/parametre/settings.gd" id="1_dybpc"]
-[ext_resource type="FontFile" uid="uid://cgra13aa16h66" path="res://data/LilitaOne-Regular.ttf" id="2_es4n0"]
-[ext_resource type="Texture2D" uid="uid://cbhmdld7hx31e" path="res://assets/slider control.png" id="3_gis3k"]
-[ext_resource type="Texture2D" uid="uid://cis1purjv1bbv" path="res://assets/slider control-1.png" id="4_83j8s"]
-[ext_resource type="Texture2D" uid="uid://bsbvecqyv4o1k" path="res://assets/Grabber.png" id="5_gjs24"]
-[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="6_dybpc"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="2_es4n0"]
+[ext_resource type="Texture2D" uid="uid://e0s3fhryd31s" path="res://assets/slider control.png" id="3_gis3k"]
+[ext_resource type="Texture2D" uid="uid://c2lnb6ti66msl" path="res://assets/slider control-1.png" id="4_83j8s"]
+[ext_resource type="Texture2D" uid="uid://bl68f8y70ude8" path="res://assets/Grabber.png" id="5_gjs24"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="6_dybpc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22blb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -139,7 +139,9 @@ theme_override_icons/grabber_disabled = ExtResource("5_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_dybpc")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_5uxi4")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fkupt")
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EffetsSonores" type="VBoxContainer" parent="Panel/SettingsPanel"]
@@ -173,9 +175,11 @@ theme_override_icons/grabber_disabled = ExtResource("5_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_dybpc")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_5uxi4")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fkupt")
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Panel/SettingsPanel/ColorRect/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="value_changed" from="Panel/SettingsPanel/Musique/HSlider1" to="." method="_on_h_slider_1_value_changed"]
-[connection signal="value_changed" from="Panel/SettingsPanel/EffetsSonores/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="value_changed" from="Panel/SettingsPanel/Musique/HSlider1" to="." method="_on_bgm_slider_value_changed"]
+[connection signal="value_changed" from="Panel/SettingsPanel/EffetsSonores/HSlider2" to="." method="_on_sfx_slider_value_changed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=3 uid="uid://dvuos1sssedww"]
 
-[ext_resource type="FontFile" uid="uid://cgra13aa16h66" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
-[ext_resource type="Texture2D" uid="uid://e5hnslexton7" path="res://assets/BACK.png" id="2_2e2bd"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="2_2e2bd"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="4_vi5sa"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_0bggq"]
 [ext_resource type="ButtonGroup" uid="uid://cemqouo0xlwif" path="res://buttons/number_players_button_group.tres" id="5_vag1c"]
@@ -10,7 +10,7 @@
 [ext_resource type="ButtonGroup" uid="uid://bwkmfdjb24nwv" path="res://buttons/private_button_group.tres" id="6_b0npl"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vag1c"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_b0npl"]
-[ext_resource type="AudioStream" uid="uid://cngamvh1a8il6" path="res://audio/SFX/click.wav" id="11_w047n"]
+[ext_resource type="AudioStream" uid="uid://honfkibyo3js" path="res://audio/SFX/click.wav" id="11_w047n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -470,10 +470,10 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0327198
-anchor_top = 0.554878
-anchor_right = 0.858895
-anchor_bottom = 0.646342
+anchor_left = 0.0334015
+anchor_top = 0.553171
+anchor_right = 0.859531
+anchor_bottom = 0.778537
 offset_bottom = 1.52588e-05
 theme_override_colors/default_color = Color(1, 0.26927, 0.252393, 1)
 theme_override_font_sizes/normal_font_size = 20
