@@ -46,8 +46,6 @@ func _ready():
 
 	# Initialize pop-up window and mask
 	rejoindre_popup.visible = false
-	rejoindre_overlay.visible = false
-	rejoindre_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Allow click-through
 
 	# Connect signals
 	filter_button.connect("pressed", _on_filter_button_pressed)
@@ -162,18 +160,11 @@ func _on_create_lobby_pressed() -> void:
 # Public function: Pop up the Rejoindre pop-up window (with animation)
 func _show_rejoindre_popup():
 	rejoindre_popup.visible = true
-	rejoindre_overlay.visible = true
 	$Rejoindre.visible = true
 
 # Public function: Close the Rejoindre pop-up window (with animation)
 func _hide_rejoindre_popup():
-	var tween = create_tween()
-	tween.tween_property(rejoindre_popup, "position", rejoindre_start_pos, 0.3)\
-		.set_trans(Tween.TRANS_QUAD)\
-		.set_ease(Tween.EASE_IN)
-	await tween.finished
 	rejoindre_popup.visible = false
-	rejoindre_overlay.visible = false
 
 # NON button in the pop-up window: close the pop-up window
 func _on_non_pressed() -> void:

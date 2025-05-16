@@ -24,7 +24,7 @@ States="*res://globals/states.gd"
 HttpRequestClient="*res://globals/HTTPRequestClient.gd"
 UserData="*res://globals/user_data.gd"
 WebSocketClient="*res://globals/WebSocketClient.gd"
-LaMusique="*res://scenes/LaMusique.tscn"
+LaMusique="res://scenes/LaMusique.tscn"
 CreeCompte="*res://scripts/Menu/cree_compte.gd"
 
 [display]

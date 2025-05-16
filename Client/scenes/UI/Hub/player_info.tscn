@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://gt1tbowf0bfi"]
 
 [ext_resource type="Script" uid="uid://djday884lwg7t" path="res://scenes/UI/Hub/player_info.gd" id="1_b2jlx"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
+[ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
 [ext_resource type="PackedScene" uid="uid://cygb8wb8gdlit" path="res://scenes/UI/Popups/PropertyCard.tscn" id="2_t77uo"]
-[ext_resource type="FontFile" uid="uid://babx8lmq8a0lx" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
+[ext_resource type="FontFile" uid="uid://phe43bs13p4o" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
 [ext_resource type="PackedScene" uid="uid://cg70rady6gmmt" path="res://scenes/UI/Hub/Player_info_item.tscn" id="4_sxpl1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ke2"]

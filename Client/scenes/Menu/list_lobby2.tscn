@@ -1,19 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://j02a0bno0g4l"]
+[gd_scene load_steps=30 format=3 uid="uid://j02a0bno0g4l"]
 
 [ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
-[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
+[ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
-[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="3_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://d057uhcu5vnfr" path="res://assets/BACK.png" id="3_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5djgv"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nsd2j"]
-[ext_resource type="Texture2D" uid="uid://ctoqgrrdbpu2e" path="res://assets/playwith.png" id="7_5djgv"]
+[ext_resource type="Texture2D" uid="uid://kwmnue8qwwq6" path="res://assets/playwith.png" id="7_5djgv"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_o00fx"]
 [ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="10_3dlmw"]
 [ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="11_altyt"]
 [ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="12_g4whu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mqkf"]
-bg_color = Color(0.6, 0.262745, 0.6, 0.666667)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noq5o"]
 bg_color = Color(1, 1, 1, 1)
@@ -194,7 +191,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_1mqkf")
 
 [node name="Panel" type="Panel" parent="Rejoindre/rejoindre_popup"]
 layout_mode = 1
@@ -536,17 +532,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_altyt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g4whu")
 text = "Private room"
 autowrap_mode = 3
-
-[node name="Overlay" type="ColorRect" parent="TextureRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.196078)
 
 [connection signal="pressed" from="Rejoindre/rejoindre_popup/Panel/NON" to="." method="_on_non_pressed"]
 [connection signal="pressed" from="Rejoindre/rejoindre_popup/Panel/OUI" to="." method="_on_oui_pressed"]
