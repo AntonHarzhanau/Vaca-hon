@@ -20,6 +20,10 @@ func _ready():
 		if button is Button:
 			button.mouse_entered.connect(func(): _hover(button, true))
 			button.mouse_exited.connect(func(): _hover(button, false))
+			
+	# Start Playing BGM
+	AudioManager.play_bgm(preload("res://audio/music/bgm_menu.ogg"))
+	
 func _on_regle_pressed():
 	regle_popup.visible = !regle_popup.visible
 
