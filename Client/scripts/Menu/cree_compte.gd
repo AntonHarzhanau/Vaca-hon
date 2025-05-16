@@ -29,12 +29,12 @@ func _on_creer_pressed() -> void:
 		return
 		
 	## Check for valid email address
-	if not is_valid_email(email.text):
+	if not Utils.is_valid_email(email.text):
 		message.text = "Please enter a valid email address."
 		return
 		
 	## Check for valid password : at least 8 charcters, at least 1 number AND 1 special characer (@$!%*?&+-)
-	if not is_valid_password(password.text):
+	if not Utils.is_valid_password(password.text):
 		message.text = "Please enter a valid password (Min: 8 characters. At least 1 number and 1 special character)."
 		return
 		
@@ -75,35 +75,6 @@ func _on_texture_button_pressed() -> void:
 	if scene:
 		get_tree().change_scene_to_file("res://scenes/Menu/Connection.tscn")
 
-func is_valid_email(email: String) -> bool:
-	"""
-	Check if provided email address have the right format
-	"""
-	var regex = RegEx.new()
-	var pattern = r"^[\w\.-]+@[\w\.-]+\.\w{2,}$"
-	var error = regex.compile(pattern)
-	if error != OK:
-		print("Regex compile error:", error)
-		return false
-	return regex.search(email) != null
-
-func is_valid_username(username: String) -> bool:
-	"""
-	Required at least 3 characters for username
-	"""
-	return len(username) >= 3
-
-func is_valid_password(password: String) -> bool:
-	"""
-	Required a password having at least 8 characters, at least 1 number and 1 special character
-	"""
-	var regex = RegEx.new()
-	var pattern = r"^(?=.*\d)(?=.*[@$!%*?&+\-]).{8,}$"
-	var error = regex.compile(pattern)
-	if error != OK:
-		print("Regex compile error:", error)
-		return false
-	return regex.search(password) != null
 	
 #func _hover(button: Button, entering: bool):
 	#var tween := button.create_tween()

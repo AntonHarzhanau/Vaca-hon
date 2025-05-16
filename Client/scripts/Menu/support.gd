@@ -111,7 +111,7 @@ func _on_envoyer_pressed():
 		print("Please enter your message")
 		return
 	
-	if not CreeCompte.is_valid_email(payload["email"]):
+	if not Utils..is_valid_email(payload["email"]):
 		notif.text = "Please enter a valid password (Min: 8 characters. At least 1 number and 1 special character)."
 		notif.modulate = Color(1, 0, 0)
 		print("Please enter a valid email")

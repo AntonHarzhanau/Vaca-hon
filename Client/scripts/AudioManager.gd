@@ -38,14 +38,12 @@ func set_bgm_volume(value: float):
 	update_volumes()
 	UserData.bgm_volume = bgm_volume
 	UserData.save_user_data()
-	print("Change BGM volume to : ", value)
 
 func set_sfx_volume(value: float):
 	sfx_volume = value
 	update_volumes()
 	UserData.sfx_volume = sfx_volume
 	UserData.save_user_data()
-	print("Change SFX volume to : ", value)
 
 func play_bgm(stream: AudioStream):
 	if current_bgm == stream:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dvuos1sssedww"]
+[gd_scene load_steps=33 format=3 uid="uid://dvuos1sssedww"]
 
 [ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
@@ -10,7 +10,6 @@
 [ext_resource type="ButtonGroup" uid="uid://bwkmfdjb24nwv" path="res://buttons/private_button_group.tres" id="6_b0npl"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vag1c"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_b0npl"]
-[ext_resource type="AudioStream" uid="uid://honfkibyo3js" path="res://audio/SFX/click.wav" id="11_w047n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37xlk"]
 bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
@@ -548,9 +547,6 @@ theme_override_font_sizes/font_size = 40
 text = "CREATE A GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_w047n")
 
 [connection signal="pressed" from="TextureRect/CenterContainer/MarginContainer/Panel/MarginContainer/SubmitCreateLobby" to="." method="_on_submit_create_lobby_pressed"]
 [connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

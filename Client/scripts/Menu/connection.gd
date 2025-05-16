@@ -42,13 +42,14 @@ func _on_connecter_pressed() -> void:
 		var user = response.body
 		UserData.token = str(response.body["token"]) if response.body.has("token") else ""
 		UserData.user_id = int(response.body["user"]["id"])
-		UserData.user_name = response.body["user"]["username"]		
+		UserData.user_name = response.body["user"]["username"]
+		UserData.email = response.body["user"]["email"]
 	
 		if checkbox.button_pressed:
-			UserData.user_name = login.text
+			#UserData.user_name = login.text
 			UserData.password = password.text
 		else:
-			UserData.user_name = ""
+			#UserData.user_name = ""
 			UserData.password = ""
 		UserData.save_user_data()
 		message.add_theme_color_override("default_color", "#00994f")
@@ -96,4 +97,8 @@ func _on_link_button_pressed() -> void:
 
 
 func _on_check_box_pressed() -> void:
-	UserData.is_remebered = checkbox.toggle_mode
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
+	UserData.is_remebered = checkbox.button_pressed
+	UserData.save_user_data()

@@ -15,7 +15,7 @@ func _on_change_password_button_pressed() -> void:
 		return
 		
 	## Check for valid password : at least 8 charcters, at least 1 number AND 1 special characer (@$!%*?&+-)
-	if not CreeCompte.is_valid_password(new_password.text):
+	if not Utils.is_valid_password(new_password.text):
 		notif.text = "Please enter a valid password (Min: 8 characters. At least 1 number and 1 special character)."
 		notif.modulate = Color(1, 0, 0)
 		return
