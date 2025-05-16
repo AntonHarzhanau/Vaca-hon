@@ -103,7 +103,7 @@ func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
 	States.players[player_id].pay(rent)
 	States.players[cell_owner_id].earn(rent)
 	if player_id == UserData.user_id:
-		ui.show_info("you paid "+ str(rent)+ " to " + States.players[player_id].player_name)
+		ui.show_info("RENT DUE!!\n\n\n You paid "+ str(rent)+ " to " + States.players[player_id].player_name)
 
 func _on_buy_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
 	cells[cell_id].buy_house(num_of_house, current_rent)
@@ -120,7 +120,7 @@ func _on_pay(player_id:int, amount:int):
 func _on_utility_rent():
 	States.dice_active = true
 	States.current_context = States.DiceContext.UTILITY
-	ui.show_info("dice activate for" + States.current_context)
+	ui.show_info("Dice activate for" + States.current_context)
 
 func _on_change_turn(player_id:int, nb_turn_jail:int):
 	if player_id == UserData.user_id:
@@ -152,7 +152,7 @@ func _on_end_turn_clicked():
 		var msg = {"action": "end_turn", "bankrupt": bankrupt}
 		WebSocketClient.send_message(JSON.stringify(msg))
 		if bankrupt:
-			ui.show_info("Game over!!!!!!!")
+			ui.show_info("YOU'RE BROKE!! \n\nGame over!!!!!")
 			_exit_tree()
 
 func _on_double_roll(message:String):
