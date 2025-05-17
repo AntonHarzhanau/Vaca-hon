@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cj05dwta2jba3"]
 
 [ext_resource type="Script" uid="uid://b6fswkpgql4ai" path="res://scripts/Menu/send_email_reset.gd" id="1_n7pb7"]
-[ext_resource type="FontFile" uid="uid://csjhdxcwk45dd" path="res://Fonts/LilitaOne-Regular.ttf" id="2_uwp2o"]
-[ext_resource type="FontFile" uid="uid://dnneukkpgwaqs" path="res://Fonts/Roboto-Regular-14.ttf" id="2_y4ovl"]
-[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="3_0owvs"]
+[ext_resource type="FontFile" uid="uid://bewpdc3jdwqrn" path="res://Fonts/LilitaOne-Regular.ttf" id="2_uwp2o"]
+[ext_resource type="FontFile" uid="uid://bd6mel6xlq4ng" path="res://Fonts/Roboto-Regular-14.ttf" id="2_y4ovl"]
+[ext_resource type="Texture2D" uid="uid://bsnkqx35f1253" path="res://assets/BACK.png" id="3_0owvs"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_b6337"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_6oxui"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_w57l8"]

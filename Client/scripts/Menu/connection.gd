@@ -49,7 +49,7 @@ func _on_connecter_pressed() -> void:
 			#UserData.user_name = login.text
 			UserData.password = password.text
 		else:
-			#UserData.user_name = ""
+			UserData.user_name = ""
 			UserData.password = ""
 		UserData.save_user_data()
 		message.add_theme_color_override("default_color", "#00994f")
@@ -58,9 +58,14 @@ func _on_connecter_pressed() -> void:
 		if scene:
 			get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
 	else:
-		if UserData.is_active == false:
+		if response.response_code == 403 and response.body["detail"] == "Compte non activé. Veuillez confirmer votre adresse e-mail.":
 			get_tree().change_scene_to_file("res://scenes/Menu/confirm_account.tscn")
-		message.text = "Invalid credentials. Please retry !"
+		elif response.response_code == 401 and response.body["detail"] == "Mot de passe incorrect.":
+			message.text = "Incorrect password. Please try again."
+		elif response.response_code == 401 and response.body["detail"] == "Utilisateur introuvable.":
+			message.text = "User not found. Please check your credentials."
+		else:
+			message.text = "An error occurred. Please try again."
 		print(response.body)
 	
 

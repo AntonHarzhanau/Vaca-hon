@@ -61,16 +61,16 @@ class UserService():
         
 
         if not users:
-            return None
+            raise HTTPException(status_code=401, detail="Identifiants incorrects.")
         user = users[0]
+        
+        if not bcrypt.checkpw(password.encode(), user.password.encode()):
+            raise HTTPException(status_code=401, detail="Mot de passe incorrect.")
+
         if not user.is_active:
             raise HTTPException(status_code=403, detail="Compte non activé. Veuillez confirmer votre adresse e-mail.")
-
-        if users:
-            if bcrypt.checkpw(password.encode(), user.password.encode()):
-                return user
         
-        return None
+        return user
 
     async def confirm_user_by_id(self, user_id: int, code: str) -> UserReadSchema:
         user = await self.user_repository.get(user_id)
