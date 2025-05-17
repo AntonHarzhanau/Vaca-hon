@@ -1,13 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://gt1tbowf0bfi"]
+[gd_scene load_steps=13 format=3 uid="uid://gt1tbowf0bfi"]
 
 [ext_resource type="Script" uid="uid://djday884lwg7t" path="res://scenes/UI/Hub/player_info.gd" id="1_b2jlx"]
 [ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
 [ext_resource type="PackedScene" uid="uid://cygb8wb8gdlit" path="res://scenes/UI/Popups/PropertyCard.tscn" id="2_t77uo"]
 [ext_resource type="FontFile" uid="uid://phe43bs13p4o" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
+[ext_resource type="StyleBox" uid="uid://c0d7whevbcdky" path="res://styles/X_button_hover.tres" id="4_hnoqx"]
 [ext_resource type="PackedScene" uid="uid://cg70rady6gmmt" path="res://scenes/UI/Hub/Player_info_item.tscn" id="4_sxpl1"]
+[ext_resource type="StyleBox" uid="uid://dseu26saha3jj" path="res://styles/X_button_pressed.tres" id="5_s8nly"]
+[ext_resource type="StyleBox" uid="uid://bhss2ha5ly4wb" path="res://styles/X_button.tres" id="6_3lwyu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ke2"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdv66"]
 
 [sub_resource type="Theme" id="Theme_k0els"]
 
@@ -18,6 +23,7 @@ bg_color = Color(0.686275, 0.321569, 0.870588, 1)
 script = ExtResource("1_b2jlx")
 
 [node name="PropertyCard" parent="." instance=ExtResource("2_t77uo")]
+layer = 4
 visible = false
 
 [node name="BackGround" type="Panel" parent="."]
@@ -36,10 +42,17 @@ metadata/_edit_group_ = true
 [node name="CloseBtn" type="Button" parent="BackGround"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.930265
+anchor_left = 0.93
 anchor_right = 1.0
-anchor_bottom = 0.097493
+anchor_bottom = 0.130556
 grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_q1gij")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jdv66")
+theme_override_styles/hover = ExtResource("4_hnoqx")
+theme_override_styles/pressed = ExtResource("5_s8nly")
+theme_override_styles/normal = ExtResource("6_3lwyu")
 text = "X"
 metadata/_edit_use_anchors_ = true
 

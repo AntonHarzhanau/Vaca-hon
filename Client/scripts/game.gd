@@ -106,8 +106,8 @@ func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
 	States.players[player_id].pay(rent)
 	States.players[cell_owner_id].earn(rent)
 	if player_id == UserData.user_id:
-		ui.show_info("RENT DUE!!\n\n\n You paid "+ str(rent)+ " to " + States.players[player_id].player_name)
-
+		ui.show_info("RENT DUE!!\n\n\n You paid "+ str(rent)+ " to " + States.players[cell_owner_id].player_name)
+		
 func _on_buy_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
 	cells[cell_id].buy_house(num_of_house, current_rent)
 
