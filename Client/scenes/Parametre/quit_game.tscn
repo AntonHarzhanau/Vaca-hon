@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bns4cfqvli8a7"]
 
 [ext_resource type="Script" uid="uid://bjpqodrj4x60i" path="res://scripts/parametre/quit_game.gd" id="1_keulw"]
-[ext_resource type="Texture2D" uid="uid://b6o3ybyhu77lx" path="res://assets/Popup Backgrounds/exit.png" id="2_twpsu"]
-[ext_resource type="FontFile" uid="uid://bmc8arqdacex0" path="res://Fonts/LilitaOne-Regular.ttf" id="4_eup1v"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="2_twpsu"]
+[ext_resource type="FontFile" uid="uid://csjhdxcwk45dd" path="res://Fonts/LilitaOne-Regular.ttf" id="4_eup1v"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_2o78c"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nj02x"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_pfor3"]

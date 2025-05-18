@@ -9,11 +9,11 @@ func _ready() -> void:
 	""" Set Texture Based On Lobby Theme"""
 	match lobby_theme:
 		"Public":
-			$LobbyTheme.text = "Theme: Public"
+			$LobbyTheme.text = "Public room"
 			lobby_theme_texture = preload("res://assets/Lobby1.png")
 		"Private":
-			$LobbyTheme.text = "Theme: Private"
-			lobby_theme_texture = preload("res://assets/Lobby2.png")
+			$LobbyTheme.text = "Private room"
+			lobby_theme_texture = preload("res://assets/Lobby1.png")
 		_:
 			lobby_theme_texture = preload("res://assets/Lobby1.png")
 	self.texture = lobby_theme_texture

@@ -2,33 +2,33 @@
 
 [ext_resource type="Script" uid="uid://bdnr0lp0qohks" path="res://scripts/Menu/home.gd" id="1_8gxoc"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kx5jl"]
-[ext_resource type="Texture2D" uid="uid://cjje87t0wkd3g" path="res://assets/Vacashion.png" id="3_pq0dp"]
-[ext_resource type="FontFile" uid="uid://cqlceghhqxtli" path="res://data/LilitaOne-Regular.ttf" id="3_wqg4d"]
-[ext_resource type="Texture2D" uid="uid://b0qklmgip3v6e" path="res://assets/BeachChaire.png" id="5_kx5jl"]
+[ext_resource type="Texture2D" uid="uid://bjvvaqe13rho" path="res://assets/Vacashion.png" id="3_pq0dp"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="3_wqg4d"]
+[ext_resource type="Texture2D" uid="uid://dixwms3kpq8sq" path="res://assets/BeachChaire.png" id="5_kx5jl"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_s1swk"]
-[ext_resource type="Texture2D" uid="uid://dvt2mbn7r26l8" path="res://assets/icon_help.png" id="6_8krf6"]
+[ext_resource type="Texture2D" uid="uid://b57uthv4l64xj" path="res://assets/icon_help.png" id="6_8krf6"]
 [ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="6_u7l0i"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vkny6"]
 [ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="7_0jts6"]
-[ext_resource type="Texture2D" uid="uid://n2fynkplpgo4" path="res://assets/support.png" id="7_qaayy"]
+[ext_resource type="Texture2D" uid="uid://bkoengbkitwou" path="res://assets/support.png" id="7_qaayy"]
 [ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="8_abvod"]
-[ext_resource type="Texture2D" uid="uid://lcbred607rf5" path="res://assets/parametre.png" id="8_xk4pu"]
-[ext_resource type="FontFile" uid="uid://y2cq7t7eir3" path="res://Fonts/Jua-Regular.ttf" id="9_qaayy"]
-[ext_resource type="Texture2D" uid="uid://d4aws05hbvumf" path="res://assets/log out.png" id="9_yvqbo"]
-[ext_resource type="Texture2D" uid="uid://cao6mk625gm1i" path="res://assets/PROPERTY-DESCRIPTION-26.png" id="10_871q6"]
-[ext_resource type="Texture2D" uid="uid://qjsg7qbebd04" path="res://assets/Group 43.png" id="11_073uw"]
-[ext_resource type="Texture2D" uid="uid://c2gggp50jl8fa" path="res://assets/Group 44.png" id="12_nxbyl"]
-[ext_resource type="Texture2D" uid="uid://bxwhmgdt6g6ba" path="res://assets/Group 45.png" id="13_7pxac"]
-[ext_resource type="Texture2D" uid="uid://g5afne60jt6y" path="res://assets/Corner.png" id="14_2atvw"]
-[ext_resource type="Texture2D" uid="uid://d3b4ccj37qewx" path="res://assets/Corner2.png" id="15_yvqbo"]
-[ext_resource type="Texture2D" uid="uid://c4obr71ls175n" path="res://assets/cancel.png" id="16_0jts6"]
-[ext_resource type="Texture2D" uid="uid://8evt8gaiy8t8" path="res://assets/Corner1.png" id="16_64ili"]
-[ext_resource type="Texture2D" uid="uid://ekduc7u21lja" path="res://assets/Corner3.png" id="17_x0ruf"]
-[ext_resource type="Texture2D" uid="uid://suyf4kxkgsal" path="res://assets/Players/WHALE.png" id="18_vqllx"]
-[ext_resource type="Texture2D" uid="uid://bmxgm3wxul3fr" path="res://assets/Players/SHIP.png" id="19_s1swk"]
-[ext_resource type="Texture2D" uid="uid://ckwspwpq7crfy" path="res://assets/Players/HELICOPTER.png" id="20_vkny6"]
-[ext_resource type="Texture2D" uid="uid://bpb8iksgpkwkf" path="res://assets/Players/FLIGHT.png" id="21_1i7aa"]
-[ext_resource type="Texture2D" uid="uid://c600k40116i2m" path="res://assets/Popup Backgrounds/exit.png" id="23_64ili"]
+[ext_resource type="Texture2D" uid="uid://bbpos00bs1jr2" path="res://assets/parametre.png" id="8_xk4pu"]
+[ext_resource type="FontFile" uid="uid://bupbwjof7h77m" path="res://Fonts/Jua-Regular.ttf" id="9_qaayy"]
+[ext_resource type="Texture2D" uid="uid://due17ek7klhyf" path="res://assets/log out.png" id="9_yvqbo"]
+[ext_resource type="Texture2D" uid="uid://cd3iauy7hqq2u" path="res://assets/PROPERTY-DESCRIPTION-26.png" id="10_871q6"]
+[ext_resource type="Texture2D" uid="uid://dmvceixn26oj2" path="res://assets/Group 43.png" id="11_073uw"]
+[ext_resource type="Texture2D" uid="uid://drl4b703mqaoq" path="res://assets/Group 44.png" id="12_nxbyl"]
+[ext_resource type="Texture2D" uid="uid://dxq67hom1brqr" path="res://assets/Group 45.png" id="13_7pxac"]
+[ext_resource type="Texture2D" uid="uid://73xj0fjiure0" path="res://assets/Corner.png" id="14_2atvw"]
+[ext_resource type="Texture2D" uid="uid://d2q8tofxchs6" path="res://assets/Corner2.png" id="15_yvqbo"]
+[ext_resource type="Texture2D" uid="uid://bn746xpiytmv2" path="res://assets/cancel.png" id="16_0jts6"]
+[ext_resource type="Texture2D" uid="uid://c2684vph824kx" path="res://assets/Corner1.png" id="16_64ili"]
+[ext_resource type="Texture2D" uid="uid://c21cw7sdl8cq0" path="res://assets/Corner3.png" id="17_x0ruf"]
+[ext_resource type="Texture2D" uid="uid://cimixlo2oq6cv" path="res://assets/Players/WHALE.png" id="18_vqllx"]
+[ext_resource type="Texture2D" uid="uid://cijlnxswktl7" path="res://assets/Players/SHIP.png" id="19_s1swk"]
+[ext_resource type="Texture2D" uid="uid://ctp4nwe3n7k6t" path="res://assets/Players/HELICOPTER.png" id="20_vkny6"]
+[ext_resource type="Texture2D" uid="uid://do651f03b1kuh" path="res://assets/Players/FLIGHT.png" id="21_1i7aa"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="23_64ili"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="24_x0ruf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abvod"]
@@ -146,10 +146,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -141.0
+offset_left = -90.0
 offset_bottom = 29.0
 grow_horizontal = 0
-text = "Version Alpha 0.2"
+text = "Version 1.0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -164,6 +164,9 @@ func _on_join_pressed(lobby):
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	_fetch_lobbies()
 
 func _on_create_lobby_pressed() -> void:

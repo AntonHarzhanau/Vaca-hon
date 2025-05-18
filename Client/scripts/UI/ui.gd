@@ -84,6 +84,9 @@ func _on_pop_up_offre_accept_offer_clicked() -> void:
 
 
 func _on_menu_btn_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	#emit_signal("end_game")
 	WebSocketClient.close_connection()
 	get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
@@ -93,20 +96,26 @@ func show_info(info:String):
 	$Info.visible = true
 
 func _on_ok_button_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	$Info.visible = false
 
 
 func _on_setting_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	settings_panel.visible = !settings_panel.visible
 
-	
-	pass # Replace with function body.
 
 func show_fly_offer(message:Dictionary):
 	
 	fly_offer.show_offer(message["message"], message["cell_id"])
 
 func _on_quit_pressed() -> void:
+	# Play Click SFX Audio
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	
 	quit_dialog_panel.visible = !quit_dialog_panel.visible
 	
-	pass # Replace with function body.
