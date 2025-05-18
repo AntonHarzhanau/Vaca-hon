@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b6wmlgxbqa0c0" path="res://scripts/Menu/main_menu_2.gd" id="1_cnkde"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_cb6tt"]
-[ext_resource type="FontFile" uid="uid://cwmg358cx5pjh" path="res://data/LilitaOne-Regular.ttf" id="3_cnkde"]
-[ext_resource type="Texture2D" uid="uid://bsnkqx35f1253" path="res://assets/BACK.png" id="4_ikq3i"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="3_cnkde"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="4_ikq3i"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5ujfd"]
-[ext_resource type="Texture2D" uid="uid://cuwgicdwtj42s" path="res://assets/voyager.png" id="5_cnkde"]
-[ext_resource type="Texture2D" uid="uid://b681qo32xj5ok" path="res://assets/voyagers.png" id="6_ikq3i"]
+[ext_resource type="Texture2D" uid="uid://daruau4aly57q" path="res://assets/voyager.png" id="5_cnkde"]
+[ext_resource type="Texture2D" uid="uid://chmypyg5664k8" path="res://assets/voyagers.png" id="6_ikq3i"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vg8mh"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_bmvja"]
 

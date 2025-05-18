@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://degjr5c86ahtn"]
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
-[ext_resource type="FontFile" uid="uid://bd6mel6xlq4ng" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
+[ext_resource type="FontFile" uid="uid://dnneukkpgwaqs" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
-[ext_resource type="FontFile" uid="uid://cwmg358cx5pjh" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
 bg_color = Color(1, 1, 1, 1)
