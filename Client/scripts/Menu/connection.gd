@@ -62,7 +62,7 @@ func _on_connecter_pressed() -> void:
 			get_tree().change_scene_to_file("res://scenes/Menu/confirm_account.tscn")
 		elif response.response_code == 401 and response.body["detail"] == "Mot de passe incorrect.":
 			message.text = "Incorrect password. Please try again."
-		elif response.response_code == 401 and response.body["detail"] == "Utilisateur introuvable.":
+		elif response.response_code == 401 and response.body["detail"] == "Identifiants incorrects.":
 			message.text = "User not found. Please check your credentials."
 		else:
 			message.text = "An error occurred. Please try again."
