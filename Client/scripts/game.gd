@@ -10,7 +10,7 @@ var colors:Array[Color] = [Color.RED, Color.YELLOW, Color.GREEN, Color.BROWN]
 
 func _ready() -> void:
 	# Start Playing In-Game BGM
-	AudioManager.play_bgm(preload("res://audio/music/bgm_ingame.ogg"))
+	AudioManager.play_bgm(preload("res://audio/music/bgm_ingame_complete.ogg"))
 	
 	# Subscribing GameManager to network signals
 	#WebSocketClient.connect_to_server(States.URL)
