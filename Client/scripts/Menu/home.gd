@@ -95,3 +95,8 @@ func _on_close_area_gui_input(event: InputEvent) -> void:
 #
 	#tween.set_trans(Tween.TRANS_ELASTIC)
 	#tween.tween_property(button, "scale", target_scale, 0.2)
+
+
+func _on_close_pressed() -> void:
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	regle_popup.visible = false
