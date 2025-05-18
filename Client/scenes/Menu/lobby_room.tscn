@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" uid="uid://c8p7n4cif6ue7" path="res://scripts/Menu/lobby_room.gd" id="1_gfw6i"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_7ju5v"]
-[ext_resource type="Texture2D" uid="uid://but7r3a0uxrh6" path="res://assets/BACK.png" id="3_5133s"]
-[ext_resource type="Texture2D" uid="uid://d043fhyfyaule" path="res://assets/Token/TOKEN Bottom-9.png" id="4_0gh1d"]
+[ext_resource type="Texture2D" uid="uid://d057uhcu5vnfr" path="res://assets/BACK.png" id="3_5133s"]
+[ext_resource type="Texture2D" uid="uid://wbyr8x1mf0xj" path="res://assets/Token/TOKEN Bottom-9.png" id="4_0gh1d"]
 [ext_resource type="ButtonGroup" uid="uid://dmp5limtab3j6" path="res://buttons/seltct_token_button_group.tres" id="4_217gt"]
-[ext_resource type="FontFile" uid="uid://cqlceghhqxtli" path="res://data/LilitaOne-Regular.ttf" id="4_bff1k"]
-[ext_resource type="Texture2D" uid="uid://t6nwy0xmibsp" path="res://assets/Token/TOKEN Bottom-1.png" id="4_unnp8"]
-[ext_resource type="Texture2D" uid="uid://3ywp3tgi5ogg" path="res://assets/Token/TOKEN Bottom-5.png" id="5_7d6sv"]
-[ext_resource type="Texture2D" uid="uid://dj6ge1j474bp" path="res://assets/Token/TOKEN Bottom-3.png" id="6_85sbq"]
-[ext_resource type="Texture2D" uid="uid://cviw0q0vcsyht" path="res://assets/Token/TOKEN Bottom-11.png" id="7_8uaja"]
-[ext_resource type="Texture2D" uid="uid://cid1hddysgpop" path="res://assets/Token/TOKEN Bottom-7.png" id="8_4c8f7"]
-[ext_resource type="Texture2D" uid="uid://bpniaoxr7vknt" path="res://assets/Token/TOKEN Bottom.png" id="9_6t22k"]
-[ext_resource type="Texture2D" uid="uid://dnbb2ucunmfap" path="res://assets/Token/TOKEN Bottom-8.png" id="10_vgiyp"]
-[ext_resource type="Texture2D" uid="uid://7xoa53ayajql" path="res://assets/Token/TOKEN Bottom-4.png" id="11_qduuf"]
-[ext_resource type="Texture2D" uid="uid://ciieboqvdfr84" path="res://assets/Token/TOKEN Bottom-2.png" id="12_e2ior"]
-[ext_resource type="Texture2D" uid="uid://dt8u6ur1jbfye" path="res://assets/Token/TOKEN Bottom-10.png" id="13_16nbs"]
-[ext_resource type="Texture2D" uid="uid://db1foe1tpcxh4" path="res://assets/Token/TOKEN Bottom-6.png" id="14_kd438"]
-[ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="18_mbq30"]
-[ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="19_pnp1k"]
-[ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="20_t7ihn"]
+[ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="4_bff1k"]
+[ext_resource type="Texture2D" uid="uid://ge6gvr18yjpl" path="res://assets/Token/TOKEN Bottom-1.png" id="4_unnp8"]
+[ext_resource type="Texture2D" uid="uid://c0nwj8hk5sfnh" path="res://assets/Token/TOKEN Bottom-5.png" id="5_7d6sv"]
+[ext_resource type="Texture2D" uid="uid://diw23fua2453e" path="res://assets/Token/TOKEN Bottom-3.png" id="6_85sbq"]
+[ext_resource type="Texture2D" uid="uid://108gfgue6o84" path="res://assets/Token/TOKEN Bottom-11.png" id="7_8uaja"]
+[ext_resource type="Texture2D" uid="uid://b0hfxhbrvheys" path="res://assets/Token/TOKEN Bottom-7.png" id="8_4c8f7"]
+[ext_resource type="Texture2D" uid="uid://uvdjxvp2tfw8" path="res://assets/Token/TOKEN Bottomoo.png" id="9_6t22k"]
+[ext_resource type="Texture2D" uid="uid://dflbvgwok1ynl" path="res://assets/Token/TOKEN Bottom-8oo.png" id="10_vgiyp"]
+[ext_resource type="Texture2D" uid="uid://dvwmiex6hatom" path="res://assets/Token/TOKEN Bottom-4oo.png" id="11_qduuf"]
+[ext_resource type="Texture2D" uid="uid://qtidx8xamv0b" path="res://assets/Token/TOKEN Bottom-2.png" id="12_e2ior"]
+[ext_resource type="Texture2D" uid="uid://cfbc2x3wpxalr" path="res://assets/Token/TOKEN Bottom-10.png" id="13_16nbs"]
+[ext_resource type="Texture2D" uid="uid://cpi2fynv8ttyu" path="res://assets/Token/TOKEN Bottom-6.png" id="14_kd438"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="18_mbq30"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="19_pnp1k"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="20_t7ihn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ivv1"]
 
@@ -49,7 +49,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -28.0
+offset_bottom = -167.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -142,8 +142,19 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="start" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -110.0
+offset_right = 280.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_bff1k")
@@ -157,4 +168,4 @@ icon_alignment = 2
 expand_icon = true
 
 [connection signal="pressed" from="VBoxContainer/ColorRect/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
