@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cy08nosal4m77"]
 
 [ext_resource type="Script" uid="uid://rhqrmfm23g5y" path="res://scripts/UI/Popups/pop_up_jail.gd" id="1_788hn"]
-[ext_resource type="Texture2D" uid="uid://dggp87sfq6eit" path="res://assets/Popup Backgrounds/Customs.png" id="2_bp3sw"]
-[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="3_q0a0b"]
+[ext_resource type="Texture2D" uid="uid://bawu1eg50xxfw" path="res://assets/Popup Backgrounds/Customs.png" id="2_bp3sw"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="3_q0a0b"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_bp3sw"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="4_q0a0b"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="4_q0a0b"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_q0a0b"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_6nq37"]
 
@@ -14,10 +14,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwpom"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhl3q"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbjfs"]
 bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhl3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwpom"]
 
@@ -39,13 +39,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = -481.0
 offset_top = -200.0
-offset_right = 400.0
+offset_right = 485.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwpom")
+
+[node name="UseCard" type="Button" parent="Panel/Back_ground"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+offset_left = 735.0
+offset_top = 91.0
+offset_right = 965.0
+offset_bottom = 181.0
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_q0a0b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhl3q")
+theme_override_styles/hover = ExtResource("4_bp3sw")
+theme_override_styles/pressed = ExtResource("5_q0a0b")
+theme_override_styles/normal = ExtResource("6_6nq37")
+text = "Use card"
 
 [node name="JailBackground" type="TextureRect" parent="Panel/Back_ground"]
 layout_mode = 0
@@ -122,5 +139,6 @@ theme_override_styles/pressed = ExtResource("5_q0a0b")
 theme_override_styles/normal = ExtResource("6_6nq37")
 text = "Deny"
 
+[connection signal="pressed" from="Panel/Back_ground/UseCard" to="." method="_on_use_card_pressed"]
 [connection signal="pressed" from="Panel/Back_ground/Button_container/Accept_btn" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="Panel/Back_ground/Button_container/Deny_btn" to="." method="_on_deny_pressed"]

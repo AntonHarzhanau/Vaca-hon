@@ -3,7 +3,7 @@ from app.services.user_service import UserService
 from app.services.lobby_service import LobbyService
 from app.game.core.lobby_manager import LobbyManager
 from app.game.core.lobby_instance import LobbyInstance
-from app.schemas.lobby_schema import LobbyUpdateSchema
+from app.schemas.lobby_schema import LobbyUpdateSchema, LobbyReadWithPass, LobbyReadSchema
 from app.schemas.user_schema import UserReadSchema, UserReadSchemaWithToken
 from fastapi import Depends, Query
 from typing import Annotated
@@ -16,6 +16,7 @@ async def websocket_endpoint(
     websocket: WebSocket,
     lobby_id: int,
     user_id: Annotated[int, Query(...)],  # pass user_id as a query parameter, for example ?user_id=1
+    secret: Annotated[str, Query()],
     lobby_service: Annotated[LobbyService, Depends(lobby_service)],
     user_service: Annotated[UserService, Depends(user_service)],
     lobby_manager: LobbyManager = Depends(get_lobby_manager),
@@ -37,9 +38,16 @@ async def websocket_endpoint(
             await websocket.send_json({"error": "Lobby not found"})
             await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
             return
+        print(lobby)
+       
         lobby = LobbyInstance(lobby)
         lobby_manager.add_lobby(lobby)
-    
+        
+    if lobby.lobby.secret != secret and lobby.lobby.is_private:
+            await websocket.send_json({"error": "Password incorrect"})
+            await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
+            return
+        
     if len(lobby.connection_manager.active_connections) >= lobby.lobby.nb_player_max:
                     await websocket.send_json({"error": "Lobby is full"})
                     await websocket.close(code=status.WS_1008_POLICY_VIOLATION)

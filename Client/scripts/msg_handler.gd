@@ -22,6 +22,7 @@ signal event(message: Dictionary)
 signal double_roll(message: String)
 signal offer_airplane(message:Dictionary)
 signal fly_to_airport(player_id:int, cell_id:int)
+signal card_used(succssed: bool)
 
 func _ready() -> void:
 	pass
@@ -81,5 +82,7 @@ func _on_message_received(message: Dictionary) -> void:
 						message["player_id"],
 						message["cell_id"]
 			)
+		"card_used":
+			emit_signal("card_used", message["successed"])
 		_:
 			print("Unknown action from server: ", action)

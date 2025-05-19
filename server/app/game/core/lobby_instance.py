@@ -2,7 +2,7 @@ import json
 import asyncio
 from typing import Dict
 from fastapi import WebSocket
-from app.schemas.lobby_schema import LobbyReadSchema
+from app.schemas.lobby_schema import LobbyReadSchema, LobbyReadWithPass
 from app.schemas.user_schema import UserReadSchemaWithToken
 from app.api.connection_manager import ConnectionManager
 from app.game.core.game_manager import GameManager
@@ -11,7 +11,7 @@ from app.game.models.player import Player
 from app.game.core.game_state import GameState
 
 class LobbyInstance:
-    def __init__(self, lobby: LobbyReadSchema):
+    def __init__(self, lobby: LobbyReadWithPass):
         self.lobby = lobby  # data from the DB (e.g. lobby.id, nb_player_max, is_active etc.)
         self.connection_manager = ConnectionManager()
         self.game_state : GameState | None = None
@@ -117,6 +117,9 @@ class LobbyInstance:
         if user_id != self.lobby.owner_id:
             print(f"user {user_id} is not owner")
             return
+        for user in self.connection_manager.active_connections.values():
+            if not user.selected_token:
+                return
 
         # Update the status in the database if required (for example, via LobbyService)???
         

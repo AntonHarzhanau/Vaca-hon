@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://y6uj0iy65iy0"]
 
 [ext_resource type="Script" uid="uid://d2pegjyasaisu" path="res://scripts/UI/Popups/popup_offre.gd" id="1_dhl3q"]
-[ext_resource type="Texture2D" uid="uid://buugfx8ugot08" path="res://assets/Popup Backgrounds/Achat property.png" id="2_rwpom"]
-[ext_resource type="FontFile" uid="uid://drdae01rqb3r3" path="res://Fonts/LilitaOne-Regular.ttf" id="3_bwc38"]
+[ext_resource type="Texture2D" uid="uid://b58b5c2cjkopu" path="res://assets/Popup Backgrounds/Achat property.png" id="2_rwpom"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="3_bwc38"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_rwpom"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_bwc38"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_8hquf"]

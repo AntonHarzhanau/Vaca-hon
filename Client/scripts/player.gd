@@ -44,7 +44,7 @@ func move(cells_list: Array[Cell], steps: int):
 		await get_tree().create_timer(0.3).timeout
 	
 	current_position = temp_pos
-	
+	cells_list[current_position].activate(self)
 	if self.id == UserData.user_id:
 		var message = {
 			"action": "cell_activate",
@@ -69,10 +69,12 @@ func get_property(cell_id:int):
 			return prop
 
 func pay(price:int):
+	AudioManager.play_sfx(States.LOSE_SOUND)
 	money -= price
 	emit_signal("state_changed", self)
 
 func earn(price:int):
+	AudioManager.play_sfx(States.GAIN_SOUND)
 	money += price
 	emit_signal("state_changed", self)
 
@@ -99,6 +101,10 @@ func move_through_center(center_position: Vector2, final_cell_position: Vector2)
 func _wait_until_reached() -> void:
 	while moving:
 		await get_tree().process_frame
+
+func set_bonus(bonus:int):
+	self.bonus = bonus
+	emit_signal("state_changed", self)
 
 func set_turn_timer():
 	pass

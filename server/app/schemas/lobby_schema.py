@@ -40,3 +40,6 @@ class LobbyUpdateSchema(BaseModel):
 class LobbyFilterSchema(BaseModel):
     is_active: Optional[bool] = True
     is_private: Optional[bool] = None
+
+class LobbyReadWithPass(LobbyReadSchema):
+    secret: str = ""

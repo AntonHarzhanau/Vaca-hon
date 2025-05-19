@@ -15,7 +15,7 @@ class Player(BaseModel):
     nb_railway: int = 0
     nb_utility: int = 0
     timer_turn: int = 30
-    card_inventory: List[str] = Field(default_factory=list)
+    card_inventory: int = 0
     properties: List["PropertyCell"] = Field(default_factory=list)
     selected_token: str = None
     player_color: str = None
@@ -49,8 +49,8 @@ class Player(BaseModel):
 
 
     def pay(self, amount: int) -> bool:
-        # if self.money < amount:
-        #     return False
+        if self.money < amount:
+            return False
         self.money -= amount
         return True
 

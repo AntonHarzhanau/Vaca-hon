@@ -24,7 +24,6 @@ func _ready() -> void:
 	# Subscribing UI to GameManager signals
 	msg_handler.player_connected.connect(_on_player_connected)
 	msg_handler.player_disconnected.connect(_on_player_disconnected)
-	#msg_handler.user_left.connect(_on_player_disconnected)
 	msg_handler.roll_dice.connect(ui.dice._on_server_response)
 	msg_handler.move_player.connect(_on_move_player)
 	msg_handler.change_turn.connect(_on_change_turn)
@@ -44,6 +43,7 @@ func _ready() -> void:
 	ui.end_turn_clicked.connect(_on_end_turn_clicked)
 	msg_handler.offer_airplane.connect(ui.show_fly_offer)
 	msg_handler.fly_to_airport.connect(_on_fly_to_airport)
+	msg_handler.card_used.connect(_on_card_used)
 
 func  _on_player_connected(player_data: Variant) -> void:
 	for i in player_data:
@@ -107,7 +107,8 @@ func _on_pay_rent(player_id:int, cell_owner_id:int, rent:int):
 	States.players[cell_owner_id].earn(rent)
 	if player_id == UserData.user_id:
 		ui.show_info("RENT DUE!!\n\n\n You paid "+ str(rent)+ " to " + States.players[cell_owner_id].player_name)
-		
+	if cell_owner_id == UserData.user_id:
+		ui.show_info("You collected rent!!\n\n\n You earned "+ str(rent)+ " from " + States.players[player_id].player_name)
 func _on_buy_house(player_id:int, cell_id:int, num_of_house:int, current_rent:int):
 	cells[cell_id].buy_house(num_of_house, current_rent)
 
@@ -215,8 +216,16 @@ func _on_card_event(data:Dictionary):
 			player.move(cells, data.get("steps", 0))
 			player.earn(data.get("amount"))
 		"move_steps": player.move(cells, data.get("steps", 0))
-		#"get_out_of_jail": pass
+		"get_out_of_jail": player.set_bonus(player.bonus+1)
 		"go_to_jail": player.go_to_jail(cells)
+
+func _on_card_used(succssed:bool):
+	if succssed:
+		var player = States.players[UserData.user_id]
+		player.set_bonus(player.bonus - 1)
+		player.nb_turn_jail = 0
+		States.dice_active = true
+		States.current_context = States.DiceContext.MOVE
 
 func _exit_tree():
 	# Disconnect from the server when exiting the game

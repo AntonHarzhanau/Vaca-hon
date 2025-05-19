@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://dvuos1sssedww"]
 
-[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="1_8oi6e"]
 [ext_resource type="Script" uid="uid://govnxbecb75i" path="res://scripts/Menu/create_lobby_2.gd" id="1_37xlk"]
-[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="2_2e2bd"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="2_2e2bd"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="4_vi5sa"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_0bggq"]
 [ext_resource type="ButtonGroup" uid="uid://cemqouo0xlwif" path="res://buttons/number_players_button_group.tres" id="5_vag1c"]

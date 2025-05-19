@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5xhavykdr37t"]
+[gd_scene load_steps=2 format=3 uid="uid://78yqxddt6i64"]
 
 [ext_resource type="Script" uid="uid://dyoo52w4tsx3i" path="res://scenes/UI/Popups/PlayerPopup.gd" id="1_g8cfc"]
 
 [node name="PlayerPopup" type="PopupPanel"]
-visible = true
 script = ExtResource("1_g8cfc")

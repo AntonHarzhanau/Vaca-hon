@@ -35,7 +35,7 @@ class UserService():
         filters: UserFilterSchema | None = None
     ) -> Union[UserReadSchema, list[UserReadSchema], UserReadSchemaWithToken]:
         
-        users = await self.user_repository.get(user_id=user_id, filters=filters)
+        users = await self.user_repository.get(id=user_id, filters=filters)
 
         if user_id is not None:
             return users if users else None  # one object or None

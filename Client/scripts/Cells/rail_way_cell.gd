@@ -20,3 +20,7 @@ func update_group(player, current_rent:int):
 	for i in player.properties:
 		if i is RailWayCell:
 			i.current_rent = current_rent
+			
+func activate(player: Player) -> void:
+	AudioManager.play_sfx(States.AIROPORT_SOUND)
+	super.activate(player)

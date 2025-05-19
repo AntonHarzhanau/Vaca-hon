@@ -54,7 +54,7 @@ class StreetCell(PropertyCell):
             return {"action": "error", "message": "The monopoly is not assembled"}
         if not self.can_build_evenly(board):
             return {"action": "error", "message": "Houses should be built evenly"}
-        if self.nb_houses >= 5:
+        if self.nb_houses >= 3:
             return {"action": "error", "message": "Maximum number of houses reached"}
         if not self.cell_owner.pay(self.house_cost):
             return {"action": "error", "message": "Not enough funds to build a house"}

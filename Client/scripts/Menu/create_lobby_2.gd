@@ -70,6 +70,7 @@ func _on_submit_create_lobby_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
 	
+	
 	var payload = {
 		"owner_id": int(UserData.user_id),
 		"owner_name": UserData.user_name,
@@ -93,7 +94,13 @@ func _on_submit_create_lobby_pressed() -> void:
 		States.lobby_id = int(response.body["id"])
 		States.lobby_max_players = int(response.body["nb_player_max"])
 		States.lobby_owner_id = int(response.body["owner_id"])
-		get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
+		States.lobby_password = $TextureRect/CenterContainer/MarginContainer/Panel/Control2/PasswordEdit.text
+		WebSocketClient.connect_to_server(
+						States.WS_BASE_URL+ "/" +str(States.lobby_id)+
+						"?user_id=" + str(UserData.user_id)
+						+ "&secret=" + States.lobby_password)
+		if WebSocketClient.is_connect:
+			get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
 
 
 func _on_back_button_pressed() -> void:

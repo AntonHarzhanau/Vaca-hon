@@ -57,15 +57,15 @@ class SqlAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one().to_read_model()
         
-    async def get(self, user_id: int | None = None, filters: BaseModel | None = None, chose : bool = False):
+    async def get(self, id: int | None = None, filters: BaseModel | None = None, chose : bool = False):
         async with async_session_maker() as session:
             stmt = select(self.model)
 
-            if user_id is not None:
-                stmt = stmt.where(self.model.id == user_id)
+            if id is not None:
+                stmt = stmt.where(self.model.id == id)
                 result = await session.execute(stmt)
-                user = result.scalar_one_or_none()
-                return user.to_read_model() if user else None
+                item = result.scalar_one_or_none()
+                return item.to_read_model() if item else None
 
             if filters:
                 conditions = [

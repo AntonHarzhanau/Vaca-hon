@@ -3,7 +3,7 @@ from sqlalchemy import Integer, String, Boolean, DateTime, JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import func
 from app.db.database import Base
-from app.schemas.lobby_schema import LobbyReadSchema
+from app.schemas.lobby_schema import LobbyReadSchema, LobbyReadWithPass
 
 class LobbyOrm(Base):
     __tablename__ = 'Lobby'
@@ -27,8 +27,8 @@ class LobbyOrm(Base):
     def __repr__(self) -> str:
         return f"Lobby(id={self.id!r}, is_active={self.is_active!r}, created_at={self.created_at!r}, last_action_at={self.last_action_at!r})"
 
-    def to_read_model(self) -> LobbyReadSchema:
-        return LobbyReadSchema(
+    def to_read_model(self) -> LobbyReadWithPass:
+        return LobbyReadWithPass(
             id=self.id,
             nb_player_max=self.nb_player_max,
             time_sec=self.time_sec,
@@ -37,6 +37,7 @@ class LobbyOrm(Base):
             owner_name=self.owner_name,
             is_active=self.is_active,
             is_private=self.is_private,
+            secret=self.secret,
             created_at=self.created_at,
             last_action_at=self.last_action_at,        
         )

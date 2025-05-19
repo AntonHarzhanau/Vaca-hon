@@ -1,4 +1,4 @@
-from app.schemas.lobby_schema import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema, LobbyUpdateSchema
+from app.schemas.lobby_schema import LobbyReadSchema, LobbyCreateSchema, LobbyFilterSchema, LobbyUpdateSchema, LobbyReadWithPass
 from app.utils.repository import AbstractRepository
 from fastapi import HTTPException
 
@@ -10,7 +10,7 @@ class LobbyService:
         self, 
         lobby_id: int| None = None, 
         filters: LobbyFilterSchema | None = None
-        ) -> list[LobbyReadSchema]:
+        ) -> list[LobbyReadWithPass]:
         
         lobbies = await self.lobby_repository.get(lobby_id, filters, chose=True)
         return lobbies

@@ -26,11 +26,12 @@ class GameManager:
             "sell_house":self.handle_sell_house,
             "jail_decision": self.jail_decision,
             "accept_fly": self.handle_accep_fly,
+            "use_card": self.hadle_use_card,
         }
 
     def process_action(self, player_id: int, data: dict) -> dict:
         action = data.get("action")
-        print(f"player_id {player_id}== current_turn {self.state.current_turn_player_id}")
+        print(f"player_id {player_id} == current_turn {self.state.current_turn_player_id}")
         if action not in self.action_handlers:
             return {"action": "error", "message": "Unknown action", "delivery": "personal"}
         # for all actions we check whose turn it is
@@ -141,3 +142,18 @@ class GameManager:
     
     def handle_accep_fly(self, player_id: int, data: dict) -> dict:
         return self.logic.accept_fly(player_id, data.get("cell_id"))
+    
+    def hadle_use_card(self, player_id: int, data:dict):
+        player = self.state.players[player_id]
+        if player.card_inventory > 0:
+            player.card_inventory -= 1
+            player.nb_turn_jail = 0
+            return {"action": "card_used",
+                    "successed": True,
+                    "delivery": "personal"
+                }
+        else:
+            return {"action": "card_used",
+                    "successed": False,
+                    "delivery": "personal"
+                }

@@ -5,10 +5,9 @@ signal connection_closed()
 
 #var websocket_url: String = "ws://127.0.0.1:8000/ws"
 var websocket_peer: WebSocketPeer
-	
+var is_connect = false
 
-	
-func connect_to_server(websocket_url:String) -> bool:
+func connect_to_server(websocket_url:String):
 	#var tls_options = TLSOptions.client_unsafe()
 	#websocket_url = "ws://127.0.0.1:8000/ws/"
 	print(websocket_url)
@@ -17,10 +16,10 @@ func connect_to_server(websocket_url:String) -> bool:
 	var err = websocket_peer.connect_to_url(websocket_url)
 	if err != OK:
 		print("Failed to connect to server: ", err)
-		return false
+		States.is_connected_ws = false
 	else:
 		set_process(true)
-		return true
+		is_connect = true
 
 func _process(_delta: float) -> void:
 	if websocket_peer:
@@ -39,6 +38,7 @@ func _process(_delta: float) -> void:
 		elif state == WebSocketPeer.STATE_CLOSED:
 			print("Connection is closed")
 			emit_signal("connection_closed")
+			is_connect = false
 			set_process(false)
 
 func send_message(message: String) -> void:

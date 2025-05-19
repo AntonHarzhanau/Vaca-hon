@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dloka1md5xig"]
 
 [ext_resource type="Script" uid="uid://devaggefdhj2w" path="res://scripts/Menu/waiting_room_player_2.gd" id="1_rxbcj"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_xu3r2"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="2_xu3r2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpevi"]
 bg_color = Color(0.686275, 0.321569, 0.870588, 1)

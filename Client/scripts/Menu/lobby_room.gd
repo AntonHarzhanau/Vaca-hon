@@ -1,7 +1,6 @@
 extends Control
 
-@onready var start_game_btn = $VBoxContainer/start
-
+@onready var start_game_btn = $start
 # popup
 @onready var margin_container: MarginContainer = $VBoxContainer/MarginContainer
 @onready var players_container: HBoxContainer = $VBoxContainer/MarginContainer/PlayersContainer
@@ -9,17 +8,16 @@ extends Control
 var is_expanded := false
 
 func _ready():
-	var is_connected = WebSocketClient.connect_to_server(States.WS_BASE_URL+ "/" +str(States.lobby_id)+"?user_id="+str(UserData.user_id))
-	print(is_connected)
-	if !is_connected:
-		print("websocket connection error")
-		get_tree().change_scene_to_file("res://scenes/Menu/main_menu2.tscn")
 	WebSocketClient.message_received.connect(_on_websocket_message_received)
 	
 	for child in token_container.get_children():
 		child.toggled.connect(_on_token_select.bind(child))
-			
+	
 	await get_tree().create_timer(0.3).timeout
+	
+	if !WebSocketClient.is_connect:
+		print("websocket connection error")
+		get_tree().change_scene_to_file("res://scenes/Menu/list_lobby2.tscn")
 	var msg = {"action": "user_joined", "user_id": int(UserData.user_id)}
 	WebSocketClient.send_message(JSON.stringify(msg))
 	
@@ -30,8 +28,7 @@ func _ready():
 		start_game_btn.visible = false
 
 func _on_websocket_message_received(data) -> void:
-	print(data)
-	var action = data.get("action", "Error")
+	var action = data.get("action", "error")
 	match action:
 		"user_joined":
 			var user = User.new()
@@ -53,7 +50,7 @@ func _on_websocket_message_received(data) -> void:
 		"game_started": 
 			States.id_player_at_turn = int(data.get("current_turn_player_id", -1))
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
-		"Error": 
+		"error": 
 			print(data)
 
 func _on_token_select(pressed: bool, button) -> void:
@@ -104,7 +101,7 @@ func _on_start_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
-	
-	print("Attempting to load scene: res://scenes/Menu/home.tscn")
-	WebSocketClient.close_connection()
-	get_tree().change_scene_to_file("res://scenes/Menu/create_lobby2.tscn")  # Switch to main menu
+	$quit_game.visible = true
+	#print("Attempting to load scene: res://scenes/Menu/home.tscn")
+	#WebSocketClient.close_connection()
+	#get_tree().change_scene_to_file("res://scenes/Menu/create_lobby2.tscn")  # Switch to main menu

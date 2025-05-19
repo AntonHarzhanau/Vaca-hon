@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d01psbecedrg1"]
+[gd_scene load_steps=2 format=3 uid="uid://87mwtoutytax"]
 
-[ext_resource type="Texture2D" uid="uid://btj0ua5klp1ed" path="res://assets/PLUS-1.png" id="2_1v07d"]
+[ext_resource type="Texture2D" uid="uid://ducrxvkwiixrj" path="res://assets/PLUS-1.png" id="2_1v07d"]
 
 [node name="WaitingRoolPlaceholder" type="TextureRect"]
 custom_minimum_size = Vector2(250, 0)

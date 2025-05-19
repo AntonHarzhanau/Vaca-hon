@@ -1,16 +1,16 @@
 [gd_scene load_steps=35 format=3 uid="uid://j02a0bno0g4l"]
 
 [ext_resource type="Script" uid="uid://d1mtijh62ev3n" path="res://scripts/Menu/list_lobby_2.gd" id="1_naexr"]
-[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="2_4lpfj"]
 [ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kt6ln"]
-[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="3_kt6ln"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="3_kt6ln"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5djgv"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nsd2j"]
-[ext_resource type="Texture2D" uid="uid://ctoqgrrdbpu2e" path="res://assets/playwith.png" id="7_5djgv"]
+[ext_resource type="Texture2D" uid="uid://c1bnvytjtid63" path="res://assets/playwith.png" id="7_5djgv"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_o00fx"]
 [ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="10_3dlmw"]
 [ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="11_altyt"]
-[ext_resource type="Texture2D" uid="uid://b5lmitnbbiru" path="res://assets/refesh.png" id="12_3dlmw"]
+[ext_resource type="Texture2D" uid="uid://c2tmmyni6lwe" path="res://assets/refesh.png" id="12_3dlmw"]
 [ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="12_g4whu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noq5o"]
@@ -263,15 +263,14 @@ autowrap_mode = 3
 
 [node name="LobbyOwnerUsername" type="Label" parent="Rejoindre/rejoindre_popup/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.125816
-anchor_top = -0.301
-anchor_right = 0.474566
-anchor_bottom = -0.301
-offset_left = 302.347
-offset_top = 221.4
-offset_right = 302.347
-offset_bottom = 507.1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = -11.0
+offset_right = -48.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -281,7 +280,20 @@ text = "kiiwaa"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="Rejoindre/rejoindre_popup/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.464
+anchor_top = 0.64
+anchor_right = 0.464
+anchor_bottom = 0.64
+offset_left = -8.20001
+offset_top = -3.00003
+offset_right = 352.8
+offset_bottom = 63.0
+placeholder_text = "Enter lobby password"
 
 [node name="TextureRect" type="TextureRect" parent="Rejoindre/rejoindre_popup/Panel"]
 layout_mode = 1

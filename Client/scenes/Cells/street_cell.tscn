@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_anvxg"]
 [ext_resource type="Script" uid="uid://2rykoxxqtbjj" path="res://scripts/Cells/street_cell.gd" id="2_2uyr2"]
-[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="3_fd0qy"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="3_fd0qy"]
 
 [sub_resource type="Theme" id="Theme_bfbtl"]
 
@@ -69,17 +69,19 @@ grow_vertical = 2
 pivot_offset = Vector2(50, 11.5)
 label_settings = SubResource("LabelSettings_6u1e1")
 
-[node name="HouseContainer" type="GridContainer" parent="BackGround" index="4"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 25.0
-offset_right = 107.0
-offset_bottom = 74.0
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 5
-columns = 2
-
-[node name="HotelContainer" type="CenterContainer" parent="BackGround" index="6"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HouseContainer" type="TextureRect" parent="BackGround" index="4"]
+visible = false
+custom_minimum_size = Vector2(20, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = 2.0
+offset_right = 28.25
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3

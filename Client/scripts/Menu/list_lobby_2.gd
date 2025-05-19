@@ -24,7 +24,6 @@ var is_public: bool = true
 # New: Added pop-up window and background mask nodes
 @onready var rejoindre_popup := $Rejoindre/rejoindre_popup
 @onready var rejoindre_popup_lobby_owner := $Rejoindre/rejoindre_popup/Panel/LobbyOwnerUsername
-@onready var rejoindre_overlay := $TextureRect/Overlay
 
 # Rejoindre The start and target position of the popup (center of the screen & outside the bottom)
 var rejoindre_target_pos := Vector2(256, 201)
@@ -55,10 +54,7 @@ func _ready():
 
 	# Get Lobbies from Server
 	_fetch_lobbies()
-	
-	# Listen to WebSocket Message 
-	WebSocketClient.message_received.connect(_on_websocket_message_received)
-   
+
 func _on_filter_button_pressed():
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
@@ -129,7 +125,6 @@ func _fetch_lobbies():
 			lobby.queue_free()
 			
 		lobbies = response.body
-		print(lobbies)
 		for lobby in lobbies:
 			var nb_players = lobby.players.size()
 			var nb_player_max = lobby.nb_player_max
@@ -147,12 +142,6 @@ func _fetch_lobbies():
 			if nb_players >= nb_player_max:
 				join_button.disabled = true
 
-func _on_websocket_message_received(data):
-	if ["get_available_tokens"].has(data.action):
-		States.available_tokens = data.available_tokens
-		get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
-
-
 func _on_join_pressed(lobby):
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
@@ -161,6 +150,9 @@ func _on_join_pressed(lobby):
 	States.lobby_max_players = int(lobby.nb_player_max)
 	States.lobby_owner_id = int(lobby.owner_id)
 	rejoindre_popup_lobby_owner.text = lobby.owner_name
+	if lobby.is_private:
+		print(lobby)
+		$PopUpLobbyPassword.visible = true
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():
@@ -185,22 +177,24 @@ func _on_create_lobby_pressed() -> void:
 func _show_rejoindre_popup():
 	rejoindre_popup.visible = true
 	$Rejoindre.visible = true
-
-# Public function: Close the Rejoindre pop-up window (with animation)
-func _hide_rejoindre_popup():
-	rejoindre_popup.visible = false
+	if !is_public:
+		$Rejoindre/rejoindre_popup/Panel/TextEdit.visible = true
 
 # NON button in the pop-up window: close the pop-up window
 func _on_non_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
 	
-	_hide_rejoindre_popup()
+	rejoindre_popup.visible = false
 
 # OUI button in the pop-up window: jump to select role select_token.tscn
 func _on_oui_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
-	
-	print("Joining lobby: ", States.lobby_id)
-	get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
+	States.lobby_password = $Rejoindre/rejoindre_popup/Panel/TextEdit.text
+	WebSocketClient.connect_to_server(
+						States.WS_BASE_URL+ "/" +str(States.lobby_id)+
+						"?user_id=" + str(UserData.user_id)
+						+ "&secret=" + States.lobby_password)
+	if WebSocketClient.is_connect:
+		get_tree().change_scene_to_file("res://scenes/Menu/lobby_room.tscn")
