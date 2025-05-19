@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4miqgr775kjc"]
-
-[ext_resource type="AudioStream" uid="uid://brxpo88i2j24e" path="res://audio/stranger-things-124008.mp3" id="1_nbeep"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_nbeep")
-autoplay = true
-bus = &"Music"

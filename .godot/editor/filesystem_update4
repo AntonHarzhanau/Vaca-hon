@@ -1,0 +1,11 @@
+res://scenes/game.tscn
+res://scenes/Menu/main_menu.tscn
+res://scenes/Menu/create_lobby.tscn
+res://scenes/Menu/list_lobby.tscn
+res://scenes/Menu/lobby_token_selection.tscn
+res://scenes/Menu/lobby_waiting_room.tscn
+res://scenes/Menu/token_item_button.tscn
+res://scenes/Menu/waiting_room_player.tscn
+res://scripts/game.gd
+res://scripts/Menu/lobby_waiting_room.gd
+res://scripts/msg_handler.gd
