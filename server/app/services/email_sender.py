@@ -19,25 +19,25 @@ SUPPORT_EMAIL = os.getenv("SUPPORT_EMAIL")
 
 async def send_confirmation_email(to_email: str, username: str, code: str):
     msg = EmailMessage()
-    msg["Subject"] = f"{username}, bienvenue dans l'aventure Vacashon 🎲"
+    msg["Subject"] = f"{username}, Welcome to Vacashon 🎲"
     msg["From"] = SMTP_SENDFROM
     msg["To"] = to_email
     msg["Reply-To"] = SMTP_SENDFROM
     msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
 
     msg.set_content(f"""
-    Salut {username} 👋
+    Hi {username} 👋
 
-    Merci pour ton inscription sur Vacashon ! 🎲
+    Thanks for signing up on Vacashon! 🎲
 
-    Pour confirmer ton compte, rends-toi dans le jeu et saisis ce code :
+    To confirm your account, go into the game and enter this code:
 
-    Code de confirmation : {code}
+    Confirmation code: {code}
 
-    Ce code expire dans 24 heures.
+    This code will expire in 24 hours.
 
-    À très vite,
-    — L’équipe Vacashon
+    See you soon,  
+    — The Vacashon Team
     """)
 
     try:
@@ -54,24 +54,22 @@ async def send_confirmation_email(to_email: str, username: str, code: str):
 
 async def send_reset_email(to_email: str, reset_code: str):
     msg = EmailMessage()
-    msg["Subject"] = f"🔐 Code de réinitialisation : {reset_code}"
+    msg["Subject"] = f"🔐 Your reset password code : {reset_code}"
     msg["From"] = SMTP_SENDFROM
     msg["To"] = to_email
     msg["Reply-To"] = SMTP_SENDFROM
     msg["Message-ID"] = f"<{uuid.uuid4()}@vacashon.online>"
 
     msg.set_content(f"""
-    Salut 👋
+    Hi 👋
 
-    Tu as demandé à réinitialiser ton mot de passe pour Vacashon.
-
-    Voici ton code de réinitialisation :
+    Here is your reset code:  
     ➡️ {reset_code}
 
-    Si tu n'es pas à l'origine de cette demande, tu peux ignorer ce message.
+    If you didn’t request this, you can safely ignore this message.
 
-    À très vite sur le plateau ! 🎲  
-    — L’équipe Vacashon
+    See you soon on the board! 🎲  
+    — The Vacashon Team
     """)
 
     try:
