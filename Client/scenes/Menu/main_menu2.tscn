@@ -1,0 +1,168 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhsj508auqr47"]
+
+[ext_resource type="Script" uid="uid://b6wmlgxbqa0c0" path="res://scripts/Menu/main_menu_2.gd" id="1_cnkde"]
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_cb6tt"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="3_cnkde"]
+[ext_resource type="Texture2D" uid="uid://c81oy6ye72vkp" path="res://assets/BACK.png" id="4_ikq3i"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_5ujfd"]
+[ext_resource type="Texture2D" uid="uid://daruau4aly57q" path="res://assets/voyager.png" id="5_cnkde"]
+[ext_resource type="Texture2D" uid="uid://chmypyg5664k8" path="res://assets/voyagers.png" id="6_ikq3i"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vg8mh"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_bmvja"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k25rb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b42ix"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnkde")
+
+[node name="control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_cb6tt")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="control/VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="control/VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ikq3i")
+
+[node name="Label" type="Label" parent="control/VBoxContainer/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 40
+text = "GAME MODE SELECTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="HBoxContainer" parent="control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="control/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="control/VBoxContainer/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_cnkde")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CREER" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer/VBoxContainer" groups=["MainButtons"]]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k25rb")
+theme_override_styles/hover = ExtResource("5_5ujfd")
+theme_override_styles/pressed = ExtResource("6_vg8mh")
+theme_override_styles/normal = ExtResource("7_bmvja")
+text = "CREATE A GAME "
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="control/VBoxContainer/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 284.615)
+layout_mode = 2
+texture = ExtResource("6_ikq3i")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="REJOINDRE" type="Button" parent="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2/VBoxContainer2" groups=["MainButtons"]]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_cnkde")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b42ix")
+theme_override_styles/hover = ExtResource("5_5ujfd")
+theme_override_styles/pressed = ExtResource("6_vg8mh")
+theme_override_styles/normal = ExtResource("7_bmvja")
+text = "JOIN A GAME"
+autowrap_mode = 3
+
+[connection signal="pressed" from="control/VBoxContainer/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer/VBoxContainer/CREER" to="." method="_on_creer_pressed"]
+[connection signal="pressed" from="control/VBoxContainer/MarginContainer/HBoxContainer2/MarginContainer2/VBoxContainer2/REJOINDRE" to="." method="_on_rejoindre_pressed"]

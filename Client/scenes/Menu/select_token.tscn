@@ -1,0 +1,581 @@
+[gd_scene load_steps=33 format=3 uid="uid://d2wjekmvlfkpm"]
+
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_5xmv2"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="3_xfkce"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="4_y5sry"]
+[ext_resource type="Texture2D" uid="uid://de4fw83p7omr2" path="res://assets/Popup Backgrounds/exit.png" id="5_5xmv2"]
+[ext_resource type="Texture2D" uid="uid://c0on3owqyqnog" path="res://assets/Token/TOKEN Bottom-1.png" id="5_j8ww2"]
+[ext_resource type="Texture2D" uid="uid://l0i3ma5t6ga" path="res://assets/Token/TOKEN-1.png" id="5_xfkce"]
+[ext_resource type="Texture2D" uid="uid://buyur8p0jucdy" path="res://assets/Token/TOKEN Bottom-9.png" id="6_23mpb"]
+[ext_resource type="Texture2D" uid="uid://hkf1wu4oibg3" path="res://assets/Token/TOKEN Bottom-5.png" id="7_yogtr"]
+[ext_resource type="Texture2D" uid="uid://c5jifgisut6d3" path="res://assets/Token/TOKEN Bottom-3.png" id="8_w10hc"]
+[ext_resource type="Texture2D" uid="uid://dhb12rifmwicu" path="res://assets/Token/TOKEN Bottom-11.png" id="9_3qy8n"]
+[ext_resource type="Texture2D" uid="uid://dfgs24yxs40be" path="res://assets/Token/TOKEN Bottom-7.png" id="10_1g1jl"]
+[ext_resource type="Texture2D" uid="uid://boc0poaao3m1v" path="res://assets/Token/TOKEN Bottom.png" id="10_qk8k2"]
+[ext_resource type="Texture2D" uid="uid://dhei1kk3tuo5s" path="res://assets/Token/TOKEN Bottom-8.png" id="11_grw3f"]
+[ext_resource type="Texture2D" uid="uid://bvv67jq7yny2x" path="res://assets/Token/TOKEN Bottom-4.png" id="12_1g1jl"]
+[ext_resource type="Texture2D" uid="uid://b84v5t2snycvr" path="res://assets/Token/TOKEN Bottom-2.png" id="13_grw3f"]
+[ext_resource type="Texture2D" uid="uid://ihuowh6lc4bu" path="res://assets/Token/TOKEN Bottom-10.png" id="14_1g1jl"]
+[ext_resource type="Texture2D" uid="uid://dy48qgui5yq4b" path="res://assets/Token/TOKEN Bottom-6.png" id="15_hxltf"]
+[ext_resource type="Texture2D" uid="uid://bf1opjr2ouo6a" path="res://assets/Token/TOKEN-3.png" id="18_a1vlh"]
+[ext_resource type="Texture2D" uid="uid://b6cg7namj8l1m" path="res://assets/Token/TOKEN-2.png" id="19_8ri1w"]
+[ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="20_2sqtb"]
+[ext_resource type="Texture2D" uid="uid://b7r3v8xmks8ar" path="res://assets/Token/TOKEN.png" id="20_55rvh"]
+[ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="21_ymhn8"]
+[ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="22_hicnk"]
+
+[sub_resource type="GDScript" id="GDScript_8fko5"]
+script/source = "extends Control
+
+@onready var quitter_partie = $TextureRect/quitter_partie
+@onready var return_button = $TextureRect/ColorRect/TextureButton
+@onready var texture_rect := $TextureRect
+@onready var overlay := $TextureRect/Overlay
+@onready var validate_selection_btn = $TextureRect/ValidateSelectionButton
+
+# Small Token nodes
+@onready var button_flight = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/flight
+@onready var button_ship = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/ship
+@onready var button_car = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/car
+@onready var button_helicopter = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer/helicopter
+@onready var token_buttons_group = $TextureRect/ScrollContainer/CenterContainer/HBoxContainer.get_children()
+
+# Large image nodes
+@onready var img_flight = $TextureRect/flight
+@onready var img_ship = $TextureRect/ship
+@onready var img_car = $TextureRect/car
+@onready var img_helicopter = $TextureRect/helicopter
+
+# Currently selected button
+var selected_button: BaseButton = null
+var available_tokens: Array = []
+var player_id: int
+
+var popup_target_pos := Vector2(256, 201)
+var popup_start_pos := Vector2(256, 800)
+
+func _ready():
+	quitter_partie.visible = false
+	overlay.visible = false
+	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE  
+	
+	WebSocketClient.message_received.connect(_on_websocket_message_received)
+	player_id = int(UserData.user_id)
+	available_tokens = States.available_tokens
+	
+	# Populate Token List with available tokens from server
+	_refresh_token_list()
+
+func _on_texture_button_pressed() -> void:
+	quitter_partie.visible = true
+	overlay.visible = true
+	quitter_partie.position = popup_start_pos  # 保证初始在屏幕下方
+
+	var tween = create_tween()
+	tween.tween_property(quitter_partie, \"position\", popup_target_pos, 0.4)\\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func _on_non_pressed() -> void:
+	var tween = create_tween()
+	tween.tween_property(quitter_partie, \"position\", popup_start_pos, 0.3)\\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	await tween.finished
+	quitter_partie.visible = false
+	overlay.visible = false
+
+func _on_oui_pressed() -> void:
+	var path = \"res://scenes/Menu/home.tscn\"
+	if ResourceLoader.exists(path):
+		get_tree().change_scene_to_file(path)
+
+func _on_validate_selection_button_pressed() -> void:
+	if selected_button:
+		print(\"Selected Token : \" + selected_button.name)
+		# Send WebSocket \"user_joined\" message to server to book the selected token
+		var message = {\"action\": \"user_joined\", \"user_id\": UserData.user_id, \"selected_token\": selected_button.name}
+		WebSocketClient.send_message(JSON.stringify(message))
+	else:
+		print(\"Show message : You should select a token to continue\")
+
+# On token buttons clicked
+func _on_flight_pressed():
+	_show_selected_token(\"flight\")
+	_set_selected_button(button_flight)
+
+func _on_ship_pressed():
+	_show_selected_token(\"ship\")
+	_set_selected_button(button_ship)
+
+func _on_car_pressed():
+	_show_selected_token(\"car\")
+	_set_selected_button(button_car)
+
+func _on_helicopter_pressed():
+	_show_selected_token(\"helicopter\")
+	_set_selected_button(button_helicopter)
+
+# Switch large image display
+func _show_selected_token(selected: String) -> void:
+	img_flight.visible = (selected == \"flight\")
+	img_ship.visible = (selected == \"ship\")
+	img_car.visible = (selected == \"car\")
+	img_helicopter.visible = (selected == \"helicopter\")
+
+# Switch selected button style
+func _set_selected_button(button: BaseButton) -> void:
+	# Reset the previously selected button to normal.
+	if selected_button and selected_button != button:
+		selected_button.button_pressed = false
+
+	# Set the current button to pressed
+	selected_button = button
+	selected_button.button_pressed = true
+
+func _refresh_token_list() -> void:	
+	# Renew the token list by making invisible unavailable tokens
+	for token_button in token_buttons_group:
+		if token_button.name in available_tokens:
+			token_button.visible = true
+		else:
+			token_button.visible = false
+
+func _on_websocket_message_received(data) -> void:	
+	if [\"get_available_tokens\", \"user_joined\"].has(data.action) :
+		# Update tokens list from server response
+		self.available_tokens = data.available_tokens
+		
+		if data.action == \"user_joined\" and self.player_id == int(data.user_id) :
+			States.users = data.players
+			get_tree().change_scene_to_file(\"res://scenes/Menu/lobby_room.tscn\")
+			
+		_refresh_token_list()
+		
+	if [\"player_connected\", \"player_disconnected\"].has(data.action) :
+		States.users = data.players
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42amo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfkce"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5sry"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2umyo"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8ww2"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23mpb"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yogtr"]
+bg_color = Color(0.552941, 0.870588, 0.890196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr24b"]
+bg_color = Color(0.0941176, 0.752941, 0.8, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[node name="Select_Token" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_8fko5")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_5xmv2")
+autoplay = true
+expand = true
+loop = true
+
+[node name="TextureRect" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 117)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.14625
+offset_bottom = -117.0
+grow_horizontal = 2
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_y5sry")
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 45
+text = "Select TOKEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0676692
+anchor_top = 0.375
+anchor_right = 0.518797
+anchor_bottom = 0.75
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect/ScrollContainer"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/ScrollContainer/CenterContainer"]
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+
+[node name="flight" type="TextureButton" parent="TextureRect/ScrollContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("5_j8ww2")
+texture_pressed = ExtResource("6_23mpb")
+texture_hover = ExtResource("7_yogtr")
+
+[node name="ship" type="TextureButton" parent="TextureRect/ScrollContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("8_w10hc")
+texture_pressed = ExtResource("9_3qy8n")
+texture_hover = ExtResource("10_1g1jl")
+
+[node name="car" type="TextureButton" parent="TextureRect/ScrollContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("10_qk8k2")
+texture_pressed = ExtResource("11_grw3f")
+texture_hover = ExtResource("12_1g1jl")
+
+[node name="helicopter" type="TextureButton" parent="TextureRect/ScrollContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("13_grw3f")
+texture_pressed = ExtResource("14_1g1jl")
+texture_hover = ExtResource("15_hxltf")
+
+[node name="flight" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.690977
+anchor_top = 0.49375
+anchor_right = 0.866917
+anchor_bottom = 0.78625
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_xfkce")
+metadata/_edit_use_anchors_ = true
+
+[node name="ship" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.685714
+anchor_top = 0.4925
+anchor_right = 0.861654
+anchor_bottom = 0.785
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("18_a1vlh")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="helicopter" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.693985
+anchor_top = 0.4875
+anchor_right = 0.881955
+anchor_bottom = 0.8
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("19_8ri1w")
+expand_mode = 1
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="car" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62406
+anchor_top = 0.4575
+anchor_right = 0.81203
+anchor_bottom = 0.77
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("20_55rvh")
+expand_mode = 1
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.659398
+anchor_top = 0.23125
+anchor_right = 0.906767
+anchor_bottom = 0.44125
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.383597, 0.383597, 0.383597, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 50
+text = "Select Token for yourself"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="ValidateSelectionButton" type="Button" parent="TextureRect"]
+custom_minimum_size = Vector2(230, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.671429
+anchor_top = 0.8075
+anchor_right = 0.901429
+anchor_bottom = 0.91375
+offset_right = -8.65485
+offset_bottom = -3.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_42amo")
+theme_override_styles/hover = ExtResource("20_2sqtb")
+theme_override_styles/pressed = ExtResource("21_ymhn8")
+theme_override_styles/normal = ExtResource("22_hicnk")
+text = "SELECT"
+icon_alignment = 2
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Overlay" type="ColorRect" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="quitter_partie" type="Panel" parent="TextureRect"]
+auto_translate_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.192481
+anchor_top = 0.25125
+anchor_right = 0.789474
+anchor_bottom = 0.75125
+theme_override_styles/panel = SubResource("StyleBoxFlat_xfkce")
+
+[node name="Title" type="Panel" parent="TextureRect/quitter_partie"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.22
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5sry")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="TextureRect/quitter_partie/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 45
+text = "Quitter la partie"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="TextureRect/quitter_partie"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.465995
+anchor_top = 0.2975
+anchor_right = 0.901763
+anchor_bottom = 0.7625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 30
+text = "Êtes-vous vraiment sûr.e de quitter la partie en cours ? Votre progression ne sera pas sauvegardée."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/quitter_partie"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0362217
+anchor_top = 0.1745
+anchor_right = 0.56801
+anchor_bottom = 0.965
+offset_left = -52.76
+offset_top = 0.199997
+grow_vertical = 2
+texture = ExtResource("5_5xmv2")
+metadata/_edit_use_anchors_ = true
+
+[node name="NON" type="Button" parent="TextureRect/quitter_partie"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.117128
+anchor_top = 0.885
+anchor_right = 0.424433
+anchor_bottom = 1.085
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_2umyo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j8ww2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_23mpb")
+text = "NON"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="OUI" type="Button" parent="TextureRect/quitter_partie"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.560453
+anchor_top = 0.885
+anchor_right = 0.867758
+anchor_bottom = 1.085
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_xfkce")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxFlat_yogtr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cr24b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cr24b")
+text = "OUI"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="TextureRect/ColorRect/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/ValidateSelectionButton" to="." method="_on_support_pressed"]
+[connection signal="pressed" from="TextureRect/quitter_partie/NON" to="." method="_on_non_pressed"]
+[connection signal="pressed" from="TextureRect/quitter_partie/OUI" to="." method="_on_oui_pressed"]

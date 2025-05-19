@@ -1,0 +1,175 @@
+[gd_scene load_steps=23 format=3 uid="uid://drucucpsarro8"]
+
+[ext_resource type="Script" uid="uid://c8p7n4cif6ue7" path="res://scripts/Menu/lobby_room.gd" id="1_gfw6i"]
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_7ju5v"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="3_5133s"]
+[ext_resource type="Texture2D" uid="uid://buyur8p0jucdy" path="res://assets/Token/TOKEN Bottom-9.png" id="4_0gh1d"]
+[ext_resource type="ButtonGroup" uid="uid://dmp5limtab3j6" path="res://buttons/seltct_token_button_group.tres" id="4_217gt"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="4_bff1k"]
+[ext_resource type="Texture2D" uid="uid://c0on3owqyqnog" path="res://assets/Token/TOKEN Bottom-1.png" id="4_unnp8"]
+[ext_resource type="Texture2D" uid="uid://hkf1wu4oibg3" path="res://assets/Token/TOKEN Bottom-5.png" id="5_7d6sv"]
+[ext_resource type="Texture2D" uid="uid://c5jifgisut6d3" path="res://assets/Token/TOKEN Bottom-3.png" id="6_85sbq"]
+[ext_resource type="Texture2D" uid="uid://dhb12rifmwicu" path="res://assets/Token/TOKEN Bottom-11.png" id="7_8uaja"]
+[ext_resource type="Texture2D" uid="uid://dfgs24yxs40be" path="res://assets/Token/TOKEN Bottom-7.png" id="8_4c8f7"]
+[ext_resource type="Texture2D" uid="uid://boc0poaao3m1v" path="res://assets/Token/TOKEN Bottom.png" id="11_mbq30"]
+[ext_resource type="Texture2D" uid="uid://b84v5t2snycvr" path="res://assets/Token/TOKEN Bottom-2.png" id="12_e2ior"]
+[ext_resource type="Texture2D" uid="uid://dhei1kk3tuo5s" path="res://assets/Token/TOKEN Bottom-8.png" id="12_pnp1k"]
+[ext_resource type="Texture2D" uid="uid://ihuowh6lc4bu" path="res://assets/Token/TOKEN Bottom-10.png" id="13_16nbs"]
+[ext_resource type="Texture2D" uid="uid://bvv67jq7yny2x" path="res://assets/Token/TOKEN Bottom-4.png" id="13_t7ihn"]
+[ext_resource type="Texture2D" uid="uid://dy48qgui5yq4b" path="res://assets/Token/TOKEN Bottom-6.png" id="14_kd438"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="18_mbq30"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="19_pnp1k"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="20_t7ihn"]
+[ext_resource type="PackedScene" uid="uid://bns4cfqvli8a7" path="res://scenes/Parametre/quit_game.tscn" id="21_pnp1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ivv1"]
+
+[node name="Lobby_room" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfw6i")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_7ju5v")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="BackButton" type="TextureButton" parent="VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("3_5133s")
+
+[node name="Tokencontainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_vertical = 6
+alignment = 1
+
+[node name="flight" type="TextureButton" parent="VBoxContainer/Tokencontainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("4_217gt")
+texture_normal = ExtResource("4_unnp8")
+texture_pressed = ExtResource("4_0gh1d")
+texture_hover = ExtResource("5_7d6sv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ship" type="TextureButton" parent="VBoxContainer/Tokencontainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("4_217gt")
+texture_normal = ExtResource("6_85sbq")
+texture_pressed = ExtResource("7_8uaja")
+texture_hover = ExtResource("8_4c8f7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="car" type="TextureButton" parent="VBoxContainer/Tokencontainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("4_217gt")
+texture_normal = ExtResource("11_mbq30")
+texture_pressed = ExtResource("12_pnp1k")
+texture_hover = ExtResource("13_t7ihn")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="helicopter" type="TextureButton" parent="VBoxContainer/Tokencontainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("4_217gt")
+texture_normal = ExtResource("12_e2ior")
+texture_pressed = ExtResource("13_16nbs")
+texture_hover = ExtResource("14_kd438")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="PlayersContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -110.0
+offset_right = 280.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_bff1k")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ivv1")
+theme_override_styles/hover = ExtResource("18_mbq30")
+theme_override_styles/pressed = ExtResource("19_pnp1k")
+theme_override_styles/normal = ExtResource("20_t7ihn")
+text = "START"
+icon_alignment = 2
+expand_icon = true
+
+[node name="quit_game" parent="." instance=ExtResource("21_pnp1k")]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/ColorRect/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

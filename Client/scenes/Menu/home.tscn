@@ -1,0 +1,1055 @@
+[gd_scene load_steps=51 format=3 uid="uid://bdqeodn4ygfq0"]
+
+[ext_resource type="Script" uid="uid://bdnr0lp0qohks" path="res://scripts/Menu/home.gd" id="1_8gxoc"]
+[ext_resource type="VideoStream" uid="uid://bfrassi24xuss" path="res://assets/sources/background.ogv" id="2_kx5jl"]
+[ext_resource type="Texture2D" uid="uid://bjvvaqe13rho" path="res://assets/Vacashion.png" id="3_pq0dp"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="3_wqg4d"]
+[ext_resource type="Texture2D" uid="uid://dixwms3kpq8sq" path="res://assets/BeachChaire.png" id="5_kx5jl"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_s1swk"]
+[ext_resource type="Texture2D" uid="uid://b57uthv4l64xj" path="res://assets/icon_help.png" id="6_8krf6"]
+[ext_resource type="StyleBox" uid="uid://bjq63ojkq658r" path="res://styles/Brown_Hover.tres" id="6_u7l0i"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_vkny6"]
+[ext_resource type="StyleBox" uid="uid://dng0h3r2isq6b" path="res://styles/Brown_Pressed.tres" id="7_0jts6"]
+[ext_resource type="Texture2D" uid="uid://bkoengbkitwou" path="res://assets/support.png" id="7_qaayy"]
+[ext_resource type="StyleBox" uid="uid://chulr2polius" path="res://styles/Brown_Normal.tres" id="8_abvod"]
+[ext_resource type="Texture2D" uid="uid://bbpos00bs1jr2" path="res://assets/parametre.png" id="8_xk4pu"]
+[ext_resource type="FontFile" uid="uid://bupbwjof7h77m" path="res://Fonts/Jua-Regular.ttf" id="9_qaayy"]
+[ext_resource type="Texture2D" uid="uid://due17ek7klhyf" path="res://assets/log out.png" id="9_yvqbo"]
+[ext_resource type="Texture2D" uid="uid://cd3iauy7hqq2u" path="res://assets/PROPERTY-DESCRIPTION-26.png" id="10_871q6"]
+[ext_resource type="Texture2D" uid="uid://dmvceixn26oj2" path="res://assets/Group 43.png" id="11_073uw"]
+[ext_resource type="Texture2D" uid="uid://drl4b703mqaoq" path="res://assets/Group 44.png" id="12_nxbyl"]
+[ext_resource type="Texture2D" uid="uid://dxq67hom1brqr" path="res://assets/Group 45.png" id="13_7pxac"]
+[ext_resource type="Texture2D" uid="uid://73xj0fjiure0" path="res://assets/Corner.png" id="14_2atvw"]
+[ext_resource type="Texture2D" uid="uid://d2q8tofxchs6" path="res://assets/Corner2.png" id="15_yvqbo"]
+[ext_resource type="Texture2D" uid="uid://bn746xpiytmv2" path="res://assets/cancel.png" id="16_0jts6"]
+[ext_resource type="Texture2D" uid="uid://c2684vph824kx" path="res://assets/Corner1.png" id="16_64ili"]
+[ext_resource type="Texture2D" uid="uid://c21cw7sdl8cq0" path="res://assets/Corner3.png" id="17_x0ruf"]
+[ext_resource type="Texture2D" uid="uid://cimixlo2oq6cv" path="res://assets/Players/WHALE.png" id="18_vqllx"]
+[ext_resource type="Texture2D" uid="uid://cijlnxswktl7" path="res://assets/Players/SHIP.png" id="19_s1swk"]
+[ext_resource type="Texture2D" uid="uid://ctp4nwe3n7k6t" path="res://assets/Players/HELICOPTER.png" id="20_vkny6"]
+[ext_resource type="Texture2D" uid="uid://do651f03b1kuh" path="res://assets/Players/FLIGHT.png" id="21_1i7aa"]
+[ext_resource type="Texture2D" uid="uid://ckby2q6umoakp" path="res://assets/Popup Backgrounds/exit.png" id="23_64ili"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="24_x0ruf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abvod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqllx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1swk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0ruf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7l0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0jts6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaayy"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk4pu"]
+bg_color = Color(0.698039, 0.4, 0.258824, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8krf6"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w86bu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2atvw"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abvod"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tq4nb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_740by"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td5ky"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvqbo"]
+bg_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jts6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7l0i"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkny6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1i7aa"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8gxoc")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_kx5jl")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_bottom = 29.0
+grow_horizontal = 0
+text = "Version 1.0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 40
+
+[node name="Vacashion" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_pq0dp")
+expand_mode = 5
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="BeachChaire" type="TextureRect" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("5_kx5jl")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Regle" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/focus = SubResource("StyleBoxEmpty_abvod")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
+text = "Game Rules"
+icon = ExtResource("6_8krf6")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Support" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vqllx")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
+text = "    Support"
+icon = ExtResource("7_qaayy")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Parametre" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(250, 82)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1swk")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
+text = "    Settings"
+icon = ExtResource("8_xk4pu")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Jouer" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(310, 101)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x0ruf")
+theme_override_styles/hover = ExtResource("5_s1swk")
+theme_override_styles/pressed = ExtResource("6_vkny6")
+theme_override_styles/normal = ExtResource("24_x0ruf")
+text = "PLAY"
+
+[node name="Trouver" type="Button" parent="HBoxContainer/MarginContainer2/VBoxContainer" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(310, 101)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u7l0i")
+theme_override_styles/hover = ExtResource("5_s1swk")
+theme_override_styles/pressed = ExtResource("6_vkny6")
+theme_override_styles/normal = ExtResource("24_x0ruf")
+text = "Find a game"
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 80
+
+[node name="Connection" type="Button" parent="HBoxContainer/MarginContainer3" groups=["HomeButtons"]]
+custom_minimum_size = Vector2(285, 134)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0jts6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qaayy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xk4pu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8krf6")
+text = "LOGGED IN AS:
+PLAYER NAME
+LOG OUT"
+icon = ExtResource("9_yvqbo")
+text_overrun_behavior = 3
+icon_alignment = 2
+
+[node name="Regle_du_jeu" type="Panel" parent="."]
+auto_translate_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.225
+anchor_top = 0.25
+anchor_right = 0.775
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -93.0
+offset_right = 3.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w86bu")
+
+[node name="Title" type="Panel" parent="Regle_du_jeu"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.13
+theme_override_styles/panel = SubResource("StyleBoxFlat_2atvw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Regle_du_jeu/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+text = "Game Rules"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Regle_du_jeu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.854545
+anchor_right = 1.0
+anchor_bottom = 0.116667
+offset_left = 40.0
+offset_bottom = -30.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="close" type="Button" parent="Regle_du_jeu/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_abvod")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tq4nb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_740by")
+theme_override_styles/normal = SubResource("StyleBoxFlat_td5ky")
+icon = ExtResource("16_0jts6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Regle_du_jeu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 60
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Regle_du_jeu/MarginContainer2"]
+custom_minimum_size = Vector2(550, 453)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Regle_du_jeu/MarginContainer2/ScrollContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer"]
+custom_minimum_size = Vector2(530, 5000)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="How To Win" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="How To Win" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/How To Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "How To Win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_pq0dp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Move around the board buying as many properties(City,Stations and Utilities) as you can.Each player stars with $1500.The more you own,the more rent you’ll get.If you’re the last player when all other players have gone brankrupt,you win!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="On Your Turn" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="On Your Turn" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/On Your Turn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "On Your Turn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "- Roll the dice
+- Your token will move foward that number of spaces
+- Where did you had?
+	- If you landed on a City , you ‘ll have the chance to buy that property(if unowned) or you’ll have to pay rent to owner!
+	- If you landed on an action space , you’ll have to take the relevant action
+- If you rolled a double , you can roll the dice again and take another turn
+- Watch out! If you roll a double 3 times in the same turn , you must Go To Jail!
+- After moving , you can manage your property, if you want to.You can trade ,buy/sell buildings, or mortgage/unmortgage properties. You can only initiate these actions on your turn.
+- When you are ready ,end your turn."
+vertical_alignment = 1
+autowrap_mode = 3
+lines_skipped = 1
+
+[node name="property" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="property" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/property"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "property"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "City"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Strasbourg" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_871q6")
+expand_mode = 1
+
+[node name="Label4" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "
+Unowned City
+ When you land on a city no one owns, you must either buy it or auction it.
+
+Owned City
+ When you land on a city that someone else owns, you must pay them rent!
+
+Collect country sets to buil Houses!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Strasbourg_Paris" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(288.5, 209.13)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_073uw")
+expand_mode = 1
+
+[node name="Label5" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "
+You can’t build Houses until you complete a color set !
+Rent goes up on each Street as soon as you complete the set.
+If you buy Houses ,rent goes up even more!
+You can also upgrade to Hotels!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Stations" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(246, 188.71)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_nxbyl")
+expand_mode = 1
+
+[node name="Label6" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Stations are like city, except that Houses and Hotels cannot be built on Stations.
+Rent depends on how many Stations the owner has:
+1 Station = $25 rent
+2 Station = $50 rent
+3 Station = $100 rent
+4 Station = $200 rent
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Utilities"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Utilities" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(290.59, 186.98)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("13_7pxac")
+expand_mode = 1
+
+[node name="Label8" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Utilities are like city, except that Houses and Hotels cannot be built on Utilities.
+Rent it based on the dice roll that landed the player on the Utility. If the owner has 1 Utility.rent is 4x the dice roll. If the player has 2 Utilities,rent is 10x the dice roll.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Action Spaces" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="Action Spaces" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/Action Spaces"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "Action Spaces"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Douane" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("14_2atvw")
+expand_mode = 3
+flip_v = true
+
+[node name="Escale" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("15_yvqbo")
+expand_mode = 3
+
+[node name="Label9" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Relax ! Nothing happens."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Decollage" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("16_64ili")
+
+[node name="Label10" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "If you move took you onto or past the GO space ,you get $200 from the Bank."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Decollage2" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("17_x0ruf")
+
+[node name="Label11" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "If you land here, you will be taken to the In Jail space immediately! You do not collect $200 for passing GO, and your turn is over.
+
+You can still collect rent , take part in auctions , buy Houses and Hotels, mortgage and trade while you are in Jail.
+
+How do I get out of Jail?
+When you start your turn In Jail ,you have 3 options:
+1. Pay $50, then toll and move as normal
+2. Use a GET OUT OF JAIL FREE card ,then roll and move as normal.
+3. Try to roll a double . If you do, you’re free! You will use the roll to move, but sill not get to roll again(unlike after a normal double) .If you fail to roll a double after 3 turns In Jail ,you must pay $50 and use your roll to move."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Auctions" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="Auctions" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/Auctions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "Auctions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label12" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "
+If anyone lands on an unowned Street, Station or Utility and doesn't want to buy it, MR MONOPOLY will auction it.
+﻿﻿- MR MONOPOLY starts the auction with an   asking price of $10.
+﻿﻿- When a player meets this bid, MR MONOPOLY increases the asking price.
+﻿﻿- This continues until no player is willing to meet the asking price. The player with the highest bid wins the property for the agreed price.
+- If no player is willing to pay the initial $10 asking price, the property remains unsold.
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Deal" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="Deal" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/Deal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "Deal & Trades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TOKEN" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("18_vqllx")
+stretch_mode = 2
+
+[node name="TOKEN2" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("19_s1swk")
+stretch_mode = 2
+
+[node name="TOKEN3" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("20_vkny6")
+stretch_mode = 2
+
+[node name="TOKEN4" type="TextureRect" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("21_1i7aa")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "- You can buy, sell or swap property with other players when it is your turn.
+- You must sell all buildings on a colour set to the Bank before you can sell or trade a Street. You cannot sell (or trade) buildings to another player.
+- Property can be traded for cash, other property, and/or Get Out Of Jail Free cards. The amount is decided by the players making the deal.
+- Property can be traded even if it is mortgaged.
+- When you received a mortgaged property, either through trade or by bankrupting someone, you must immediately choose whether to unmortgage the property, or keep the mortgage and pay 10% of the mortdade value"
+autowrap_mode = 3
+
+[node name="Help" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="Help" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/Help"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "Help! Can’t play!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label13" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qaayy")
+theme_override_font_sizes/font_size = 22
+text = "Bankruptcy
+You are immediately bankrupt if your debt is greater than your net worth. Your net worth is the total of your money, the resale value of all your buildings, and the mortgage value of all your unmortgaged properties.
+
+If you are bankrupt, your buildings will all be sold, your properties will all be mortgaged, then all of your money and properties will be transferred to the player to whom you owe the debt. You are then out of the game.
+
+If you are made bankrupt due to a debt owed to the Bank, your properties will be unmortgaged by the Bank and put up for auction.
+
+Raising Money
+If you owe money and can't pay, but your net worth is greater than your debt you'll have to raise money by selling buildings and/or mortgaging properties.
+
+The Auto-Resolve feature makes this easy, by suggesting the best course of action to settle your debt.
+If you want to resolve your debt manually, you can do so.
+
+Sell Hotels
+
+
+Sell Hotels to the Bank for half the cost price. They will be replaced with 4 Houses.
+
+Sell Houses
+
+
+Sell Houses to the Bank for half the cost price. Houses must be sold evenly across the colour set.
+
+Mortgaging Property
+To mortgage a property, you must first sell all buildings in its colour set.
+Then you can mortgage the property. The mortgage value is half of the property's face value.
+You can repay a mortgage later if you have enough money.
+The unmortgage cost is the mortgage value + 10%."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="End" type="Panel" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvqbo")
+
+[node name="End" type="Label" parent="Regle_du_jeu/MarginContainer2/ScrollContainer/CenterContainer/VBoxContainer/End"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 35
+text = "End"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Log_out" type="CanvasLayer" parent="."]
+auto_translate_mode = 1
+visible = false
+
+[node name="fulltoblock" type="Panel" parent="Log_out"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jts6")
+
+[node name="Panel" type="Panel" parent="Log_out/fulltoblock"]
+z_index = -2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u7l0i")
+
+[node name="TextureRect" type="TextureRect" parent="Log_out/fulltoblock/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0480846
+anchor_top = 0.08495
+anchor_right = -0.0480846
+anchor_bottom = 0.0865
+offset_left = -32.4758
+offset_top = 63.02
+offset_right = 421.253
+offset_bottom = 347.4
+grow_vertical = 2
+texture = ExtResource("23_64ili")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="Log_out/fulltoblock/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 30
+text = "Do you really want to log out and be redirected to the login page?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title" type="Panel" parent="Log_out/fulltoblock/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.22
+theme_override_styles/panel = SubResource("StyleBoxFlat_2atvw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Log_out/fulltoblock/Panel/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+text = "LOG OUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NON" type="Button" parent="Log_out/fulltoblock/Panel" groups=["HomeButtons"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00598612
+anchor_top = 0.0285
+anchor_right = 0.301319
+anchor_bottom = 0.2285
+offset_left = 65.5917
+offset_top = 318.6
+offset_right = 67.2995
+offset_bottom = 376.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vkny6")
+theme_override_styles/hover = ExtResource("6_u7l0i")
+theme_override_styles/pressed = ExtResource("7_0jts6")
+theme_override_styles/normal = ExtResource("8_abvod")
+text = "NO"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="OUI" type="Button" parent="Log_out/fulltoblock/Panel" groups=["HomeButtons"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0385772
+anchor_top = 0.0185
+anchor_right = 0.345882
+anchor_bottom = 0.2185
+offset_left = 313.854
+offset_top = 318.6
+offset_right = 321.561
+offset_bottom = 382.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wqg4d")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1i7aa")
+theme_override_styles/hover = ExtResource("5_s1swk")
+theme_override_styles/pressed = ExtResource("6_vkny6")
+theme_override_styles/normal = ExtResource("24_x0ruf")
+text = "YES
+"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Regle" to="." method="_on_regle_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Support" to="." method="_on_support_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/Parametre" to="." method="_on_parametre_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/VBoxContainer/Trouver" to="." method="_on_trouver_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer3/Connection" to="." method="_on_connection_pressed"]
+[connection signal="pressed" from="Regle_du_jeu/MarginContainer/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Log_out/fulltoblock/Panel/NON" to="." method="_on_non_pressed"]
+[connection signal="pressed" from="Log_out/fulltoblock/Panel/OUI" to="." method="_on_oui_pressed"]

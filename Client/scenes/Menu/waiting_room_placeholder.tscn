@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://87mwtoutytax"]
+
+[ext_resource type="Texture2D" uid="uid://ducrxvkwiixrj" path="res://assets/PLUS-1.png" id="2_1v07d"]
+
+[node name="WaitingRoolPlaceholder" type="TextureRect"]
+custom_minimum_size = Vector2(250, 0)
+layout_direction = 2
+offset_right = 250.0
+offset_bottom = 338.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1v07d")
+metadata/_edit_use_anchors_ = true

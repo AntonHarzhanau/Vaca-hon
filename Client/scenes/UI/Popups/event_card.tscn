@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba4dw7afjhbi2"]
+
+[ext_resource type="Script" uid="uid://cef13xk7eat5u" path="res://scripts/UI/event_card.gd" id="1_8mx6b"]
+[ext_resource type="FontFile" uid="uid://b7ua41mspaxmj" path="res://data/LilitaOne-Regular.ttf" id="2_bsatl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en5vt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="EventCard" type="CanvasLayer"]
+script = ExtResource("1_8mx6b")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_en5vt")
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -150.0
+offset_right = 225.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Description" type="Label" parent="Panel/Background"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.482
+anchor_top = 0.535
+anchor_right = 0.482
+anchor_bottom = 0.535
+offset_left = -159.612
+offset_top = -76.5
+offset_right = 159.388
+offset_bottom = 76.5
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bsatl")
+theme_override_font_sizes/font_size = 20
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseBtn" type="Button" parent="Panel/Background"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_bsatl")
+
+[connection signal="pressed" from="Panel/Background/CloseBtn" to="." method="_on_close_btn_pressed"]

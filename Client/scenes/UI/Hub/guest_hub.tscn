@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvl75jc6legp6"]
+
+[ext_resource type="PackedScene" uid="uid://kwxktsmlv5q8" path="res://scenes/UI/Hub/hub.tscn" id="2_2a1sb"]
+[ext_resource type="Script" uid="uid://b1xlugdtbon3t" path="res://scripts/UI/Hubs/guest_hub.gd" id="2_06op3"]
+
+[node name="GuestHub" instance=ExtResource("2_2a1sb")]
+custom_minimum_size = Vector2(300, 95)
+offset_bottom = -705.0
+script = ExtResource("2_06op3")
+
+[node name="PlayerInfo" parent="." index="0"]
+visible = true
+
+[node name="LeftSide" parent="PanelBackground" index="1"]
+offset_bottom = 109.0

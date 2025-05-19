@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://bns4cfqvli8a7"]
+
+[ext_resource type="Script" uid="uid://bjpqodrj4x60i" path="res://scripts/parametre/quit_game.gd" id="1_keulw"]
+[ext_resource type="Texture2D" uid="uid://de4fw83p7omr2" path="res://assets/Popup Backgrounds/exit.png" id="2_twpsu"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="4_eup1v"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="5_2o78c"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="6_nj02x"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="7_pfor3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eup1v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hc2i"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7lqs"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eup1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj02x"]
+
+[node name="quit_game" type="CanvasLayer"]
+script = ExtResource("1_keulw")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eup1v")
+
+[node name="QuitDialogPanel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4hc2i")
+
+[node name="Mountain Background" type="TextureRect" parent="Panel/QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 92.0
+offset_right = -385.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_twpsu")
+expand_mode = 1
+
+[node name="Title Label" type="Label" parent="Panel/QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7lqs")
+text = "LEAVE THE GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 347.0
+offset_top = 79.0
+offset_right = -1.0
+offset_bottom = 350.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 35
+text = "Are you sure you want to 
+quit the current game? 
+Your progress will 
+not be saved."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button_container" type="HBoxContainer" parent="Panel/QuitDialogPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ConfirmButton" type="Button" parent="Panel/QuitDialogPanel/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eup1v")
+theme_override_styles/hover = ExtResource("5_2o78c")
+theme_override_styles/pressed = ExtResource("6_nj02x")
+theme_override_styles/normal = ExtResource("7_pfor3")
+text = "YES"
+
+[node name="CancelButton" type="Button" parent="Panel/QuitDialogPanel/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_eup1v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nj02x")
+theme_override_styles/hover = ExtResource("5_2o78c")
+theme_override_styles/pressed = ExtResource("6_nj02x")
+theme_override_styles/normal = ExtResource("7_pfor3")
+text = "NO"
+
+[connection signal="pressed" from="Panel/QuitDialogPanel/Button_container/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Panel/QuitDialogPanel/Button_container/CancelButton" to="." method="_on_cancel_button_pressed"]

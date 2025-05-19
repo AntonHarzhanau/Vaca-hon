@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>☀️ Télécharger Vacashon 🏖️</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css ">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: url('background.png') no-repeat center center fixed; /* Image de fond */
+      background-size: cover; /* Ajuste l'image au plein écran */
+      background-color: #A8E6FF; /* Couleur de fond en cas d'absence d'image */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header img {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin: 10px 0;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 10px 0 30px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+    }
+
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    .download-buttons a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      background: #FED141;
+      padding: 15px 30px;
+      border-radius: 30px;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .download-buttons a:hover {
+      background: #ffd480;
+      animation: wave 0.6s ease;
+    }
+
+    @keyframes wave {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px) rotate(-2deg); }
+      100% { transform: translateY(0px); }
+    }
+
+    .download-buttons a i {
+      font-size: 1.4em;
+    }
+    
+    .guide-link {
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	  margin-top: 10px;
+	  font-size: 1em;
+	}
+
+	.guide-link a {
+	  color: #FED141;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	  text-decoration: none;
+	  font-weight: bold;
+	  transition: color 0.3s ease;
+	}
+
+	.guide-link a:hover {
+	  color: #6DD4A7;
+	}
+
+    .social-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-section h2 {
+		color: #fff;
+      	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+      object-fit: cover;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      background: transparent;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+
+      .download-buttons a {
+        font-size: 1em;
+        padding: 12px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header img {
+        width: 140px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .download-buttons a {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      .social-icons {
+        gap: 15px;
+      }
+
+      .social-icons a img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Vacashon Logo">
+    </div>
+    <h1>Bienvenue sur Vacashon&nbsp;!</h1>
+    <p>Partez à l'aventure dans Vacashon 🌴 — Téléchargez votre version et commencez votre voyage dès maintenant !</p>
+
+    <div class="download-buttons">
+      <a href="https://vacashon.online " target="_blank">
+        <i class="fas fa-globe"></i> Jouer en ligne
+      </a>
+      <a href="Vacashon.apk" download>
+        <i class="fab fa-android"></i> Android
+      </a>
+      <a href="Vacashon-Lin.zip" download>
+        <i class="fab fa-linux"></i> Linux
+      </a>
+      <a href="Vacashon-Win.zip" download>
+        <i class="fab fa-windows"></i> Windows
+      </a>
+    </div>
+    
+    <p class="guide-link">
+		<a href="user_guide.pdf" target="_blank">Cliquez ici pour ouvrir le guide de voyage <i class="fas fa-book-open"></i></a>
+	</p>
+
+    <div class="social-section">
+      <h2>Suivez-nous&nbsp;!</h2>
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@vacashon_game" target="_blank">
+          <img src="tiktok.png" alt="TikTok" />
+        </a>
+        <a href="https://www.instagram.com/vacashon_game " target="_blank">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Vacashon. Tous droits réservés.
+  </div>
+
+</body>
+</html>

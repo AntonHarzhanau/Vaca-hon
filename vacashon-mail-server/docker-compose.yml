@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mail:
+    image: analogic/poste.io
+    container_name: mail
+    restart: always
+    hostname: mail
+    domainname: vacashon.online
+    environment:
+      - ENABLE_LETSENCRYPT=true  # Enable Let's Encrypt for SSL
+      - POSTMASTER_PASSWORD=vAcaSh0nM4iL
+    ports:
+      - "25:25"       # SMTP
+      - "30002:443"   # HTTPS
+      - "110:110"     # POP3
+      - "143:143"     # IMAP
+      - "587:587"     # SMTP (submission)
+      - "993:993"     # IMAPS
+      - "995:995"     # POP3S
+    volumes:
+      - maildata:/data
+
+volumes:
+  maildata:
+

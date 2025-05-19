@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfgk8weio0tjv"]
+
+[ext_resource type="Script" uid="uid://copmqmqob2hj7" path="res://scenes/UI/player_avatar.gd" id="1_u44wr"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="2_u44wr"]
+[ext_resource type="Texture2D" uid="uid://cb0a0hkunu68l" path="res://assets/Token/flight.png" id="3_u44wr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmhkh"]
+bg_color = Color(0.180392, 0.654902, 0.878431, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.473976, 0.473976, 0.473976, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln53a"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.0588235, 0.509804, 0.721569, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Avatar" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.158
+anchor_top = 0.03875
+anchor_right = 0.575
+anchor_bottom = 0.2975
+offset_bottom = -1.52588e-05
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_u44wr")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(408, 124)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0073669
+anchor_top = 0.386473
+anchor_right = 0.992633
+anchor_bottom = 0.985507
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmhkh")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_u44wr")
+theme_override_font_sizes/font_size = 40
+text = "Playername"
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.282662
+anchor_top = -0.0483092
+anchor_right = 0.717338
+anchor_bottom = 0.821256
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln53a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Flight" type="TextureRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 24.0
+offset_right = 166.5
+offset_bottom = 258.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_u44wr")

@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://cy08nosal4m77"]
+
+[ext_resource type="Script" uid="uid://rhqrmfm23g5y" path="res://scripts/UI/Popups/pop_up_jail.gd" id="1_788hn"]
+[ext_resource type="Texture2D" uid="uid://bawu1eg50xxfw" path="res://assets/Popup Backgrounds/Customs.png" id="2_bp3sw"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="3_q0a0b"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_bp3sw"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="4_q0a0b"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_q0a0b"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_6nq37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0a0b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwpom"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhl3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbjfs"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwpom"]
+
+[node name="PopUpJail" type="CanvasLayer"]
+script = ExtResource("1_788hn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0a0b")
+
+[node name="Back_ground" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -200.0
+offset_right = 485.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rwpom")
+
+[node name="UseCard" type="Button" parent="Panel/Back_ground"]
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+offset_left = 735.0
+offset_top = 91.0
+offset_right = 965.0
+offset_bottom = 181.0
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_q0a0b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhl3q")
+theme_override_styles/hover = ExtResource("4_bp3sw")
+theme_override_styles/pressed = ExtResource("5_q0a0b")
+theme_override_styles/normal = ExtResource("6_6nq37")
+text = "Use card"
+
+[node name="JailBackground" type="TextureRect" parent="Panel/Back_ground"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 74.0
+offset_right = 339.0
+offset_bottom = 423.0
+texture = ExtResource("2_bp3sw")
+
+[node name="Title" type="Label" parent="Panel/Back_ground"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_q0a0b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_xbjfs")
+text = "Exit Customs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Back_ground"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 314.0
+offset_top = 90.0
+offset_right = 1.0
+offset_bottom = 328.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_q0a0b")
+theme_override_font_sizes/font_size = 40
+text = "Offre"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button_container" type="HBoxContainer" parent="Panel/Back_ground"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Accept_btn" type="Button" parent="Panel/Back_ground/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_q0a0b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhl3q")
+theme_override_styles/hover = ExtResource("4_bp3sw")
+theme_override_styles/pressed = ExtResource("5_q0a0b")
+theme_override_styles/normal = ExtResource("6_6nq37")
+text = "Accept"
+
+[node name="Deny_btn" type="Button" parent="Panel/Back_ground/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_q0a0b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rwpom")
+theme_override_styles/hover = ExtResource("4_bp3sw")
+theme_override_styles/pressed = ExtResource("5_q0a0b")
+theme_override_styles/normal = ExtResource("6_6nq37")
+text = "Deny"
+
+[connection signal="pressed" from="Panel/Back_ground/UseCard" to="." method="_on_use_card_pressed"]
+[connection signal="pressed" from="Panel/Back_ground/Button_container/Accept_btn" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Panel/Back_ground/Button_container/Deny_btn" to="." method="_on_deny_pressed"]

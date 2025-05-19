@@ -1,0 +1,259 @@
+[gd_scene load_steps=25 format=3 uid="uid://dqqfabtceas0f"]
+
+[ext_resource type="Script" uid="uid://cytbs1cgo7vi4" path="res://scripts/UI/ui.gd" id="1_nt7q6"]
+[ext_resource type="PackedScene" uid="uid://bpq4fxmq1ukwa" path="res://scenes/UI/Hub/main_player_hub.tscn" id="2_gdt2y"]
+[ext_resource type="PackedScene" uid="uid://cwh1c1078d3dt" path="res://scenes/dice.tscn" id="3_wm3ai"]
+[ext_resource type="PackedScene" uid="uid://cy08nosal4m77" path="res://scenes/UI/Popups/pop_up_jail.tscn" id="4_7e3k0"]
+[ext_resource type="PackedScene" uid="uid://y6uj0iy65iy0" path="res://scenes/UI/Popups/popup_offre.tscn" id="4_8dubc"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="5_7a1qy"]
+[ext_resource type="StyleBox" uid="uid://cuy6jfvmak18d" path="res://styles/button.tres" id="5_m41qk"]
+[ext_resource type="FontFile" uid="uid://csjhdxcwk45dd" path="res://Fonts/LilitaOne-Regular.ttf" id="5_tpnoy"]
+[ext_resource type="PackedScene" uid="uid://ba4dw7afjhbi2" path="res://scenes/UI/Popups/event_card.tscn" id="7_35jxk"]
+[ext_resource type="PackedScene" uid="uid://bns4cfqvli8a7" path="res://scenes/Parametre/quit_game.tscn" id="9_owlbh"]
+[ext_resource type="PackedScene" uid="uid://bi68a6b5rjjg5" path="res://scenes/Parametre/settings.tscn" id="10_c5elv"]
+[ext_resource type="PackedScene" uid="uid://irfsxn8puawo" path="res://scenes/UI/Popups/fly_offer.tscn" id="13_64obo"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="15_5t1j6"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="16_4nac7"]
+[ext_resource type="Texture2D" uid="uid://cnhqd6hhljbpi" path="res://assets/Leave button.png" id="16_5t1j6"]
+[ext_resource type="Texture2D" uid="uid://dwxruxw80f1dr" path="res://assets/Settings button.png" id="17_4nac7"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="17_teulp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m41qk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e3k0"]
+bg_color = Color(0.368627, 0.164706, 0.0901961, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m41qk"]
+bg_color = Color(0.227451, 0.0862745, 0.0470588, 1)
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krw1k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8uv8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umf6b"]
+bg_color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p8sv"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_nt7q6")
+
+[node name="Dice" parent="." instance=ExtResource("3_wm3ai")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -107.0
+offset_right = 179.0
+offset_bottom = 93.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TurnLable" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 5.0
+offset_right = 108.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_7a1qy")
+theme_override_font_sizes/font_size = 30
+text = "Player's turn: 0"
+
+[node name="GuestHubContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -201.0
+offset_top = 47.0
+offset_right = -19.0
+offset_bottom = 395.0
+grow_horizontal = 0
+
+[node name="MainPlayerHub" parent="." instance=ExtResource("2_gdt2y")]
+z_index = 0
+layout_direction = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_top = -50.5
+offset_right = 310.0
+offset_bottom = 50.5
+grow_horizontal = 1
+mouse_force_pass_scroll_events = true
+
+[node name="MenuBtn" type="Button" parent="."]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.3
+offset_top = -56.0
+offset_right = 104.3
+grow_horizontal = 2
+grow_vertical = 0
+text = "menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 175.0
+offset_bottom = 177.0
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="quit" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("16_5t1j6")
+stretch_mode = 0
+
+[node name="setting" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("17_4nac7")
+stretch_mode = 0
+
+[node name="EndTurnButton" type="Button" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_tpnoy")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m41qk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7e3k0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m41qk")
+theme_override_styles/normal = ExtResource("5_m41qk")
+text = "End Turn"
+
+[node name="quit_game" parent="." instance=ExtResource("9_owlbh")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("10_c5elv")]
+visible = false
+
+[node name="PopUpJail" parent="." instance=ExtResource("4_7e3k0")]
+visible = false
+
+[node name="PopUpOffre" parent="." instance=ExtResource("4_8dubc")]
+visible = false
+
+[node name="EventCard" parent="." instance=ExtResource("7_35jxk")]
+visible = false
+
+[node name="FlyOffer" parent="." instance=ExtResource("13_64obo")]
+visible = false
+
+[node name="Info" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="Info"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_krw1k")
+
+[node name="Background" type="Panel" parent="Info/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8uv8")
+
+[node name="Title_Label" type="Label" parent="Info/Panel/Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_tpnoy")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_umf6b")
+text = "INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Offer" type="Label" parent="Info/Panel/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -100.5
+offset_right = 264.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_7a1qy")
+theme_override_font_sizes/font_size = 35
+text = "
+You own <BLANK>
+Would you like to move 
+to the next airport?"
+horizontal_alignment = 1
+
+[node name="Button_container" type="HBoxContainer" parent="Info/Panel/Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OkButton" type="Button" parent="Info/Panel/Background/Button_container"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_7a1qy")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4p8sv")
+theme_override_styles/hover = ExtResource("15_5t1j6")
+theme_override_styles/pressed = ExtResource("16_4nac7")
+theme_override_styles/normal = ExtResource("17_teulp")
+text = "OK"
+
+[connection signal="accept_offer_clicked" from="." to="." method="_on_accept_offer_clicked"]
+[connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Info/Panel/Background/Button_container/OkButton" to="." method="_on_ok_button_pressed"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuj23ias31fci"]
+
+[ext_resource type="Texture2D" uid="uid://cevlk7umjdnk" path="res://assets/Lobby1.png" id="1_g402y"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="2_t0rw3"]
+[ext_resource type="Script" uid="uid://chwn1u8x2tggr" path="res://scripts/Menu/list_lobby_item_2.gd" id="2_wmb2i"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_7lkbc"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_wi2sl"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_rcf8o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05lgx"]
+
+[node name="ListLobbyItem" type="NinePatchRect"]
+custom_minimum_size = Vector2(240, 170)
+anchors_preset = -1
+anchor_left = 0.0450001
+anchor_top = 0.1
+anchor_right = 0.322
+anchor_bottom = 0.31375
+offset_left = -3.00006
+offset_top = -3.05176e-05
+offset_right = -3.00006
+offset_bottom = 0.999969
+texture = ExtResource("1_g402y")
+script = ExtResource("2_wmb2i")
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyName" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.116667
+anchor_right = 0.877863
+anchor_bottom = 0.261111
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 22
+text = "Part of SachAtlantis"
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyTheme" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.305556
+anchor_right = 0.629771
+anchor_bottom = 0.433333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 18
+text = "Theme: (Something)"
+metadata/_edit_use_anchors_ = true
+
+[node name="LobbyPlayers" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0839695
+anchor_top = 0.5
+anchor_right = 0.503817
+anchor_bottom = 0.633333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 20
+text = "Players: 2/3"
+metadata/_edit_use_anchors_ = true
+
+[node name="JoinLobby" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10687
+anchor_top = 0.694444
+anchor_right = 0.562977
+anchor_bottom = 0.941667
+offset_right = 119.5
+offset_bottom = 44.5
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_t0rw3")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lgx")
+theme_override_styles/hover = ExtResource("4_7lkbc")
+theme_override_styles/pressed = ExtResource("5_wi2sl")
+theme_override_styles/normal = ExtResource("6_rcf8o")
+text = "Join"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="JoinLobby" to="." method="_on_join_lobby_pressed"]

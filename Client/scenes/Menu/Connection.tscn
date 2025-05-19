@@ -1,0 +1,289 @@
+[gd_scene load_steps=13 format=3 uid="uid://degjr5c86ahtn"]
+
+[ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
+[ext_resource type="FontFile" uid="uid://dnneukkpgwaqs" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
+[ext_resource type="FontFile" uid="uid://cryq4l8mdoujl" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdfu2"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5jbe"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.756863, 0.780392, 0.803922, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_offsg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x52d1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxbe4"]
+
+[node name="Connection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7qcev")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qcev")
+
+[node name="Panel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/title"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/title/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Panel/title/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tccpp")
+theme_override_font_sizes/font_size = 55
+text = "LOGIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 100
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tccpp")
+theme_override_font_sizes/font_size = 30
+text = "E-mail address"
+vertical_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="EmailLineEdit" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 1
+theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
+theme_override_fonts/font = ExtResource("2_v0t4l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
+placeholder_text = "xxxx@vacashon.com"
+caret_blink = true
+caret_blink_interval = 0.3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 100
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tccpp")
+theme_override_font_sizes/font_size = 30
+text = "Password"
+vertical_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="PasswordLineEdit" type="LineEdit" parent="Panel/VBoxContainer/MarginContainer5"]
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
+theme_override_fonts/font = ExtResource("2_v0t4l")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_cdfu2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f5jbe")
+placeholder_text = "Please enter your password..."
+caret_blink = true
+caret_blink_interval = 0.3
+secret = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 100
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.741176, 0.741176, 0.741176, 1)
+theme_override_fonts/font = ExtResource("2_v0t4l")
+theme_override_font_sizes/font_size = 20
+text = "It must contain at least 8 characters, numbers or symbols."
+vertical_alignment = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/MarginContainer6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_disabled_color = Color(0.635294, 0.662745, 0.690196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_colors/font_hover_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_colors/icon_pressed_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_colors/font_color = Color(0.635294, 0.662745, 0.690196, 1)
+theme_override_colors/font_focus_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_colors/font_pressed_color = Color(0.0941176, 0.752941, 0.8, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_offsg")
+text = "Remember me"
+
+[node name="LinkButton" type="LinkButton" parent="Panel/VBoxContainer/MarginContainer6/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.698039, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.301961, 0.301961, 1)
+theme_override_fonts/font = ExtResource("2_v0t4l")
+theme_override_font_sizes/font_size = 20
+text = "Forgot your password?"
+text_direction = 1
+
+[node name="MarginContainer7" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 19
+
+[node name="FeedbackMessage" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer7"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.912271, 1.70864e-06, 3.85046e-07, 1)
+theme_override_font_sizes/normal_font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttom" type="HBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/buttom"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 50
+
+[node name="CONNECTER" type="Button" parent="Panel/buttom/MarginContainer" groups=["hover_buttons"]]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tccpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x52d1")
+theme_override_styles/hover = ExtResource("3_f5jbe")
+theme_override_styles/pressed = ExtResource("4_offsg")
+theme_override_styles/normal = ExtResource("4_f5jbe")
+text = "LOG IN"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/buttom"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 50
+
+[node name="CREER" type="Button" parent="Panel/buttom/MarginContainer2" groups=["hover_buttons"]]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tccpp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxbe4")
+theme_override_styles/hover = ExtResource("3_f5jbe")
+theme_override_styles/pressed = ExtResource("4_offsg")
+theme_override_styles/normal = ExtResource("4_f5jbe")
+text = "CREATE AN ACCOUNT"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer6/HBoxContainer/CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer6/HBoxContainer/LinkButton" to="." method="_on_link_button_pressed"]
+[connection signal="pressed" from="Panel/buttom/MarginContainer/CONNECTER" to="." method="_on_connecter_pressed"]
+[connection signal="pressed" from="Panel/buttom/MarginContainer2/CREER" to="." method="_on_creer_pressed"]

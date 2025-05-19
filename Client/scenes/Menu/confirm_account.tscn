@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://cv37mo85cby5x"]
+
+[ext_resource type="Script" uid="uid://d2chstug26628" path="res://scripts/Menu/confirm_account.gd" id="1_d1yor"]
+[ext_resource type="FontFile" uid="uid://bvubk5sg275em" path="res://Fonts/Roboto-Regular-14.ttf" id="2_bcxth"]
+[ext_resource type="FontFile" uid="uid://c7icfhggvbuxp" path="res://Fonts/LilitaOne-Regular.ttf" id="2_utwyh"]
+[ext_resource type="Texture2D" uid="uid://cxpr3kgthjn7y" path="res://assets/BACK.png" id="3_t3qm0"]
+[ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="4_k6677"]
+[ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="5_xr5rl"]
+[ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="6_dg0vw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3qm0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6677"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.384314, 0.129412, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr5rl"]
+bg_color = Color(0.94902, 0.956863, 0.972549, 1)
+border_width_bottom = 2
+border_color = Color(0.756863, 0.780392, 0.803922, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mvcc"]
+
+[node name="ConfirmAccount" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d1yor")
+
+[node name="Main" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t3qm0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -84.0
+offset_right = 271.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="CODE" type="LineEdit" parent="Main/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.384314, 0.129412, 0.00392157, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.411765, 0.439216, 0.466667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 2
+theme_override_fonts/font = ExtResource("2_bcxth")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_k6677")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xr5rl")
+placeholder_text = "Code"
+caret_blink = true
+caret_blink_interval = 0.3
+
+[node name="CONFIRM" type="Button" parent="Main/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_utwyh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1mvcc")
+theme_override_styles/hover = ExtResource("4_k6677")
+theme_override_styles/pressed = ExtResource("5_xr5rl")
+theme_override_styles/normal = ExtResource("6_dg0vw")
+text = "CONFIRM"
+
+[node name="Label" type="Label" parent="Main/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Main"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+color = Color(0.384314, 0.129412, 0.00784314, 1)
+
+[node name="Label" type="Label" parent="Main/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -268.5
+offset_top = 15.0
+offset_right = 268.5
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_utwyh")
+theme_override_font_sizes/font_size = 55
+text = "CONFIRM YOUR EMAIL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Main/ColorRect"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 15.0
+offset_right = 107.0
+offset_bottom = 85.0
+texture_normal = ExtResource("3_t3qm0")
+
+[connection signal="pressed" from="Main/Panel/VBoxContainer/CONFIRM" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Main/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]

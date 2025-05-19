@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Vacashon"
+run/main_scene="uid://degjr5c86ahtn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.799437, 0.974127, 0.885938, 1)
+boot_splash/image="uid://dyhtga6gb03f2"
+config/icon="uid://chadoqevl1nlf"
+config/windows_native_icon="res://assets/favicon.ico"
+
+[autoload]
+
+States="*res://globals/states.gd"
+HttpRequestClient="*res://globals/HTTPRequestClient.gd"
+UserData="*res://globals/user_data.gd"
+WebSocketClient="*res://globals/WebSocketClient.gd"
+AudioManager="*res://scripts/AudioManager.gd"
+Utils="*res://globals/utils.gd"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

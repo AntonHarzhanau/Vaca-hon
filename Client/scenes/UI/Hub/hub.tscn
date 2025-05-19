@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://kwxktsmlv5q8"]
+
+[ext_resource type="Script" uid="uid://cxqv1aiw3g5xo" path="res://scenes/UI/Hub/hub.gd" id="1_bdv2h"]
+[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="2_yguwj"]
+[ext_resource type="Texture2D" uid="uid://bjlmfwpuxut8p" path="res://assets/Players/FLIGHT.png" id="3_xjm0t"]
+[ext_resource type="Texture2D" uid="uid://fkpot0g42i6a" path="res://assets/Popup Backgrounds/hub_separator.png" id="4_55m7s"]
+[ext_resource type="Texture2D" uid="uid://dyvpyom84nhld" path="res://assets/Popup Backgrounds/MoneySign.png" id="5_0bdey"]
+[ext_resource type="PackedScene" uid="uid://gt1tbowf0bfi" path="res://scenes/UI/Hub/player_info.tscn" id="6_55m7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jce87"]
+bg_color = Color(0.85098, 0.85098, 0.85098, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yguwj"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[node name="Hub" type="Control"]
+z_index = 16
+layout_direction = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -690.0
+offset_bottom = -701.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_bdv2h")
+
+[node name="PlayerInfo" parent="." instance=ExtResource("6_55m7s")]
+visible = false
+
+[node name="PanelBackground" type="Panel" parent="."]
+layout_direction = 4
+layout_mode = 0
+offset_right = 310.0
+offset_bottom = 93.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jce87")
+
+[node name="TopBar" type="Panel" parent="PanelBackground"]
+layout_direction = 4
+layout_mode = 0
+offset_right = 310.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yguwj")
+
+[node name="PlayerName" type="Label" parent="PanelBackground/TopBar"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 15
+text = "Player Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fortune" type="Label" parent="PanelBackground/TopBar"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 5.0
+offset_right = 279.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 15
+text = "Fortune"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftSide" type="HBoxContainer" parent="PanelBackground"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 166.0
+offset_bottom = 111.0
+
+[node name="PlayerFigure" type="TextureRect" parent="PanelBackground/LeftSide"]
+layout_mode = 2
+texture = ExtResource("3_xjm0t")
+expand_mode = 3
+
+[node name="AdvantagesContainer" type="VBoxContainer" parent="PanelBackground/LeftSide"]
+layout_mode = 2
+
+[node name="AdvantagesLabel" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 12
+text = "Advantages"
+
+[node name="AdvantagesValue" type="Label" parent="PanelBackground/LeftSide/AdvantagesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Divider" type="TextureRect" parent="PanelBackground"]
+layout_mode = 0
+offset_left = 155.0
+offset_right = 170.0
+offset_bottom = 92.0
+texture = ExtResource("4_55m7s")
+
+[node name="RightSide" type="HBoxContainer" parent="PanelBackground"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 45.0
+offset_right = 299.0
+offset_bottom = 79.0
+
+[node name="MoneyIcon" type="TextureRect" parent="PanelBackground/RightSide"]
+layout_mode = 2
+texture = ExtResource("5_0bdey")
+stretch_mode = 3
+
+[node name="MoneyAmount" type="Label" parent="PanelBackground/RightSide"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yguwj")
+theme_override_font_sizes/font_size = 29
+text = "500"
+
+[connection signal="gui_input" from="PanelBackground" to="." method="_on_panel_background_gui_input"]
