@@ -1,0 +1,20 @@
+image: alpine:latest
+
+stages:
+  - deploy
+
+deploy_to_server:
+  stage: deploy
+  script:
+    - apk add --update openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SERVER_USER@$SERVER_IP "
+        cd $PROJECT_PATH &&
+        git pull origin main &&
+        docker compose down &&
+        docker compose up -d
+      "
+  only:
+    - main
