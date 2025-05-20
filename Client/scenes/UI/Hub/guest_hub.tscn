@@ -8,8 +8,5 @@ custom_minimum_size = Vector2(300, 95)
 offset_bottom = -705.0
 script = ExtResource("2_06op3")
 
-[node name="PlayerInfo" parent="." index="0"]
-visible = true
-
 [node name="LeftSide" parent="PanelBackground" index="1"]
 offset_bottom = 109.0

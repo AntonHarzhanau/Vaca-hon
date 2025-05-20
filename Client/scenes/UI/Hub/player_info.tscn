@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://gt1tbowf0bfi"]
 
 [ext_resource type="Script" uid="uid://djday884lwg7t" path="res://scenes/UI/Hub/player_info.gd" id="1_b2jlx"]
-[ext_resource type="FontFile" uid="uid://c33yylkg5c48n" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
+[ext_resource type="FontFile" uid="uid://ccd4r7i8xg8p" path="res://data/LilitaOne-Regular.ttf" id="2_q1gij"]
 [ext_resource type="PackedScene" uid="uid://cygb8wb8gdlit" path="res://scenes/UI/Popups/PropertyCard.tscn" id="2_t77uo"]
-[ext_resource type="FontFile" uid="uid://phe43bs13p4o" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
+[ext_resource type="FontFile" uid="uid://bhr5r7fsk4j28" path="res://Fonts/Roboto-Regular-14.ttf" id="3_sxpl1"]
 [ext_resource type="StyleBox" uid="uid://c0d7whevbcdky" path="res://styles/X_button_hover.tres" id="4_hnoqx"]
 [ext_resource type="PackedScene" uid="uid://cg70rady6gmmt" path="res://scenes/UI/Hub/Player_info_item.tscn" id="4_sxpl1"]
 [ext_resource type="StyleBox" uid="uid://dseu26saha3jj" path="res://styles/X_button_pressed.tres" id="5_s8nly"]
@@ -105,30 +105,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_sxpl1")
 theme_override_font_sizes/font_size = 25
 text = "V200"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Buildings" type="HBoxContainer" parent="BackGround/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Buildings"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_sxpl1")
-theme_override_font_sizes/font_size = 25
-text = "Buildings"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="BackGround/MarginContainer/VBoxContainer/Buildings"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_sxpl1")
-theme_override_font_sizes/font_size = 25
-text = "V0"
 horizontal_alignment = 2
 vertical_alignment = 1
 

@@ -82,7 +82,7 @@ func _on_move_player(player_id: int, current_position:int, steps: int, prime:boo
 	var player = States.players[int(player_id)]
 	if prime:
 		player.earn(200)
-	player.move(cells, steps)
+	player.move(cells, steps, current_position)
 
 func _on_offer_to_buy(cell_id:int, price:int) -> void:
 	var cell = cells[cell_id]
@@ -174,19 +174,23 @@ func _on_fly_to_airport(player_id:int, cell_id:int):
 	player.current_position = cell_id
 
 func _on_card_event(data:Dictionary):
-	var event_type = data.get("effect_type", "Error")
-	var player = States.players[int(data.get("player_id"))]
-	if data["type"] == "chance":
-		ui.event_card.descripton.text = data.get("description", "Error")
-	elif data["type"] == "community":
-		ui.event_card.descripton.text = data.get("description", "Error")
-	ui.event_card.show_card(data["type"])
-	ui.event_card.visible = true
+	var player: Player = States.players[int(data.get("player_id"))]
+	var event_type:String = data.get("effect_type", "Error")
+	var type:String = data.get("type", "Error")
+	print(type)
+	var info = data.get("description", "Error")
+	var personal: bool = player.id == UserData.user_id
+	print(player)
+	print()
 	match event_type:
-		"gain_money": player.earn(data.get("amount"))
+		"gain_money": 
+			player.earn(data.get("amount"))
+			if personal:
+				show_event_info(info, type)
 		"gain_from_all": 
 			var total = 0
 			var amount: int = data.get("amount", 0)
+			show_event_info(info, type)
 			for p in States.players.values():
 				if p != player:
 					p.pay(amount)
@@ -194,31 +198,62 @@ func _on_card_event(data:Dictionary):
 			player.earn(total)
 		"property_repair":
 			var total: int = 0
+			if personal:
+				show_event_info(info, type)
 			for property in player.properties:
 				if property is StreetCell:
 					total += property.nb_houses * data.get("house_cost", 0)
 			player.pay(total)
-		"pay_fine": player.pay(data.get("amount"))
+		"pay_fine": 
+			if personal:
+				show_event_info(info, type)
+			player.pay(data.get("amount"))
 		"pay_all": 
 			var total = 0
 			var amount: int = data.get("amount", 0)
+			show_event_info(info, type)
 			for p in States.players.values():
 				if p != player:
 					p.earn(amount)
 					total += amount
 			player.pay(total)
 		"move_to": 
-			player.move(cells, data.get("steps", 0))
+			if personal:
+				show_event_info(info, type)
+			player.move(cells, data.get("steps", 0), player.current_position + data.get("steps", 0))
 			if data.get("prime", false):
 				player.earn(200)
-		"move_to_nearest": player.move(cells, data.get("steps", 0))
+		"move_to_nearest": 
+			if personal:
+				show_event_info(info, type)
+			player.move(cells, data.get("steps", 0), player.current_position + data.get("steps", 0))
 		"move_and_gain": 
-			player.move(cells, data.get("steps", 0))
+			if personal:
+				show_event_info(info, type)
+			player.move(cells, data.get("steps", 0), player.current_position + data.get("steps", 0))
 			player.earn(data.get("amount"))
-		"move_steps": player.move(cells, data.get("steps", 0))
-		"get_out_of_jail": player.set_bonus(player.bonus+1)
-		"go_to_jail": player.go_to_jail(cells)
+		"move_steps": 
+			if personal:
+				show_event_info(info, type)
+			print("player " + str(player.id)+ "at position"+ str(player.current_position))
+			player.move(cells, data.get("steps", 0), player.current_position + data.get("steps", 0))
+		"get_out_of_jail":
+			if personal:
+				show_event_info(info, type)
+			player.set_bonus(player.bonus+1)
+		"go_to_jail": 
+			if personal:
+				show_event_info(info, type)
+			player.go_to_jail(cells)
 
+func show_event_info(info:String, type:String):
+	if type == "chance":
+		ui.event_card.descripton.text = info
+	elif type == "community":
+		ui.event_card.descripton.text = info
+	ui.event_card.show_card(type)
+	ui.event_card.visible = true
+	
 func _on_card_used(succssed:bool):
 	if succssed:
 		var player = States.players[UserData.user_id]

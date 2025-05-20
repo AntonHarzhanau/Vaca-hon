@@ -15,7 +15,7 @@ class GoToJail(EventCard):
     
 class GetOutOfJail(EventCard):
     effect_type:Literal["get_out_of_jail"]
-    delivery:Literal["personal"] = "personal"
+    delivery:Literal["personal"] = "broadcast"
     def activate(self, player: "Player", state:"GameState"):
         player.card_inventory += 1
         return super().activate(player)
