@@ -124,7 +124,7 @@ func _on_pay(player_id:int, amount:int):
 func _on_utility_rent():
 	States.dice_active = true
 	States.current_context = States.DiceContext.UTILITY
-	ui.show_info("Dice activate for" + States.current_context)
+	ui.show_info("\nThrow again the dice to see how much you'll pay" + States.current_context)
 
 func _on_change_turn(player_id:int, nb_turn_jail:int):
 	if player_id == UserData.user_id:

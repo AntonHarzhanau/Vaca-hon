@@ -152,7 +152,7 @@ func _on_join_pressed(lobby):
 	rejoindre_popup_lobby_owner.text = lobby.owner_name
 	if lobby.is_private:
 		print(lobby)
-		$PopUpLobbyPassword.visible = true
+		#$PopUpLobbyPassword.visible = true
 	_show_rejoindre_popup()
 
 func _on_refresh_btn_pressed():
