@@ -14,8 +14,8 @@ func set_player(player: Player):
 
 func update_hub():
 	super.update_hub()
-	player_info.update_properties_list(player.properties)
-	
+	player_info.update_info(player)
+
 func _on_panel_background_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		player_info.visible = !player_info.visible

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnlojc3k6kjss"]
 
 [ext_resource type="Script" uid="uid://dg2hvdwcmyj3c" path="res://scripts/game_board.gd" id="1_cogkf"]
-[ext_resource type="Texture2D" uid="uid://bd33x258kngfm" path="res://assets/board_background.webp" id="2_0jtfi"]
-[ext_resource type="Texture2D" uid="uid://cxxolyri4d3fq" path="res://assets/Center.png" id="2_3wu0g"]
-[ext_resource type="Texture2D" uid="uid://byxfxxoywaljq" path="res://assets/Sand background.png" id="2_mq2xb"]
+[ext_resource type="Texture2D" uid="uid://cowtijcyqfaex" path="res://assets/board_background.webp" id="2_0jtfi"]
+[ext_resource type="Texture2D" uid="uid://bi1q3klcnm0w" path="res://assets/Center.png" id="2_3wu0g"]
+[ext_resource type="Texture2D" uid="uid://cdbqk723bbwff" path="res://assets/Sand background.png" id="2_mq2xb"]
 
 [node name="GameBoard" type="Control"]
 layout_mode = 3

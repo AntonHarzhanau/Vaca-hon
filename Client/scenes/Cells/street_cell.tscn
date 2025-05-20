@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dk2q005lyuk3l" path="res://scenes/Cells/property_cell.tscn" id="1_anvxg"]
 [ext_resource type="Script" uid="uid://2rykoxxqtbjj" path="res://scripts/Cells/street_cell.gd" id="2_2uyr2"]
-[ext_resource type="FontFile" uid="uid://dan5kpxre4y1j" path="res://data/LilitaOne-Regular.ttf" id="3_fd0qy"]
+[ext_resource type="FontFile" uid="uid://ccd4r7i8xg8p" path="res://data/LilitaOne-Regular.ttf" id="3_fd0qy"]
 
 [sub_resource type="Theme" id="Theme_bfbtl"]
 

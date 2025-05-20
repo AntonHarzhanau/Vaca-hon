@@ -33,8 +33,9 @@ func _process(delta):
 			moving = false
 
 # player movement across the field cell by cell
-func move(cells_list: Array[Cell], steps: int):
+func move(cells_list: Array[Cell], steps: int, current_pos:int):
 	var temp_pos = current_position
+	current_position = current_pos % cells_list.size()
 	var direction = sign(steps)
 	var abs_steps = abs(steps)
 
@@ -43,7 +44,6 @@ func move(cells_list: Array[Cell], steps: int):
 		$".".global_position = cells_list[temp_pos].global_position
 		await get_tree().create_timer(0.3).timeout
 	
-	current_position = temp_pos
 	cells_list[current_position].activate(self)
 	if self.id == UserData.user_id:
 		var message = {
