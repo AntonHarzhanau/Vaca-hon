@@ -11,6 +11,7 @@ var lobby_password: String = "sec"
 var players:Dictionary[int, Player]= {}
 var users : Dictionary[int, User] ={}
 var available_tokens = []
+var bankrupt: bool = false
 
 var global_email: String = ""
 

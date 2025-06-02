@@ -67,14 +67,12 @@ class PropertyCell(Cell):
                 "delivery": "broadcast"
             }
         else:
-
-            rent = player.money
             self.cell_owner.earn(player.money)
-            player.money = 0
+            player.money = player.money - self.current_rent
             return {
                 "action": "pay_rent",
                 "player_id": player.id,
                 "cell_owner_id": self.cell_owner.id,
-                "rent": rent,
+                "rent": self.current_rent,
                 "delivery": "broadcast"
             }

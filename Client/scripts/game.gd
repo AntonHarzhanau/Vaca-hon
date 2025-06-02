@@ -72,6 +72,7 @@ func _on_player_disconnected(player_id:int):
 	States.players[player_id].queue_free()
 	States.players.erase(player_id)
 	
+	
 func _on_player_state_changed(player:Player):
 	ui.update_hubs(player, UserData.user_id)
 	var offer = ui.popup_offer
@@ -149,15 +150,15 @@ func _on_go_to_jail(player_id:int):
 	States.players[player_id].go_to_jail(cells)
 
 func _on_end_turn_clicked():
-	var bankrupt: bool = false
+	States.bankrupt = false
 	if States.players:
 		if States.players[UserData.user_id].money < 0:
-			bankrupt = true
-		var msg = {"action": "end_turn", "bankrupt": bankrupt}
+			States.bankrupt = true
+		var msg = {"action": "end_turn", "bankrupt": States.bankrupt}
 		WebSocketClient.send_message(JSON.stringify(msg))
-		if bankrupt:
+		if States.bankrupt:
 			ui.show_info("YOU'RE BROKE!! \n\nGame over!!!!!")
-			_exit_tree()
+			#_exit_tree()
 
 func _on_double_roll(message:String):
 	States.dice_active = true

@@ -20,6 +20,7 @@ class GameHandler:
             return
 
         response = self.game_manager.process_action(player_id, data)
+        print(f"response {response}")
         delivery = response.get("delivery", "broadcast")
         if delivery == "personal":
             await self.connection_manager.send_personal_message(json.dumps(response), websocket)

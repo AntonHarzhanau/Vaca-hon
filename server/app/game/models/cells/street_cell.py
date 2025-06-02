@@ -13,17 +13,6 @@ class StreetCell(PropertyCell):
     nb_houses: int = 0
     house_cost: int = 0
 
-    def pay_rent(self, player: Player) -> dict:
-            if player.pay(self.current_rent):
-                self.cell_owner.earn(self.current_rent)
-                return {
-                    "action": "pay_rent",
-                    "player_id": player.id,
-                    "cell_owner_id": self.cell_owner.id,
-                    "rent": self.current_rent,
-                    "delivery": "broadcast"
-                }
-
     def has_monopoly(self, board: "GameBoard") -> bool:
         """
         Checks if the owner has collected all streets of the given group.

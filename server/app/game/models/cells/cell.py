@@ -15,6 +15,6 @@ class Cell(BaseModel):
         """Activates the cell and returns the default message."""
         return {
             "action": "nothing",
-            "message": f"Player {player.id} stopped at {self.cell_name}"
+            "message": f"Player {player.id} stopped at {self.cell_name}",
         }
 

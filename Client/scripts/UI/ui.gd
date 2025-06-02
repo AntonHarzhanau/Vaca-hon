@@ -100,7 +100,8 @@ func _on_ok_button_pressed() -> void:
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
 	
 	$Info.visible = false
-
+	if States.bankrupt:
+		get_tree().change_scene_to_file("res://scenes/Menu/home.tscn")
 
 func _on_setting_pressed() -> void:
 	# Play Click SFX Audio
