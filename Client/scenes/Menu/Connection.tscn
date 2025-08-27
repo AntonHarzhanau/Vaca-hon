@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://degjr5c86ahtn"]
 
 [ext_resource type="Script" uid="uid://ddyoqbsmlda1b" path="res://scripts/Menu/connection.gd" id="1_7qcev"]
-[ext_resource type="FontFile" uid="uid://xqcsjepjwmct" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
+[ext_resource type="FontFile" uid="uid://bsi7y471t4tj8" path="res://Fonts/Roboto-Regular-14.ttf" id="2_v0t4l"]
 [ext_resource type="StyleBox" uid="uid://b14tpm8fhc5ca" path="res://styles/hover2.tres" id="3_f5jbe"]
-[ext_resource type="Texture2D" uid="uid://bamtxbdc0sp5h" path="res://assets/Settings button.png" id="3_x52d1"]
-[ext_resource type="Texture2D" uid="uid://dvqcm8rnddmqg" path="res://assets/parametre.png" id="4_dxbe4"]
+[ext_resource type="Texture2D" uid="uid://dr7dpnwk4rnuv" path="res://assets/Settings button.png" id="3_x52d1"]
+[ext_resource type="Texture2D" uid="uid://5r53plswmoca" path="res://assets/parametre.png" id="4_dxbe4"]
 [ext_resource type="StyleBox" uid="uid://c4ghon41c0rkb" path="res://styles/normal2.tres" id="4_f5jbe"]
 [ext_resource type="StyleBox" uid="uid://k0v1kbehouky" path="res://styles/pressed2.tres" id="4_offsg"]
-[ext_resource type="FontFile" uid="uid://bvogr17ttfjt7" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
+[ext_resource type="FontFile" uid="uid://dx3266al2bipa" path="res://data/LilitaOne-Regular.ttf" id="4_tccpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qcev"]
 bg_color = Color(1, 1, 1, 1)

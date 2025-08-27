@@ -1,21 +1,16 @@
 extends Node
 
-var _base_url: String
 @onready var http_request: HTTPRequest = HTTPRequest.new()
 
 func _ready() -> void:
-	_base_url= States.HTTP_BASE_URL
 	add_child(http_request)
 	#var tls_options = TLSOptions.client_unsafe()
 	#http_request.set_tls_options(tls_options)
 
-func set_base_url(url: String) -> void:
-	_base_url = url
-
 func __post(uri_path: String, payload: Dictionary) -> Dictionary:
 	var body = JSON.stringify(payload)  # <-- String, не PackedByteArray
 	var headers = ["Content-Type: application/json"]
-	var url = _base_url + uri_path
+	var url = States.HTTP_BASE_URL + uri_path
 	print(HTTPClient.METHOD_POST)
 	print(url)
 
@@ -27,7 +22,7 @@ func __post(uri_path: String, payload: Dictionary) -> Dictionary:
 func __get(uri_path: String) -> Dictionary:
 	#var body = JSON.stringify(payload)  # <-- String
 	var headers = ["Content-Type: application/json"]
-	var url = _base_url + uri_path
+	var url = States.HTTP_BASE_URL + uri_path
 	print("Executing GET Request to : " + url)
 	http_request.request(url, headers, HTTPClient.METHOD_GET)
 	var result = await http_request.request_completed
