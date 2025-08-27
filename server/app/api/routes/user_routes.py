@@ -5,8 +5,6 @@ from app.api.dependencies import user_service
 from app.services.user_service import UserService
 from typing import Annotated
 from app.services.email_sender import send_confirmation_email, send_reset_email, send_support_email
-import asyncio
-import uuid
 import jwt
 from datetime import datetime, timedelta
 import os
@@ -31,7 +29,7 @@ async def login(
     login_data: UserLoginSchema,
     user_service: Annotated[UserService, Depends(user_service)]
 ):
-    # print(login_data)
+    print(login_data)
     user = await user_service.authenticate_user(
         email=login_data.login,
         username=login_data.login,
