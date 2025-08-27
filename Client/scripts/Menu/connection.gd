@@ -4,16 +4,12 @@ extends Control
 @onready var login: LineEdit = $Panel/VBoxContainer/MarginContainer4/EmailLineEdit
 @onready var password: LineEdit = $Panel/VBoxContainer/MarginContainer5/PasswordLineEdit
 @onready var checkbox: CheckBox = $Panel/VBoxContainer/MarginContainer6/HBoxContainer/CheckBox
-
+@onready var ip_settings_button = $Panel/VBoxContainer/HBoxContainer/MarginContainer2/Ip_settings_button
 func _ready() -> void:
 	login.text = UserData.user_name
 	password.text = UserData.password
 	checkbox.button_pressed = UserData.is_remebered
-	#for button in get_tree().get_nodes_in_group("hover_buttons"):
-		#if button is Button:
-			#button.mouse_entered.connect(func(): _hover(button, true))
-			#button.mouse_exited.connect(func(): _hover(button, false))
-			
+	
 	# Stop playing BGM after logout
 	AudioManager.fade_out_bgm()
 
@@ -22,7 +18,6 @@ func _on_connecter_pressed() -> void:
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
 	
 	var payload = {
-		# "username" or "login"
 		"login": login.text,  
 		"password": password.text
 	}
@@ -67,7 +62,6 @@ func _on_connecter_pressed() -> void:
 		else:
 			message.text = "An error occurred. Please try again."
 		print(response.body)
-	
 
 func _on_creer_pressed() -> void:
 	# Play Click SFX Audio
@@ -75,35 +69,22 @@ func _on_creer_pressed() -> void:
 	
 	var scene = load("res://scenes/Menu/Cree_compte.tscn")
 	if scene:
-		get_tree().change_scene_to_file("res://scenes/Menu/Cree_compte.tscn")
-	
-
+		get_tree().change_scene_to_file("res://scenes/Menu/Cree_compte.tscn")	
 
 func _on_link_button_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
-	
 	get_tree().change_scene_to_file("res://scenes/Menu/send_email_reset.tscn")
-	
-
-#func _hover(button: Button, entering: bool):
-	#var tween := button.create_tween()
-	#var target_scale: Vector2
-	#if entering:
-		#target_scale = Vector2(1.1, 1.1)
-		#tween.set_ease(Tween.EASE_OUT)
-	#else:
-		#target_scale = Vector2(1, 1)
-		#tween.set_ease(Tween.EASE_IN)
-#
-	#tween.set_trans(Tween.TRANS_ELASTIC)
-	#tween.tween_property(button, "scale", target_scale, 0.2)
-	
-
 
 func _on_check_box_pressed() -> void:
 	# Play Click SFX Audio
 	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
-	
 	UserData.is_remebered = checkbox.button_pressed
 	UserData.save_user_data()
+
+
+func _on_ip_settings_button_pressed() -> void:
+	AudioManager.play_sfx(preload("res://audio/SFX/sfx_click.ogg"))
+	var scene = load("res://Test/ip_settings.tscn")
+	if scene:
+		get_tree().change_scene_to_file("res://Test/ip_settings.tscn")

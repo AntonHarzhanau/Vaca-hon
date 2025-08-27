@@ -31,7 +31,7 @@ async def login(
     login_data: UserLoginSchema,
     user_service: Annotated[UserService, Depends(user_service)]
 ):
-    #print(login_data)
+    # print(login_data)
     user = await user_service.authenticate_user(
         email=login_data.login,
         username=login_data.login,

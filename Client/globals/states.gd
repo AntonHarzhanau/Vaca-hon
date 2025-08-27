@@ -31,14 +31,21 @@ const DiceContext := {
 var dice_active: bool = true
 var current_context: String = "move"
 
-const DEFAULT_HTTP_BASE_URL = "https://api.vacashon.online"
-const DEFAULT_WS_BASE_URL = "wss://api.vacashon.online/ws/join"
-#const DEFAULT_HTTP_BASE_URL = "http://127.0.0.1:8000"
-#const DEFAULT_WS_BASE_URL = "ws://127.0.0.1:8000/ws/join"
+#const HOST = "api.vacashon"
+
+const HOST = "127.0.0.1"
+const PORT = "8000"
+
+#const DEFAULT_HTTP_BASE_URL = "https://api.vacashon.online"
+#const DEFAULT_WS_BASE_URL = "wss://api.vacashon.online/ws/join"
+const DEFAULT_HTTP_BASE_URL = "http://127.0.0.1:8000"
+const DEFAULT_WS_BASE_URL = "ws://127.0.0.1:8000/ws/join"
 
 var HTTP_BASE_URL = DEFAULT_HTTP_BASE_URL
 var WS_BASE_URL = DEFAULT_WS_BASE_URL
 
-func set_addres(adress:String, port:String):
-	HTTP_BASE_URL = adress+":" +port+ "/ws/join"
-	WS_BASE_URL = adress+":" + port
+func set_addres(host:String, port:String):
+	#if (!host.is_empty() && !port.is_empty()):
+		HTTP_BASE_URL = "http://" + host + ":" + port
+		WS_BASE_URL = "ws://" + host + ":" + port + "/ws/join"
+	
